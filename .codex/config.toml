@@ -1,0 +1,5 @@
+[mcp_servers.pascal]
+command = "node"
+args = ["/Users/alee/Documents/projects/pascal-home/scripts/pascal.mjs", "mcp", "connect"]
+startup_timeout_sec = 60
+tool_timeout_sec = 120
