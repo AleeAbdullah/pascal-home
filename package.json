@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22.13.0" },
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "editor": "node scripts/pascal.mjs editor",
     "start": "node scripts/pascal.mjs start",
@@ -11,9 +13,14 @@
     "status": "node scripts/pascal.mjs status",
     "doctor": "node scripts/pascal.mjs doctor",
     "resume": "node scripts/pascal.mjs resume",
-    "mcp": "node scripts/pascal.mjs mcp connect"
+    "mcp": "node scripts/pascal.mjs mcp connect",
+    "present:build": "npm run build --prefix presentation",
+    "present": "npm start --prefix presentation",
+    "present:test": "npm test --prefix presentation"
   },
-  "dependencies": { "@pascal-app/cli": "1.0.6" },
+  "dependencies": {
+    "@pascal-app/cli": "1.0.6"
+  },
   "pascalSkills": {
     "repository": "https://github.com/pascalorg/editor",
     "revision": "9ea725d4759777264361f81da85c47c456e74fc1"
