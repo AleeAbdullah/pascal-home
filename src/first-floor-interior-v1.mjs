@@ -8,7 +8,7 @@ export const rooms={
  masterBath:['zone_0002r4qhy8azxspn','ceiling_as5b23627e',2.28,1.28],bath2:['zone_00019fkyt9hvq6xh','ceiling_as3ab8f494',6.25,1.22],rearBath:['zone_0000evaprx3adrz3','ceiling_as30b8e4d6',22.66,1.05],frontBath:['zone_0002e28una64iqah','ceiling_as2fb8e343',22.18,9.67],
  lounge:['zone_f0r1by0mpfy2ayxp','ceiling_7sadoifxgql85zav',7.85,9.97],hall:['zone_i7n5ppporimr3o3z','ceiling_bzrnelkbztvjs1q1',12,6.16],console:['zone_fj6oo1p0c5g64q6p','ceiling_cjocl6pjpl9jco4l',12.04,7.65],kitchen:['zone_0000r13b0ok25v3x','ceiling_as34b8eb22',19.4,2.8]
 };
-const code=(key)=>{const item=ground.find(x=>x.key===key)??lounge.find(x=>x.key===key);if(!item)throw Error(key);return item.code.replace(/"min":([\d.]+)/g,'"min":0.1').replace(/"max":([\d.]+)/g,'"max":15')};
+const code=(key)=>{const item=ground.find(x=>x.key===key)??lounge.find(x=>x.key===key);if(!item)throw Error(key);return item.code.replace(/"(\w+)":\{"default":([\d.e-]+),"min":[\d.e-]+,"max":[\d.e-]+/g,(all,k,d)=>k==='detail'||k==='shadows'?all:`"${k}":{"default":${d},"min":0.1,"max":15`)};
 export const items=[];
 function add(room,key,label,template,x,z,rotation=0,params={},y=0,mount='floor'){
  let src=code(template),parentId=levelId;
@@ -23,7 +23,7 @@ for(const old of ground.filter(x=>['master','masterBath','masterCloset','bath2']
  const {key,room,...spec}=old;items.push({...spec,key,room,name:old.name.replace('V1 ·','V1 · first floor ·'),params:{...old.params},position:[...old.position],parentId:old.parentId===ground[0].parentId?levelId:rooms[room][1]});
 }
 // Align master storage to the slightly deeper first-floor closet.
-items.find(x=>x.key==='masterCloset-wardrobe').position[2]=4.0;
+{const w=items.find(x=>x.key==='masterCloset-wardrobe');w.position[0]=4.36;w.position[2]=3.8;} // flush to the 4.5 in partition, clear of the PDF closet-door keep-out (blueprint review 2026-10-25)
 // Bedroom 02: north headwall leaves the long east window open.
 floor('bed2','head','bedroom two padded headwall','bed2-head',10.55,.065,0,{width:3.0,height:2.9});
 floor('bed2','bed','bedroom two upholstered king bed','bed2-bed',10.55,1.25,0,{width:2.05,depth:2.22},.019);
@@ -41,14 +41,15 @@ floor('rearBed','bed','rear upholstered queen bed','guest-bed',20.44,5.55,0,{wid
 floor('rearBed','rug','rear bedroom rug','lounge-rug',20.55,6.0,0,{width:2.9,depth:2.75});
 for(const [i,x]of [19.19,21.69].entries()){floor('rearBed','night'+i,'rear bedside '+(i+1),'master-night0',x,4.68,0,{width:.40},.019);floor('rearBed','lamp'+i,'rear reading globe '+(i+1),'master-lamp0',x,4.68,0,{},.529)}
 floor('rearBed','tv','rear bedroom media console','guest-tv',21.9,7.87,180,{width:1.6,depth:.25});
-ceil('rearBed','drapes','rear bedroom east drapes','curtain',23.4,6.18,{width:3.35,height:3.45},90,-.16);
+ceil('rearBed','drapes','rear bedroom east drapes','curtain',23.5,6.35,{width:2.9,height:3.45},90,-.16); // shortened north of the PDF rear-closet opening keep-out
 ceil('rearBed','cove','rear bedroom ceiling cove','cove',21.26,6.18,{width:4.4,depth:3.53});
 ceil('rearBed','pendant','rear bedroom globe pendant','master-pendant',21.5,6.4,{drop:.85});
 // Front master has a retained terrace slab overhead, not an auto ceiling. Mount decorative pieces from its measured 3.6576 m underside.
-floor('frontMaster','head','front master padded headwall','master-head',21.95,11.35,0,{width:2.8,height:2.9});
-floor('frontMaster','bed','front master upholstered king bed','master-bed',21.95,12.55,0,{width:1.95,depth:2.22},.019);
-floor('frontMaster','rug','front master bedroom rug','lounge-rug',21.7,13.15,0,{width:3.6,depth:3.5});
-for(const [i,x]of [20.61,23.29].entries()){floor('frontMaster','night'+i,'front master bedside '+(i+1),'master-night0',x,11.64,0,{width:.42},.019);floor('frontMaster','lamp'+i,'front master globe '+(i+1),'master-lamp0',x,11.64,0,{},.529)}
+// Bed group re-centred on the 9 ft 8 in of north wall east of the PDF front-closet opening (blueprint review 2026-10-25).
+floor('frontMaster','head','front master padded headwall','master-head',22.06,11.35,0,{width:2.8,height:2.9});
+floor('frontMaster','bed','front master upholstered king bed','master-bed',22.06,12.55,0,{width:1.9,depth:2.22},.019);
+floor('frontMaster','rug','front master bedroom rug','lounge-rug',22.0,13.15,0,{width:3.0,depth:3.5});
+for(const [i,x]of [20.795,23.325].entries()){floor('frontMaster','night'+i,'front master bedside '+(i+1),'master-night0',x,11.64,0,{width:.33},.019);floor('frontMaster','lamp'+i,'front master globe '+(i+1),'master-lamp0',x,11.64,0,{},.529)}
 floor('frontMaster','desk','front master writing desk','bed2-desk',17.53,14.95,90,{width:1.35,depth:.45});
 floor('frontMaster','desk-chair','front master desk chair','chair-n0',18.32,14.95,-90,{},.019);
 floor('frontMaster','reading','front master lounge chair','armchair-n',19.5,14.6,45,{},.019);
@@ -59,8 +60,9 @@ const fc=floor('frontMaster','cove','front master perimeter cove','cove',20.38,1
 const fd=floor('frontMaster','drapes','front master south drapes','curtain',20.38,15.78,0,{width:6.1,height:3.45},.0376);fd.code=fd.code.replace('mount="ceiling"','mount="floor"');
 const fp=floor('frontMaster','pendant','front master sculptural pendant','master-pendant',21.95,14.35,0,{drop:1.0},2.5126);fp.code=fp.code.replace('mount="ceiling"','mount="floor"');
 // Closets retain straight through-routes; sliding fronts avoid leaf conflicts.
-for(const [key,x,r]of [['west',5.13,90],['east',7.36,-90]])floor('closet2',key,'bedroom two '+key+' wardrobe','closet2-west',x,4.25,r,{width:1.50,height:2.65,depth:.6});
-floor('rearCloset','wardrobe','rear closet sliding wardrobe','masterCloset-wardrobe',23.66,3.22,-90,{width:1.5,height:2.65,depth:.6});
+floor('closet2','west','bedroom two west wardrobe','closet2-west',5.13,4.25,90,{width:1.50,height:2.65,depth:.6});
+floor('closet2','east','bedroom two east wardrobe','closet2-west',6.4,4.845,180,{width:1.35,height:2.65,depth:.6}); // south wall: the PDF puts closet 2's door in the east wall (blueprint review 2026-10-25)
+floor('rearCloset','wardrobe','rear closet sliding wardrobe','masterCloset-wardrobe',23.675,3.05,-90,{width:1.5,height:2.65,depth:.6}); // north of the PDF rear-closet opening keep-out
 floor('rearCloset','dresser','rear closet shallow drawer unit','masterCloset-dresser',21.48,3.22,90,{width:1.1,height:.85,depth:.40});
 floor('frontCloset','wardrobe','front closet sliding wardrobe','masterCloset-wardrobe',19.29,9.67,90,{width:1.65,height:2.65,depth:.55});
 // Four independently editable bathroom suites.
@@ -104,11 +106,9 @@ for(const item of items)if(['lounge-lamp','lounge-plant'].includes(item.key))ite
 
 // Keep the closet entrance and bedside passage edges comfortably clear.
 for(const item of items){
- if(item.key==='closet2-east'){item.position[2]=3.80;item.params.width=1.35;}
+ // closet2-east and the front master bedsides are now placed directly in their specs (blueprint review 2026-10-25).
  if(item.key==='rearBed-night1'){item.position[0]=21.675;item.params.width=.38;}
  if(item.key==='rearBed-lamp1')item.position[0]=21.675;
- if(item.key==='frontMaster-night0'){item.position[0]=20.62;item.params.width=.40;}
- if(item.key==='frontMaster-lamp0')item.position[0]=20.62;
  if(item.key==='frontMaster-lamp'){
   item.position[2]=15.52;
   item.code=item.code.replace('cyl(q,.18,.025','cyl(q,.14,.025').replace("cyl(q,.17,.23,0,1.49,0,'paper',.24)","cyl(q,.14,.23,0,1.49,0,'paper',.18)");
