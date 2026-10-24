@@ -1,0 +1,13 @@
+export const params={"width":{"default":0.9144,"min":0,"max":50,"step":0.001},"depth":{"default":0.9144,"min":0,"max":50,"step":0.001},"height":{"default":3.048,"min":0,"max":50,"step":0.001}};
+export const mount='floor';
+export default function build({params:p,THREE:T}){
+const g=new T.Group();const mat=(name,color,extra={})=>new T.MeshStandardMaterial({name,color,roughness:.65,...extra});
+const metal=mat('slot_metal','#282c2b',{metalness:.65}),stone=mat('slot_concrete','#cecac0'),glass=mat('glass','#b9d8dd',{transparent:true,opacity:.32,metalness:.1,roughness:.15});
+function box(w,h,d,x,y,z,m=stone,parent=g){const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);parent.add(o);return o;}
+function beam(a,b,w,d,m=metal,parent=g){const va=new T.Vector3(...a),vb=new T.Vector3(...b),o=new T.Mesh(new T.BoxGeometry(w,va.distanceTo(vb),d),m);o.position.copy(va.clone().add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),vb.sub(va).normalize());parent.add(o);return o;}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q;}
+
+const r=p.width/2,h=p.height,t=.114;const body=part('circular_recharge_chamber');
+const ring=new T.Shape();ring.absarc(0,0,r,0,Math.PI*2,false);const hole=new T.Path();hole.absarc(0,0,r-t,0,Math.PI*2,true);ring.holes.push(hole);
+const shell=new T.Mesh(new T.ExtrudeGeometry(ring,{depth:h,bevelEnabled:false,curveSegments:32}),stone);shell.rotation.x=-Math.PI/2;body.add(shell);
+const grate=part('inspection_grate');for(let x=-r+.03;x<r;x+=.08){const d=2*Math.sqrt(r*r-x*x);box(.025,.035,d,x,h,0,metal,grate);}return g;}

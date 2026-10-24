@@ -1,0 +1,710 @@
+{
+  "windows": [
+    {
+      "level": 0,
+      "tag": "W16",
+      "wall": "gf-rear",
+      "at": 155.99,
+      "pdfDrawnWidth": 47.95,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W19",
+      "wall": "gf-rear",
+      "at": 277.12,
+      "pdfDrawnWidth": 29.97,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W7",
+      "wall": "gf-rear",
+      "at": 415.53,
+      "pdfDrawnWidth": 119.96,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W2",
+      "wall": "gf-rear",
+      "at": 621.05,
+      "pdfDrawnWidth": 185.96000000000004,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W12'",
+      "wall": "gf-rear",
+      "at": 827.12,
+      "pdfDrawnWidth": 69.15,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W16",
+      "wall": "gf-rear",
+      "at": 895.58,
+      "pdfDrawnWidth": 36.04,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W13",
+      "wall": "gf-rear-east",
+      "at": 105.08,
+      "pdfDrawnWidth": 65.72,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W16",
+      "wall": "gf-west",
+      "at": 155.41,
+      "pdfDrawnWidth": 47.94999999999999,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W15",
+      "wall": "gf-west",
+      "at": 237.94,
+      "pdfDrawnWidth": 51.01999999999998,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W9",
+      "wall": "gf-east",
+      "at": 242.43,
+      "pdfDrawnWidth": 95.98,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W12",
+      "wall": "gf-shaft-back",
+      "at": 475.51,
+      "pdfDrawnWidth": 69.00999999999999,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W18",
+      "wall": "gf-east",
+      "at": 344.41,
+      "pdfDrawnWidth": 36.04,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W8",
+      "wall": "gf-lounge-east",
+      "at": 382.46,
+      "pdfDrawnWidth": 105.99000000000001,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W10",
+      "wall": "gf-shaft-east",
+      "at": 388.45,
+      "pdfDrawnWidth": 94.00999999999999,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W15",
+      "wall": "gf-west",
+      "at": 470.43,
+      "pdfDrawnWidth": 48.02999999999997,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W9",
+      "wall": "gf-east",
+      "at": 482.46,
+      "pdfDrawnWidth": 96.05,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W5",
+      "wall": "gf-master-front",
+      "at": 89.99,
+      "pdfDrawnWidth": 144.01,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W11",
+      "wall": "gf-shaft-front",
+      "at": 474.01,
+      "pdfDrawnWidth": 72,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W6",
+      "wall": "gf-drawing-front",
+      "at": 837.06,
+      "pdfDrawnWidth": 132.02,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W1",
+      "wall": "gf-lounge-front",
+      "at": 309,
+      "pdfDrawnWidth": 240,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W13'",
+      "wall": "gf-lounge-east",
+      "at": 605.45,
+      "pdfDrawnWidth": 66.01,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W19",
+      "wall": "gf-drawing-front",
+      "at": 687.06,
+      "pdfDrawnWidth": 17.980000000000018,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W16",
+      "wall": "gf-rear",
+      "at": 765.06,
+      "pdfDrawnWidth": 35.96,
+      "positionBasis": "PDF vector trace",
+      "widthOverride": 36,
+      "widthDecision": "Owner delegated conflict resolution: traced width governs to avoid partition overlap"
+    },
+    {
+      "level": 0,
+      "tag": "W11",
+      "wall": "gf-lounge-east",
+      "at": 480.45,
+      "pdfDrawnWidth": 72,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 0,
+      "tag": "W11",
+      "wall": "gf-shaft-east",
+      "at": 480.45,
+      "pdfDrawnWidth": 72,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W14",
+      "wall": "ff-rear-right",
+      "at": 755.37,
+      "pdfDrawnWidth": 60.01,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W16",
+      "wall": "ff-rear-left",
+      "at": 155.99,
+      "pdfDrawnWidth": 47.95,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W16",
+      "wall": "ff-rear-left",
+      "at": 277.12,
+      "pdfDrawnWidth": 29.97,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W17",
+      "wall": "ff-rear-left",
+      "at": 330.01,
+      "pdfDrawnWidth": 36.04,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W17",
+      "wall": "ff-rear-left",
+      "at": 501.02,
+      "pdfDrawnWidth": 35.96,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W16",
+      "wall": "ff-rear-east",
+      "at": 41.92,
+      "pdfDrawnWidth": 50.8,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W7",
+      "wall": "ff-bed2-east",
+      "at": 101.72,
+      "pdfDrawnWidth": 119.96,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W16",
+      "wall": "ff-west",
+      "at": 155.41,
+      "pdfDrawnWidth": 47.94999999999999,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W6",
+      "wall": "ff-rear-rooms-front",
+      "at": 598.54,
+      "pdfDrawnWidth": 132.02,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W15",
+      "wall": "ff-west",
+      "at": 237.94,
+      "pdfDrawnWidth": 51.01999999999998,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W9",
+      "wall": "ff-east",
+      "at": 242.43,
+      "pdfDrawnWidth": 95.98,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W12",
+      "wall": "ff-shaft-back",
+      "at": 475.51,
+      "pdfDrawnWidth": 69.00999999999999,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W8",
+      "wall": "ff-lounge-shaft-west",
+      "at": 382.46,
+      "pdfDrawnWidth": 105.99000000000001,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W10",
+      "wall": "ff-shaft-east",
+      "at": 388.45,
+      "pdfDrawnWidth": 94.00999999999999,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W16",
+      "wall": "ff-east",
+      "at": 411.44,
+      "pdfDrawnWidth": 48.03,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W15",
+      "wall": "ff-west",
+      "at": 470.43,
+      "pdfDrawnWidth": 48.02999999999997,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W4",
+      "wall": "ff-master-front",
+      "at": 98.98,
+      "pdfDrawnWidth": 161.99,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W3",
+      "wall": "ff-lounge-front",
+      "at": 309.03,
+      "pdfDrawnWidth": 180.04,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W11",
+      "wall": "ff-shaft-front",
+      "at": 474.01,
+      "pdfDrawnWidth": 72,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W14",
+      "wall": "ff-front-bedroom-front",
+      "at": 708.08,
+      "pdfDrawnWidth": 60.00999999999999,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W6",
+      "wall": "ff-front-bedroom-front",
+      "at": 838.6,
+      "pdfDrawnWidth": 133.04,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W13'",
+      "wall": "ff-east",
+      "at": 497.22,
+      "pdfDrawnWidth": 66.52,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W14",
+      "wall": "ff-lounge-shaft-west",
+      "at": 473.94,
+      "pdfDrawnWidth": 58.99,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 1,
+      "tag": "W11",
+      "wall": "ff-shaft-east",
+      "at": 480.45,
+      "pdfDrawnWidth": 72,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 2,
+      "tag": "W11'",
+      "wall": "sf-rear",
+      "at": 781.62,
+      "pdfDrawnWidth": 72,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 2,
+      "tag": "W18'",
+      "wall": "sf-rear",
+      "at": 855.15,
+      "pdfDrawnWidth": 36.04,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 2,
+      "tag": "W11'",
+      "wall": "sf-maid-east",
+      "at": 104.42,
+      "pdfDrawnWidth": 72,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 2,
+      "tag": "W9",
+      "wall": "sf-bedroom-east",
+      "at": 243.42,
+      "pdfDrawnWidth": 97.95,
+      "positionBasis": "PDF vector trace"
+    },
+    {
+      "level": 2,
+      "tag": "W17",
+      "wall": "sf-bedroom-east",
+      "at": 411.44,
+      "pdfDrawnWidth": 48.03,
+      "positionBasis": "PDF vector trace"
+    }
+  ],
+  "doors": [
+    {
+      "level": 0,
+      "tag": "D4",
+      "wall": "gf-rear-east",
+      "at": 30.67,
+      "pdfDrawnWidth": 28.29
+    },
+    {
+      "level": 0,
+      "tag": "D3",
+      "wall": "gf-laundry-west",
+      "at": 73.54,
+      "pdfDrawnWidth": 35.96
+    },
+    {
+      "level": 0,
+      "tag": "D3",
+      "wall": "gf-bath-cross",
+      "at": 89.99,
+      "pdfDrawnWidth": 35.96
+    },
+    {
+      "level": 0,
+      "tag": "D4",
+      "wall": "gf-bath-cross",
+      "at": 233.37,
+      "pdfDrawnWidth": 28.29
+    },
+    {
+      "level": 0,
+      "tag": "D2",
+      "wall": "gf-rear-rooms-front",
+      "at": 337.54,
+      "pdfDrawnWidth": 42.03
+    },
+    {
+      "level": 0,
+      "tag": "D2",
+      "wall": "gf-master-east",
+      "at": 242.43,
+      "pdfDrawnWidth": 42.03
+    },
+    {
+      "level": 0,
+      "tag": "D2",
+      "wall": "gf-east-rooms-west",
+      "at": 287.72,
+      "pdfDrawnWidth": 39.62
+    },
+    {
+      "level": 0,
+      "tag": "D4",
+      "wall": "gf-guest-bath-partition",
+      "at": 349.82,
+      "pdfDrawnWidth": 28.29
+    },
+    {
+      "level": 1,
+      "tag": "D4",
+      "wall": "ff-rear-bath-front",
+      "at": 886.07,
+      "pdfDrawnWidth": 28.29
+    },
+    {
+      "level": 1,
+      "tag": "D3",
+      "wall": "ff-master-bath-front",
+      "at": 89.99,
+      "pdfDrawnWidth": 35.96
+    },
+    {
+      "level": 1,
+      "tag": "D4",
+      "wall": "ff-bath2-front",
+      "at": 232.49,
+      "pdfDrawnWidth": 30.04
+    },
+    {
+      "level": 1,
+      "tag": "D2",
+      "wall": "ff-rear-rooms-front",
+      "at": 337.5,
+      "pdfDrawnWidth": 41.96
+    },
+    {
+      "level": 1,
+      "tag": "D2",
+      "wall": "ff-master-east",
+      "at": 243.64,
+      "pdfDrawnWidth": 39.62
+    },
+    {
+      "level": 1,
+      "tag": "D2",
+      "wall": "ff-east-rooms-west",
+      "at": 293.42,
+      "pdfDrawnWidth": 41.96
+    },
+    {
+      "level": 1,
+      "tag": "D4",
+      "wall": "ff-guest-bath-partition",
+      "at": 363.27,
+      "pdfDrawnWidth": 28.29
+    },
+    {
+      "level": 2,
+      "tag": "D3'",
+      "wall": "sf-maid-mumty-front",
+      "at": 700.55,
+      "pdfDrawnWidth": 36.04
+    },
+    {
+      "level": 2,
+      "tag": "D2'",
+      "wall": "sf-maid-mumty-front",
+      "at": 773.76,
+      "pdfDrawnWidth": 39.62
+    },
+    {
+      "level": 2,
+      "tag": "D2'",
+      "wall": "sf-store-front",
+      "at": 493.53,
+      "pdfDrawnWidth": 42.03
+    },
+    {
+      "level": 2,
+      "tag": "D4'",
+      "wall": "sf-bath-partition",
+      "at": 342.65,
+      "pdfDrawnWidth": 28.29
+    },
+    {
+      "level": 2,
+      "tag": "D4'",
+      "wall": "sf-maid-west",
+      "at": 141.89,
+      "pdfDrawnWidth": 29.97
+    },
+    {
+      "level": 0,
+      "tag": "D2",
+      "wall": "gf-kitchen-east-upper",
+      "at": 45
+    },
+    {
+      "level": 0,
+      "tag": "D4",
+      "wall": "gf-powder-back",
+      "at": 697.5
+    },
+    {
+      "level": 0,
+      "tag": "D1",
+      "wall": "gf-entry-front",
+      "at": 594
+    },
+    {
+      "level": 1,
+      "tag": "D2",
+      "wall": "ff-front-bedroom-west",
+      "at": 527
+    }
+  ],
+  "passages": [
+    {
+      "level": 0,
+      "wall": "gf-rear-rooms-front",
+      "at": 117,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 0,
+      "wall": "gf-rear-rooms-front",
+      "at": 254,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 0,
+      "wall": "gf-rear-rooms-front",
+      "at": 645,
+      "width": 110,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 0,
+      "wall": "gf-guest-front",
+      "at": 798,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 0,
+      "wall": "gf-guest-bath-front",
+      "at": 785,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 0,
+      "wall": "gf-east-rooms-west",
+      "at": 430,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 1,
+      "wall": "ff-rear-rooms-front",
+      "at": 117,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 1,
+      "wall": "ff-rear-rooms-front",
+      "at": 254,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 1,
+      "wall": "ff-rear-rooms-front",
+      "at": 713,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 1,
+      "wall": "ff-rear-closet-front",
+      "at": 885,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 1,
+      "wall": "ff-guest-front",
+      "at": 780,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 1,
+      "wall": "ff-guest-bath-front",
+      "at": 780,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 2,
+      "wall": "sf-bedroom-front",
+      "at": 783,
+      "width": 42,
+      "height": 96,
+      "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    }
+  ]
+}

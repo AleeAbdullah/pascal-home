@@ -1,0 +1,4 @@
+interface:
+  display_name: "家装设计效果图"
+  short_description: "把业主聊天、标注、VR截图和参考图转译成专业家装效果图"
+  default_prompt: "使用 $interior-design-visualizer 分析原空间、聊天与参考图，先完成专业设计转译，再生成并交付效果图。"

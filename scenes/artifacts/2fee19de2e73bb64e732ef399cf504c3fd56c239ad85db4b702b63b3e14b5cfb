@@ -1,0 +1,19 @@
+export const params={"width":{"default":1.1,"min":0.44000000000000006,"max":2.75,"step":0.01},"depth":{"default":1.1,"min":0.44000000000000006,"max":2.75,"step":0.01}};export const mount="floor";
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+const palette={"stone":["#d5c6b0",0.68,0],"walnut":["#58402e",0.58,0],"ivory":["#eee8dc",0.82,0],"linen":["#dcd2bf",0.96,0],"taupe":["#ad9c88",0.94,0],"bronze":["#40362b",0.4,0.65],"sage":["#6c725c",0.94,0],"charcoal":["#242522",0.8,0],"rug":["#d3c7b3",1,0],"vein":["#b4a18a",0.7,0],"leaf":["#455a36",0.8,0],"paper":["#f3e8d6",0.9,0],"oak":["#a98764",0.68,0],"greige":["#b4aa99",0.65,0],"ceramic":["#f3eee5",0.25,0],"steel":["#9b9d99",0.3,0.85],"mirror":["#c5c7bf",0.08,0.95],"clay":["#946f5b",0.86,0]};
+export default function build({params:p,THREE:T}){const g=new T.Group(),mats={},clips=[];
+const mat=k=>{if(!mats[k]){const [color,roughness,metalness]=palette[k];mats[k]=new T.MeshStandardMaterial({color,roughness,metalness});mats[k].name='slot_'+k;}return mats[k]};
+function part(id){const q=new T.Group();q.name='part:'+id;g.add(q);return q}
+function mesh(q,geo,k,x,y,z){const m=new T.Mesh(geo,mat(k));m.position.set(x,y,z);m.castShadow=true;m.receiveShadow=true;q.add(m);return m}
+function box(q,w,h,d,x,y,z,k,r=.01){return mesh(q,new RoundedBoxGeometry(w,h,d,2,Math.min(r,w/3,h/3,d/3)),k,x,y,z)}
+function cyl(q,r,h,x,y,z,k,r2=r){return mesh(q,new T.CylinderGeometry(r,r2,h,32),k,x,y,z)}
+function ball(q,w,h,d,x,y,z,k){let m=mesh(q,new T.SphereGeometry(1,24,16),k,x,y,z);m.scale.set(w/2,h/2,d/2);return m}
+function line(q,pts,r,k){return mesh(q,new T.TubeGeometry(new T.CatmullRomCurve3(pts.map(v=>new T.Vector3(...v))),32,r,8,false),k,0,0,0)}
+function glow(q,w,h,d,x,y,z){let m=box(q,w,h,d,x,y,z,'paper',.002);m.material=new T.MeshStandardMaterial({color:'#fff0d4',emissive:'#ffce85',emissiveIntensity:1.5});m.material.name='slot_glow';return m}
+function light(q,id,x,y,z,power=10){const l=new T.PointLight('#ffe0b4',power,4,2);l.name='light:'+id;l.position.set(x,y,z);q.add(l)}
+function door(q,id,x,y,z,w,h,k='greige'){const pivot=new T.Group();pivot.name='hinge_'+id;pivot.position.set(x-w/2,y,z);q.add(pivot);box(pivot,w-.008,h,.024,w/2,0,0,k);box(pivot,.012,h*.38,.02,w-.05,0,.027,'bronze',.003);clips.push(new T.NumberKeyframeTrack(pivot.name+'.rotation[y]',[0,1],[0,-Math.PI*.5]));}
+function faucet(q,x,y,z){line(q,[[x,y,z],[x,y+.27,z],[x,y+.33,z+.09],[x,y+.28,z+.18]],.012,'bronze');cyl(q,.022,.055,x+.055,y+.025,z,'bronze')}
+function basin(q,x,y,z,w=.5,d=.34,k='ceramic'){box(q,w,.12,.045,x,y,z-d/2,k,.018);box(q,w,.12,.045,x,y,z+d/2,k,.018);for(const s of [-1,1])box(q,.045,.12,d-.05,x+s*(w/2-.0225),y,z,k,.018);box(q,w-.05,.025,d-.05,x,y-.055,z,k);cyl(q,.018,.003,x,y-.04,z,'bronze')}
+
+const q=part('shower_tray'),s=part('glass_and_hardware');box(q,p.width,.035,p.depth,0,.0175,0,'stone');box(q,.018,2.25,p.depth,-p.width/2+.012,1.125,0,'stone');box(q,p.width,2.25,.025,0,1.125,-p.depth/2+.012,'stone');const glass=new T.MeshPhysicalMaterial({color:'#dbe3df',roughness:.10,metalness:0,transparent:true,opacity:.22,side:T.DoubleSide});glass.name='slot_glass';const screen=new T.Mesh(new T.BoxGeometry(.008,2.1,p.depth),glass);screen.position.set(p.width/2-.01,1.1,0);s.add(screen);for(const y of [.07,2.15])box(s,.015,.015,p.depth,p.width/2-.01,y,0,'bronze');box(s,p.width*.32,2.1,.008,-p.width*.34,1.1,p.depth/2-.01,'bronze',.001);const panel=s.children[s.children.length-1];panel.material=glass;line(s,[[0,.9,-p.depth/2+.08],[0,2.03,-p.depth/2+.08],[0,2.08,-p.depth/2+.35]],.012,'bronze');box(s,.24,.018,.22,0,2.07,-p.depth/2+.32,'bronze');box(s,.20,.07,.035,0,1.05,-p.depth/2+.05,'bronze');box(q,p.width-.18,.006,.025,0,.038,-p.depth/2+.1,'bronze');
+if(clips.length)g.animations=[new T.AnimationClip('open',1,clips)];return g;}

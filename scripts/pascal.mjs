@@ -8,7 +8,7 @@ const child = spawn(process.execPath, [
   ...process.argv.slice(2),
 ], {
   cwd: root,
-  env: { ...process.env, PASCAL_HOME: path.join(root, '.pascal') },
+  env: { ...process.env, PASCAL_HOME: path.join(root, '.pascal'), PASCAL_SERVER_SCRIPT_COMPILE: '1' },
   stdio: 'inherit',
 });
 child.on('error', (error) => { console.error(error.message); process.exitCode = 1; });
