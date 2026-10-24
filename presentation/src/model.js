@@ -15,3 +15,9 @@ export function roomStart(room,nodes){
  }
  return best??[(b.minX+b.maxX)/2,(b.minZ+b.maxZ)/2];
 }
+
+export function entryRoom(nodes,selectedRoom,floor,groundFloor){
+ const level=floor??groundFloor;
+ const candidates=Object.values(nodes).filter(n=>n.type==='zone'&&n.parentId===level&&n.spaceRole==='room'&&!/shaft|looking below/i.test(n.name));
+ return candidates.find(n=>n.id===selectedRoom)??candidates.find(n=>/lounge/i.test(n.name))??candidates.find(n=>/bedroom/i.test(n.name))??candidates[0];
+}

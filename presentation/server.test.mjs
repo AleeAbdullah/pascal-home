@@ -19,3 +19,12 @@ test('room entry points stay within the actual room boundaries and outside openi
   const point=roomStart(room,graph.nodes);assert.ok(inside(point,room.polygon),room.name);assert.ok(!(room.holes??[]).some(h=>inside(point,h)),room.name+' hole');
  }
 });
+
+test('walk entry stays on the selected floor and is unavailable on an empty roof',async()=>{
+ const {entryRoom}=await import('./src/model.js');
+ const nodes={lounge:{id:'lounge',type:'zone',spaceRole:'room',parentId:'ground',name:'Lounge'},bed:{id:'bed',type:'zone',spaceRole:'room',parentId:'second',name:'Bedroom'},void:{id:'void',type:'zone',spaceRole:'room',parentId:'second',name:'Looking below'}};
+ assert.equal(entryRoom(nodes,null,'second','ground').id,'bed');
+ assert.equal(entryRoom(nodes,'lounge','second','ground').id,'bed');
+ assert.equal(entryRoom(nodes,null,null,'ground').id,'lounge');
+ assert.equal(entryRoom(nodes,null,'roof','ground'),undefined);
+});
