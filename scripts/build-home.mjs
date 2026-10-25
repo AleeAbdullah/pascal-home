@@ -77,7 +77,8 @@ try{
     const q=l.labels.find(q=>match(q.polygon.reduce((a,p)=>[a[0]+p[0]/q.polygon.length,a[1]+p[1]/q.polygon.length],[0,0])));
     const sunken=i===0&&match(xy([300,500]));
     const shaft=match(xy([470,400]));const lobby=match(xy([590,520]));
-    const key=i===0?(sunken?'gf-sunken':'gf-main'):i===1?'ff-main':match(xy([450,100]))?'sf-store':'sf-east';
+    const step=i===0&&match(xy([300,282]));
+    const key=i===0?(sunken?'gf-sunken':step?'gf-lounge-step':'gf-main'):i===1?'ff-main':match(xy([450,100]))?'sf-store':'sf-east';
     patches.push({op:'update',id:z.id,data:{...(r?{name:r.name}:q?{name:q.name}:{}),floor:{sourceSlabId:`slab_588_${key.replaceAll('-','_')}`,finish},...(shaft||lobby?{hasCeiling:false}:{}),...(shaft||lobby&&i===1?{hasFloor:false}:{})}});
    }
   }

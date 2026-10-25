@@ -58,7 +58,7 @@ function item(key,name,code,x,z,rotation=0,options={}){items.push({key,name,code
 item('table','V1 · eight-seat stone dining table',table,7.007,9.251);
 for(const [i,x]of [6.215,7.008,7.803].entries()){item('chair-n'+i,'V1 · dining chair north '+(i+1),chair,x,8.357);item('chair-s'+i,'V1 · dining chair south '+(i+1),chair,x,10.147,180)}
 item('chair-w','V1 · dining chair west',chair,5.505,9.251,90);item('chair-e','V1 · dining chair east',chair,8.511,9.251,-90);
-item('dining-rug','V1 · dining woven rug',rug,7.007,9.251,0,{params:{width:3.8,depth:3.35}});
+item('dining-rug','V1 · dining woven rug',rug,7.007,9.5,0,{params:{width:3.8,depth:3.35}});
 item('sofa-l','V1 · ivory L-shaped corner sofa',sofaL,8.382,14.046,0,{params:{armE:3.965,armS:3.2,depth:.914}});
 item('sofa-2','V1 · ivory two-seat sofa',relax(sofa),7.533,11.719,0,{params:{width:1.52,depth:.915}});
 item('coffee','V1 · square stone coffee table',coffee,7.62,13.683,0,{params:{width:1.07,depth:1.07}});
@@ -67,8 +67,8 @@ item('side-sw','V1 · side table at the west end of the corner sofa',sideSquare,
 item('media','V1 · travertine media and storage unit',media,5.055,14.3,90);
 item('lounge-rug','V1 · lounge woven rug',rug,8.382,13.843,0,{params:{width:3.9,depth:4.6}});
 item('art','V1 · dining abstract wall art',art,4.84,10.55,90,{position:[4.84,1.3548,10.55]});
-item('plant','V1 · tall lounge plant (north-west corner)',plant,5.212,7.678);
-item('plant-ne','V1 · tall lounge plant (north-east corner)',plant,8.651,7.661);
+item('plant','V1 · tall lounge plant (north-west corner)',plant,5.212,7.42);
+item('plant-ne','V1 · tall lounge plant (north-east corner)',plant,10.3,7.65);
 item('plant-sw','V1 · tall lounge plant (south-west corner)',plant,5.235,16.15);
 item('coffee-decor','V1 · ceramic and books',decor,7.62,13.683,0,{position:[7.62,.3823,13.683]});
 for(const [key,name,code,x,z,params]of [['cove','perimeter ceiling cove',cove,7.8486,12.484],['pendant','linear dining pendant',pendant,7.007,9.251],['track-w','west lounge ceiling track',track,6.0,14.35],['track-e','east lounge ceiling track',track,9.6,14.35],['curtain','full-width window drapes',curtains,7.8486,16.48]])item(key,'V1 · '+name,code,x,z,0,{parentId:ceilingId,position:[x,key==='curtain'?-.16:0,z],...(params?{params}:{})});

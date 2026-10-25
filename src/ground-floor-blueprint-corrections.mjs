@@ -176,3 +176,56 @@ export function rearStepPatches(nodes){
  return rearSteps.map(s=>{const data={polygon:[p(s.x0,s.z0),p(s.x1,s.z0),p(s.x1,s.z1),p(s.x0,s.z1)],elevation:inch(s.top),metadata:{sourceFile,undimensioned:'Architect floor plan tread outline; rise derived from site levels (assumed rear passage +6 in)',blueprintReview:review,correctionBasis:s.tag,ownerDecision:ownerRoomsDirty}};
   return nodes[s.id]?{op:'update',id:s.id,data}:{op:'create',parentId:groundFloorId,node:{...copy,id:s.id,type:'slab',parentId:groundFloorId,name:s.name,...data}};});
 }
+
+// ---- Room review 2026-10-26: lounge level change at the corridor edge (architect plan p1) ----
+// Step band measured from page-1 vectors: display x 250.38..355.53 (west wall to column P1), y 529.38..538.77 -> plan x 189..357, z 272.5..287.5 in (risers at the band edges, tread nosings run N-S pairs at 17.5 in pitch).
+// Two 6 in risers: corridor level 0 -> intermediate tread -6 (z 277..287, the approach zone) -> lounge floor -12 from z 287 south. The whole lounge + dining is one level.
+const loungeStepReview='2026-10-26',loungeStepDecision='Room review 2026-10-26: lounge step at the corridor edge per architect';
+export const loungeStep={z0:277,z1:287,x0:184.5,x1:433.5,treadTop:-6,lowTop:-12,thickness:8.25,slabId:'slab_588_gf_lounge_step',slabName:'gf-lounge-step · PDF floor construction',
+ loungeZoneId:'zone_00015marrt4a3m4i',approachZoneId:'zone_pjp68o1aowuy1h0l',approachName:'Lounge step band · tread -6″'};
+const lsMeta=(n,basis,extra={})=>({...(n?.metadata??{}),...extra,blueprintReview:loungeStepReview,correctionBasis:basis,ownerDecision:loungeStepDecision});
+const setZ=(poly,from,to)=>poly.map(q=>Math.abs(q[1]-from)<1e-4?[q[0],to]:q);
+export const loungeStepFurniture=[
+ {key:'plant',x:5.212,z:7.42,basis:'Lounge floor now reaches z 287 in; plant moved north to the riser edge (its foliage bbox is z +-0.30 m) so it clears the dining rug'},
+ {key:'plant-ne',x:10.3,z:7.65,basis:'Lounge floor now reaches z 287 in; plant moved east of the dining rug and columns, still in the north-east corner'},
+ {key:'dining-rug',x:7.007,z:9.5,basis:'Rug shifted 0.25 m south so the north-west corner plant stands clear of it'},
+];
+export function loungeStepPatches(nodes){
+ const out=[],L=loungeStep,zNew=inch(L.z1),zOld=inch(329.5),zTop=inch(L.z0);
+ const sep=nodes.separator_588_gf_lounge_step;if(!sep)throw Error('Missing separator_588_gf_lounge_step');
+ if(Math.abs(sep.start[1]-zNew)>1e-4)out.push({op:'update',id:sep.id,data:{start:[sep.start[0],zNew],end:[sep.end[0],zNew],metadata:lsMeta(sep,'Lounge level change moved from z 329.5 to the corridor-edge step band; separator now at the lounge side of the band (z 287)')}});
+ const main=nodes.slab_588_gf_main,sunk=nodes.slab_588_gf_sunken;if(!main||!sunk)throw Error('Missing gf slabs');
+ if(main.polygon.some(q=>Math.abs(q[1]-zOld)<1e-4))out.push({op:'update',id:main.id,data:{polygon:setZ(main.polygon,zOld,zTop),metadata:lsMeta(main,'Level 0 floor now ends at the corridor edge z 277 in (was 329.5)')}});
+ if(sunk.polygon.some(q=>Math.abs(q[1]-zOld)<1e-4))out.push({op:'update',id:sunk.id,data:{polygon:setZ(sunk.polygon,zOld,zNew),metadata:lsMeta(sunk,'Lounge + dining floor (top -12 in) extends north to the step band, z 287 in (was 329.5)')}});
+ const step={polygon:[p(L.x0,L.z0),p(L.x1,L.z0),p(L.x1,L.z1),p(L.x0,L.z1)],elevation:inch(L.treadTop),thickness:inch(L.thickness),metadata:lsMeta(null,'Intermediate tread between the two 6 in risers: top -6 in, z 277..287',{sourceFile,sourceTopInches:L.treadTop,sourceThicknessInches:L.thickness})};
+ const ex=nodes[L.slabId];
+ if(ex){if(JSON.stringify(ex.polygon)!==JSON.stringify(step.polygon)||ex.elevation!==step.elevation)out.push({op:'update',id:L.slabId,data:step});}
+ else out.push({op:'create',parentId:groundFloorId,node:{id:L.slabId,type:'slab',parentId:groundFloorId,name:L.slabName,autoFromWalls:false,holes:[],holeMetadata:[],recessed:false,slots:{surface:main.slots?.surface},visible:true,...step}});
+ return out;
+}
+// Second pass (after the zones have re-derived): bind the approach zone to the tread slab, drop the stale name, and make floor items / columns stand on the right floor.
+export function loungeStepZonePatches(nodes){
+ const L=loungeStep,out=[];
+ // Moving the separator re-mints the approach zone (it was zone_pjp68o1aowuy1h0l, now an auto "Room N"); find it by outline.
+ const near=(a,b)=>Math.abs(a-b)<2e-3,box=q=>[Math.min(...q.map(r=>r[0])),Math.max(...q.map(r=>r[0])),Math.min(...q.map(r=>r[1])),Math.max(...q.map(r=>r[1]))];
+ const z=Object.values(nodes).find(n=>n.type==='zone'&&n.parentId===groundFloorId&&n.spaceRole==='room'&&(b=>near(b[0],inch(L.x0))&&near(b[1],inch(L.x1))&&near(b[2],inch(L.z0))&&near(b[3],inch(L.z1)))(box(n.polygon)));
+ if(z&&(z.name!==L.approachName||z.floor?.sourceSlabId!==L.slabId))out.push({op:'update',id:z.id,data:{name:L.approachName,floor:{sourceSlabId:L.slabId,finish:z.floor?.finish},metadata:lsMeta(z,'Zone is the two-riser step band; its floor is the -6 in tread slab')}});
+ // Every lounge floor item rests on the lounge slab (plants NW/NE were still bound to the level-0 slab).
+ for(const n of Object.values(nodes)){
+  if(n.parentId!==groundFloorId||!n.position||!['item','spawn'].includes(n.type))continue;
+  const [x,,zz]=n.position;if(x<inch(L.x0)||x>inch(L.x1)||zz<inch(L.z1)||zz>inch(658))continue;
+  if(n.supportSlabId==='slab_588_gf_sunken'||!n.supportSlabId)continue;
+  out.push({op:'update',id:n.id,data:{supportSlabId:'slab_588_gf_sunken',position:[n.position[0],0,n.position[2]]}});
+ }
+ // The plants now stand on the lounge floor beside the dining rug: nudge the NW plant north and the NE plant east, and the rug 0.25 m south, so they do not overlap. Mirrors src/interior-v1.mjs.
+ for(const m of loungeStepFurniture){const n=Object.values(nodes).find(x=>x.parentId===groundFloorId&&x.metadata?.interiorV1Key===m.key);if(!n)throw Error('Missing lounge item '+m.key);
+  if(Math.abs(n.position[2]-m.z)>1e-6||Math.abs(n.position[0]-m.x)>1e-6)out.push({op:'update',id:n.id,data:{position:[m.x,n.position[1],m.z],metadata:lsMeta(n,m.basis)}});}
+ // Columns stand on the floor they are in: P1 on the -6 tread, P2/P3 on the -12 lounge floor; the top stays at level height + 3.96 m.
+ const colTop={'P1 · GF column':L.treadTop,'P2 · GF column':L.lowTop,'P3 · GF column':L.lowTop};
+ for(const n of Object.values(nodes)){
+  if(n.type!=='column'||n.parentId!==groundFloorId||!(n.name in colTop))continue;
+  const base=inch(colTop[n.name]),h=Number((3.96-base).toFixed(5));if(Math.abs(n.position[1]-base)<1e-6&&Math.abs(n.height-h)<1e-6)continue;
+  out.push({op:'update',id:n.id,data:{position:[n.position[0],base,n.position[2]],height:h,metadata:lsMeta(n,'Column base follows the floor it stands on ('+colTop[n.name]+' in); top unchanged at 3.96 m above level 0')}});
+ }
+ return out;
+}

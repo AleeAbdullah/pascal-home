@@ -1,4 +1,5 @@
-// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|entrance|bridge|rooms|save]
+// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|entrance|bridge|rooms|loungestep|save]
+// `loungestep` (2026-10-26) moves the lounge level change to the corridor edge: lounge floor (-12) extends to z 287, two-riser step band z 277..287 (tread -6), items/columns re-seated.
 // `rooms` applies the architectural part of the 2026-10-26 room review: dirty-kitchen rear door replacing W16 plus the two outside steps (furniture lives in src/ground-floor-interior-v1.mjs).
 // `entrance` applies the room-review changes: lobby depth z 444.3, D1 single east-hinged leaf, console set removed, plain square columns.
 // `bridge` adds the architect's shaft bridge (2026-10-26): openings replacing the two W11 windows, walnut deck + lounge entry step, glass guards, shaft tree and planters.
@@ -9,7 +10,7 @@ import {spawnSync} from 'node:child_process';
 import {runBridge} from '../src/shaft-bridge.mjs';
 import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
 import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
-import {byKey,groundFloorId,inch,newPassage,columns,columnMetadata,openingPatches,wallPatches,furniturePatches,windowDecisionPatches,pantryPatches,podiumPatches,entryStepPatches,lobbyDepthPatches,entryDoorPatches,entryConsolePatches,columnStylePatches,plainColumnFields,rearDoor,rearWindowPatches,rearDoorNode,rearDoorPatch,rearStepPatches} from '../src/ground-floor-blueprint-corrections.mjs';
+import {byKey,groundFloorId,inch,newPassage,columns,columnMetadata,openingPatches,wallPatches,furniturePatches,windowDecisionPatches,pantryPatches,podiumPatches,entryStepPatches,lobbyDepthPatches,entryDoorPatches,entryConsolePatches,columnStylePatches,plainColumnFields,rearDoor,rearWindowPatches,rearDoorNode,rearDoorPatch,rearStepPatches,loungeStepPatches,loungeStepZonePatches} from '../src/ground-floor-blueprint-corrections.mjs';
 const c=new Client({name:'ground-floor-blueprint-correction',version:'1'},{capabilities:{}}),id='588-m1-interior-v1';
 const outDir=process.env.GF_OUT??'/tmp';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -36,6 +37,12 @@ async function decisions(){
  console.log('zones after pantry');show(await zoneSnap('D1'));
  scene=await call('get_scene');await call('apply_patch',{patches:[...podiumPatches(scene.nodes),...entryStepPatches(scene.nodes)]});
  console.log('zones after podium');show(await zoneSnap('D2'));
+}
+async function loungestep(){
+ let scene=await call('get_scene');console.log('zones before loungestep');show(await zoneSnap('LS0'));
+ const A=loungeStepPatches(scene.nodes);console.log('slab/separator patches',A.length);if(A.length)await call('apply_patch',{patches:A});
+ scene=await call('get_scene');const B=loungeStepZonePatches(scene.nodes);console.log('zone/item/column patches',B.length);if(B.length)await call('apply_patch',{patches:B});
+ console.log('zones after loungestep');show(await zoneSnap('LS1'));
 }
 async function rooms(){
  let scene=await call('get_scene');console.log('zones before rooms');show(await zoneSnap('R0'));
@@ -89,6 +96,7 @@ try{
  if(mode==='bridge'){console.log('zones before bridge');show(await zoneSnap('BR0'));await runBridge({call,level:'ground'});console.log('zones after bridge');show(await zoneSnap('BR1'));}
  if(mode==='decisions')await decisions();
  if(mode==='rooms')await rooms();
+ if(mode==='loungestep')await loungestep();
  if(mode==='entrance')await entrance();
  const v=await call('verify_scene');fs.writeFileSync(`${outDir}/gf-verify-after.json`,JSON.stringify(v,null,2));fs.writeFileSync(`${outDir}/gf-scene-after.json`,JSON.stringify(await call('get_scene')));console.log('Verification',v.issues.length);
  if(mode==='save'){

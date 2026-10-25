@@ -71,7 +71,7 @@ V(g,'shaft-east',514.5,277,653.3); // Room review 2026-10-26: its W11 is now a 7
 H(g,'stair-back',514.5,677.9,277);
 H(g,'entry-front',514.5,673.5,595,9,300);
 sep(g,'hall-lounge',[184.5,277],[433.5,277]);
-sep(g,'lounge-step',[184.5,329.5],[433.5,329.5]);
+sep(g,'lounge-step',[184.5,287],[433.5,287]); // Room review 2026-10-26: the lounge level change sits at the corridor edge (two 6 in risers, tread z 277..287 at -6 in), as the architect draws
 sep(g,'lounge-step-side',[433.5,277],[433.5,325]);
 sep(g,'stair-east',[673.5,277],[673.5,444.3]);
 sep(g,'lobby-back',[514.5,444.3],[673.5,444.3]);
@@ -82,7 +82,7 @@ label(g,'Open kitchen',528,0,738,203.5);
 label(g,'Dirty kitchen',771,0,868.5,161.5);
 label(g,'Pantry · traced outline',714,70.5,766.5,161.5);
 label(g,'5′ wide corridor',189,212.5,738,272.5);
-label(g,'Lounge + dining · floor +6″',189,329.5,429,653.5,{floorOffset:-12});
+label(g,'Lounge + dining · floor +6″',189,287,429,653.5,{floorOffset:-12});
 label(g,'Double-height lobby',519,444.3,669,590.5);
 label(g,'Main staircase',519,281.5,669,444.3);
 g.voids.push(rect(438,329.5,510,563.5));
@@ -191,8 +191,9 @@ export function splitWalls(l){
 }
 export function payload(){return {levels:levels.map(l=>({name:l.name,elevation:l.elevation,walls:splitWalls(l),rooms:l.rooms,slabs:l.slabs})),notes:[source.precedence,source.tracedPositions,'Architectural reconstruction in progress. Finish colours are neutral display materials, not specified construction finishes. Opening operability is unspecified unless shown by a door swing.']};}
 export const constructionFloors = [
- {key:'gf-main',level:0,top:0,thickness:8.25,polygon:[[-9,-9],[954,-9],[954,170.5],[936,170.5],[936,635.5],[678,635.5],[678,599.5],[510,599.5],[510,572.5],[433.5,572.5],[433.5,329.5],[184.5,329.5],[184.5,512.5],[-9,512.5]],holes:[[[438,329.5],[510,329.5],[510,563.5],[438,563.5]]]},
- {key:'gf-sunken',level:0,top:-12,thickness:8.25,polygon:[[184.5,329.5],[433.5,329.5],[433.5,662.5],[184.5,662.5]],holes:[]},
+ {key:'gf-main',level:0,top:0,thickness:8.25,polygon:[[-9,-9],[954,-9],[954,170.5],[936,170.5],[936,635.5],[678,635.5],[678,599.5],[510,599.5],[510,572.5],[433.5,572.5],[433.5,277],[184.5,277],[184.5,512.5],[-9,512.5]],holes:[[[438,329.5],[510,329.5],[510,563.5],[438,563.5]]]},
+ {key:'gf-lounge-step',level:0,top:-6,thickness:8.25,polygon:[[184.5,277],[433.5,277],[433.5,287],[184.5,287]],holes:[]},
+ {key:'gf-sunken',level:0,top:-12,thickness:8.25,polygon:[[184.5,287],[433.5,287],[433.5,662.5],[184.5,662.5]],holes:[]},
  {key:'ff-main',level:1,top:0,thickness:12,polygon:[[-9,-9],[954,-9],[954,170.5],[936,170.5],[936,635.5],[678,635.5],[678,444.5],[510,444.5],[510,572.5],[438,572.5],[438,512.5],[-9,512.5]],holes:[[[438,329.5],[510,329.5],[510,563.5],[438,563.5]],[[519,281.5],[689,281.5],[689,434.5],[519,434.5]]]},
  {key:'sf-store',level:2,top:0,thickness:14,polygon:[[375,-9],[528,-9],[528,208],[375,208]],holes:[]},
  {key:'sf-east',level:2,top:0,thickness:14,polygon:[[669,-9],[915,-9],[915,38.5],[954,38.5],[954,170.4],[936,170.4],[936,444.5],[738,444.5],[738,170.5],[669,170.5]],holes:[[[678,0],[832.5,0],[832.5,62],[790.5,62],[790.5,42],[720,42],[720,122],[678,122]]]},

@@ -9578,7 +9578,6 @@
         "separator_588_gf_stair_east",
         "separator_588_gf_lobby_back",
         "separator_588_gf_lobby_east",
-        "ceiling_7g7rmaqgqzt6grdu",
         "ceiling_ci2inji1rlhadmyq",
         "ceiling_hqegoc95xtlakuix",
         "ceiling_qyuqw13q0mlko0ed",
@@ -9589,7 +9588,6 @@
         "zone_bkipm23szhgwkuc8",
         "zone_kx0k56o3w9jkko8r",
         "zone_kyherqz78x8f4x7b",
-        "zone_pjp68o1aowuy1h0l",
         "zone_toaclo72dsgxkle0",
         "floor-opening_81chekfvyhoaic1b",
         "zone_f4rg8wqsz60ntnj9",
@@ -9838,7 +9836,10 @@
         "item_o32fosrnsa4n32my",
         "item_zhx4gn6t3n80g7x0",
         "item_weo9jotknx0168rf",
-        "item_z8l8d5k85yc7gdws"
+        "item_z8l8d5k85yc7gdws",
+        "slab_588_gf_lounge_step",
+        "ceiling_ufdt4l48p0dj4p6w",
+        "zone_4xu1zh666qjq248g"
       ],
       "level": 0,
       "baseElevation": 0,
@@ -14746,11 +14747,15 @@
       "polygon": [
         [
           4.6863,
-          8.3693
+          7.2898
         ],
         [
           11.0109,
-          8.3693
+          7.2898
+        ],
+        [
+          11.0109,
+          8.255
         ],
         [
           11.0109,
@@ -14779,7 +14784,8 @@
         "wall_asa168b878"
       ],
       "boundarySeparatorIds": [
-        "separator_588_gf_lounge_step"
+        "separator_588_gf_lounge_step",
+        "separator_588_gf_lounge_step_side"
       ],
       "seed": [
         9.426507250006388,
@@ -15247,10 +15253,6 @@
         [
           11.0109,
           14.4272
-        ],
-        [
-          11.0109,
-          8.3693
         ]
       ],
       "holes": [],
@@ -17280,11 +17282,15 @@
       "polygon": [
         [
           4.6863,
-          8.3693
+          7.2898
         ],
         [
           11.0109,
-          8.3693
+          7.2898
+        ],
+        [
+          11.0109,
+          8.255
         ],
         [
           11.0109,
@@ -18723,15 +18729,18 @@
       "visible": true,
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "physical": false
+        "physical": false,
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Lounge level change moved from z 329.5 to the corridor-edge step band; separator now at the lounge side of the band (z 287)",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "start": [
         4.6863,
-        8.3693
+        7.2898
       ],
       "end": [
         11.0109,
-        8.3693
+        7.2898
       ]
     },
     "separator_588_gf_lounge_step_side": {
@@ -20410,43 +20419,6 @@
       "frontSide": "interior",
       "backSide": "interior"
     },
-    "ceiling_7g7rmaqgqzt6grdu": {
-      "object": "node",
-      "id": "ceiling_7g7rmaqgqzt6grdu",
-      "type": "ceiling",
-      "name": "Room 3 Ceiling",
-      "parentId": "level_as4e3a9d57",
-      "visible": true,
-      "metadata": {},
-      "children": [],
-      "polygon": [
-        [
-          4.6863,
-          7.0358
-        ],
-        [
-          11.0109,
-          7.0358
-        ],
-        [
-          11.0109,
-          8.255
-        ],
-        [
-          11.0109,
-          8.3693
-        ],
-        [
-          4.6863,
-          8.3693
-        ]
-      ],
-      "holes": [],
-      "holeMetadata": [],
-      "boundary": "auto",
-      "zoneId": "zone_pjp68o1aowuy1h0l",
-      "autoFromWalls": true
-    },
     "ceiling_7sadoifxgql85zav": {
       "object": "node",
       "id": "ceiling_7sadoifxgql85zav",
@@ -20941,7 +20913,7 @@
         ],
         [
           4.6863,
-          8.3693
+          7.2898
         ],
         [
           4.6863,
@@ -21081,6 +21053,10 @@
         [
           11.0109,
           8.255
+        ],
+        [
+          11.0109,
+          7.2898
         ],
         [
           11.0109,
@@ -21615,7 +21591,7 @@
         ],
         [
           4.6863,
-          8.3693
+          7.2898
         ],
         [
           4.6863,
@@ -21707,66 +21683,6 @@
       "occupancy": "",
       "clearDimensionPolicy": "none",
       "color": "#6366f1"
-    },
-    "zone_pjp68o1aowuy1h0l": {
-      "object": "node",
-      "id": "zone_pjp68o1aowuy1h0l",
-      "type": "zone",
-      "name": "Lounge approach · upper floor",
-      "parentId": "level_as4e3a9d57",
-      "visible": true,
-      "metadata": {},
-      "polygon": [
-        [
-          4.6863,
-          7.0358
-        ],
-        [
-          11.0109,
-          7.0358
-        ],
-        [
-          11.0109,
-          8.255
-        ],
-        [
-          11.0109,
-          8.3693
-        ],
-        [
-          4.6863,
-          8.3693
-        ]
-      ],
-      "holes": [],
-      "autoFromWalls": true,
-      "boundaryWallIds": [
-        "wall_588_gf_master_east_2",
-        "wall_as1e46695c"
-      ],
-      "boundarySeparatorIds": [
-        "separator_588_gf_hall_lounge",
-        "separator_588_gf_lounge_step",
-        "separator_588_gf_lounge_step_side"
-      ],
-      "seed": [
-        7.8486,
-        7.70255
-      ],
-      "floor": {
-        "sourceSlabId": "slab_588_gf_main",
-        "finish": "scene:mat_hep5xu1p95itnwz0"
-      },
-      "spaceRole": "room",
-      "roomNumber": "",
-      "enclosureStatus": "enclosed",
-      "floorFinish": "",
-      "wallFinish": "",
-      "ceilingFinish": "",
-      "ceilingHeight": 2.7,
-      "occupancy": "",
-      "clearDimensionPolicy": "none",
-      "color": "#06b6d4"
     },
     "zone_toaclo72dsgxkle0": {
       "object": "node",
@@ -22311,7 +22227,10 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "sourceTopInches": 0,
-        "sourceThicknessInches": 8.25
+        "sourceThicknessInches": 8.25,
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Level 0 floor now ends at the corridor edge z 277 in (was 329.5)",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "slots": {
         "surface": "scene:mat_i5cw7zebgp01ed9b"
@@ -22359,11 +22278,11 @@
         ],
         [
           11.0109,
-          8.3693
+          7.0358
         ],
         [
           4.6863,
-          8.3693
+          7.0358
         ],
         [
           4.6863,
@@ -22437,7 +22356,10 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "sourceTopInches": -12,
-        "sourceThicknessInches": 8.25
+        "sourceThicknessInches": 8.25,
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Lounge + dining floor (top -12 in) extends north to the step band, z 287 in (was 329.5)",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "slots": {
         "surface": "scene:mat_oo8x4uj0uwdr3kac"
@@ -22445,11 +22367,11 @@
       "polygon": [
         [
           4.6863,
-          8.3693
+          7.2898
         ],
         [
           11.0109,
-          8.3693
+          7.2898
         ],
         [
           11.0109,
@@ -40413,12 +40335,15 @@
         "interiorV1Key": "dining-rug",
         "styleReference": "588 M1 Lake City mood board · dining 17–19; lounge 20,22,29; lighting 73–75; finishes 79–81",
         "dimensionBasis": "Proposed furniture design; existing checked blueprint controls room dimensions",
-        "zoneId": "zone_00015marrt4a3m4i"
+        "zoneId": "zone_00015marrt4a3m4i",
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Rug shifted 0.25 m south so the north-west corner plant stands clear of it",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "position": [
         7.007,
         0,
-        9.251
+        9.5
       ],
       "rotation": [
         0,
@@ -42650,12 +42575,15 @@
         "interiorV1Key": "plant",
         "styleReference": "588 M1 Lake City mood board · dining 17–19; lounge 20,22,29; lighting 73–75; finishes 79–81",
         "dimensionBasis": "Proposed furniture design; existing checked blueprint controls room dimensions",
-        "zoneId": "zone_00015marrt4a3m4i"
+        "zoneId": "zone_00015marrt4a3m4i",
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Lounge floor now reaches z 287 in; plant moved north to the riser edge (its foliage bbox is z +-0.30 m) so it clears the dining rug",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "position": [
         5.212,
         0,
-        7.678
+        7.42
       ],
       "rotation": [
         0,
@@ -42668,7 +42596,7 @@
         1
       ],
       "children": [],
-      "supportSlabId": "slab_588_gf_main",
+      "supportSlabId": "slab_588_gf_sunken",
       "collectionIds": [
         "collection_xqjqspwah2v2seor"
       ],
@@ -129535,20 +129463,20 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "positionBasis": "PDF vector trace",
-        "blueprintReview": "2026-10-25",
-        "correctionBasis": "Plain structural column: round base and capital removed (baseStyle/capitalStyle none)",
-        "ownerDecision": "Room review 2026-10-25: entrance"
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Column base follows the floor it stands on (-6 in); top unchanged at 3.96 m above level 0",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "children": [],
       "position": [
         9.21766,
-        0,
+        -0.1524,
         7.10946
       ],
       "rotation": 0,
       "style": "plain",
       "crossSection": "rectangular",
-      "height": 3.96,
+      "height": 4.1124,
       "radius": 0.22,
       "width": 0.3048,
       "depth": 0.381,
@@ -129628,20 +129556,20 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "positionBasis": "PDF vector trace",
-        "blueprintReview": "2026-10-25",
-        "correctionBasis": "Plain structural column: round base and capital removed (baseStyle/capitalStyle none)",
-        "ownerDecision": "Room review 2026-10-25: entrance"
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Column base follows the floor it stands on (-12 in); top unchanged at 3.96 m above level 0",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "children": [],
       "position": [
         9.21766,
-        0,
+        -0.3048,
         8.21309
       ],
       "rotation": 0,
       "style": "plain",
       "crossSection": "square",
-      "height": 3.96,
+      "height": 4.2648,
       "radius": 0.22,
       "width": 0.3048,
       "depth": 0.3048,
@@ -129721,20 +129649,20 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "positionBasis": "PDF vector trace",
-        "blueprintReview": "2026-10-25",
-        "correctionBasis": "Plain structural column: round base and capital removed (baseStyle/capitalStyle none)",
-        "ownerDecision": "Room review 2026-10-25: entrance"
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Column base follows the floor it stands on (-12 in); top unchanged at 3.96 m above level 0",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "children": [],
       "position": [
         11.04646,
-        0,
+        -0.3048,
         8.21309
       ],
       "rotation": 0,
       "style": "plain",
       "crossSection": "square",
-      "height": 3.96,
+      "height": 4.2648,
       "radius": 0.22,
       "width": 0.3048,
       "depth": 0.3048,
@@ -176855,12 +176783,15 @@
         "interiorV1Key": "plant-ne",
         "styleReference": "588 M1 Lake City mood board · dining 17–19; lounge 20,22,29; lighting 73–75; finishes 79–81",
         "dimensionBasis": "Proposed furniture design; existing checked blueprint controls room dimensions",
-        "zoneId": "zone_00015marrt4a3m4i"
+        "zoneId": "zone_00015marrt4a3m4i",
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Lounge floor now reaches z 287 in; plant moved east of the dining rug and columns, still in the north-east corner",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
       },
       "position": [
-        8.651,
+        10.3,
         0,
-        7.661
+        7.65
       ],
       "rotation": [
         0,
@@ -176873,7 +176804,7 @@
         1
       ],
       "children": [],
-      "supportSlabId": "slab_588_gf_main",
+      "supportSlabId": "slab_588_gf_sunken",
       "collectionIds": [
         "collection_xqjqspwah2v2seor"
       ],
@@ -208449,6 +208380,142 @@
           1
         ]
       }
+    },
+    "slab_588_gf_lounge_step": {
+      "object": "node",
+      "id": "slab_588_gf_lounge_step",
+      "type": "slab",
+      "name": "gf-lounge-step · PDF floor construction",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceTopInches": -6,
+        "sourceThicknessInches": 8.25,
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Intermediate tread between the two 6 in risers: top -6 in, z 277..287",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
+      },
+      "slots": {
+        "surface": "scene:mat_i5cw7zebgp01ed9b"
+      },
+      "polygon": [
+        [
+          4.6863,
+          7.0358
+        ],
+        [
+          11.0109,
+          7.0358
+        ],
+        [
+          11.0109,
+          7.2898
+        ],
+        [
+          4.6863,
+          7.2898
+        ]
+      ],
+      "holes": [],
+      "holeMetadata": [],
+      "elevation": -0.1524,
+      "thickness": 0.20955,
+      "recessed": false,
+      "autoFromWalls": false
+    },
+    "ceiling_ufdt4l48p0dj4p6w": {
+      "object": "node",
+      "id": "ceiling_ufdt4l48p0dj4p6w",
+      "type": "ceiling",
+      "name": "Room 1 Ceiling",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {},
+      "children": [],
+      "polygon": [
+        [
+          4.6863,
+          7.0358
+        ],
+        [
+          11.0109,
+          7.0358
+        ],
+        [
+          11.0109,
+          7.2898
+        ],
+        [
+          4.6863,
+          7.2898
+        ]
+      ],
+      "holes": [],
+      "holeMetadata": [],
+      "boundary": "auto",
+      "zoneId": "zone_4xu1zh666qjq248g",
+      "autoFromWalls": true
+    },
+    "zone_4xu1zh666qjq248g": {
+      "object": "node",
+      "id": "zone_4xu1zh666qjq248g",
+      "type": "zone",
+      "name": "Lounge step band · tread -6″",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "blueprintReview": "2026-10-26",
+        "correctionBasis": "Zone is the two-riser step band; its floor is the -6 in tread slab",
+        "ownerDecision": "Room review 2026-10-26: lounge step at the corridor edge per architect"
+      },
+      "polygon": [
+        [
+          4.6863,
+          7.0358
+        ],
+        [
+          11.0109,
+          7.0358
+        ],
+        [
+          11.0109,
+          7.2898
+        ],
+        [
+          4.6863,
+          7.2898
+        ]
+      ],
+      "holes": [],
+      "autoFromWalls": true,
+      "boundaryWallIds": [
+        "wall_588_gf_master_east_2"
+      ],
+      "boundarySeparatorIds": [
+        "separator_588_gf_hall_lounge",
+        "separator_588_gf_lounge_step",
+        "separator_588_gf_lounge_step_side"
+      ],
+      "seed": [
+        7.848600000000013,
+        7.162799999999998
+      ],
+      "floor": {
+        "sourceSlabId": "slab_588_gf_lounge_step",
+        "finish": "scene:mat_hep5xu1p95itnwz0"
+      },
+      "hasFloor": false,
+      "spaceRole": "room",
+      "roomNumber": "",
+      "enclosureStatus": "enclosed",
+      "floorFinish": "",
+      "wallFinish": "",
+      "ceilingFinish": "",
+      "ceilingHeight": 2.7,
+      "occupancy": "",
+      "clearDimensionPolicy": "none",
+      "color": "#10b981"
     }
   },
   "rootNodeIds": [
