@@ -9600,7 +9600,6 @@
         "stair_dgp1gc77h6fntsht",
         "slab_588_stair_landing_0",
         "slab_588_stair_landing_1",
-        "wall_588_gf_pantry_west",
         "separator_588_gf_pantry_entry",
         "ceiling_eyujbftwo3uj0jkq",
         "item_koghk4w7w40evohd",
@@ -9767,7 +9766,9 @@
         "item_p4giluvn0wcn302q",
         "item_41n5g8l7fsawsplb",
         "item_qhlykgjrv0lija9p",
-        "item_66b92upvc7571i86"
+        "item_66b92upvc7571i86",
+        "separator_588_gf_pantry_west",
+        "slab_588_gf_podium_front"
       ],
       "level": 0,
       "baseElevation": 0,
@@ -11200,7 +11201,10 @@
       "metadata": {
         "authorScene": {
           "finish": "#dedbd3"
-        }
+        },
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Podium rear level ends at z=653.3 in",
+        "ownerDecision": "Owner decision 2026-10-25: entrance podium has two levels, +18 in rear (z 599.5..653.3) and +12 in front (z 653.3..695.5)"
       },
       "slots": {
         "surface": "scene:mat_hep5xu1p95itnwz0"
@@ -11216,11 +11220,11 @@
         ],
         [
           16.9926,
-          17.6657
+          16.59382
         ],
         [
           13.1826,
-          17.6657
+          16.59382
         ]
       ],
       "holes": [],
@@ -13333,7 +13337,9 @@
           1.0922
         ]
       },
-      "children": [],
+      "children": [
+        "door_lj5zvqt32ehd0wqi"
+      ],
       "slots": {
         "a": "scene:mat_cvmusa3ms3wea9le",
         "b": "scene:mat_cvmusa3ms3wea9le"
@@ -14801,7 +14807,6 @@
       "autoFromWalls": true,
       "boundaryWallIds": [
         "wall_588_gf_kitchen_east_lower_1",
-        "wall_588_gf_pantry_west",
         "wall_588_gf_rear_3",
         "wall_588_gf_rear_rooms_front_3",
         "wall_as15321cd0",
@@ -14810,7 +14815,9 @@
         "wall_as8016b81f",
         "wall_asf6c5c307"
       ],
-      "boundarySeparatorIds": [],
+      "boundarySeparatorIds": [
+        "separator_588_gf_pantry_west"
+      ],
       "seed": [
         16.239250207754253,
         2.6038988652319697
@@ -21853,13 +21860,13 @@
       "autoFromWalls": true,
       "boundaryWallIds": [
         "wall_588_gf_pantry_back_1",
-        "wall_588_gf_pantry_west",
         "wall_as15321cd0",
         "wall_as421990ee",
         "wall_ase616cbe2"
       ],
       "boundarySeparatorIds": [
-        "separator_588_gf_pantry_entry"
+        "separator_588_gf_pantry_entry",
+        "separator_588_gf_pantry_west"
       ],
       "seed": [
         18.80234999999998,
@@ -22784,11 +22791,16 @@
         "sourceOpening": "windows-0-1",
         "sourceTag": "W19",
         "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF opening schedule",
+        "widthBasis": "Owner decision 2026-10-25",
         "heightBasis": "Owner override: 8 ft",
         "pdfDrawnWidthInches": 29.97,
         "sourcePositionInches": 277.12,
-        "operability": "Unspecified in PDF; fixed representation only"
+        "operability": "Unspecified in PDF; fixed representation only",
+        "widthOverride": 30,
+        "widthDecision": "Owner decision 2026-10-25: PDF drawn width 30 in governs over the 18 in schedule",
+        "ownerDecision": "Owner decision 2026-10-25: PDF drawn width 30 in governs over the 18 in schedule",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Bathroom 2 W19 drawn 30 in (x 262.12..292.12) governs; schedule 18 in superseded"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
@@ -22805,7 +22817,7 @@
       ],
       "floorThresholdVersion": 1,
       "wallId": "wall_588_gf_rear_1",
-      "width": 0.4572,
+      "width": 0.762,
       "height": 2.4384,
       "constructionType": "framed",
       "dimensionReference": "nominal",
@@ -26229,11 +26241,16 @@
         "sourceOpening": "windows-2-53",
         "sourceTag": "W17",
         "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF opening schedule",
+        "widthBasis": "Owner decision 2026-10-25",
         "heightBasis": "Owner override: 8 ft",
         "pdfDrawnWidthInches": 48.03,
         "sourcePositionInches": 411.44,
-        "operability": "Unspecified in PDF; fixed representation only"
+        "operability": "Unspecified in PDF; fixed representation only",
+        "widthOverride": 48,
+        "widthDecision": "Owner decision 2026-10-25: PDF drawn width 48 in governs over the 36 in schedule",
+        "ownerDecision": "Owner decision 2026-10-25: PDF drawn width 48 in governs over the 36 in schedule",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Bedroom east W-17 drawn 48 in (z 387.3..435.3) governs; schedule 36 in superseded"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
@@ -26250,7 +26267,7 @@
       ],
       "floorThresholdVersion": 1,
       "wallId": "wall_588_sf_bedroom_east_1",
-      "width": 0.9144,
+      "width": 1.2192,
       "height": 2.4384,
       "constructionType": "framed",
       "dimensionReference": "nominal",
@@ -30255,46 +30272,6 @@
       "sill": true,
       "sillDepth": 0.08,
       "sillThickness": 0.03
-    },
-    "wall_588_gf_pantry_west": {
-      "object": "node",
-      "id": "wall_588_gf_pantry_west",
-      "type": "wall",
-      "name": "gf-pantry-west",
-      "parentId": "level_as4e3a9d57",
-      "visible": true,
-      "metadata": {
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "sheet": 1,
-        "plan": "gf",
-        "sourceWall": "gf-pantry-west",
-        "positionBasis": "dimension-chain grid; undimensioned returns traced from PDF",
-        "sourceStart": [
-          18.07845,
-          1.73355
-        ],
-        "sourceEnd": [
-          18.07845,
-          4.15925
-        ]
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.1143,
-      "height": 3.6576,
-      "start": [
-        18.07845,
-        1.73355
-      ],
-      "end": [
-        18.07845,
-        4.15925
-      ],
-      "frontSide": "interior",
-      "backSide": "interior"
     },
     "separator_588_gf_pantry_entry": {
       "object": "node",
@@ -38626,16 +38603,19 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "undimensioned": "PDF trace or explicitly labeled owner-authorized assumption; not surveyed or engineered",
-        "exteriorKey": "entry-step-12"
+        "exteriorKey": "entry-step-12",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Starts at the lowered podium front z=695.5 in",
+        "ownerDecision": "Owner decision 2026-10-25: entrance podium has two levels, +18 in rear (z 599.5..653.3) and +12 in front (z 653.3..695.5)"
       },
       "polygon": [
         [
           13.1826,
-          17.3609
+          17.6657
         ],
         [
           16.9926,
-          17.3609
+          17.6657
         ],
         [
           16.9926,
@@ -161159,6 +161139,160 @@
       "occupancy": "",
       "clearDimensionPolicy": "none",
       "color": "#06b6d4"
+    },
+    "separator_588_gf_pantry_west": {
+      "object": "node",
+      "id": "separator_588_gf_pantry_west",
+      "type": "separator",
+      "name": "gf-pantry-west",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "physical": false,
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Pantry west boundary is open to the kitchen",
+        "ownerDecision": "Owner decision 2026-10-25: pantry opens to the open kitchen; west wall (x 711.75, z 68.25..163.75) removed and replaced by a separator"
+      },
+      "start": [
+        18.07845,
+        1.73355
+      ],
+      "end": [
+        18.07845,
+        4.15925
+      ]
+    },
+    "slab_588_gf_podium_front": {
+      "object": "node",
+      "id": "slab_588_gf_podium_front",
+      "type": "slab",
+      "name": "Entrance podium front · +12″",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "authorScene": {
+          "finish": "#dedbd3"
+        },
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Podium front level +12 in (top -6 in, thickness 8.25 in)",
+        "ownerDecision": "Owner decision 2026-10-25: entrance podium has two levels, +18 in rear (z 599.5..653.3) and +12 in front (z 653.3..695.5)"
+      },
+      "slots": {
+        "surface": "scene:mat_hep5xu1p95itnwz0"
+      },
+      "polygon": [
+        [
+          13.1826,
+          16.59382
+        ],
+        [
+          16.9926,
+          16.59382
+        ],
+        [
+          16.9926,
+          17.6657
+        ],
+        [
+          13.1826,
+          17.6657
+        ]
+      ],
+      "holes": [],
+      "holeMetadata": [],
+      "elevation": -0.1524,
+      "thickness": 0.20955,
+      "recessed": false,
+      "associatedZoneIds": [],
+      "autoFromWalls": false
+    },
+    "door_lj5zvqt32ehd0wqi": {
+      "object": "node",
+      "id": "door_lj5zvqt32ehd0wqi",
+      "type": "door",
+      "name": "D-glazed (owner decision) · SF",
+      "parentId": "wall_asa44a4a51",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceOpening": "doors-2-24",
+        "sourceTag": "D-glazed (owner decision)",
+        "positionBasis": "Owner decision 2026-10-25",
+        "widthBasis": "Owner decision 2026-10-25",
+        "heightBasis": "Owner rule: 8 ft (96 in)",
+        "sourcePositionInches": 930,
+        "operability": "Door swing to be checked",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Glazed door onto the maid balcony at x=915..945 in",
+        "ownerDecision": "Owner decision 2026-10-25: 30 in glazed door at x 915..945 in in sf-balcony-return, 96 in high (8 ft rule), sill 0, opening onto the balcony"
+      },
+      "slots": {
+        "frame": "scene:mat_m548d3ql7l2z76yt"
+      },
+      "position": [
+        0.4953000000000003,
+        1.2192,
+        0
+      ],
+      "rotation": [
+        0,
+        3.141592653589793,
+        0
+      ],
+      "side": "back",
+      "floorThresholdVersion": 1,
+      "wallId": "wall_asa44a4a51",
+      "width": 0.762,
+      "height": 2.4384,
+      "constructionType": "framed",
+      "dimensionReference": "nominal",
+      "doorCategory": "interior",
+      "doorType": "hinged",
+      "leafCount": 1,
+      "operationState": 0,
+      "slideDirection": "left",
+      "trackStyle": "none",
+      "garagePanelCount": 4,
+      "openingKind": "door",
+      "openingShape": "rectangle",
+      "openingRadiusMode": "all",
+      "openingTopRadii": [
+        0.15,
+        0.15
+      ],
+      "cornerRadius": 0.15,
+      "archHeight": 0.45,
+      "openingRevealRadius": 0.025,
+      "frameThickness": 0.05,
+      "frameDepth": 0.07,
+      "threshold": true,
+      "thresholdHeight": 0.02,
+      "hingesSide": "left",
+      "swingDirection": "inward",
+      "swingAngle": 0,
+      "segments": [
+        {
+          "type": "glass",
+          "heightRatio": 1,
+          "columnRatios": [
+            1
+          ],
+          "dividerThickness": 0.03,
+          "panelDepth": 0.01,
+          "panelInset": 0.04
+        }
+      ],
+      "handle": true,
+      "handleHeight": 1.05,
+      "handleSide": "right",
+      "contentPadding": [
+        0.04,
+        0.04
+      ],
+      "doorCloser": false,
+      "panicBar": false,
+      "panicBarHeight": 1
     }
   },
   "rootNodeIds": [

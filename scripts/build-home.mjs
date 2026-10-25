@@ -202,7 +202,7 @@ try{
    if(!w){pending.push({key,...q,reason:'Scheduled width crosses a wall junction at its traced position.'});continue;}
    const args={wallId:ids[w.id],t:(at-w.start[axis])/(w.end[axis]-w.start[axis]),width:inch(width),height:inch(height)};
    if(kind==='windows')Object.assign(args,{windowType:'fixed',sillHeight:inch(sill),style:'single'});
-   else Object.assign(args,{openingKind:kind==='passages'?'opening':'door',doorType:q.tag==='D1'?'double':'hinged',style:q.tag==='D1'?'paneled-glass':'modern'});
+   else Object.assign(args,{openingKind:kind==='passages'?'opening':'door',doorType:q.tag==='D1'?'double':'hinged',style:q.tag==='D1'?'paneled-glass':q.style??'modern'});
    let r;try{r=await call(kind==='windows'?'add_window':'add_door',args);}catch(e){pending.push({key,...q,reason:e.message});continue;}
    const fresh=await call('get_scene');
    const type=kind==='windows'?'window':'door';const node=Object.values(fresh.nodes).find(n=>n.type===type&&!scene.nodes[n.id]&&n.parentId===args.wallId);

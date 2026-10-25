@@ -1,13 +1,17 @@
-// Usage: node scripts/correct-ground-floor.mjs [apply|save]
+// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|save]
+// `decisions` re-applies only the five owner decisions of 2026-10-25 (ground-floor ones: W19 width, pantry opening, podium levels).
 // Applies the 2026-10-25 ground-floor blueprint corrections to the live scene (idempotent), verifies, optionally checkpoints.
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
 import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
-import {byKey,groundFloorId,inch,newPassage,columns,columnMetadata,openingPatches,wallPatches,furniturePatches} from '../src/ground-floor-blueprint-corrections.mjs';
+import {byKey,groundFloorId,inch,newPassage,columns,columnMetadata,openingPatches,wallPatches,furniturePatches,windowDecisionPatches,pantryPatches,podiumPatches,entryStepPatches} from '../src/ground-floor-blueprint-corrections.mjs';
 const c=new Client({name:'ground-floor-blueprint-correction',version:'1'},{capabilities:{}}),id='588-m1-interior-v1';
 const outDir=process.env.GF_OUT??'/tmp';
-async function call(name,args={}){const raw=await c.callTool({name,arguments:args});const r=raw.structuredContent??JSON.parse(raw.content.find(x=>x.type==='text').text);if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,1800));return r;}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function call(name,args={}){for(let i=0;;i++){await sleep(1000);const raw=await c.callTool({name,arguments:args});const r=raw.structuredContent??JSON.parse(raw.content.find(x=>x.type==='text').text);
+ if(JSON.stringify(r).includes('rate_limited')&&i<5){await sleep(1500);continue;}
+ if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,1800));return r;}}
 function fullGraph(){const r=spawnSync('python3',['-c',"import sqlite3; c=sqlite3.connect('file:.pascal/data/pascal.db?mode=ro',uri=True);print(c.execute('select graph_json from scenes where id=?',('588-m1-interior-v1',)).fetchone()[0])"],{encoding:'utf8',maxBuffer:30e6});if(r.status)throw Error(r.stderr);const g=JSON.parse(r.stdout);if(!g.materials||Object.keys(g.materials).length<26)throw Error('Incomplete material registry');return g;}
 const area=pl=>Math.abs(pl.reduce((a,q,i)=>{const r=pl[(i+1)%pl.length];return a+q[0]*r[1]-r[0]*q[1]},0))/2;
 async function zoneSnap(tag){const s=await call('get_scene');
@@ -15,6 +19,14 @@ async function zoneSnap(tag){const s=await call('get_scene');
  const rows=Object.values(s.nodes).filter(n=>n.type==='zone'&&n.parentId===groundFloorId).map(x=>({id:x.id,name:x.name,area:Number(area(x.polygon).toFixed(2)),hasFloor:x.hasFloor,hasCeiling:x.hasCeiling,ceilings:ceil[x.id]??0}));
  fs.writeFileSync(`${outDir}/gf-zones-${tag}.json`,JSON.stringify(rows,null,2));return rows;}
 function show(rows){for(const r of rows)console.log(' ',r.id,String(r.name).padEnd(28),r.area,r.hasFloor,r.hasCeiling,'ceil',r.ceilings);}
+async function decisions(){
+ let scene=await call('get_scene');console.log('zones before decisions');show(await zoneSnap('D0'));
+ await call('apply_patch',{patches:windowDecisionPatches(scene.nodes)});
+ scene=await call('get_scene');const P=pantryPatches(scene.nodes);console.log('pantry',P.length);if(P.length)await call('apply_patch',{patches:P});
+ console.log('zones after pantry');show(await zoneSnap('D1'));
+ scene=await call('get_scene');await call('apply_patch',{patches:[...podiumPatches(scene.nodes),...entryStepPatches(scene.nodes)]});
+ console.log('zones after podium');show(await zoneSnap('D2'));
+}
 try{
  await c.connect(new StdioClientTransport({command:process.execPath,args:['scripts/pascal.mjs','mcp','connect']}));
  await call('load_scene',{id});
@@ -48,7 +60,9 @@ try{
   }
   console.log('zones after columns');show(await zoneSnap('C'));
   scene=await call('get_scene');await call('apply_patch',{patches:furniturePatches(scene.nodes)});
+  await decisions();
  }
+ if(mode==='decisions')await decisions();
  const v=await call('verify_scene');fs.writeFileSync(`${outDir}/gf-verify-after.json`,JSON.stringify(v,null,2));fs.writeFileSync(`${outDir}/gf-scene-after.json`,JSON.stringify(await call('get_scene')));console.log('Verification',v.issues.length);
  if(mode==='save'){
   const st=await call('get_project_status',{id});console.log(JSON.stringify(await call('save_scene',{id,name:st.name,expectedVersion:st.version,saveMode:'checkpoint',includeCurrentScene:true})).slice(0,900));

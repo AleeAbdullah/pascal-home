@@ -14,7 +14,9 @@
       "wall": "gf-rear",
       "at": 277.12,
       "pdfDrawnWidth": 29.97,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "widthOverride": 30,
+      "widthDecision": "Owner decision 2026-10-25: PDF drawn width 30 in governs over the 18 in schedule"
     },
     {
       "level": 0,
@@ -434,7 +436,9 @@
       "wall": "sf-bedroom-east",
       "at": 411.44,
       "pdfDrawnWidth": 48.03,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "widthOverride": 48,
+      "widthDecision": "Owner decision 2026-10-25: PDF drawn width 48 in governs over the 36 in schedule"
     }
   ],
   "doors": [
@@ -601,6 +605,16 @@
       "tag": "D2",
       "wall": "ff-front-bedroom-west",
       "at": 527
+    },
+    {
+      "level": 2,
+      "tag": "D-glazed (owner decision)",
+      "wall": "sf-balcony-return",
+      "at": 930,
+      "width": 30,
+      "height": 96,
+      "style": "glass",
+      "positionBasis": "Owner decision 2026-10-25: 30 in glazed door x 915..945 in onto the balcony, 96 in high, sill 0"
     }
   ],
   "passages": [

@@ -76,3 +76,17 @@ export const voidZonePatches=nodes=>[
  ...voidZoneIds.filter(id=>nodes[id]).map(id=>({op:'update',id,data:{hasFloor:false,hasCeiling:false}})),
  ...Object.values(nodes).filter(n=>n.parentId===secondFloorId&&n.type==='zone'&&n.autoFromWalls&&/^Room \d+$/.test(n.name)).map(z=>({op:'update',id:z.id,data:{name:'Roof terrace',hasFloor:false,hasCeiling:false,spaceRole:'generic',enclosureStatus:'open'}})),
 ];
+
+// ---- Owner decisions 2026-10-25 (idempotent; run with `node scripts/correct-second-floor.mjs decisions`) ----
+// Decision 2: W-17 in sf-bedroom-east widens 36 -> 48 in about the same centre (drawn z 387.3..435.3).
+const ownerDecisionW17='Owner decision 2026-10-25: PDF drawn width 48 in governs over the 36 in schedule';
+export function windowDecisionPatches(nodes){
+ const n=byKey(nodes,'windows-2-53');if(!n)throw Error('Missing W17 windows-2-53');
+ return [{op:'update',id:n.id,data:{width:inch(48),metadata:meta(n,'Bedroom east W-17 drawn 48 in (z 387.3..435.3) governs; schedule 36 in superseded',{widthOverride:48,widthDecision:ownerDecisionW17,widthBasis:'Owner decision 2026-10-25',ownerDecision:ownerDecisionW17})}}];
+}
+// Decision 5: 30 in glazed balcony door in sf-balcony-return at x 915..945 in (centre 930), 96 in high, sill 0.
+export const balconyDoor={sourceOpening:'doors-2-24',wallSourceName:'sf-balcony-return',centre:930,width:30,height:96,tag:'D-glazed (owner decision)',name:'D-glazed (owner decision) · SF',
+ decision:'Owner decision 2026-10-25: 30 in glazed door at x 915..945 in in sf-balcony-return, 96 in high (8 ft rule), sill 0, opening onto the balcony'};
+export const balconyDoorWall=nodes=>Object.values(nodes).find(n=>n.type==='wall'&&n.parentId===secondFloorId&&n.metadata?.sourceWall===balconyDoor.wallSourceName);
+export const balconyDoorNode=nodes=>byKey(nodes,balconyDoor.sourceOpening);
+export const balconyDoorMetadata=n=>({...n.metadata,sourceFile,sourceOpening:balconyDoor.sourceOpening,sourceTag:balconyDoor.tag,positionBasis:'Owner decision 2026-10-25',widthBasis:'Owner decision 2026-10-25',heightBasis:'Owner rule: 8 ft (96 in)',sourcePositionInches:balconyDoor.centre,operability:'Door swing to be checked',blueprintReview:review,correctionBasis:'Glazed door onto the maid balcony at x=915..945 in',ownerDecision:balconyDoor.decision});

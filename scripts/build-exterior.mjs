@@ -29,7 +29,7 @@ for(const [key,l,x0,z0,x1,z1]of guards)await object(key,key+' · glass guard',gu
 for(const [key,x,z,h,w,dp]of [['entry-left',514.5,702.8,356,9,15],['entry-right',673.5,702.8,356,9,15],['front-west',1,512.5,356,29,12]])await object('pier-'+key,'Facade '+key+' · traced stone bands',trimCode,{width:inch(w),height:inch(h),depth:inch(dp)},gf,x,0,z,0,'Vertical facade band traced from elevation; stone course spacing is a display assumption.');
 // Front decks already exist. Add the exterior approach risers shown in the plan.
 await slab('entry-step-6',gf,[[519,695.5],[669,695.5],[669,719.5],[519,719.5]],-12,6);
-await slab('entry-step-12',gf,[[519,683.5],[669,683.5],[669,707.5],[519,707.5]],-6,6);
+await slab('entry-step-12',gf,[[519,695.5],[669,695.5],[669,707.5],[519,707.5]],-6,6); // starts at the lowered podium front (owner decision 2026-10-25) so the +12 treads do not overlap coplanar
 }else if(stage==='boundary'){
  const points=JSON.parse(fs.readFileSync('src/588-site.json')).polygon.map(p=>p.map(v=>v/.0254));
  const rear=[0,3,7,11,15,19,23,27,31,35,40,44,48,52,56,60,61].map(i=>points[i]);

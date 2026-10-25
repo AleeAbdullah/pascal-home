@@ -17,7 +17,7 @@ export const source = {
 export const windowSchedule = {
   W1:[240,126,6],W2:[186,24,36],W3:[180,114,6],W4:[162,114,6],W5:[144,114,6],W6:[132,114,6],W7:[120,114,6],W8:[106,114,6],W9:[96,114,6],W10:[94,114,6],W11:[72,114,6],"W11'":[72,36,60],W12:[69,114,6],"W12'":[69,24,36],W13:[66,72,48],"W13'":[66,114,6],W14:[60,114,6],W15:[48,114,6],W16:[48,72,48],W17:[36,114,6],W18:[36,72,48],"W18'":[36,72,24],W19:[18,72,48],W20:[150,24,6],
 };
-export const doorSchedule = {D1:[60,288],D2:[42,120],"D2'":[42,96],D3:[36,120],"D3'":[36,96],D4:[30,120],"D4'":[30,96]};
+export const doorSchedule = {D1:[60,288],D2:[42,120],"D2'":[42,96],D3:[36,120],"D3'":[36,96],D4:[30,120],"D4'":[30,96],"D-glazed (owner decision)":[30,96]};
 const floorColor = '#dedbd3';
 const levels = [];
 function level(key,name,elevation,height){
@@ -43,7 +43,8 @@ V(g,'bath2-east',307.5,-4.5,208);
 V(g,'bed2-east',523.5,-4.5,208);
 V(g,'kitchen-east-upper',742.5,-4.5,68.25);
 H(g,'pantry-back',711.75,768.75,68.25,4.5);
-V(g,'pantry-west',711.75,68.25,163.75,4.5);
+// Owner decision 2026-10-25: the pantry opens to the open kitchen; the 4.5 in wall is a separator on the same line so the Pantry zone keeps its name.
+sep(g,'pantry-west',[711.75,68.25],[711.75,163.75]);
 V(g,'pantry-east',768.75,68.25,163.75,4.5);
 H(g,'pantry-front',711.75,742.5,163.75,4.5);
 sep(g,'pantry-entry',[742.5,163.75],[768.75,163.75]);
@@ -87,7 +88,9 @@ label(g,'Main staircase',519,281.5,669,444.5);
 g.voids.push(rect(438,329.5,510,563.5));
 slab(g,'Master sitting deck · +12″',[[0,512.5],[180,512.5],[180,662.5],[132,662.5],[132,572.5],[0,572.5]],-6,8.25);
 slab(g,'Lounge sitting deck · +12″',[[189,662.5],[429,662.5],[429,710.5],[189,710.5]],-6,8.25);
-slab(g,'Entrance podium · +18″',[[519,599.5],[669,599.5],[669,695.5],[519,695.5]],0,8.25);
+// Owner decision 2026-10-25: the podium steps down in two levels (+18″ to z 653.3, then +12″ to the front).
+slab(g,'Entrance podium · +18″',[[519,599.5],[669,599.5],[669,653.3],[519,653.3]],0,8.25);
+slab(g,'Entrance podium front · +12″',[[519,653.3],[669,653.3],[669,695.5],[519,695.5]],-6,8.25);
 slab(g,'Porch · +6″',[[678,635.5],[1055.5,635.5],[1055.5,710.5],[678,710.5]],-12,8.25);
 const f=level('ff','First floor · +14′-6″',174,158);
 H(f,'rear-left',-4.5,523.5,-4.5);
