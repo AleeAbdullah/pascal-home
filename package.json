@@ -16,7 +16,9 @@
     "mcp": "node scripts/pascal.mjs mcp connect",
     "present:build": "npm run build --prefix presentation",
     "present": "npm start --prefix presentation",
-    "present:test": "npm test --prefix presentation"
+    "present:test": "npm test --prefix presentation",
+    "patch:viewing": "node scripts/patch-pascal-viewing.mjs",
+    "patch:viewing:restore": "node scripts/patch-pascal-viewing.mjs --restore"
   },
   "dependencies": {
     "@pascal-app/cli": "1.0.6"
