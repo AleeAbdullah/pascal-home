@@ -12957,25 +12957,29 @@
         "zone_wc15jlwxzc3jn9v0",
         "slab_588_sf_store",
         "slab_588_sf_east",
-        "wall_50b2q0e0b627lqj1",
-        "wall_1d0rj2l4qr3cqdph",
-        "wall_yeyqoip6l9wjr9jj",
         "wall_d7csii8czdqhxa9x",
         "wall_g9ipy9of07vg5771",
         "wall_vjv0rzneossz91q0",
+        "wall_ss9cr9ruw684biah",
+        "wall_ajh7emjkx0cqdu03",
+        "wall_29n1fgis6lw0flq8",
+        "floor-opening_6iannrpnfuxc1udu",
+        "item_3vciyhqexs4kfoo9",
+        "item_tbronna6zj9mj0m1",
+        "slab_588_ext_spiral-upper-bridge",
+        "wall_fgnl3pmsfrffty96",
+        "wall_eixje46yqqzkxj43",
+        "item_y0mwm5mvj3zaseyw",
+        "wall_50b2q0e0b627lqj1",
+        "wall_1d0rj2l4qr3cqdph",
+        "wall_yeyqoip6l9wjr9jj",
         "wall_hpjyzx76qakgokst",
         "wall_ee72wi00xjla48vq",
         "wall_3fki0ax74cbf0a6h",
         "wall_12w8agllbv4vh2rs",
-        "wall_ss9cr9ruw684biah",
-        "wall_ajh7emjkx0cqdu03",
-        "wall_29n1fgis6lw0flq8",
         "wall_3qk60hj8qomucuvx",
-        "floor-opening_6iannrpnfuxc1udu",
-        "item_3vciyhqexs4kfoo9",
-        "item_tbronna6zj9mj0m1",
-        "item_y0mwm5mvj3zaseyw",
-        "slab_588_ext_spiral-upper-bridge"
+        "wall_588_sf_void_east_stub",
+        "zone_lci8s55pg6nuywy0"
       ],
       "level": 2,
       "baseElevation": 0,
@@ -13058,7 +13062,7 @@
         9.6393,
         5.1689
       ],
-      "frontSide": "exterior",
+      "frontSide": "interior",
       "backSide": "interior"
     },
     "wall_asc4042e35": {
@@ -13140,7 +13144,7 @@
         13.2969,
         5.1689
       ],
-      "frontSide": "exterior",
+      "frontSide": "interior",
       "backSide": "interior"
     },
     "wall_asd48f02fa": {
@@ -13404,12 +13408,14 @@
         "positionBasis": "dimension-chain grid; undimensioned returns traced from PDF",
         "sourceStart": [
           17.1069,
-          4.15925
+          4.21132
         ],
         "sourceEnd": [
           18.8595,
-          4.15925
-        ]
+          4.21132
+        ],
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Mumty front wall x 673.5..742.5 is 9 in, faces z=161.3 and 170.3 in (centre 165.8)"
       },
       "children": [
         "door_ahsxlx2ftdmxp8xj"
@@ -13418,17 +13424,17 @@
         "a": "scene:mat_cvmusa3ms3wea9le",
         "b": "scene:mat_cvmusa3ms3wea9le"
       },
-      "thickness": 0.1143,
+      "thickness": 0.2286,
       "height": 2.7432,
       "start": [
         17.1069,
-        4.15925
+        4.21132
       ],
       "end": [
         18.8595,
-        4.15925
+        4.21132
       ],
-      "frontSide": "exterior",
+      "frontSide": "interior",
       "backSide": "interior"
     },
     "wall_asc4e299dc": {
@@ -13468,7 +13474,7 @@
         18.8595,
         8.15975
       ],
-      "frontSide": "exterior",
+      "frontSide": "interior",
       "backSide": "interior"
     },
     "wall_as1f5bf406": {
@@ -13634,7 +13640,7 @@
         20.70735,
         11.176
       ],
-      "frontSide": "exterior",
+      "frontSide": "interior",
       "backSide": "interior"
     },
     "slab_as0b8b8246": {
@@ -13647,7 +13653,9 @@
       "metadata": {
         "authorScene": {
           "finish": "#dedbd3"
-        }
+        },
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "West roof terrace also covers x 429..519, z 272.5..320.5 in (stops at the shaft parapet and the stair-void west face; shaft void x 433.5..514.5, z 325..568 stays open)"
       },
       "slots": {
         "surface": "scene:mat_hep5xu1p95itnwz0"
@@ -13671,11 +13679,19 @@
         ],
         [
           13.4112,
-          6.9215
+          7.1501
+        ],
+        [
+          13.1826,
+          7.1501
+        ],
+        [
+          13.1826,
+          8.1407
         ],
         [
           10.8966,
-          6.9215
+          8.1407
         ],
         [
           10.8966,
@@ -13745,7 +13761,9 @@
       "metadata": {
         "authorScene": {
           "finish": "#dedbd3"
-        }
+        },
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "East circulation roof starts at z=170.5 in (floor hole outside mumty door D-3′) and ends at the stair-void south parapet face z=444.4 in"
       },
       "slots": {
         "surface": "scene:mat_hep5xu1p95itnwz0"
@@ -13753,19 +13771,19 @@
       "polygon": [
         [
           17.2212,
-          5.2832
+          4.3307
         ],
         [
           18.7452,
-          5.2832
+          4.3307
         ],
         [
           18.7452,
-          11.4046
+          11.28776
         ],
         [
           17.2212,
-          11.4046
+          11.28776
         ]
       ],
       "holes": [],
@@ -13786,7 +13804,9 @@
       "metadata": {
         "authorScene": {
           "finish": "#dedbd3"
-        }
+        },
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Front roof terrace north edge z=444.4 in (stair-void south parapet face)"
       },
       "slots": {
         "surface": "scene:mat_hep5xu1p95itnwz0"
@@ -13794,11 +13814,11 @@
       "polygon": [
         [
           13.1826,
-          11.4046
+          11.28776
         ],
         [
           18.7452,
-          11.4046
+          11.28776
         ],
         [
           18.7452,
@@ -20144,27 +20164,29 @@
         "positionBasis": "dimension-chain grid; undimensioned returns traced from PDF",
         "sourceStart": [
           23.6601,
-          4.15925
+          4.21386
         ],
         "sourceEnd": [
-          24.1173,
-          4.15925
-        ]
+          24.2316,
+          4.21386
+        ],
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Maid/bedroom-east end block x 936..954, z 161.4..170.4 in is 9 in"
       },
       "children": [],
       "slots": {
         "a": "scene:mat_cvmusa3ms3wea9le",
         "b": "scene:mat_cvmusa3ms3wea9le"
       },
-      "thickness": 0.1143,
+      "thickness": 0.2286,
       "height": 2.7432,
       "start": [
         23.6601,
-        4.15925
+        4.21386
       ],
       "end": [
-        24.1173,
-        4.15925
+        24.2316,
+        4.21386
       ],
       "frontSide": "exterior",
       "backSide": "interior"
@@ -20206,7 +20228,7 @@
         18.8595,
         11.176
       ],
-      "frontSide": "exterior",
+      "frontSide": "interior",
       "backSide": "interior"
     },
     "wall_588_sf_bedroom_east_1": {
@@ -20328,7 +20350,7 @@
         23.6601,
         11.176
       ],
-      "frontSide": "exterior",
+      "frontSide": "interior",
       "backSide": "interior"
     },
     "ceiling_7g7rmaqgqzt6grdu": {
@@ -22116,30 +22138,45 @@
       },
       "polygon": [
         [
-          11.1252,
-          8.3693
+          11.0109,
+          8.255
         ],
         [
-          12.954,
-          8.3693
+          13.0683,
+          8.255
         ],
         [
-          12.954,
-          14.3129
+          13.0683,
+          11.176
         ],
         [
-          11.1252,
-          14.3129
+          13.0683,
+          14.4272
+        ],
+        [
+          11.0109,
+          14.4272
         ]
       ],
       "holes": [],
-      "autoFromWalls": false,
-      "boundaryWallIds": [],
+      "autoFromWalls": true,
+      "boundaryWallIds": [
+        "wall_d7csii8czdqhxa9x",
+        "wall_eixje46yqqzkxj43",
+        "wall_fgnl3pmsfrffty96",
+        "wall_g9ipy9of07vg5771",
+        "wall_vjv0rzneossz91q0"
+      ],
       "boundarySeparatorIds": [],
+      "seed": [
+        12.039600000000002,
+        11.3411
+      ],
+      "hasFloor": false,
       "hasCeiling": false,
-      "spaceRole": "generic",
+      "spaceRole": "room",
       "roomNumber": "",
-      "enclosureStatus": "open",
+      "enclosureStatus": "enclosed",
       "floorFinish": "",
       "wallFinish": "",
       "ceilingFinish": "",
@@ -22161,30 +22198,44 @@
       },
       "polygon": [
         [
-          13.1826,
-          7.1501
+          13.0683,
+          7.0358
         ],
         [
-          16.9926,
-          7.1501
+          17.1069,
+          7.0358
         ],
         [
-          16.9926,
-          11.2903
+          17.1069,
+          11.176
         ],
         [
-          13.1826,
-          11.2903
+          13.0683,
+          11.176
+        ],
+        [
+          13.0683,
+          8.255
         ]
       ],
       "holes": [],
-      "autoFromWalls": false,
-      "boundaryWallIds": [],
+      "autoFromWalls": true,
+      "boundaryWallIds": [
+        "wall_29n1fgis6lw0flq8",
+        "wall_ajh7emjkx0cqdu03",
+        "wall_fgnl3pmsfrffty96",
+        "wall_ss9cr9ruw684biah"
+      ],
       "boundarySeparatorIds": [],
+      "seed": [
+        15.087600000000004,
+        9.1059
+      ],
+      "hasFloor": false,
       "hasCeiling": false,
-      "spaceRole": "generic",
+      "spaceRole": "room",
       "roomNumber": "",
-      "enclosureStatus": "open",
+      "enclosureStatus": "enclosed",
       "floorFinish": "",
       "wallFinish": "",
       "ceilingFinish": "",
@@ -22551,7 +22602,9 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "sourceTopInches": 0,
-        "sourceThicknessInches": 14
+        "sourceThicknessInches": 14,
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Construction floor corner block ends at z=170.4 in"
       },
       "slots": {
         "surface": "scene:mat_hep5xu1p95itnwz0"
@@ -22575,11 +22628,11 @@
         ],
         [
           24.2316,
-          4.2164
+          4.32816
         ],
         [
           23.7744,
-          4.2164
+          4.32816
         ],
         [
           23.7744,
@@ -28956,17 +29009,19 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "sourceOpening": "passages-2-12",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF vector trace",
+        "positionBasis": "PDF vector trace rechecked 2026-10-25",
+        "widthBasis": "PDF vector jamb-to-jamb trace",
         "heightBasis": "PDF high-sill exception",
-        "sourcePositionInches": 783,
-        "operability": "Door swing to be checked"
+        "sourcePositionInches": 784.4,
+        "operability": "Door swing to be checked",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Bedroom to walk-in closet opening jambs x=766.4..802.4 in (36 in); centre x=784.4 in"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        1.0287000000000006,
+        1.0642600000000009,
         1.2192,
         0
       ],
@@ -28977,7 +29032,7 @@
       ],
       "floorThresholdVersion": 1,
       "wallId": "wall_as9414707a",
-      "width": 1.0668,
+      "width": 0.9144,
       "height": 2.4384,
       "constructionType": "framed",
       "dimensionReference": "nominal",
@@ -29947,99 +30002,6 @@
       "cutsPrimary": true,
       "cutsAdjacent": true
     },
-    "wall_50b2q0e0b627lqj1": {
-      "object": "node",
-      "id": "wall_50b2q0e0b627lqj1",
-      "type": "wall",
-      "name": "Roof parapet · section level +31′-2″",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "sourceParapet": "parapet-0",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
-        "positionBasis": "PDF wall-face grid and vector trace"
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 1.0668,
-      "start": [
-        9.6393,
-        -0.1143
-      ],
-      "end": [
-        -0.1143,
-        -0.1143
-      ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
-    },
-    "wall_1d0rj2l4qr3cqdph": {
-      "object": "node",
-      "id": "wall_1d0rj2l4qr3cqdph",
-      "type": "wall",
-      "name": "Roof parapet · section level +31′-2″",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "sourceParapet": "parapet-1",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
-        "positionBasis": "PDF wall-face grid and vector trace"
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 1.0668,
-      "start": [
-        -0.1143,
-        -0.1143
-      ],
-      "end": [
-        -0.1143,
-        14.4272
-      ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
-    },
-    "wall_yeyqoip6l9wjr9jj": {
-      "object": "node",
-      "id": "wall_yeyqoip6l9wjr9jj",
-      "type": "wall",
-      "name": "Roof parapet · section level +31′-2″",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "sourceParapet": "parapet-2",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
-        "positionBasis": "PDF wall-face grid and vector trace"
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 1.0668,
-      "start": [
-        -0.1143,
-        14.4272
-      ],
-      "end": [
-        11.0109,
-        14.4272
-      ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
-    },
     "wall_d7csii8czdqhxa9x": {
       "object": "node",
       "id": "wall_d7csii8czdqhxa9x",
@@ -30068,8 +30030,8 @@
         11.0109,
         8.255
       ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
+      "frontSide": "interior",
+      "backSide": "interior"
     },
     "wall_g9ipy9of07vg5771": {
       "object": "node",
@@ -30099,8 +30061,8 @@
         13.0683,
         8.255
       ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
+      "frontSide": "interior",
+      "backSide": "interior"
     },
     "wall_vjv0rzneossz91q0": {
       "object": "node",
@@ -30130,132 +30092,8 @@
         13.0683,
         15.113
       ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
-    },
-    "wall_hpjyzx76qakgokst": {
-      "object": "node",
-      "id": "wall_hpjyzx76qakgokst",
-      "type": "wall",
-      "name": "Roof parapet · section level +31′-2″",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "sourceParapet": "parapet-6",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
-        "positionBasis": "PDF wall-face grid and vector trace"
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 1.0668,
-      "start": [
-        13.0683,
-        15.113
-      ],
-      "end": [
-        17.1069,
-        15.113
-      ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
-    },
-    "wall_ee72wi00xjla48vq": {
-      "object": "node",
-      "id": "wall_ee72wi00xjla48vq",
-      "type": "wall",
-      "name": "Roof parapet · section level +31′-2″",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "sourceParapet": "parapet-7",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
-        "positionBasis": "PDF wall-face grid and vector trace"
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 1.0668,
-      "start": [
-        17.1069,
-        15.113
-      ],
-      "end": [
-        17.1069,
-        16.0274
-      ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
-    },
-    "wall_3fki0ax74cbf0a6h": {
-      "object": "node",
-      "id": "wall_3fki0ax74cbf0a6h",
-      "type": "wall",
-      "name": "Roof parapet · section level +31′-2″",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "sourceParapet": "parapet-8",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
-        "positionBasis": "PDF wall-face grid and vector trace"
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 1.0668,
-      "start": [
-        17.1069,
-        16.0274
-      ],
-      "end": [
-        23.6601,
-        16.0274
-      ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
-    },
-    "wall_12w8agllbv4vh2rs": {
-      "object": "node",
-      "id": "wall_12w8agllbv4vh2rs",
-      "type": "wall",
-      "name": "Roof parapet · section level +31′-2″",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "sourceParapet": "parapet-9",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
-        "positionBasis": "PDF wall-face grid and vector trace"
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 1.0668,
-      "start": [
-        23.6601,
-        16.0274
-      ],
-      "end": [
-        23.6601,
-        11.176
-      ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
+      "frontSide": "interior",
+      "backSide": "interior"
     },
     "wall_ss9cr9ruw684biah": {
       "object": "node",
@@ -30285,8 +30123,8 @@
         17.1069,
         7.0358
       ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
+      "frontSide": "interior",
+      "backSide": "interior"
     },
     "wall_ajh7emjkx0cqdu03": {
       "object": "node",
@@ -30316,8 +30154,8 @@
         17.1069,
         11.176
       ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
+      "frontSide": "interior",
+      "backSide": "interior"
     },
     "wall_29n1fgis6lw0flq8": {
       "object": "node",
@@ -30347,39 +30185,8 @@
         13.0683,
         11.176
       ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
-    },
-    "wall_3qk60hj8qomucuvx": {
-      "object": "node",
-      "id": "wall_3qk60hj8qomucuvx",
-      "type": "wall",
-      "name": "Roof parapet · section level +31′-2″",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "sourceParapet": "parapet-13",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
-        "positionBasis": "PDF wall-face grid and vector trace"
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 1.0668,
-      "start": [
-        13.2969,
-        5.2832
-      ],
-      "end": [
-        17.1069,
-        5.2832
-      ],
-      "frontSide": "unknown",
-      "backSide": "unknown"
+      "frontSide": "interior",
+      "backSide": "interior"
     },
     "window_lskoqdjkx5rtqdsj": {
       "object": "node",
@@ -40452,714 +40259,6 @@
         ],
         "surface": {
           "height": 1.83
-        },
-        "interactive": {
-          "controls": [
-            {
-              "kind": "toggle",
-              "label": "Open",
-              "default": false
-            }
-          ],
-          "effects": [
-            {
-              "kind": "animation",
-              "mode": "open-close",
-              "control": 0,
-              "clips": {
-                "on": "open"
-              }
-            }
-          ]
-        }
-      }
-    },
-    "item_y0mwm5mvj3zaseyw": {
-      "object": "node",
-      "id": "item_y0mwm5mvj3zaseyw",
-      "type": "item",
-      "name": "Overhead water tank · 7′ × 7′ × 4′",
-      "parentId": "level_as503aa07d",
-      "visible": true,
-      "metadata": {
-        "reason": "Reconstruct the governing PDF exterior; preserve traced and assumed dimensions as editable parameters.",
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "undimensioned": "PDF trace or explicitly labeled owner-authorized assumption; not surveyed or engineered",
-        "exteriorKey": "overhead-tank",
-        "dimensionBasis": "84×84×48 inch clear tank; 6 inch RCC walls/base/cover. 21 inch supports assumed to preserve elevation top +34 ft 5 in. Position traced."
-      },
-      "position": [
-        7.7724,
-        0,
-        0.9906
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ],
-      "children": [],
-      "slots": {
-        "concrete": "library:preset-greige",
-        "metal": "library:metal-steel"
-      },
-      "source": {
-        "kind": "script",
-        "meta": {
-          "description": "84×84×48 inch clear tank; 6 inch RCC walls/base/cover. 21 inch supports assumed to preserve elevation top +34 ft 5 in. Position traced."
-        },
-        "language": "three",
-        "script": "8dc40bd5506c30e797cb90e2cda9640c1e5de1ab6c198213ece8729b024ff3ec",
-        "params": {
-          "width": 2.1336,
-          "depth": 2.1336,
-          "clearHeight": 1.2192,
-          "wall": 0.1524,
-          "base": 0.1524,
-          "cover": 0.1524,
-          "support": 0.5334,
-          "chambers": 1
-        },
-        "artifact": "8f70438c2e3932f7bcdcc3d545efdce0af6903b5e08481ccf5c25322cce10aca",
-        "manifest": {
-          "bounds": {
-            "min": [
-              -1.4418,
-              0,
-              -1.2192
-            ],
-            "max": [
-              1.4418,
-              2.0924,
-              1.2192
-            ]
-          },
-          "params": [
-            {
-              "id": "width",
-              "kind": "number",
-              "default": 2.1336,
-              "min": 0,
-              "max": 50,
-              "step": 0.001
-            },
-            {
-              "id": "depth",
-              "kind": "number",
-              "default": 2.1336,
-              "min": 0,
-              "max": 50,
-              "step": 0.001
-            },
-            {
-              "id": "clearHeight",
-              "kind": "number",
-              "default": 1.2192,
-              "min": 0,
-              "max": 50,
-              "step": 0.001
-            },
-            {
-              "id": "wall",
-              "kind": "number",
-              "default": 0.1524,
-              "min": 0,
-              "max": 50,
-              "step": 0.001
-            },
-            {
-              "id": "base",
-              "kind": "number",
-              "default": 0.1524,
-              "min": 0,
-              "max": 50,
-              "step": 0.001
-            },
-            {
-              "id": "cover",
-              "kind": "number",
-              "default": 0.1524,
-              "min": 0,
-              "max": 50,
-              "step": 0.001
-            },
-            {
-              "id": "support",
-              "kind": "number",
-              "default": 0.5334,
-              "min": 0,
-              "max": 50,
-              "step": 0.001
-            },
-            {
-              "id": "chambers",
-              "kind": "number",
-              "default": 1,
-              "min": 0,
-              "max": 50,
-              "step": 0.001
-            }
-          ],
-          "parts": [
-            {
-              "id": "tank_shell",
-              "bounds": {
-                "min": [
-                  -1.4418,
-                  0.5334,
-                  -1.2192
-                ],
-                "max": [
-                  1.4418,
-                  1.905,
-                  1.2192
-                ]
-              }
-            },
-            {
-              "id": "removable_cover",
-              "bounds": {
-                "min": [
-                  -1.2192,
-                  1.905,
-                  -1.2192
-                ],
-                "max": [
-                  1.2192,
-                  2.0924,
-                  1.2192
-                ]
-              }
-            },
-            {
-              "id": "supports",
-              "bounds": {
-                "min": [
-                  -1.1818,
-                  0,
-                  -1.0668
-                ],
-                "max": [
-                  1.1818,
-                  0.5334,
-                  1.0668
-                ]
-              }
-            }
-          ],
-          "surfaces": [
-            {
-              "part": "tank_shell",
-              "y": 0.69,
-              "polygon": [
-                [
-                  -1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  1.219
-                ],
-                [
-                  -1.219,
-                  1.219
-                ]
-              ]
-            },
-            {
-              "part": "removable_cover",
-              "y": 2.06,
-              "polygon": [
-                [
-                  -1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  1.219
-                ],
-                [
-                  -1.219,
-                  1.219
-                ]
-              ]
-            },
-            {
-              "part": "supports",
-              "y": 0.53,
-              "polygon": [
-                [
-                  -1.182,
-                  -1.067
-                ],
-                [
-                  -0.952,
-                  -1.067
-                ],
-                [
-                  -0.952,
-                  1.067
-                ],
-                [
-                  -1.182,
-                  1.067
-                ]
-              ]
-            },
-            {
-              "part": "supports",
-              "y": 0.53,
-              "polygon": [
-                [
-                  0.952,
-                  -1.067
-                ],
-                [
-                  1.182,
-                  -1.067
-                ],
-                [
-                  1.182,
-                  1.067
-                ],
-                [
-                  0.952,
-                  1.067
-                ]
-              ]
-            },
-            {
-              "part": "tank_shell",
-              "y": 1.91,
-              "polygon": [
-                [
-                  -1.219,
-                  -1.219
-                ],
-                [
-                  -1.067,
-                  -1.219
-                ],
-                [
-                  -1.067,
-                  1.219
-                ],
-                [
-                  -1.219,
-                  1.219
-                ]
-              ]
-            },
-            {
-              "part": "tank_shell",
-              "y": 1.91,
-              "polygon": [
-                [
-                  1.067,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  1.219
-                ],
-                [
-                  1.067,
-                  1.219
-                ]
-              ]
-            },
-            {
-              "part": "tank_shell",
-              "y": 1.91,
-              "polygon": [
-                [
-                  -1.067,
-                  -1.219
-                ],
-                [
-                  1.067,
-                  -1.219
-                ],
-                [
-                  1.067,
-                  -1.067
-                ],
-                [
-                  -1.067,
-                  -1.067
-                ]
-              ]
-            },
-            {
-              "part": "tank_shell",
-              "y": 1.91,
-              "polygon": [
-                [
-                  -1.067,
-                  1.067
-                ],
-                [
-                  1.067,
-                  1.067
-                ],
-                [
-                  1.067,
-                  1.219
-                ],
-                [
-                  -1.067,
-                  1.219
-                ]
-              ]
-            },
-            {
-              "part": "removable_cover",
-              "y": 2.09,
-              "polygon": [
-                [
-                  0.507,
-                  0.507
-                ],
-                [
-                  0.987,
-                  0.507
-                ],
-                [
-                  0.987,
-                  0.987
-                ],
-                [
-                  0.507,
-                  0.987
-                ]
-              ]
-            }
-          ],
-          "slots": [
-            {
-              "id": "concrete",
-              "label": "concrete",
-              "color": "#cecac0",
-              "roughness": 0.65,
-              "metalness": 0,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "metal",
-              "label": "metal",
-              "color": "#282c2b",
-              "roughness": 0.65,
-              "metalness": 0.65,
-              "transparent": false,
-              "emissive": false
-            }
-          ],
-          "anchors": [],
-          "lights": [],
-          "undersides": [
-            {
-              "part": "tank_shell",
-              "polygon": [
-                [
-                  -1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  1.219
-                ],
-                [
-                  -1.219,
-                  1.219
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0.5334
-              ]
-            },
-            {
-              "part": "removable_cover",
-              "polygon": [
-                [
-                  -1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  1.219
-                ],
-                [
-                  -1.219,
-                  1.219
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                1.905
-              ]
-            },
-            {
-              "part": "supports",
-              "polygon": [
-                [
-                  -1.182,
-                  -1.067
-                ],
-                [
-                  -0.952,
-                  -1.067
-                ],
-                [
-                  -0.952,
-                  1.067
-                ],
-                [
-                  -1.182,
-                  1.067
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0
-              ]
-            },
-            {
-              "part": "supports",
-              "polygon": [
-                [
-                  0.952,
-                  -1.067
-                ],
-                [
-                  1.182,
-                  -1.067
-                ],
-                [
-                  1.182,
-                  1.067
-                ],
-                [
-                  0.952,
-                  1.067
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0
-              ]
-            },
-            {
-              "part": "tank_shell",
-              "polygon": [
-                [
-                  -1.219,
-                  -1.219
-                ],
-                [
-                  -1.067,
-                  -1.219
-                ],
-                [
-                  -1.067,
-                  1.219
-                ],
-                [
-                  -1.219,
-                  1.219
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0.6858
-              ]
-            },
-            {
-              "part": "tank_shell",
-              "polygon": [
-                [
-                  1.067,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  -1.219
-                ],
-                [
-                  1.219,
-                  1.219
-                ],
-                [
-                  1.067,
-                  1.219
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0.6858
-              ]
-            },
-            {
-              "part": "tank_shell",
-              "polygon": [
-                [
-                  -1.067,
-                  -1.219
-                ],
-                [
-                  1.067,
-                  -1.219
-                ],
-                [
-                  1.067,
-                  -1.067
-                ],
-                [
-                  -1.067,
-                  -1.067
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0.6858
-              ]
-            },
-            {
-              "part": "tank_shell",
-              "polygon": [
-                [
-                  -1.067,
-                  1.067
-                ],
-                [
-                  1.067,
-                  1.067
-                ],
-                [
-                  1.067,
-                  1.219
-                ],
-                [
-                  -1.067,
-                  1.219
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0.6858
-              ]
-            },
-            {
-              "part": "removable_cover",
-              "polygon": [
-                [
-                  0.507,
-                  0.507
-                ],
-                [
-                  0.987,
-                  0.507
-                ],
-                [
-                  0.987,
-                  0.987
-                ],
-                [
-                  0.507,
-                  0.987
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                2.0574
-              ]
-            }
-          ],
-          "animations": [
-            {
-              "name": "open",
-              "duration": 1
-            }
-          ],
-          "cutters": [],
-          "cutout": false,
-          "collider": false,
-          "triangles": 204
-        }
-      },
-      "asset": {
-        "id": "script_8f70438c2e3932f7",
-        "category": "architectural detail",
-        "name": "Overhead water tank · 7′ × 7′ × 4′",
-        "thumbnail": "",
-        "source": "mine",
-        "src": "artifact://8f70438c2e3932f7bcdcc3d545efdce0af6903b5e08481ccf5c25322cce10aca",
-        "dimensions": [
-          2.8836,
-          2.0924,
-          2.4384
-        ],
-        "offset": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ],
-        "surface": {
-          "height": 2.06
         },
         "interactive": {
           "controls": [
@@ -160847,6 +159946,1220 @@
           "height": 0.47
         }
       }
+    },
+    "wall_fgnl3pmsfrffty96": {
+      "object": "node",
+      "id": "wall_fgnl3pmsfrffty96",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace",
+        "sourceParapet": "parapet-14",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Stair-void/shaft west parapet runs continuously x=510..519, z=272.4..572.3 in; z 277..440 was missing"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        13.0683,
+        7.0358
+      ],
+      "end": [
+        13.0683,
+        11.176
+      ],
+      "frontSide": "interior",
+      "backSide": "interior"
+    },
+    "wall_eixje46yqqzkxj43": {
+      "object": "node",
+      "id": "wall_eixje46yqqzkxj43",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace",
+        "sourceParapet": "parapet-15",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Shaft south parapet z=563.3..572.3 in closes x 429..519; was missing east of x=438"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        11.0109,
+        14.4272
+      ],
+      "end": [
+        13.0683,
+        14.4272
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "item_y0mwm5mvj3zaseyw": {
+      "object": "node",
+      "id": "item_y0mwm5mvj3zaseyw",
+      "type": "item",
+      "name": "Overhead water tank · 7′ × 7′ × 4′",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "reason": "Reconstruct the governing PDF exterior; preserve traced and assumed dimensions as editable parameters.",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "undimensioned": "PDF trace or explicitly labeled owner-authorized assumption; not surveyed or engineered",
+        "exteriorKey": "overhead-tank",
+        "dimensionBasis": "84×84×48 inch clear tank; 6 inch RCC walls/base/cover. 21 inch supports assumed to preserve elevation top +34 ft 5 in. Position traced.",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Tank centre (249, 42) in and 9 in RCC walls traced from the O.H.W.T outline; height and top level unchanged"
+      },
+      "position": [
+        6.3246,
+        0,
+        1.0668
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [],
+      "slots": {
+        "concrete": "library:preset-greige",
+        "metal": "library:metal-steel"
+      },
+      "source": {
+        "kind": "script",
+        "meta": {
+          "description": "84×84×48 inch clear tank; 6 inch RCC walls/base/cover. 21 inch supports assumed to preserve elevation top +34 ft 5 in. Position traced."
+        },
+        "language": "three",
+        "script": "8dc40bd5506c30e797cb90e2cda9640c1e5de1ab6c198213ece8729b024ff3ec",
+        "params": {
+          "width": 2.1336,
+          "depth": 2.1336,
+          "clearHeight": 1.2192,
+          "wall": 0.2286,
+          "base": 0.1524,
+          "cover": 0.1524,
+          "support": 0.5334,
+          "chambers": 1
+        },
+        "artifact": "c51ca69ce9dfb9fd79c2dab1004098bfbd9caed47c7a0f3b6aea82cbcd0d0049",
+        "manifest": {
+          "bounds": {
+            "min": [
+              -1.4418,
+              0,
+              -1.2954
+            ],
+            "max": [
+              1.4418,
+              2.0924,
+              1.2954
+            ]
+          },
+          "params": [
+            {
+              "id": "width",
+              "kind": "number",
+              "default": 2.1336,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "depth",
+              "kind": "number",
+              "default": 2.1336,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "clearHeight",
+              "kind": "number",
+              "default": 1.2192,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "wall",
+              "kind": "number",
+              "default": 0.1524,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "base",
+              "kind": "number",
+              "default": 0.1524,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "cover",
+              "kind": "number",
+              "default": 0.1524,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "support",
+              "kind": "number",
+              "default": 0.5334,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "chambers",
+              "kind": "number",
+              "default": 1,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            }
+          ],
+          "parts": [
+            {
+              "id": "tank_shell",
+              "bounds": {
+                "min": [
+                  -1.4418,
+                  0.5334,
+                  -1.2954
+                ],
+                "max": [
+                  1.4418,
+                  1.905,
+                  1.2954
+                ]
+              }
+            },
+            {
+              "id": "removable_cover",
+              "bounds": {
+                "min": [
+                  -1.2954,
+                  1.905,
+                  -1.2954
+                ],
+                "max": [
+                  1.2954,
+                  2.0924,
+                  1.2954
+                ]
+              }
+            },
+            {
+              "id": "supports",
+              "bounds": {
+                "min": [
+                  -1.1818,
+                  0,
+                  -1.0668
+                ],
+                "max": [
+                  1.1818,
+                  0.5334,
+                  1.0668
+                ]
+              }
+            }
+          ],
+          "surfaces": [
+            {
+              "part": "tank_shell",
+              "y": 0.69,
+              "polygon": [
+                [
+                  -1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  1.295
+                ],
+                [
+                  -1.295,
+                  1.295
+                ]
+              ]
+            },
+            {
+              "part": "removable_cover",
+              "y": 2.06,
+              "polygon": [
+                [
+                  -1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  1.295
+                ],
+                [
+                  -1.295,
+                  1.295
+                ]
+              ]
+            },
+            {
+              "part": "tank_shell",
+              "y": 1.91,
+              "polygon": [
+                [
+                  -1.295,
+                  -1.295
+                ],
+                [
+                  -1.067,
+                  -1.295
+                ],
+                [
+                  -1.067,
+                  1.295
+                ],
+                [
+                  -1.295,
+                  1.295
+                ]
+              ]
+            },
+            {
+              "part": "tank_shell",
+              "y": 1.91,
+              "polygon": [
+                [
+                  1.067,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  1.295
+                ],
+                [
+                  1.067,
+                  1.295
+                ]
+              ]
+            },
+            {
+              "part": "supports",
+              "y": 0.53,
+              "polygon": [
+                [
+                  -1.182,
+                  -1.067
+                ],
+                [
+                  -0.952,
+                  -1.067
+                ],
+                [
+                  -0.952,
+                  1.067
+                ],
+                [
+                  -1.182,
+                  1.067
+                ]
+              ]
+            },
+            {
+              "part": "supports",
+              "y": 0.53,
+              "polygon": [
+                [
+                  0.952,
+                  -1.067
+                ],
+                [
+                  1.182,
+                  -1.067
+                ],
+                [
+                  1.182,
+                  1.067
+                ],
+                [
+                  0.952,
+                  1.067
+                ]
+              ]
+            },
+            {
+              "part": "tank_shell",
+              "y": 1.91,
+              "polygon": [
+                [
+                  -1.067,
+                  -1.295
+                ],
+                [
+                  1.067,
+                  -1.295
+                ],
+                [
+                  1.067,
+                  -1.067
+                ],
+                [
+                  -1.067,
+                  -1.067
+                ]
+              ]
+            },
+            {
+              "part": "tank_shell",
+              "y": 1.91,
+              "polygon": [
+                [
+                  -1.067,
+                  1.067
+                ],
+                [
+                  1.067,
+                  1.067
+                ],
+                [
+                  1.067,
+                  1.295
+                ],
+                [
+                  -1.067,
+                  1.295
+                ]
+              ]
+            },
+            {
+              "part": "removable_cover",
+              "y": 2.09,
+              "polygon": [
+                [
+                  0.507,
+                  0.507
+                ],
+                [
+                  0.987,
+                  0.507
+                ],
+                [
+                  0.987,
+                  0.987
+                ],
+                [
+                  0.507,
+                  0.987
+                ]
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "id": "concrete",
+              "label": "concrete",
+              "color": "#cecac0",
+              "roughness": 0.65,
+              "metalness": 0,
+              "transparent": false,
+              "emissive": false
+            },
+            {
+              "id": "metal",
+              "label": "metal",
+              "color": "#282c2b",
+              "roughness": 0.65,
+              "metalness": 0.65,
+              "transparent": false,
+              "emissive": false
+            }
+          ],
+          "anchors": [],
+          "lights": [],
+          "undersides": [
+            {
+              "part": "tank_shell",
+              "polygon": [
+                [
+                  -1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  1.295
+                ],
+                [
+                  -1.295,
+                  1.295
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0.5334
+              ]
+            },
+            {
+              "part": "removable_cover",
+              "polygon": [
+                [
+                  -1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  1.295
+                ],
+                [
+                  -1.295,
+                  1.295
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                1.905
+              ]
+            },
+            {
+              "part": "tank_shell",
+              "polygon": [
+                [
+                  -1.295,
+                  -1.295
+                ],
+                [
+                  -1.067,
+                  -1.295
+                ],
+                [
+                  -1.067,
+                  1.295
+                ],
+                [
+                  -1.295,
+                  1.295
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0.6858
+              ]
+            },
+            {
+              "part": "tank_shell",
+              "polygon": [
+                [
+                  1.067,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  -1.295
+                ],
+                [
+                  1.295,
+                  1.295
+                ],
+                [
+                  1.067,
+                  1.295
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0.6858
+              ]
+            },
+            {
+              "part": "supports",
+              "polygon": [
+                [
+                  -1.182,
+                  -1.067
+                ],
+                [
+                  -0.952,
+                  -1.067
+                ],
+                [
+                  -0.952,
+                  1.067
+                ],
+                [
+                  -1.182,
+                  1.067
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "part": "supports",
+              "polygon": [
+                [
+                  0.952,
+                  -1.067
+                ],
+                [
+                  1.182,
+                  -1.067
+                ],
+                [
+                  1.182,
+                  1.067
+                ],
+                [
+                  0.952,
+                  1.067
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "part": "tank_shell",
+              "polygon": [
+                [
+                  -1.067,
+                  -1.295
+                ],
+                [
+                  1.067,
+                  -1.295
+                ],
+                [
+                  1.067,
+                  -1.067
+                ],
+                [
+                  -1.067,
+                  -1.067
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0.6858
+              ]
+            },
+            {
+              "part": "tank_shell",
+              "polygon": [
+                [
+                  -1.067,
+                  1.067
+                ],
+                [
+                  1.067,
+                  1.067
+                ],
+                [
+                  1.067,
+                  1.295
+                ],
+                [
+                  -1.067,
+                  1.295
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0.6858
+              ]
+            },
+            {
+              "part": "removable_cover",
+              "polygon": [
+                [
+                  0.507,
+                  0.507
+                ],
+                [
+                  0.987,
+                  0.507
+                ],
+                [
+                  0.987,
+                  0.987
+                ],
+                [
+                  0.507,
+                  0.987
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                2.0574
+              ]
+            }
+          ],
+          "animations": [
+            {
+              "name": "open",
+              "duration": 1
+            }
+          ],
+          "cutters": [],
+          "cutout": false,
+          "collider": false,
+          "triangles": 204
+        }
+      },
+      "asset": {
+        "id": "script_c51ca69ce9dfb9fd",
+        "category": "architectural detail",
+        "name": "Overhead water tank · 7′ × 7′ × 4′",
+        "thumbnail": "",
+        "source": "mine",
+        "src": "artifact://c51ca69ce9dfb9fd79c2dab1004098bfbd9caed47c7a0f3b6aea82cbcd0d0049",
+        "dimensions": [
+          2.8836,
+          2.0924,
+          2.5908
+        ],
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "surface": {
+          "height": 2.06
+        },
+        "interactive": {
+          "controls": [
+            {
+              "kind": "toggle",
+              "label": "Open",
+              "default": false
+            }
+          ],
+          "effects": [
+            {
+              "kind": "animation",
+              "mode": "open-close",
+              "control": 0,
+              "clips": {
+                "on": "open"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "wall_50b2q0e0b627lqj1": {
+      "object": "node",
+      "id": "wall_50b2q0e0b627lqj1",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceParapet": "parapet-0",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        9.6393,
+        -0.1143
+      ],
+      "end": [
+        -0.1143,
+        -0.1143
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "wall_1d0rj2l4qr3cqdph": {
+      "object": "node",
+      "id": "wall_1d0rj2l4qr3cqdph",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceParapet": "parapet-1",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        -0.1143,
+        -0.1143
+      ],
+      "end": [
+        -0.1143,
+        14.4272
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "wall_yeyqoip6l9wjr9jj": {
+      "object": "node",
+      "id": "wall_yeyqoip6l9wjr9jj",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceParapet": "parapet-2",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        -0.1143,
+        14.4272
+      ],
+      "end": [
+        11.0109,
+        14.4272
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "wall_hpjyzx76qakgokst": {
+      "object": "node",
+      "id": "wall_hpjyzx76qakgokst",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceParapet": "parapet-6",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        13.0683,
+        15.113
+      ],
+      "end": [
+        17.1069,
+        15.113
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "wall_ee72wi00xjla48vq": {
+      "object": "node",
+      "id": "wall_ee72wi00xjla48vq",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceParapet": "parapet-7",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        17.1069,
+        15.113
+      ],
+      "end": [
+        17.1069,
+        16.0274
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "wall_3fki0ax74cbf0a6h": {
+      "object": "node",
+      "id": "wall_3fki0ax74cbf0a6h",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceParapet": "parapet-8",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        17.1069,
+        16.0274
+      ],
+      "end": [
+        23.6601,
+        16.0274
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "wall_12w8agllbv4vh2rs": {
+      "object": "node",
+      "id": "wall_12w8agllbv4vh2rs",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceParapet": "parapet-9",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        23.6601,
+        16.0274
+      ],
+      "end": [
+        23.6601,
+        11.176
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "wall_3qk60hj8qomucuvx": {
+      "object": "node",
+      "id": "wall_3qk60hj8qomucuvx",
+      "type": "wall",
+      "name": "Roof parapet · section level +31′-2″",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceParapet": "parapet-13",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "heightBasis": "Owner-delegated conflict resolution: 42 inch difference between section levels",
+        "positionBasis": "PDF wall-face grid and vector trace"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        13.2969,
+        5.2832
+      ],
+      "end": [
+        17.1069,
+        5.2832
+      ],
+      "frontSide": "interior",
+      "backSide": "exterior"
+    },
+    "wall_588_sf_void_east_stub": {
+      "object": "node",
+      "id": "wall_588_sf_void_east_stub",
+      "type": "wall",
+      "name": "sf-void-east-stub",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sheet": 1,
+        "plan": "sf",
+        "sourceWall": "void-east-stub",
+        "positionBasis": "PDF vector trace; continues sf-mumty-west to the void front parapet",
+        "heightBasis": "Built at the 42 in void-edge parapet height; the drawing shows 9 in wall lines, so owner may want the full 108 in",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Rear void east edge x=669..678, z=163.75..208 in continues sf-mumty-west; the edge was open between z 168.8 and 203.5"
+      },
+      "children": [],
+      "slots": {
+        "a": "scene:mat_cvmusa3ms3wea9le",
+        "b": "scene:mat_cvmusa3ms3wea9le"
+      },
+      "thickness": 0.2286,
+      "height": 1.0668,
+      "start": [
+        17.1069,
+        4.15925
+      ],
+      "end": [
+        17.1069,
+        5.2832
+      ],
+      "frontSide": "exterior",
+      "backSide": "interior"
+    },
+    "zone_lci8s55pg6nuywy0": {
+      "object": "node",
+      "id": "zone_lci8s55pg6nuywy0",
+      "type": "zone",
+      "name": "Roof terrace",
+      "parentId": "level_as503aa07d",
+      "visible": true,
+      "metadata": {},
+      "polygon": [
+        [
+          -0.1143,
+          -0.1143
+        ],
+        [
+          9.6393,
+          -0.1143
+        ],
+        [
+          9.6393,
+          5.1689
+        ],
+        [
+          13.2969,
+          5.1689
+        ],
+        [
+          17.1069,
+          5.2832
+        ],
+        [
+          17.1069,
+          4.15925
+        ],
+        [
+          18.8595,
+          4.15925
+        ],
+        [
+          18.8595,
+          8.15975
+        ],
+        [
+          18.8595,
+          11.176
+        ],
+        [
+          20.70735,
+          11.176
+        ],
+        [
+          23.6601,
+          11.176
+        ],
+        [
+          23.6601,
+          16.0274
+        ],
+        [
+          17.1069,
+          16.0274
+        ],
+        [
+          17.1069,
+          15.113
+        ],
+        [
+          13.0683,
+          15.113
+        ],
+        [
+          13.0683,
+          14.4272
+        ],
+        [
+          13.0683,
+          11.176
+        ],
+        [
+          17.1069,
+          11.176
+        ],
+        [
+          17.1069,
+          7.0358
+        ],
+        [
+          13.0683,
+          7.0358
+        ],
+        [
+          13.0683,
+          8.255
+        ],
+        [
+          11.0109,
+          8.255
+        ],
+        [
+          11.0109,
+          14.4272
+        ],
+        [
+          -0.1143,
+          14.4272
+        ]
+      ],
+      "holes": [],
+      "autoFromWalls": true,
+      "boundaryWallIds": [
+        "wall_12w8agllbv4vh2rs",
+        "wall_1d0rj2l4qr3cqdph",
+        "wall_29n1fgis6lw0flq8",
+        "wall_3fki0ax74cbf0a6h",
+        "wall_3qk60hj8qomucuvx",
+        "wall_50b2q0e0b627lqj1",
+        "wall_588_sf_bath_front_1",
+        "wall_588_sf_bedroom_west_1",
+        "wall_588_sf_void_east_stub",
+        "wall_ajh7emjkx0cqdu03",
+        "wall_as0e9642f7",
+        "wall_as13dc21bf",
+        "wall_as5bb0a21f",
+        "wall_as693d64ae",
+        "wall_asc4e299dc",
+        "wall_d7csii8czdqhxa9x",
+        "wall_ee72wi00xjla48vq",
+        "wall_fgnl3pmsfrffty96",
+        "wall_g9ipy9of07vg5771",
+        "wall_hpjyzx76qakgokst",
+        "wall_ss9cr9ruw684biah",
+        "wall_vjv0rzneossz91q0",
+        "wall_yeyqoip6l9wjr9jj"
+      ],
+      "boundarySeparatorIds": [],
+      "seed": [
+        9.213389783650024,
+        8.600868071626834
+      ],
+      "floor": {
+        "sourceSlabId": "slab_588_sf_east",
+        "finish": "scene:mat_hep5xu1p95itnwz0"
+      },
+      "hasFloor": false,
+      "hasCeiling": false,
+      "spaceRole": "room",
+      "roomNumber": "",
+      "enclosureStatus": "enclosed",
+      "floorFinish": "",
+      "wallFinish": "",
+      "ceilingFinish": "",
+      "ceilingHeight": 2.7,
+      "occupancy": "",
+      "clearDimensionPolicy": "none",
+      "color": "#06b6d4"
     }
   },
   "rootNodeIds": [

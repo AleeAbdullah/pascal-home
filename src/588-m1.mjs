@@ -143,11 +143,14 @@ V(s,'store-east',523.5,-4.5,203.5,9,108);
 H(s,'store-front',379.5,523.5,203.5,9,108);
 H(s,'rear',673.5,910.5,-4.5,9,108);
 V(s,'mumty-west',673.5,-4.5,163.75,9,108);
+V(s,'void-east-stub',673.5,163.75,208,9,42); // 2026-10-25: rear-void east edge, parapet height; owner may want 108
 V(s,'maid-west',834.75,-4.5,163.75,4.5,108);
 V(s,'maid-rear-east',910.5,-4.5,43,9,108);
 H(s,'balcony-return',910.5,949.5,43,9,108);
 V(s,'maid-east',949.5,43,163.75,9,108);
-H(s,'maid-mumty-front',673.5,949.5,163.75,4.5,108);
+H(s,'maid-mumty-front-west',673.5,742.5,165.8,9,108); // 2026-10-25: 9 in, faces z 161.3/170.3
+H(s,'maid-mumty-front',742.5,931.5,163.75,4.5,108);
+H(s,'maid-mumty-front-east',931.5,954,165.9,9,108); // 2026-10-25: 9 in end block x 936..954, z 161.4..170.4
 V(s,'bedroom-west',742.5,163.75,440,9,108);
 V(s,'bedroom-east',931.5,163.75,440,9,108);
 H(s,'bedroom-front',742.5,931.5,321.25,4.5,108);
@@ -159,10 +162,10 @@ label(s,'Open to sky · central shaft',438,329.5,510,563.5);
 label(s,'Looking below · main stair',519,281.5,669,444.5);
 s.voids.push(rect(528,0,669,203.5),rect(438,329.5,510,563.5),rect(519,281.5,669,444.5));
 // Roof terrace plates surround actual voids; no plate spans a light well.
-slab(s,'West roof terrace',[[ -9,-9],[375,-9],[375,208],[528,208],[528,272.5],[429,272.5],[429,572.5],[-9,572.5]],0,14);
+slab(s,'West roof terrace',[[ -9,-9],[375,-9],[375,208],[528,208],[528,281.5],[519,281.5],[519,320.5],[429,320.5],[429,572.5],[-9,572.5]],0,14);
 slab(s,'Central roof terrace',[[528,208],[738,208],[738,272.5],[528,272.5]],0,14);
-slab(s,'East circulation roof',[[678,208],[738,208],[738,449],[678,449]],0,14);
-slab(s,'Front roof terrace',[[519,449],[738,449],[738,444.5],[936,444.5],[936,635.5],[678,635.5],[678,599.5],[519,599.5]],0,14);
+slab(s,'East circulation roof',[[678,170.5],[738,170.5],[738,444.4],[678,444.4]],0,14);
+slab(s,'Front roof terrace',[[519,444.4],[738,444.4],[738,444.5],[936,444.5],[936,635.5],[678,635.5],[678,599.5],[519,599.5]],0,14);
 slab(s,'Maid balcony',[[915,-9],[954,-9],[954,38.5],[915,38.5]],0,10);
 export const model = {source,levels};
 export function splitWalls(l){
@@ -188,6 +191,6 @@ export const constructionFloors = [
  {key:'gf-sunken',level:0,top:-12,thickness:8.25,polygon:[[184.5,329.5],[433.5,329.5],[433.5,662.5],[184.5,662.5]],holes:[]},
  {key:'ff-main',level:1,top:0,thickness:12,polygon:[[-9,-9],[954,-9],[954,170.5],[936,170.5],[936,635.5],[678,635.5],[678,444.5],[510,444.5],[510,572.5],[438,572.5],[438,512.5],[-9,512.5]],holes:[[[438,329.5],[510,329.5],[510,563.5],[438,563.5]],[[519,281.5],[689,281.5],[689,434.5],[519,434.5]]]},
  {key:'sf-store',level:2,top:0,thickness:14,polygon:[[375,-9],[528,-9],[528,208],[375,208]],holes:[]},
- {key:'sf-east',level:2,top:0,thickness:14,polygon:[[669,-9],[915,-9],[915,38.5],[954,38.5],[954,166],[936,166],[936,444.5],[738,444.5],[738,170.5],[669,170.5]],holes:[[[678,0],[832.5,0],[832.5,62],[790.5,62],[790.5,42],[720,42],[720,122],[678,122]]]},
+ {key:'sf-east',level:2,top:0,thickness:14,polygon:[[669,-9],[915,-9],[915,38.5],[954,38.5],[954,170.4],[936,170.4],[936,444.5],[738,444.5],[738,170.5],[669,170.5]],holes:[[[678,0],[832.5,0],[832.5,62],[790.5,62],[790.5,42],[720,42],[720,122],[678,122]]]},
 ];
 export const windowHeightOverrides = {ordinary:96,source:'Owner instruction: window height should be same throughout, use 8 ft.',secondFloorHighSill:'Owner subsequent instruction: follow PDF for the 2 ft and 5 ft high-sill windows.'};

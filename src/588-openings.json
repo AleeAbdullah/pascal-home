@@ -695,8 +695,8 @@
     {
       "level": 2,
       "wall": "sf-bedroom-front",
-      "at": 783,
-      "width": 42,
+      "at": 784.4,
+      "width": 36,
       "height": 96,
       "positionBasis": "PDF vector trace; opening at 10 ft callout"
     }

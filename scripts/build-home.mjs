@@ -115,7 +115,7 @@ try{
   console.log('Removed stale wall host, traced site boundary, and applied neutral display finishes.');
  }else if(stage==='parapets'){
   const {ids}=JSON.parse(fs.readFileSync(statePath));let scene=await call('get_scene');
-  const chains=[[[379.5,-4.5],[-4.5,-4.5],[-4.5,568],[433.5,568],[433.5,325],[514.5,325]],[[514.5,440],[514.5,595],[673.5,595],[673.5,631],[931.5,631],[931.5,440]],[[514.5,277],[673.5,277],[673.5,440],[514.5,440]],[[523.5,208],[673.5,208]]];
+  const chains=[[[379.5,-4.5],[-4.5,-4.5],[-4.5,568],[433.5,568],[433.5,325],[514.5,325]],[[514.5,440],[514.5,595],[673.5,595],[673.5,631],[931.5,631],[931.5,440]],[[514.5,277],[673.5,277],[673.5,440],[514.5,440]],[[523.5,208],[673.5,208]],[[514.5,277],[514.5,440]],[[433.5,568],[514.5,568]]];
   const lines=chains.flatMap(p=>p.slice(1).map((end,i)=>({start:p[i],end})));
   const todo=lines.map((p,i)=>({...p,key:`parapet-${i}`})).filter(p=>!Object.values(scene.nodes).some(n=>n.metadata?.sourceParapet===p.key));
   if(todo.length){
