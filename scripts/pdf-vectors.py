@@ -3,7 +3,7 @@
 
 Usage (run with isolated mode so nothing local shadows the stdlib):
 
-  python3 -I scripts/pdf-vectors.py extract <pdf> <out.json>
+  python3 -I scripts/pdf-vectors.py extract <pdf> <out.json> [--page N]   (N is 1-based, default 1)
   python3 -I scripts/pdf-vectors.py query <out.json> x0 y0 x1 y1 [--texts] [--min-len N] [--touch] [--hv] [--limit N]
   python3 -I scripts/pdf-vectors.py texts <out.json> [regex] [-i] [--near x0 y0 x1 y1]
   python3 -I scripts/pdf-vectors.py frames <out.json> [--min-len N] [--top N] [--tol T]
@@ -356,15 +356,18 @@ class Pdf:
         return data
 
     # page tree ----------------------------------------------------------
-    def first_page(self):
+    def pages(self):
+        """All leaf pages in document order, with inheritable attributes merged in."""
         root = self.res(self.trailer.get("Root"))
         pages = self.res(root.get("Pages")) if isinstance(root, dict) else None
         found = []
+        seen = set()
 
         def walk(node, inherited, depth=0):
             node = self.res(node)
-            if not isinstance(node, dict) or depth > 30 or found:
+            if not isinstance(node, dict) or depth > 30 or id(node) in seen:
                 return
+            seen.add(id(node))
             inh = dict(inherited)
             for k in ("Resources", "MediaBox", "CropBox", "Rotate"):
                 if k in node:
@@ -384,8 +387,15 @@ class Pdf:
             for num in sorted(self.offsets):
                 o = self.get(num)
                 if isinstance(o, dict) and o.get("Type") == "Page":
-                    return o
-        return found[0] if found else None
+                    found.append(o)
+        return found
+
+    def get_page(self, n=1):
+        pg = self.pages()
+        return pg[n - 1] if 1 <= n <= len(pg) else None
+
+    def first_page(self):
+        return self.get_page(1)
 
 
 def _predictor(data, parms):
@@ -1217,14 +1227,17 @@ def page_contents(pdf, page):
     return b"\n".join(parts)
 
 
-def cmd_extract(pdf_path, out_path):
+def cmd_extract(pdf_path, out_path, page_no=1):
     t0 = time.time()
     with open(pdf_path, "rb") as fh:
         data = fh.read()
     pdf = Pdf(data)
-    page = pdf.first_page()
-    if page is None:
+    pages = pdf.pages()
+    if not pages:
         sys.exit("error: no page found")
+    if not 1 <= page_no <= len(pages):
+        sys.exit("error: --page %d out of range (document has %d page(s))" % (page_no, len(pages)))
+    page = pages[page_no - 1]
     box = num_list(pdf, page.get("MediaBox"), 4) or [0, 0, 612, 792]
     box = [min(box[0], box[2]), min(box[1], box[3]), max(box[0], box[2]), max(box[1], box[3])]
     rot = pdf.res(page.get("Rotate"))
@@ -1457,9 +1470,18 @@ def main(argv):
     cmd = argv[1]
     try:
         if cmd == "extract":
-            if len(argv) != 4:
-                sys.exit("usage: extract <pdf> <out.json>")
-            cmd_extract(argv[2], argv[3])
+            args = argv[2:]
+            page_no = 1
+            if "--page" in args:
+                i = args.index("--page")
+                try:
+                    page_no = int(args[i + 1])
+                except (IndexError, ValueError):
+                    sys.exit("usage: extract <pdf> <out.json> [--page N]")
+                del args[i:i + 2]
+            if len(args) != 2:
+                sys.exit("usage: extract <pdf> <out.json> [--page N]")
+            cmd_extract(args[0], args[1], page_no)
         elif cmd == "query":
             cmd_query(argv[2:])
         elif cmd == "texts":
