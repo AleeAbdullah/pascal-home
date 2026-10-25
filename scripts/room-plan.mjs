@@ -1,8 +1,11 @@
 #!/usr/bin/env node
-// Room-plan image generator: model (grey) vs Building Control drawing (red).
+// Room-plan image generator: model (grey) vs Building Control drawing (red) vs the
+// architect's floor plans (teal).
 //
 //   node scripts/room-plan.mjs <room name or zone id> [--level ground|first|second]
-//        [--pad 36] [--out path.svg] [--no-pdf]
+//        [--pad 36] [--out path.svg] [--no-pdf] [--no-arch]
+//   node scripts/room-plan.mjs --floor ground|first|second [--no-pdf] [--no-arch] [--out path.svg]
+//        (whole level, no room focus, every room labelled, ~2000 px wide PNG)
 //
 // Read-only on scenes/588-m1-interior-v1.json. Writes an SVG and (unless
 // ROOM_PLAN_NO_PNG=1) a 2x PNG next to it, rasterised by scripts/svg2png.swift
@@ -23,6 +26,19 @@
 // to the ground sheet row). Ground-floor check: outer faces 212.58 / 796.4 give
 // origin 216.27 / 800.08 exactly as above.
 //
+// Architect overlay (teal). Source: "base assets/SAQIB AZZIZ RESEIDENCE FLOOR PLANS
+// (03-11-2025).pdf" (N.T.S. but vector), extracted per page by scripts/pdf-vectors.py to
+// fp-p1.json (ground), fp-p2.json (first), fp-p3.json (second). Each page is drawn at its
+// OWN scale (the sheets are not to a common scale) but uniformly within a page:
+//   model_in = (pdf_pt - origin) * scale, no rotation, no mirroring, x and z scales equal
+//   to 0.05 % (least squares on 25-29 wall-face anchors per axis on the ground page, 24-25
+//   on the first, 18 on the second; walls shared by plan and model, faces matched to
+//   within 1.5 in before fitting).
+//   ground : X=(x-132.093)*1.59781  Z=(y-358.895)*1.59815   RMS 0.04 in (max 0.08)
+//   first  : X=(x-126.656)*1.58196  Z=(y-356.754)*1.58222   RMS 0.04 in (max 0.10)
+//   second : X=(x-118.382)*1.53942  Z=(y-304.623)*1.54014   RMS 0.08 in (max 0.38)
+// (origin = inside face of the ground floor's rear-left walls = model X=0 / Z=0.)
+//
 // Door swing convention (hinge side / inward-outward) is inferred from the wall
 // front normal and is best read together with the red drawing; see limits in README
 // of the report.
@@ -41,6 +57,13 @@ const SVG2PNG = process.env.ROOM_PLAN_SVG2PNG || path.join(SCRATCH, 'svg2png')
 
 const LEVELS = { ground: 'level_as4e3a9d57', first: 'level_as4d3a9bc4', second: 'level_as503aa07d' }
 const PT = 2.43606 // inches per PDF display point
+const ARCH_DIR = process.env.ROOM_PLAN_ARCH || path.join(SCRATCH, 'fp')
+const ARCH = {
+  // file, x origin pt, x scale in/pt, z origin pt, z scale in/pt
+  ground: ['fp-p1.json', 132.093, 1.59781, 358.895, 1.59815],
+  first: ['fp-p2.json', 126.656, 1.58196, 356.754, 1.58222],
+  second: ['fp-p3.json', 118.382, 1.53942, 304.623, 1.54014],
+}
 const PDF_ORIGIN = {
   ground: [216.27, 800.08],
   first: [739.19, 800.08],
@@ -50,7 +73,7 @@ const M2IN = 1 / 0.0254
 
 // ---------------------------------------------------------------- args
 const argv = process.argv.slice(2)
-const opt = { pad: 36, pdf: true, level: null, out: null }
+const opt = { pad: 36, pdf: true, arch: true, level: null, out: null, floor: null }
 const pos = []
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i]
@@ -58,10 +81,13 @@ for (let i = 0; i < argv.length; i++) {
   else if (a === '--pad') opt.pad = Number(argv[++i])
   else if (a === '--out') opt.out = argv[++i]
   else if (a === '--no-pdf') opt.pdf = false
+  else if (a === '--no-arch') opt.arch = false
+  else if (a === '--floor') opt.floor = argv[++i]
   else pos.push(a)
 }
-if (!pos.length) {
-  console.error('usage: node scripts/room-plan.mjs <room name or zone id> [--level ground|first|second] [--pad 36] [--out path.svg] [--no-pdf]')
+if (opt.floor && !LEVELS[opt.floor]) { console.error('bad --floor'); process.exit(2) }
+if (!pos.length && !opt.floor) {
+  console.error('usage: node scripts/room-plan.mjs <room name or zone id> [--level ground|first|second] [--pad 36] [--out path.svg] [--no-pdf] [--no-arch]\n       node scripts/room-plan.mjs --floor ground|first|second [--no-pdf] [--no-arch]')
   process.exit(2)
 }
 const query = pos.join(' ')
@@ -93,7 +119,22 @@ function findZone() {
   console.error(`no zone matches "${query}"`)
   process.exit(2)
 }
-const target = findZone()
+function floorTarget() {
+  const lid = LEVELS[opt.floor]
+  // house footprint: axis-aligned walls only (skips the sloped site boundary walls)
+  let b = { x0: 1e18, z0: 1e18, x1: -1e18, z1: -1e18 }
+  for (const n of all) {
+    if (n.type !== 'wall' || n.parentId !== lid || n.visible === false) continue
+    const a = [n.start[0] * M2IN, n.start[1] * M2IN], e = [n.end[0] * M2IN, n.end[1] * M2IN], h = (n.thickness || 0.2) * M2IN / 2
+    if (Math.abs(a[0] - e[0]) > 0.02 && Math.abs(a[1] - e[1]) > 0.02) continue
+    b.x0 = Math.min(b.x0, a[0], e[0]) - h; b.x1 = Math.max(b.x1, a[0], e[0]) + h
+    b.z0 = Math.min(b.z0, a[1], e[1]) - h; b.z1 = Math.max(b.z1, a[1], e[1]) + h
+  }
+  const m = (v) => v * 0.0254
+  return { id: 'floor-' + opt.floor, type: 'zone', name: N[lid].name || opt.floor + ' floor', parentId: lid, isFloor: true,
+    polygon: [[m(b.x0), m(b.z0)], [m(b.x1), m(b.z0)], [m(b.x1), m(b.z1)], [m(b.x0), m(b.z1)]] }
+}
+const target = opt.floor ? floorTarget() : findZone()
 const levelId = target.parentId
 const levelKey = levelKeyOf(levelId)
 const levelNode = N[levelId]
@@ -163,11 +204,12 @@ const clear = { ...tBox }
   clear.z1 = snap(tBox.z1, 1, -1)
 }
 const clip = { x0: clear.x0 - opt.pad, z0: clear.z0 - opt.pad, x1: clear.x1 + opt.pad, z1: clear.z1 + opt.pad }
+const FLOOR = !!opt.floor
 const clipW = clip.x1 - clip.x0
 const clipH = clip.z1 - clip.z0
 
 // canvas (final px units; svg is written at half size so a 2x raster is 1600 wide)
-const CW = 1600
+const CW = FLOOR ? 2000 : 1600
 const ML = 96, MR = 24, MT = 58, MB_PLAN = 20
 const PW = CW - ML - MR
 const S = PW / clipW // px per inch
@@ -179,7 +221,7 @@ const Z = (z) => MT + (z - clip.z0) * S
 const pt = (p) => `${r1(X(p[0]))},${r1(Z(p[1]))}`
 
 // ---------------------------------------------------------------- svg buffers
-const L = { zones: [], seps: [], rugs: [], walls: [], floor: [], cols: [], stairs: [], ceil: [], pdf: [], open: [], dims: [], text: [] }
+const L = { zones: [], seps: [], rugs: [], walls: [], floor: [], cols: [], stairs: [], ceil: [], pdf: [], arch: [], open: [], dims: [], text: [] }
 const FONT = `font-family="Helvetica Neue, Helvetica, Arial, sans-serif"`
 
 // ---------------------------------------------------------------- label placer
@@ -245,7 +287,7 @@ for (const z of zonesHere) {
 {
   const area = polyArea(tPoly) - (target.holes || []).reduce((s, h) => s + polyArea(h.map(([x, z]) => P(x, z))), 0)
   target._area = area
-  L.zones.push(`<path d="${zonePath(target)}" fill="#fbf1de" stroke="#c9a86a" stroke-width="1.6" fill-rule="evenodd"/>`)
+  if (!FLOOR) L.zones.push(`<path d="${zonePath(target)}" fill="#fbf1de" stroke="#c9a86a" stroke-width="1.6" fill-rule="evenodd"/>`)
 }
 
 // ---------------------------------------------------------------- separators
@@ -484,9 +526,36 @@ if (opt.pdf) {
   }
 }
 
+// ---------------------------------------------------------------- architect overlay
+let archNote = 'off'
+if (opt.arch) {
+  const [file, ox, sx, oz, sz] = ARCH[levelKey]
+  const fpath = path.join(ARCH_DIR, file)
+  if (!fs.existsSync(fpath)) { archNote = 'missing'; console.error('warning: ' + fpath + ' not found, architect overlay skipped') }
+  else {
+    const sheet = JSON.parse(fs.readFileSync(fpath, 'utf8'))
+    const white = new Set(sheet.colors.map((c, i) => (/^f{6}$/i.test(c) ? i : -1)).filter((i) => i >= 0))
+    const buckets = new Map()
+    let kept = 0
+    for (const s of sheet.segments) {
+      if (white.has(s[6])) continue
+      const dx = s[2] - s[0], dy = s[3] - s[1]
+      if (dx * dx + dy * dy < 1) continue
+      const x0 = (s[0] - ox) * sx, z0 = (s[1] - oz) * sz, x1 = (s[2] - ox) * sx, z1 = (s[3] - oz) * sz
+      if (!boxHit({ x0: Math.min(x0, x1), x1: Math.max(x0, x1), z0: Math.min(z0, z1), z1: Math.max(z0, z1) }, clip)) continue
+      const sw = Math.round(Math.max(0.8, Math.min(2.4, (s[4] || 0) * sx * S * 0.55)) * 4) / 4
+      if (!buckets.has(sw)) buckets.set(sw, [])
+      buckets.get(sw).push(`M${r1(X(x0))},${r1(Z(z0))}L${r1(X(x1))},${r1(Z(z1))}`)
+      kept++
+    }
+    for (const [sw, d] of [...buckets].sort((a, b) => a[0] - b[0])) L.arch.push(`<path d="${d.join('')}" stroke-width="${sw}"/>`)
+    archNote = `${kept} segments`
+  }
+}
+
 // ---------------------------------------------------------------- labels (priority order)
 // target name + size
-{
+if (!FLOOR) {
   const cxp = X((clear.x0 + clear.x1) / 2), czp = Z((clear.z0 + clear.z1) / 2)
   const bw = clear.x1 - clear.x0, bd = clear.z1 - clear.z0
   const rect = target._area >= 0.97 * (tBox.x1 - tBox.x0) * (tBox.z1 - tBox.z0)
@@ -505,12 +574,12 @@ for (const z of zonesHere) {
   if (!boxHit(bb, clip)) continue
   const v = { x0: Math.max(bb.x0, clip.x0), x1: Math.min(bb.x1, clip.x1), z0: Math.max(bb.z0, clip.z0), z1: Math.min(bb.z1, clip.z1) }
   const nm = z.name.length > 34 ? z.name.slice(0, 33) + '…' : z.name
-  placeLabel([nm], { fs: 13, color: '#7d8791', anchor: [X((v.x0 + v.x1) / 2), Z((v.z0 + v.z1) / 2)], fixed: true, opacity: 0.9 })
+  placeLabel([nm], { fs: FLOOR ? 15 : 13, bold: FLOOR, color: FLOOR ? '#3d4650' : '#7d8791', anchor: [X((v.x0 + v.x1) / 2), Z((v.z0 + v.z1) / 2)], fixed: true, opacity: 0.95 })
 }
 // stairs
 for (const sl of stairLabels) placeLabel(sl.lines, { fs: 12, bold: true, color: '#55437a', anchor: sl.anchor, half: sl.half, ownId: '__st' })
 // furniture, biggest first
-for (const m of [...items].sort((a, b) => b.w * b.d - a.w * a.d)) {
+for (const m of (FLOOR ? [] : [...items]).sort((a, b) => b.w * b.d - a.w * a.d)) {
   const pxb = m.px_box
   const cxp = (pxb.x0 + pxb.x1) / 2, cyp = (pxb.y0 + pxb.y1) / 2
   if (cxp < planBox.x0 || cxp > planBox.x1 || cyp < planBox.y0 || cyp > planBox.y1) continue
@@ -525,7 +594,7 @@ for (const m of [...items].sort((a, b) => b.w * b.d - a.w * a.d)) {
   })
 }
 // openings
-for (const ol of openLabels) {
+for (const ol of (FLOOR ? [] : openLabels)) {
   const c = ol.anchor
   if (c[0] < planBox.x0 || c[0] > planBox.x1 || c[1] < planBox.y0 || c[1] > planBox.y1) continue
   placeLabel(ol.lines, { fs: 12, color: ol.color, anchor: c, half: [0, 0], ownId: '__op' })
@@ -557,12 +626,13 @@ let tb = ''
 {
   const levelName = levelNode?.name || levelKey
   tb += `<line x1="${ML}" y1="${tbY}" x2="${CW - MR}" y2="${tbY}" stroke="#222" stroke-width="2"/>`
-  tb += `<text x="${ML}" y="${tbY + 38}" font-size="30" font-weight="700" fill="#111" ${FONT}>${esc(target.name)}</text>`
-  tb += `<text x="${ML}" y="${tbY + 68}" font-size="19" fill="#333" ${FONT}>${esc(levelName)}  ·  zone ${esc(target.id)}</text>`
+  tb += `<text x="${ML}" y="${tbY + 38}" font-size="30" font-weight="700" fill="#111" ${FONT}>${esc(FLOOR ? levelName + ' – whole floor' : target.name)}</text>`
+  tb += `<text x="${ML}" y="${tbY + 68}" font-size="19" fill="#333" ${FONT}>${FLOOR ? esc(levelName) : esc(levelName) + '  ·  zone ' + esc(target.id)}</text>`
   tb += `<rect x="${ML}" y="${tbY + 88}" width="26" height="12" fill="#4a4a4a"/><text x="${ML + 34}" y="${tbY + 99}" font-size="16" fill="#222" ${FONT}>Model (grey)</text>`
-  tb += `<line x1="${ML + 150}" y1="${tbY + 94}" x2="${ML + 176}" y2="${tbY + 94}" stroke="#e0262a" stroke-width="2.5" opacity="0.7"/><text x="${ML + 184}" y="${tbY + 99}" font-size="16" fill="#222" ${FONT}>Building Control drawing (red)${opt.pdf ? '' : ' – overlay off'}</text>`
+  tb += `<line x1="${ML + 150}" y1="${tbY + 94}" x2="${ML + 176}" y2="${tbY + 94}" stroke="#e0262a" stroke-width="2.5" opacity="0.7"/><text x="${ML + 184}" y="${tbY + 99}" font-size="16" fill="#222" ${FONT}>Building Control (red)${opt.pdf ? '' : ' – off'}</text>`
+  tb += `<line x1="${ML + 420}" y1="${tbY + 94}" x2="${ML + 446}" y2="${tbY + 94}" stroke="#00897b" stroke-width="2.5" opacity="0.75"/><text x="${ML + 454}" y="${tbY + 99}" font-size="16" fill="#222" ${FONT}>Architect plan (teal)${opt.arch ? '' : ' – off'}</text>`
   tb += `<text x="${ML}" y="${tbY + 130}" font-size="14" fill="#555" ${FONT}>Solid = floor item, dashed = ceiling-mounted, dotted = rug, blue dashed = separator. Item sizes W×D in inches.</text>`
-  tb += `<text x="${ML}" y="${tbY + 152}" font-size="14" fill="#555" ${FONT}>Clear sizes are the room zone bounding box (inside wall faces). Pad ${opt.pad} in.</text>`
+  tb += `<text x="${ML}" y="${tbY + 152}" font-size="14" fill="#555" ${FONT}>${FLOOR ? 'Whole level; room names from the model zones.' : `Clear sizes are the room zone bounding box (inside wall faces). Pad ${opt.pad} in.`}</text>`
   // scale bar (5 ft)
   const sbW = 60 * S
   const sbX = CW - MR - 140 - sbW, sbY = tbY + 56
@@ -596,6 +666,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${CW / 2}" height="$
 <g id="stairs">${L.stairs.join('')}</g>
 <g id="ceiling-items">${L.ceil.join('')}</g>
 <g id="bc-overlay" fill="none" stroke="#e0262a" stroke-opacity="0.6" stroke-linecap="round">${L.pdf.join('')}</g>
+<g id="arch-overlay" fill="none" stroke="#00897b" stroke-opacity="0.6" stroke-linecap="round">${L.arch.join('')}</g>
 <g id="labels">${L.text.join('')}</g>
 </g>
 <g id="dimensions">${L.dims.join('')}</g>
@@ -604,11 +675,11 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${CW / 2}" height="$
 `
 
 // ---------------------------------------------------------------- write
-const slug = `${target.name}-${levelKey}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+const slug = FLOOR ? `floor-${levelKey}` : `${target.name}-${levelKey}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 const outSvg = path.resolve(opt.out || path.join(OUT_DIR, `${slug}.svg`))
 fs.mkdirSync(path.dirname(outSvg), { recursive: true })
 fs.writeFileSync(outSvg, svg)
-console.log(`svg: ${outSvg}  (${items.length} items, ${walls.length} walls, overlay: ${pdfNote})`)
+console.log(`svg: ${outSvg}  (${items.length} items, ${walls.length} walls, BC overlay: ${pdfNote}, architect overlay: ${archNote})`)
 
 if (process.env.ROOM_PLAN_NO_PNG !== '1') {
   const outPng = outSvg.replace(/\.svg$/i, '') + '.png'
