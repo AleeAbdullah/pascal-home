@@ -5,7 +5,7 @@ Needs Node.js 22.13 or newer and git. Works on macOS, Linux and Windows.
 ## 1. Get the project
 
 ```bash
-git clone <repo-url> pascal-home
+git clone https://github.com/AleeAbdullah/pascal-home.git
 cd pascal-home
 npm install
 ```
