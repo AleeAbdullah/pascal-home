@@ -192,7 +192,7 @@ try{
   let scene=await call('get_scene');let added=0;const pending=[];
   for(const kind of ['windows','doors','passages'])for(const [index,q]of specs[kind].entries()){
    const key=`${kind}-${q.level}-${index}`;
-   if(q.replacedByBridgeOpening)continue; // Room review 2026-10-26: window replaced by a bridge opening (appended passages entry)
+   if(q.replacedByBridgeOpening||q.replacedByRoomReview)continue; // Room review 2026-10-26: window replaced by a bridge opening (appended passages entry)
    if(Object.values(scene.nodes).some(n=>n.metadata?.sourceOpening===key))continue;
    const base=model.levels[q.level].walls.find(w=>w.id===q.wall),axis=base.start[1]===base.end[1]?0:1;
    const size=kind==='windows'?windowSchedule[q.tag]:kind==='doors'?doorSchedule[q.tag]:[q.width,q.height];

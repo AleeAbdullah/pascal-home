@@ -33,24 +33,47 @@ const curtains=source(`const q=part('ceiling_track'),f=part('drapery');box(q,p.w
 const lamp=source(`const q=part('reading_lamp');cyl(q,.18,.025,0,.0125,0,'bronze');cyl(q,.012,1.42,0,.735,0,'bronze');cyl(q,.17,.23,0,1.49,0,'paper',.24);glow(q,.20,.012,.20,0,1.372,0);light(q,'reading',0,1.37,0,8)`);
 const plant=source(`if(!D)return g;const q=part('planter'),l=part('foliage');cyl(q,.19,.42,0,.21,0,'ivory',.145);cyl(q,.17,.008,0,.414,0,'walnut');for(let i=0;i<7;i++){const a=i*2.4,h=.85+(i%3)*.24,x=Math.cos(a)*.17,z=Math.sin(a)*.17;line(l,[[0,.41,0],[x*.5,h*.65,z*.5],[x,h,z]],.006,'leaf');const leaf=ball(l,.16,.55,.025,x,h+.17,z,'leaf');leaf.rotation.set(.45*Math.cos(a),a,.45*Math.sin(a));}`,{});
 const decor=source(`if(!D)return g;const q=part('books_and_ceramic');box(q,.28,.045,.21,-.11,.0225,0,'taupe');box(q,.24,.035,.19,-.1,.062,0,'paper');cyl(q,.06,.16,.15,.08,.02,'ivory',.085);cyl(q,.065,.012,.15,.164,.02,'bronze');ball(q,.08,.08,.08,.15,.21,.02,'sage')`);
+
+// Room-review modules (2026-10-26): corner sofa, side tables, bench and open hanging runs, same helper kit and palette as the pieces above.
+const sofaL=source(`const base=part('base'),up=part('upholstery'),detail=part('cushions');const E=p.armE,W=p.armS,d=p.depth;
+// origin = centre of the L's bounding box (outer SE corner at +W/2,+E/2 before the final shift); the east arm runs north (-z) and faces west, the south arm runs west (-x) and faces north
+box(base,d-.12,.12,E-.12,-d/2,.11,-E/2,'walnut',.04);box(base,W-d-.04,.12,d-.12,-d-(W-d)/2,.11,-d/2,'walnut',.04);
+box(up,d,.24,E,-d/2,.31,-E/2,'ivory',.1);box(up,W-d,.24,d,-d-(W-d)/2,.31,-d/2,'ivory',.1);
+box(up,.19,.42,E,-.095,.59,-E/2,'ivory',.085);box(up,W,.42,.19,-W/2,.59,-.095,'ivory',.085);
+box(up,d-.19,.42,.24,-(d+.19)/2,.52,-E+.12,'ivory',.1);box(up,.24,.42,d-.19,-W+.12,.52,-(d+.19)/2,'ivory',.1);
+const nS=Math.max(2,Math.round((W-.31)/.95)),cs=(W-.31)/nS;for(let i=0;i<nS;i++){const x=-.19-cs*(i+.5);box(up,cs-.016,.15,d-.23,x,.48,-(d+.15)/2,'linen',.065);box(up,cs-.035,.37,.18,x,.64,-.28,'linen',.08)}
+const z0=-d+.04,z1=-E+.12,nE=Math.max(2,Math.round((z0-z1)/.95)),ce=(z0-z1)/nE;for(let i=0;i<nE;i++){const z=z0-ce*(i+.5);box(up,d-.23,.15,ce-.016,-(d+.15)/2,.48,z,'linen',.065);box(up,.18,.37,ce-.035,-.28,.64,z,'linen',.08)}
+for(const [x,z,k,r]of [[-W*.30,-.40,'sage',.13],[-.40,-E*.72,'taupe',-.13]]){const c=box(detail,.42,.42,.14,x,.66,z,k,.07);c.rotation.y=r>0?0:Math.PI/2;c.rotation.z=r;c.rotation.x=-.1}for(const c of g.children)c.position.set(W/2,0,E/2);`,{armE:3.965,armS:3.2,depth:.914});
+const sideRound=source(`const t=part('stone_top'),b=part('walnut_base');cyl(t,p.width/2,.04,0,p.height-.02,0,'stone');cyl(b,.035,p.height-.07,0,(p.height-.03)/2,0,'walnut');cyl(b,p.width*.32,.03,0,.015,0,'walnut');if(D)cyl(b,p.width/2-.012,.012,0,p.height-.056,0,'bronze')`,{width:.55,height:.5});
+const sideSquare=source(`const t=part('stone_top'),b=part('walnut_base');box(t,p.width,.04,p.width*.9,0,p.height-.02,0,'stone',.02);box(b,p.width*.62,p.height-.04,p.width*.52,0,(p.height-.04)/2,0,'walnut',.03);if(D)box(b,p.width*.64,.012,p.width*.54,0,.06,0,'bronze',.004)`,{width:.55,height:.5});
+const bench=source(`const q=part('upholstered_bench'),b=part('walnut_base');box(b,p.width-.12,.12,p.depth-.1,0,.08,0,'walnut',.03);box(q,p.width,.17,p.depth,0,.245,0,'linen',.075);box(q,p.width-.08,.03,p.depth-.08,0,.34,0,'ivory',.015);for(const x of [-p.width*.38,p.width*.38])box(b,.03,.05,p.depth*.82,x,.02,0,'bronze',.008)`,{width:1.5,depth:.45});
+const hanging=source(`const q=part('hanging_run'),r=part('rails'),c=part('garments');const L=p.length,d=p.depth;
+box(q,L,.08,d,0,.04,0,'walnut',.015);box(q,L,2.2,.025,0,1.1,-d/2+.0125,'walnut',.01);for(const x of [-L/2+.0125,L/2-.0125])box(q,.025,2.2,d,x,1.1,0,'walnut',.01);box(q,L,.03,d,0,2.2,0,'walnut',.012);box(q,L-.05,.025,d-.04,0,.4,0,'taupe',.008);
+const rod=mesh(r,new T.CylinderGeometry(.013,.013,L-.05,D?20:8),'bronze',0,1.78,0);rod.rotation.z=Math.PI/2;const rod2=mesh(r,new T.CylinderGeometry(.013,.013,L-.05,D?20:8),'bronze',0,1.0,.02);rod2.rotation.z=Math.PI/2;
+if(D){const ks=['linen','ivory','taupe','sage','paper','linen'];const n=Math.floor((L-.12)/.075);for(let i=0;i<n;i++){const x=-L/2+.07+i*(L-.14)/(n-1);box(c,.045,.95+(i%3)*.04,d*.58,x,1.78-.5-(i%3)*.02,.0,ks[(i*7)%ks.length],.012);if(i%2===0)box(c,.04,.7,d*.5,x,1.0-.4,.02,ks[(i*3+1)%ks.length],.012)}}glow(r,L-.1,.01,.02,0,2.17,d/2-.05)`,{length:2,depth:.6});
+export const relax=code=>code.replace(/export const params=.*?;export const mount=/s,m=>m.replace(/"(\w+)":\{"default":([\d.e-]+),"min":[\d.e-]+,"max":[\d.e-]+/g,(all,k,d)=>k==='detail'||k==='shadows'?all:`"${k}":{"default":${d},"min":0.1,"max":15`));
 const items=[];
 function item(key,name,code,x,z,rotation=0,options={}){items.push({key,name,code,parentId:levelId,position:[x,0,z],rotation,...options})}
-item('table','V1 · eight-seat stone dining table',table,7.9,10.55);
-for(const [i,x]of [7.2,7.9,8.6].entries()){item('chair-n'+i,'V1 · dining chair north '+(i+1),chair,x,9.65);item('chair-s'+i,'V1 · dining chair south '+(i+1),chair,x,11.45,180)}
-item('chair-w','V1 · dining chair west',chair,6.35,10.55,90);item('chair-e','V1 · dining chair east',chair,9.45,10.55,-90);
-item('buffet','V1 · fluted walnut dining storage',buffet,5.055,10.55,90);
-item('dining-rug','V1 · dining woven rug',rug,7.9,10.55,0,{params:{width:3.8,depth:3.35}});
-item('sofa','V1 · ivory three-seat sofa',sofa,9.75,14.4,-90);
-item('armchair-n','V1 · north lounge armchair',armchair,6.8,13.1,90);
-item('armchair-s','V1 · south lounge armchair',armchair,6.8,15.65,90);
-item('coffee','V1 · low stone coffee table',coffee,8.2,14.4,90);
-item('media','V1 · travertine media and storage unit',media,5.055,14.4,90);
-item('lounge-rug','V1 · lounge woven rug',rug,8.05,14.5);
+// Room review 2026-10-26: dining group at the architect position; L-sofa group, square table, side tables, three corner plants.
+item('table','V1 · eight-seat stone dining table',table,7.007,9.251);
+for(const [i,x]of [6.215,7.008,7.803].entries()){item('chair-n'+i,'V1 · dining chair north '+(i+1),chair,x,8.357);item('chair-s'+i,'V1 · dining chair south '+(i+1),chair,x,10.147,180)}
+item('chair-w','V1 · dining chair west',chair,5.505,9.251,90);item('chair-e','V1 · dining chair east',chair,8.511,9.251,-90);
+item('dining-rug','V1 · dining woven rug',rug,7.007,9.251,0,{params:{width:3.8,depth:3.35}});
+item('sofa-l','V1 · ivory L-shaped corner sofa',sofaL,8.382,14.046,0,{params:{armE:3.965,armS:3.2,depth:.914}});
+item('sofa-2','V1 · ivory two-seat sofa',relax(sofa),7.533,11.719,0,{params:{width:1.52,depth:.915}});
+item('coffee','V1 · square stone coffee table',coffee,7.62,13.683,0,{params:{width:1.07,depth:1.07}});
+item('side-ne','V1 · side table at the north end of the corner sofa',sideSquare,9.525,11.665);
+item('side-sw','V1 · side table at the west end of the corner sofa',sideSquare,6.297,15.58);
+item('media','V1 · travertine media and storage unit',media,5.055,14.3,90);
+item('lounge-rug','V1 · lounge woven rug',rug,8.382,13.843,0,{params:{width:3.9,depth:4.6}});
 item('art','V1 · dining abstract wall art',art,4.84,10.55,90,{position:[4.84,1.3548,10.55]});
-item('floor-lamp','V1 · lounge reading lamp',lamp,5.84,15.85);
-item('plant','V1 · tall lounge plant',plant,5.55,12.35);
-item('coffee-decor','V1 · ceramic and books',decor,8.2,14.4,90,{position:[8.2,.3823,14.4]});
-item('buffet-decor','V1 · buffet ceramics',decor,5.055,9.9,90,{position:[5.055,.8498,9.9]});
-for(const [key,name,code,x,z,params]of [['cove','perimeter ceiling cove',cove,7.8486,12.484],['pendant','linear dining pendant',pendant,7.9,10.55],['track-w','west lounge ceiling track',track,6.0,14.35],['track-e','east lounge ceiling track',track,9.6,14.35],['curtain','full-width window drapes',curtains,7.8486,16.48]])item(key,'V1 · '+name,code,x,z,0,{parentId:ceilingId,position:[x,key==='curtain'?-.16:0,z],...(params?{params}:{})});
-for(const i of items) if(['table','sofa','armchair-n','armchair-s','coffee','floor-lamp'].includes(i.key)||i.key.startsWith('chair-'))i.position[1]=.019;
+item('plant','V1 · tall lounge plant (north-west corner)',plant,5.212,7.678);
+item('plant-ne','V1 · tall lounge plant (north-east corner)',plant,8.651,7.661);
+item('plant-sw','V1 · tall lounge plant (south-west corner)',plant,5.235,16.15);
+item('coffee-decor','V1 · ceramic and books',decor,7.62,13.683,0,{position:[7.62,.3823,13.683]});
+for(const [key,name,code,x,z,params]of [['cove','perimeter ceiling cove',cove,7.8486,12.484],['pendant','linear dining pendant',pendant,7.007,9.251],['track-w','west lounge ceiling track',track,6.0,14.35],['track-e','east lounge ceiling track',track,9.6,14.35],['curtain','full-width window drapes',curtains,7.8486,16.48]])item(key,'V1 · '+name,code,x,z,0,{parentId:ceilingId,position:[x,key==='curtain'?-.16:0,z],...(params?{params}:{})});
+items.find(i=>i.key==='pendant').position=[7.007,0,9.251];
+for(const i of items) if(['table','sofa-l','sofa-2','coffee','side-ne','side-sw'].includes(i.key)||i.key.startsWith('chair-'))i.position[1]=.019;
+// Pieces retired by the room review stay available as module code for reuse in other rooms (armchair, straight sofa, console, plant, ...).
+export const library=[...items,{key:'sofa',code:sofa},{key:'armchair-n',code:armchair},{key:'bench',code:bench},{key:'hanging',code:hanging},{key:'side-round',code:sideRound},{key:'side-square',code:sideSquare}];
 export {items};

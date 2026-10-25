@@ -149,3 +149,30 @@ export function columnStylePatches(nodes){
 
 // Room review 2026-10-26: architect bridge across the shaft. The two facing W11 windows (lounge-east, shaft-east) become 72 in openings; deck, guards and planting live in shaft-bridge.mjs.
 export {openingSpecs as bridgeOpeningSpecs,ownerDecision as bridgeOwnerDecision} from './shaft-bridge.mjs';
+
+// ---- Room review 2026-10-26: dirty kitchen rear door + two outside steps (idempotent; `node scripts/correct-ground-floor.mjs rooms`) ----
+// Architect plan p1: W16 (x 747..783) becomes a 3 ft exterior door; the closed leaf lies on the rear wall line and swings 90 deg south into the dirty kitchen,
+// hinged on the west jamb (x 748.7); in Pascal terms that is swingDirection 'outward' (toward face b, south) with hingesSide 'right'. Outside: a 54.8 in wide tread z -21..-8.9 (tag 1) and the wall-depth tread z -8.9..0 (tag 2), UP arrow toward the kitchen.
+// Levels: GF floor +18 in above the site datum; rear passage taken as +6 in (the lawn-front slab level, the lowest modelled finish) = -12 in from the GF floor,
+// so three 4 in risers: passage -12 -> step 1 top -8 -> step 2 top -4 -> door sill 0.
+const ownerRoomsDirty='Room review 2026-10-26: dirty kitchen';
+export const rearDoor={wallId:'wall_588_gf_rear_4',windowKey:'windows-0-22',doorKey:'doors-0-25',refDoorKey:'doors-0-3',centre:765.06,width:36,name:'D3 · GF (rear exterior)'};
+export const rearSteps=[
+ {id:'slab_588_gf_rear_step_1',name:'rear-door-step-1',x0:737.6,x1:792.4,z0:-21,z1:-8.9,top:-8,tag:'tag 1: tread outside the wall, 12.1 in run, 4 in rise'},
+ {id:'slab_588_gf_rear_step_2',name:'rear-door-step-2',x0:747,x1:783,z0:-8.9,z1:0,top:-4,tag:'tag 2: tread inside the wall depth, 8.9 in run, 4 in rise to the door sill at the GF floor'},
+];
+export function rearWindowPatches(nodes){const n=Object.values(nodes).find(x=>x.type==='window'&&x.metadata?.sourceOpening===rearDoor.windowKey);return n?[{op:'delete',id:n.id,cascade:false}]:[];}
+export function rearDoorNode(nodes){return Object.values(nodes).find(n=>n.type==='door'&&n.parentId===rearDoor.wallId);}
+export function rearDoorPatch(nodes,id){
+ const ref=Object.values(nodes).find(n=>n.type==='door'&&n.name==='D3 · GF'&&n.parentId!==rearDoor.wallId&&n.doorCategory==='interior');if(!ref)throw Error('Missing D3 reference door');
+ const skip=new Set(['object','id','type','parentId','wallId','position','rotation','width','metadata','name','children','visible']);
+ const copy=Object.fromEntries(Object.entries(ref).filter(([k])=>!skip.has(k)));
+ return [{op:'update',id,data:{...copy,name:rearDoor.name,hingesSide:'right',handleSide:'left',swingDirection:'outward',swingAngle:0,metadata:{sourceFile,sourceOpening:rearDoor.doorKey,sourceTag:'D3',positionBasis:'Architect floor plan p1; replaces W16 windows-0-22',widthBasis:'Owner room review: 3 ft',heightBasis:'PDF schedule',sourcePositionInches:rearDoor.centre,operability:'Hinged on the west jamb, swings south into the dirty kitchen',blueprintReview:review,correctionBasis:'Architect plan: exterior door at W16 position, swinging into the dirty kitchen',ownerDecision:ownerRoomsDirty}}}];
+}
+export function rearStepPatches(nodes){
+ const ref=nodes['slab_588_ext_entry-step-12'];if(!ref)throw Error('Missing entry-step-12 reference slab');
+ const skip=new Set(['object','id','type','parentId','name','polygon','elevation','metadata','children']);
+ const copy=Object.fromEntries(Object.entries(ref).filter(([k])=>!skip.has(k)));
+ return rearSteps.map(s=>{const data={polygon:[p(s.x0,s.z0),p(s.x1,s.z0),p(s.x1,s.z1),p(s.x0,s.z1)],elevation:inch(s.top),metadata:{sourceFile,undimensioned:'Architect floor plan tread outline; rise derived from site levels (assumed rear passage +6 in)',blueprintReview:review,correctionBasis:s.tag,ownerDecision:ownerRoomsDirty}};
+  return nodes[s.id]?{op:'update',id:s.id,data}:{op:'create',parentId:groundFloorId,node:{...copy,id:s.id,type:'slab',parentId:groundFloorId,name:s.name,...data}};});
+}

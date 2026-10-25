@@ -203,7 +203,10 @@
       "pdfDrawnWidth": 35.96,
       "positionBasis": "PDF vector trace",
       "widthOverride": 36,
-      "widthDecision": "Owner delegated conflict resolution: traced width governs to avoid partition overlap"
+      "widthDecision": "Owner delegated conflict resolution: traced width governs to avoid partition overlap",
+      "replacedByRoomReview": true,
+      "ownerDecision": "Room review 2026-10-26: dirty kitchen",
+      "replacedNote": "GF dirty-kitchen rear W16 replaced by doors-0-25 (3 ft exterior door per the architect plan, swinging into the dirty kitchen)"
     },
     {
       "level": 0,
@@ -657,6 +660,17 @@
       "height": 96,
       "style": "glass",
       "positionBasis": "Owner decision 2026-10-25: 30 in glazed door x 915..945 in onto the balcony, 96 in high, sill 0"
+    },
+    {
+      "level": 0,
+      "tag": "D3",
+      "wall": "gf-rear",
+      "at": 765.06,
+      "pdfDrawnWidth": 28.9,
+      "positionBasis": "Architect floor plan p1 (leaf 28.9 in, hinged on the west jamb x=748.7, swinging south into the dirty kitchen)",
+      "widthOverride": 36,
+      "ownerDecision": "Room review 2026-10-26: dirty kitchen",
+      "note": "Replaces W16 (windows-0-22); two outside steps to the rear passage (see correct-ground-floor.mjs rooms)"
     }
   ],
   "passages": [
