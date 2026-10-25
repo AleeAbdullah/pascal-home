@@ -1,0 +1,22 @@
+export const params={"width":{"default":7.7724,"min":0,"max":50,"step":0.001},"height":{"default":5.6896,"min":0,"max":50,"step":0.001},"screenWidth":{"default":5.6388,"min":0,"max":50,"step":0.001},"screenHeight":{"default":2.8956,"min":0,"max":50,"step":0.001},"footer":{"default":0.6096,"min":0,"max":50,"step":0.001},"centerJoint":{"default":1,"min":0,"max":50,"step":0.001}};
+export const mount='floor';
+export default function build({params:p,THREE:T}){
+const g=new T.Group();const mat=(name,color,extra={})=>new T.MeshStandardMaterial({name,color,roughness:.65,...extra});
+const metal=mat('slot_metal','#282c2b',{metalness:.65}),stone=mat('slot_concrete','#cecac0'),glass=mat('glass','#b9d8dd',{transparent:true,opacity:.32,metalness:.1,roughness:.15});
+function box(w,h,d,x,y,z,m=stone,parent=g){const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);parent.add(o);return o;}
+function beam(a,b,w,d,m=metal,parent=g){const va=new T.Vector3(...a),vb=new T.Vector3(...b),o=new T.Mesh(new T.BoxGeometry(w,va.distanceTo(vb),d),m);o.position.copy(va.clone().add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),vb.sub(va).normalize());parent.add(o);return o;}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q;}
+const em=(name,color,i)=>new T.MeshStandardMaterial({name,color,emissive:color,emissiveIntensity:i,roughness:.4});
+
+const w=p.width,h=p.height,sw=p.screenWidth,sh=p.screenHeight,b=p.footer,head=h-sh-b;
+const face=mat('face','#dcdcd8',{roughness:.85}),band=mat('band','#f3f3f0',{roughness:.8}),joint=mat('joint','#b1b1ad',{roughness:.9});
+const left=-w/2,cx=left+sw/2;
+const frame=part('architectural_bands');box(w,b,.24,0,b/2,0,band,frame);box(w,head,.24,0,h-head/2,0,band,frame);box(w,.025,.26,0,h+.0125,0,band,frame);
+const pnl=part('panel_face');pnl.userData.type='panel';box(sw,sh,.22,cx,b+sh/2,0,face,pnl);
+for(const x of [left+.03,left+sw-.03])box(.06,sh,.24,x,b+sh/2,0,band,pnl);
+const gy=h*.25;for(const s of [1,-1]){box(sw-.12,.012,.004,cx,gy,s*.1112,joint,pnl);if(p.centerJoint>0)box(.012,sh,.004,cx,b+sh/2,s*.1112,joint,pnl);}
+const lamp=part('wall_lamp'),ly=b+sh*.66,zf=.11,warm=em('lamp_emissive','#ffe2a8',3),wash=em('lamp_wash','#ffd9a0',1.2);wash.transparent=true;wash.opacity=.2;wash.depthWrite=false;wash.side=T.DoubleSide;
+box(.1,.3,.09,cx,ly,zf+.045,metal,lamp);box(.07,.01,.07,cx,ly+.155,zf+.046,warm,lamp);box(.07,.01,.07,cx,ly-.155,zf+.046,warm,lamp);
+const fan=new T.Shape();fan.moveTo(-.035,0);fan.lineTo(.035,0);fan.lineTo(.3,.95);fan.lineTo(-.3,.95);fan.closePath();
+const up=new T.Mesh(new T.ShapeGeometry(fan),wash);up.position.set(cx,ly+.16,zf+.002);lamp.add(up);
+const dn=new T.Mesh(new T.ShapeGeometry(fan),wash);dn.scale.y=-1;dn.position.set(cx,ly-.16,zf+.002);lamp.add(dn);return g;}

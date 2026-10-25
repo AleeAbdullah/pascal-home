@@ -1,0 +1,15 @@
+export const params={"width":{"default":0.4572,"min":0,"max":50,"step":0.001},"depth":{"default":0.4572,"min":0,"max":50,"step":0.001},"height":{"default":1.9812,"min":0,"max":50,"step":0.001},"lanternHeight":{"default":0.1524,"min":0,"max":50,"step":0.001},"lanternWidth":{"default":0.3048,"min":0,"max":50,"step":0.001}};
+export const mount='floor';
+export default function build({params:p,THREE:T}){
+const g=new T.Group();const mat=(name,color,extra={})=>new T.MeshStandardMaterial({name,color,roughness:.65,...extra});
+const metal=mat('slot_metal','#282c2b',{metalness:.65}),stone=mat('slot_concrete','#cecac0'),glass=mat('glass','#b9d8dd',{transparent:true,opacity:.32,metalness:.1,roughness:.15});
+function box(w,h,d,x,y,z,m=stone,parent=g){const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);parent.add(o);return o;}
+function beam(a,b,w,d,m=metal,parent=g){const va=new T.Vector3(...a),vb=new T.Vector3(...b),o=new T.Mesh(new T.BoxGeometry(w,va.distanceTo(vb),d),m);o.position.copy(va.clone().add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),vb.sub(va).normalize());parent.add(o);return o;}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q;}
+const em=(name,color,i)=>new T.MeshStandardMaterial({name,color,emissive:color,emissiveIntensity:i,roughness:.4});
+
+const w=p.width,d=p.depth,h=p.height,lh=p.lanternHeight,lw=p.lanternWidth;
+const pm=mat('slot_pier','#efefec',{roughness:.85}),jm=mat('slot_pier_joint','#cfcfca',{roughness:.9}),dark=mat('slot_lantern_frame','#2a2c2b',{roughness:.5,metalness:.5}),glow=em('lantern_emissive','#ffe2a8',3);
+const q=part('masonry_pier');box(w,h,d,0,h/2,0,pm,q);for(let y=.3;y<h-.1;y+=.3)box(w+.004,.008,d+.004,0,y,0,jm,q);box(w+.04,.06,d+.04,0,h+.03,0,pm,q);
+const l=part('box_lantern'),y0=h+.06;box(lw*.88,.02,lw*.88,0,y0+.01,0,dark,l);box(lw*.7,lh-.05,lw*.7,0,y0+.02+(lh-.05)/2,0,glow,l);
+for(const sx of [-1,1])for(const sz of [-1,1])box(.025,lh-.04,.025,sx*lw*.4,y0+.02+(lh-.04)/2,sz*lw*.4,dark,l);box(lw,.03,lw,0,y0+lh-.015,0,dark,l);return g;}

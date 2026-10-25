@@ -57,7 +57,7 @@ if(mode==='check'){
 }
 if(mode==='save'){
  const st=await call('get_project_status',{id:projectId});console.log(JSON.stringify(await call('save_scene',{id:projectId,name:st.name,includeCurrentScene:true,expectedVersion:st.version,saveMode:'checkpoint'})));
- const g=fullGraph();if(!g.materials||Object.keys(g.materials).length<20)throw Error('Incomplete material registry');fs.writeFileSync('scenes/588-m1-interior-v1.json',JSON.stringify(g,null,2));
+ const g=fullGraph();if(!g.materials||Object.keys(g.materials).length<20)throw Error('Incomplete material registry');fs.writeFileSync('scenes/588-m1-interior-v1.json',JSON.stringify(g,null,2));{const {syncSceneArtifacts}=await import('./sync-scene-artifacts.mjs');console.log('Artifacts',JSON.stringify(syncSceneArtifacts()));}
  await call('load_scene',{id:projectId});console.log(JSON.stringify(await call('get_project_status',{id:projectId})));
 }
 if(mode==='walk'){

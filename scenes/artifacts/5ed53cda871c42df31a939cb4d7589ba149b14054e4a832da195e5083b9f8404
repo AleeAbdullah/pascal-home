@@ -1,0 +1,12 @@
+export const params={"width":{"default":1.5748,"min":0,"max":50,"step":0.001},"depth":{"default":0.254,"min":0,"max":50,"step":0.001},"height":{"default":0.4572,"min":0,"max":50,"step":0.001}};
+export const mount='floor';
+export default function build({params:p,THREE:T}){
+const g=new T.Group();const mat=(name,color,extra={})=>new T.MeshStandardMaterial({name,color,roughness:.65,...extra});
+const metal=mat('slot_metal','#282c2b',{metalness:.65}),stone=mat('slot_concrete','#cecac0'),glass=mat('glass','#b9d8dd',{transparent:true,opacity:.32,metalness:.1,roughness:.15});
+function box(w,h,d,x,y,z,m=stone,parent=g){const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);parent.add(o);return o;}
+function beam(a,b,w,d,m=metal,parent=g){const va=new T.Vector3(...a),vb=new T.Vector3(...b),o=new T.Mesh(new T.BoxGeometry(w,va.distanceTo(vb),d),m);o.position.copy(va.clone().add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),vb.sub(va).normalize());parent.add(o);return o;}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q;}
+
+const W=p.width,D=p.depth,H=p.height;const soil=mat('slot_soil','#3b2f26',{roughness:1}),leaf=mat('slot_foliage','#4c6b3b',{roughness:.9}),pot=mat('slot_planter','#e9e7e1',{roughness:.8});
+const q=part('planter');box(W,H,D,0,H/2,0,pot,q);box(W-.06,.02,D-.06,0,H+.005,0,soil,q);
+const n=Math.round(W/.4);for(let i=0;i<n;i++){const s=new T.Mesh(new T.SphereGeometry(.17,10,8),leaf);s.position.set(-W/2+(i+.5)*W/n,H+.16,0);q.add(s);}return g;}
