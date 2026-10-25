@@ -1,5 +1,6 @@
 // Governing source: base assets/588 - M1 (Checked by Building Control).pdf, sheet 1.
 // Inches are retained to avoid rounding imperial dimension chains during authoring.
+// Later blueprint-review corrections applied to the live scene are recorded in src/first-floor-blueprint-corrections.mjs and src/ground-floor-blueprint-corrections.mjs.
 export const projectId = '588-m1-governing-plan';
 export const inch = n => Number((n * 0.0254).toFixed(8));
 export const xy = p => p.map(inch);
@@ -59,22 +60,21 @@ V(g,'guest-bath-partition',827.25,319,406,4.5);
 H(g,'guest-bath-front',742.5,931.5,406);
 H(g,'drawing-front',673.5,931.5,631);
 H(g,'powder-back',673.5,742.5,561.25,4.5);
-V(g,'powder-west',673.5,561.25,631);
+V(g,'powder-west',673.5,516.3,653.3);
 H(g,'master-front',-4.5,184.5,508);
-V(g,'lounge-east',433.5,325,658);
+V(g,'lounge-east',433.5,325,710.3);
 H(g,'lounge-front',184.5,433.5,658);
 H(g,'shaft-back',433.5,514.5,325);
 H(g,'shaft-front',433.5,514.5,568);
-V(g,'shaft-east',514.5,325,595);
-H(g,'stair-back',514.5,673.5,277);
+V(g,'shaft-east',514.5,277,653.3);
+H(g,'stair-back',514.5,677.9,277);
 H(g,'entry-front',514.5,673.5,595,9,300);
 sep(g,'hall-lounge',[184.5,277],[433.5,277]);
-sep(g,'hall-stair',[514.5,277],[514.5,325]);
 sep(g,'lounge-step',[184.5,329.5],[433.5,329.5]);
 sep(g,'lounge-step-side',[433.5,277],[433.5,325]);
 sep(g,'stair-east',[673.5,277],[673.5,449]);
 sep(g,'lobby-back',[514.5,449],[673.5,449]);
-sep(g,'lobby-east',[673.5,449],[673.5,595]);
+sep(g,'lobby-east',[673.5,449],[673.5,516.3]);
 sep(g,'corridor-front',[673.5,595],[673.5,631]);
 for(const r of [['Master bathroom',80,45],['Bathroom 2',240,45],['Master walk-in closet',80,150],['Walk-in closet 2',240,150],['Bedroom 02',400,100],['Guest bedroom',830,230],['Guest walk-in closet',785,360],['Guest bathroom',880,360],['Drawing room',830,520],['Powder room',705,595],['Master bedroom',80,360],['Maid bathroom',905,25],['Laundry room',905,110]])room(g,...r);
 label(g,'Open kitchen',528,0,738,203.5);

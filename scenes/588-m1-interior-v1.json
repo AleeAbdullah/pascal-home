@@ -9573,7 +9573,6 @@
         "wall_588_gf_lounge_east_1",
         "wall_588_gf_shaft_east_1",
         "separator_588_gf_hall_lounge",
-        "separator_588_gf_hall_stair",
         "separator_588_gf_lounge_step",
         "separator_588_gf_lounge_step_side",
         "separator_588_gf_stair_east",
@@ -9760,7 +9759,11 @@
         "item_7ym5wbdl2ie6nmq8",
         "item_mpmurjm7w37g62dc",
         "item_hdwhrx3sxye63vy9",
-        "item_4jo6km4jhwo7y8p9"
+        "item_4jo6km4jhwo7y8p9",
+        "column_6stq5lg37szmpvk5",
+        "column_sekuyvipd8w7wv44",
+        "column_mh7rne33xz0bwfgl",
+        "column_5pptjjyf9ebpzggg"
       ],
       "level": 0,
       "baseElevation": 0,
@@ -10606,9 +10609,7 @@
           10.3124
         ]
       },
-      "children": [
-        "door_rs1a92tybtkvi4ng"
-      ],
+      "children": [],
       "slots": {
         "a": "scene:mat_cvmusa3ms3wea9le",
         "b": "scene:mat_cvmusa3ms3wea9le"
@@ -10725,12 +10726,14 @@
         "positionBasis": "dimension-chain grid; undimensioned returns traced from PDF",
         "sourceStart": [
           17.1069,
-          14.25575
+          13.11402
         ],
         "sourceEnd": [
           17.1069,
           15.113
-        ]
+        ],
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Lobby-east real wall z=516.3..653.3 in; gap z=444.3..516.3 stays open under the beam"
       },
       "children": [],
       "slots": {
@@ -10741,7 +10744,7 @@
       "height": 3.6576,
       "start": [
         17.1069,
-        14.25575
+        13.11402
       ],
       "end": [
         17.1069,
@@ -10976,12 +10979,14 @@
         "positionBasis": "dimension-chain grid; undimensioned returns traced from PDF",
         "sourceStart": [
           13.0683,
-          8.255
+          7.0358
         ],
         "sourceEnd": [
           13.0683,
           14.4272
-        ]
+        ],
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Shaft-east wall runs continuously z=277..653.3 in; hall-stair separator became a real wall"
       },
       "children": [
         "window_mbjlup6hfipi8jgn",
@@ -10995,7 +11000,7 @@
       "height": 3.6576,
       "start": [
         13.0683,
-        8.255
+        7.0358
       ],
       "end": [
         13.0683,
@@ -11022,9 +11027,11 @@
           7.0358
         ],
         "sourceEnd": [
-          17.1069,
+          17.21866,
           7.0358
-        ]
+        ],
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Stair-back wall extends to x=677.9 in"
       },
       "children": [],
       "slots": {
@@ -11038,7 +11045,7 @@
         7.0358
       ],
       "end": [
-        17.1069,
+        17.21866,
         7.0358
       ],
       "frontSide": "interior",
@@ -17760,9 +17767,7 @@
           5.2832
         ]
       },
-      "children": [
-        "door_7ihobxg7ta7qneaq"
-      ],
+      "children": [],
       "slots": {
         "a": "scene:mat_cvmusa3ms3wea9le",
         "b": "scene:mat_cvmusa3ms3wea9le"
@@ -17886,7 +17891,9 @@
           5.2832
         ]
       },
-      "children": [],
+      "children": [
+        "door_iebwabd2nbyu6jfw"
+      ],
       "slots": {
         "a": "scene:mat_cvmusa3ms3wea9le",
         "b": "scene:mat_cvmusa3ms3wea9le"
@@ -18495,8 +18502,10 @@
         ],
         "sourceEnd": [
           17.1069,
-          16.0274
-        ]
+          16.59382
+        ],
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Lobby-east real wall z=516.3..653.3 in"
       },
       "children": [],
       "slots": {
@@ -18511,7 +18520,7 @@
       ],
       "end": [
         17.1069,
-        16.0274
+        16.59382
       ],
       "frontSide": "exterior",
       "backSide": "interior"
@@ -18535,8 +18544,10 @@
         ],
         "sourceEnd": [
           11.0109,
-          16.7132
-        ]
+          18.04162
+        ],
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Lounge-east wall extends to z=710.3 in"
       },
       "children": [
         "window_dpe8o5ah6dfzv3xo"
@@ -18553,7 +18564,7 @@
       ],
       "end": [
         11.0109,
-        16.7132
+        18.04162
       ],
       "frontSide": "interior",
       "backSide": "exterior"
@@ -18577,8 +18588,10 @@
         ],
         "sourceEnd": [
           13.0683,
-          15.113
-        ]
+          16.59382
+        ],
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Shaft-east wall runs continuously z=277..653.3 in"
       },
       "children": [],
       "slots": {
@@ -18593,7 +18606,7 @@
       ],
       "end": [
         13.0683,
-        15.113
+        16.59382
       ],
       "frontSide": "exterior",
       "backSide": "interior"
@@ -18616,26 +18629,6 @@
       "end": [
         11.0109,
         7.0358
-      ]
-    },
-    "separator_588_gf_hall_stair": {
-      "object": "node",
-      "id": "separator_588_gf_hall_stair",
-      "type": "separator",
-      "name": "gf-hall-stair",
-      "parentId": "level_as4e3a9d57",
-      "visible": true,
-      "metadata": {
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "physical": false
-      },
-      "start": [
-        13.0683,
-        7.0358
-      ],
-      "end": [
-        13.0683,
-        8.255
       ]
     },
     "separator_588_gf_lounge_step": {
@@ -18727,7 +18720,9 @@
       "visible": true,
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "physical": false
+        "physical": false,
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Lobby boundary kept in the open gap; real wall now covers z=516.3..653.3 in"
       },
       "start": [
         17.1069,
@@ -18735,7 +18730,7 @@
       ],
       "end": [
         17.1069,
-        14.25575
+        13.11402
       ]
     },
     "wall_588_ff_rear_left_1": {
@@ -20908,7 +20903,6 @@
         "wall_asb9aa1d96"
       ],
       "boundarySeparatorIds": [
-        "separator_588_gf_hall_stair",
         "separator_588_gf_lobby_back",
         "separator_588_gf_stair_east"
       ],
@@ -20974,6 +20968,10 @@
         ],
         [
           17.1069,
+          13.11402
+        ],
+        [
+          17.1069,
           11.4046
         ],
         [
@@ -21010,14 +21008,15 @@
         "wall_588_gf_rear_rooms_front_1",
         "wall_588_gf_rear_rooms_front_2",
         "wall_588_gf_rear_rooms_front_3",
+        "wall_as050475c3",
         "wall_as5ec1b1cf",
         "wall_as971247d8",
+        "wall_asb9aa1d96",
         "wall_asf903b3df",
         "wall_asfe754fa4"
       ],
       "boundarySeparatorIds": [
         "separator_588_gf_hall_lounge",
-        "separator_588_gf_hall_stair",
         "separator_588_gf_lobby_east",
         "separator_588_gf_lounge_step_side",
         "separator_588_gf_stair_east"
@@ -21693,6 +21692,10 @@
         [
           17.1069,
           11.4046
+        ],
+        [
+          17.1069,
+          13.11402
         ],
         [
           17.1069,
@@ -22990,14 +22993,18 @@
         "widthBasis": "PDF opening schedule",
         "heightBasis": "Owner override: 8 ft",
         "pdfDrawnWidthInches": 36.04,
-        "sourcePositionInches": 895.58,
-        "operability": "Unspecified in PDF; fixed representation only"
+        "sourcePositionInches": 895.365,
+        "operability": "Unspecified in PDF; fixed representation only",
+        "widthOverride": 36,
+        "widthDecision": "PDF drawn width 36 in governs; 48 in overlapped the laundry partition",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "PDF drawn width 36 in governs; 48 in overlapped the laundry partition"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        0.6306820000000002,
+        0.6252209999999998,
         2.4383999999999997,
         0
       ],
@@ -23008,7 +23015,7 @@
       ],
       "floorThresholdVersion": 1,
       "wallId": "wall_588_gf_rear_5",
-      "width": 1.2192,
+      "width": 0.9144,
       "height": 2.4384,
       "constructionType": "framed",
       "dimensionReference": "nominal",
@@ -23541,7 +23548,7 @@
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        1.6116300000000001,
+        2.8308300000000006,
         1.3716000000000002,
         0
       ],
@@ -24221,7 +24228,7 @@
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        3.9484300000000006,
+        5.167630000000001,
         1.3716000000000002,
         0
       ],
@@ -28139,17 +28146,19 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "sourceOpening": "passages-0-0",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF vector trace",
+        "positionBasis": "PDF vector trace rechecked 2026-10-25",
+        "widthBasis": "PDF vector jamb-to-jamb trace",
         "heightBasis": "PDF schedule",
-        "sourcePositionInches": 117,
-        "operability": "Door swing to be checked"
+        "sourcePositionInches": 135,
+        "operability": "Door swing to be checked",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Master walk-in closet jambs x=113.9..156.0 in; centre x=135 in"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        3.0860999999999996,
+        3.5433,
         1.524,
         0
       ],
@@ -28211,88 +28220,6 @@
       "panicBar": false,
       "panicBarHeight": 1
     },
-    "door_7ihobxg7ta7qneaq": {
-      "object": "node",
-      "id": "door_7ihobxg7ta7qneaq",
-      "type": "door",
-      "name": "Open passage · GF",
-      "parentId": "wall_588_gf_rear_rooms_front_1",
-      "visible": true,
-      "metadata": {
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "sourceOpening": "passages-0-1",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF vector trace",
-        "heightBasis": "PDF schedule",
-        "sourcePositionInches": 254,
-        "operability": "Door swing to be checked"
-      },
-      "slots": {
-        "frame": "scene:mat_m548d3ql7l2z76yt"
-      },
-      "position": [
-        1.7652999999999999,
-        1.524,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "floorThresholdVersion": 1,
-      "wallId": "wall_588_gf_rear_rooms_front_1",
-      "width": 1.0668,
-      "height": 3.048,
-      "constructionType": "framed",
-      "dimensionReference": "nominal",
-      "doorCategory": "interior",
-      "doorType": "hinged",
-      "leafCount": 1,
-      "operationState": 0,
-      "slideDirection": "left",
-      "trackStyle": "none",
-      "garagePanelCount": 4,
-      "openingKind": "opening",
-      "openingShape": "rectangle",
-      "openingRadiusMode": "all",
-      "openingTopRadii": [
-        0.15,
-        0.15
-      ],
-      "cornerRadius": 0.15,
-      "archHeight": 0.45,
-      "openingRevealRadius": 0.025,
-      "frameThickness": 0.05,
-      "frameDepth": 0.07,
-      "threshold": true,
-      "thresholdHeight": 0.02,
-      "hingesSide": "left",
-      "swingDirection": "inward",
-      "swingAngle": 0,
-      "segments": [
-        {
-          "type": "panel",
-          "heightRatio": 1,
-          "columnRatios": [
-            1
-          ],
-          "dividerThickness": 0.03,
-          "panelDepth": 0,
-          "panelInset": 0
-        }
-      ],
-      "handle": true,
-      "handleHeight": 1.05,
-      "handleSide": "right",
-      "contentPadding": [
-        0,
-        0
-      ],
-      "doorCloser": false,
-      "panicBar": false,
-      "panicBarHeight": 1
-    },
     "door_7wwyg5czrffwrgmy": {
       "object": "node",
       "id": "door_7wwyg5czrffwrgmy",
@@ -28303,17 +28230,19 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "sourceOpening": "passages-0-2",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF vector trace",
+        "positionBasis": "PDF vector trace rechecked 2026-10-25",
+        "widthBasis": "PDF vector jamb-to-jamb trace",
         "heightBasis": "PDF schedule",
-        "sourcePositionInches": 645,
-        "operability": "Door swing to be checked"
+        "sourcePositionInches": 613.4,
+        "operability": "Door swing to be checked",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Open kitchen entry occupies x=557.9..668.9 in"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        3.086099999999998,
+        2.28346,
         1.524,
         0
       ],
@@ -28324,7 +28253,7 @@
       ],
       "floorThresholdVersion": 1,
       "wallId": "wall_588_gf_rear_rooms_front_3",
-      "width": 2.794,
+      "width": 2.8194,
       "height": 3.048,
       "constructionType": "framed",
       "dimensionReference": "nominal",
@@ -28385,17 +28314,19 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "sourceOpening": "passages-0-3",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF vector trace",
+        "positionBasis": "PDF vector trace rechecked 2026-10-25",
+        "widthBasis": "PDF vector jamb-to-jamb trace",
         "heightBasis": "PDF schedule",
-        "sourcePositionInches": 798,
-        "operability": "Door swing to be checked"
+        "sourcePositionInches": 788.9,
+        "operability": "Door swing to be checked",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Guest walk-in closet opening x=770.9..806.9 in"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        1.4097000000000008,
+        1.178560000000001,
         1.524,
         0
       ],
@@ -28406,89 +28337,7 @@
       ],
       "floorThresholdVersion": 1,
       "wallId": "wall_as389be5d6",
-      "width": 1.0668,
-      "height": 3.048,
-      "constructionType": "framed",
-      "dimensionReference": "nominal",
-      "doorCategory": "interior",
-      "doorType": "hinged",
-      "leafCount": 1,
-      "operationState": 0,
-      "slideDirection": "left",
-      "trackStyle": "none",
-      "garagePanelCount": 4,
-      "openingKind": "opening",
-      "openingShape": "rectangle",
-      "openingRadiusMode": "all",
-      "openingTopRadii": [
-        0.15,
-        0.15
-      ],
-      "cornerRadius": 0.15,
-      "archHeight": 0.45,
-      "openingRevealRadius": 0.025,
-      "frameThickness": 0.05,
-      "frameDepth": 0.07,
-      "threshold": true,
-      "thresholdHeight": 0.02,
-      "hingesSide": "left",
-      "swingDirection": "inward",
-      "swingAngle": 0,
-      "segments": [
-        {
-          "type": "panel",
-          "heightRatio": 1,
-          "columnRatios": [
-            1
-          ],
-          "dividerThickness": 0.03,
-          "panelDepth": 0,
-          "panelInset": 0
-        }
-      ],
-      "handle": true,
-      "handleHeight": 1.05,
-      "handleSide": "right",
-      "contentPadding": [
-        0,
-        0
-      ],
-      "doorCloser": false,
-      "panicBar": false,
-      "panicBarHeight": 1
-    },
-    "door_rs1a92tybtkvi4ng": {
-      "object": "node",
-      "id": "door_rs1a92tybtkvi4ng",
-      "type": "door",
-      "name": "Open passage · GF",
-      "parentId": "wall_as801d3884",
-      "visible": true,
-      "metadata": {
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "sourceOpening": "passages-0-4",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF vector trace",
-        "heightBasis": "PDF schedule",
-        "sourcePositionInches": 785,
-        "operability": "Door swing to be checked"
-      },
-      "slots": {
-        "frame": "scene:mat_m548d3ql7l2z76yt"
-      },
-      "position": [
-        1.0794999999999995,
-        1.524,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "floorThresholdVersion": 1,
-      "wallId": "wall_as801d3884",
-      "width": 1.0668,
+      "width": 0.9144,
       "height": 3.048,
       "constructionType": "framed",
       "dimensionReference": "nominal",
@@ -28549,17 +28398,19 @@
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "sourceOpening": "passages-0-5",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF vector trace",
+        "positionBasis": "PDF vector trace rechecked 2026-10-25",
+        "widthBasis": "PDF vector jamb-to-jamb trace",
         "heightBasis": "PDF schedule",
-        "sourcePositionInches": 430,
-        "operability": "Door swing to be checked"
+        "sourcePositionInches": 480.3,
+        "operability": "Door swing to be checked",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Drawing-room west opening z=444.3..516.3 in; centre z=480.3 in"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        0.6096000000000004,
+        1.8872199999999992,
         1.524,
         0
       ],
@@ -28570,7 +28421,7 @@
       ],
       "floorThresholdVersion": 1,
       "wallId": "wall_588_gf_east_rooms_west_2",
-      "width": 1.0668,
+      "width": 1.8288,
       "height": 3.048,
       "constructionType": "framed",
       "dimensionReference": "nominal",
@@ -86461,7 +86312,7 @@
       "position": [
         4.24,
         0,
-        3.95
+        3.65
       ],
       "rotation": [
         0,
@@ -86497,22 +86348,22 @@
         "language": "three",
         "script": "b71115e09840d7ecee7808840b3d1dc6f02678b2859da31bb3e5d7e9a0cba3dd",
         "params": {
-          "width": 2.1,
+          "width": 1.8,
           "height": 2.65,
           "depth": 0.6,
           "detail": 1,
           "shadows": 1
         },
-        "artifact": "817a9af7cb4630d3335bcf569bcf7712c7a5876b2da66ac23be246e2f6b7085f",
+        "artifact": "3529d3942fb02514db8b1b8c2f7b1fc320f4712e55391ab0cb4cbfc3b17f8889",
         "manifest": {
           "bounds": {
             "min": [
-              -1.05,
+              -0.9,
               0,
               -0.3235
             ],
             "max": [
-              1.05,
+              0.9,
               2.65,
               0.3235
             ]
@@ -86564,12 +86415,12 @@
               "id": "wardrobe_carcass",
               "bounds": {
                 "min": [
-                  -1.05,
+                  -0.9,
                   0,
                   -0.3235
                 ],
                 "max": [
-                  1.05,
+                  0.9,
                   2.65,
                   0.319
                 ]
@@ -86585,106 +86436,52 @@
               "y": 2.65,
               "polygon": [
                 [
-                  -1.044,
+                  -0.894,
                   -0.313
                 ],
                 [
-                  -1.044,
+                  -0.894,
                   -0.318
                 ],
                 [
-                  -1.04,
+                  -0.89,
                   -0.318
                 ],
                 [
-                  1.04,
+                  0.89,
                   -0.318
                 ],
                 [
-                  1.044,
+                  0.894,
                   -0.318
                 ],
                 [
-                  1.044,
+                  0.894,
                   -0.313
                 ],
                 [
-                  1.044,
+                  0.894,
                   0.266
                 ],
                 [
-                  1.044,
+                  0.894,
                   0.271
                 ],
                 [
-                  1.04,
+                  0.89,
                   0.271
                 ],
                 [
-                  -1.04,
+                  -0.89,
                   0.271
                 ],
                 [
-                  -1.044,
+                  -0.894,
                   0.271
                 ],
                 [
-                  -1.044,
+                  -0.894,
                   0.266
-                ]
-              ]
-            },
-            {
-              "part": "wardrobe_carcass",
-              "y": 0.05,
-              "polygon": [
-                [
-                  -1.019,
-                  0.296
-                ],
-                [
-                  -1.019,
-                  0.295
-                ],
-                [
-                  -1.018,
-                  0.295
-                ],
-                [
-                  1.018,
-                  0.295
-                ],
-                [
-                  1.019,
-                  0.295
-                ],
-                [
-                  1.019,
-                  0.296
-                ],
-                [
-                  1.019,
-                  0.317
-                ],
-                [
-                  1.019,
-                  0.318
-                ],
-                [
-                  1.018,
-                  0.318
-                ],
-                [
-                  -1.018,
-                  0.318
-                ],
-                [
-                  -1.019,
-                  0.318
-                ],
-                [
-                  -1.019,
-                  0.317
                 ]
               ]
             }
@@ -86734,19 +86531,19 @@
               "part": "wardrobe_carcass",
               "polygon": [
                 [
-                  -1.04,
+                  -0.89,
                   -0.313
                 ],
                 [
-                  1.04,
+                  0.89,
                   -0.313
                 ],
                 [
-                  1.04,
+                  0.89,
                   0.266
                 ],
                 [
-                  -1.04,
+                  -0.89,
                   0.266
                 ]
               ],
@@ -86755,33 +86552,6 @@
                 -1,
                 0,
                 0
-              ]
-            },
-            {
-              "part": "wardrobe_carcass",
-              "polygon": [
-                [
-                  -1.018,
-                  0.296
-                ],
-                [
-                  1.018,
-                  0.296
-                ],
-                [
-                  1.018,
-                  0.317
-                ],
-                [
-                  -1.018,
-                  0.317
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0.039
               ]
             }
           ],
@@ -86794,18 +86564,18 @@
           "cutters": [],
           "cutout": false,
           "collider": false,
-          "triangles": 3000
+          "triangles": 2400
         }
       },
       "asset": {
-        "id": "script_817a9af7cb4630d3",
+        "id": "script_3529d3942fb02514",
         "category": "interior design",
         "name": "V1 · master sliding wardrobe",
         "thumbnail": "",
         "source": "mine",
-        "src": "artifact://817a9af7cb4630d3335bcf569bcf7712c7a5876b2da66ac23be246e2f6b7085f",
+        "src": "artifact://3529d3942fb02514db8b1b8c2f7b1fc320f4712e55391ab0cb4cbfc3b17f8889",
         "dimensions": [
-          2.1,
+          1.8,
           2.65,
           0.647
         ],
@@ -88296,16 +88066,18 @@
         "zoneId": "zone_bkipm23szhgwkuc8",
         "room": "closet2",
         "dimensionBasis": "Proposed editable interior; checked blueprint and accepted corrections preserve room geometry",
-        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62"
+        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62",
+        "placementBasis": "Moved from the east wall (now carries the closet 2 opening) to the south wall of closet 2",
+        "blueprintReview": "2026-10-25"
       },
       "position": [
-        7.36,
+        6.31,
         0,
-        4.25
+        4.86
       ],
       "rotation": [
         0,
-        -1.5707963267948966,
+        3.14159265,
         0
       ],
       "scale": [
@@ -88619,12 +88391,14 @@
         "zoneId": "zone_00027xvrpy0iun3h",
         "room": "guestCloset",
         "dimensionBasis": "Proposed editable interior; checked blueprint and accepted corrections preserve room geometry",
-        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62"
+        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62",
+        "placementBasis": "Shifted south and against the west wall to clear the relocated guest closet opening keep-out",
+        "blueprintReview": "2026-10-25"
       },
       "position": [
-        19.29,
+        19.26,
         0,
-        8.97
+        9.45
       ],
       "rotation": [
         0,
@@ -101046,16 +100820,18 @@
         "zoneId": "zone_0001jgsy6e8lk4im",
         "room": "drawing",
         "dimensionBasis": "Proposed editable interior; checked blueprint and accepted corrections preserve room geometry",
-        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62"
+        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62",
+        "placementBasis": "Moved from the west wall, where the drawing-room opening now sits, to the north wall behind the sofa",
+        "blueprintReview": "2026-10-25"
       },
       "position": [
-        19.04,
+        21.9,
         1.2,
-        13.1
+        10.5
       ],
       "rotation": [
         0,
-        1.5707963267948966,
+        0,
         0
       ],
       "scale": [
@@ -156225,6 +156001,458 @@
       "occupancy": "",
       "clearDimensionPolicy": "none",
       "color": "#22c55e"
+    },
+    "door_iebwabd2nbyu6jfw": {
+      "object": "node",
+      "id": "door_iebwabd2nbyu6jfw",
+      "type": "door",
+      "name": "Open passage · GF",
+      "parentId": "wall_588_gf_bath2_east_1",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceOpening": "passages-0-6",
+        "positionBasis": "PDF vector trace; OPENING AT 10'-0\" callout",
+        "widthBasis": "PDF vector jamb-to-jamb trace",
+        "heightBasis": "PDF schedule",
+        "sourcePositionInches": 158.35,
+        "operability": "Door swing to be checked",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Closet 2 opens east into Bedroom 02 at z=137.4..179.3 in"
+      },
+      "slots": {
+        "frame": "scene:mat_m548d3ql7l2z76yt"
+      },
+      "position": [
+        1.4058899999999992,
+        1.524,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "floorThresholdVersion": 1,
+      "wallId": "wall_588_gf_bath2_east_1",
+      "width": 1.0668,
+      "height": 3.048,
+      "constructionType": "framed",
+      "dimensionReference": "nominal",
+      "doorCategory": "interior",
+      "doorType": "hinged",
+      "leafCount": 1,
+      "operationState": 0,
+      "slideDirection": "left",
+      "trackStyle": "none",
+      "garagePanelCount": 4,
+      "openingKind": "opening",
+      "openingShape": "rectangle",
+      "openingRadiusMode": "all",
+      "openingTopRadii": [
+        0.15,
+        0.15
+      ],
+      "cornerRadius": 0.15,
+      "archHeight": 0.45,
+      "openingRevealRadius": 0.025,
+      "frameThickness": 0.05,
+      "frameDepth": 0.07,
+      "threshold": true,
+      "thresholdHeight": 0.02,
+      "hingesSide": "left",
+      "swingDirection": "inward",
+      "swingAngle": 0,
+      "segments": [
+        {
+          "type": "panel",
+          "heightRatio": 1,
+          "columnRatios": [
+            1
+          ],
+          "dividerThickness": 0.03,
+          "panelDepth": 0,
+          "panelInset": 0
+        }
+      ],
+      "handle": true,
+      "handleHeight": 1.05,
+      "handleSide": "right",
+      "contentPadding": [
+        0,
+        0
+      ],
+      "doorCloser": false,
+      "panicBar": false,
+      "panicBarHeight": 1
+    },
+    "column_6stq5lg37szmpvk5": {
+      "object": "node",
+      "id": "column_6stq5lg37szmpvk5",
+      "type": "column",
+      "name": "P1 · GF column",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "positionBasis": "PDF vector trace",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Structural column P1 at plan x=362.9, z=279.9 in; 12 x 15 in (x by z)"
+      },
+      "children": [],
+      "position": [
+        9.21766,
+        0,
+        7.10946
+      ],
+      "rotation": 0,
+      "style": "plain",
+      "crossSection": "rectangular",
+      "height": 3.96,
+      "radius": 0.22,
+      "width": 0.3048,
+      "depth": 0.381,
+      "edgeSoftness": 0.025,
+      "baseHeight": 0.18,
+      "capitalHeight": 0.18,
+      "shaftProfile": "straight",
+      "shaftTaper": 0,
+      "shaftBulge": 0,
+      "shaftStartScale": 0.72,
+      "shaftEndScale": 0.72,
+      "shaftSegmentCount": 24,
+      "shaftTwistStep": 0,
+      "shaftCornerRadius": 0.035,
+      "shaftDetail": "none",
+      "baseStyle": "round-rings",
+      "baseWidthScale": 1.24,
+      "baseDepthScale": 1.24,
+      "baseTierCount": 3,
+      "baseStepSpread": 0.42,
+      "basePlinthHeightRatio": 0.44,
+      "baseRoundBandScale": 0.92,
+      "baseNeckScale": 0.72,
+      "baseRoundBandCount": 3,
+      "baseRibCount": 0,
+      "baseCarvingLevel": 0,
+      "basePanelInset": 0.02,
+      "capitalStyle": "simple",
+      "capitalWidthScale": 1.46,
+      "capitalDepthScale": 1.46,
+      "capitalTierCount": 3,
+      "capitalStepSpread": 0.42,
+      "capitalBandCount": 2,
+      "voluteSize": 0.08,
+      "voluteCount": 4,
+      "leafCount": 18,
+      "leafRows": 2,
+      "bracketDepth": 0.35,
+      "bracketTierCount": 3,
+      "pendantCount": 0,
+      "capitalCarvingLevel": 0,
+      "ringCount": 0,
+      "ringPlacement": "ends",
+      "ringThickness": 0.055,
+      "ringSpread": 0.16,
+      "fluteCount": 0,
+      "fluteDepth": 0.02,
+      "fluteWidth": 0.02,
+      "spiralTwist": 0,
+      "spiralRibCount": 0,
+      "panelCount": 0,
+      "panelInsetDepth": 0.02,
+      "panelShape": "rectangle",
+      "latheRingCount": 0,
+      "latheRingSpacing": "ends",
+      "carvingLevel": 0,
+      "carvingPlacement": "capital",
+      "lowerBandEnabled": false,
+      "lowerBandHeight": 0.24,
+      "lowerBandCarvingLevel": 0,
+      "dentilCount": 0,
+      "beadCount": 0,
+      "supportStyle": "vertical",
+      "braceWidth": 0.16,
+      "braceDepth": 0.16,
+      "braceBottomSpread": 1.2,
+      "braceTopSpread": 0.12,
+      "bracePlateEnabled": true
+    },
+    "column_sekuyvipd8w7wv44": {
+      "object": "node",
+      "id": "column_sekuyvipd8w7wv44",
+      "type": "column",
+      "name": "P2 · GF column",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "positionBasis": "PDF vector trace",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Structural column P2 at plan x=362.9, z=323.35 in; 12 x 12 in"
+      },
+      "children": [],
+      "position": [
+        9.21766,
+        0,
+        8.21309
+      ],
+      "rotation": 0,
+      "style": "plain",
+      "crossSection": "square",
+      "height": 3.96,
+      "radius": 0.22,
+      "width": 0.3048,
+      "depth": 0.3048,
+      "edgeSoftness": 0.025,
+      "baseHeight": 0.18,
+      "capitalHeight": 0.18,
+      "shaftProfile": "straight",
+      "shaftTaper": 0,
+      "shaftBulge": 0,
+      "shaftStartScale": 0.72,
+      "shaftEndScale": 0.72,
+      "shaftSegmentCount": 24,
+      "shaftTwistStep": 0,
+      "shaftCornerRadius": 0.035,
+      "shaftDetail": "none",
+      "baseStyle": "round-rings",
+      "baseWidthScale": 1.24,
+      "baseDepthScale": 1.24,
+      "baseTierCount": 3,
+      "baseStepSpread": 0.42,
+      "basePlinthHeightRatio": 0.44,
+      "baseRoundBandScale": 0.92,
+      "baseNeckScale": 0.72,
+      "baseRoundBandCount": 3,
+      "baseRibCount": 0,
+      "baseCarvingLevel": 0,
+      "basePanelInset": 0.02,
+      "capitalStyle": "simple",
+      "capitalWidthScale": 1.46,
+      "capitalDepthScale": 1.46,
+      "capitalTierCount": 3,
+      "capitalStepSpread": 0.42,
+      "capitalBandCount": 2,
+      "voluteSize": 0.08,
+      "voluteCount": 4,
+      "leafCount": 18,
+      "leafRows": 2,
+      "bracketDepth": 0.35,
+      "bracketTierCount": 3,
+      "pendantCount": 0,
+      "capitalCarvingLevel": 0,
+      "ringCount": 0,
+      "ringPlacement": "ends",
+      "ringThickness": 0.055,
+      "ringSpread": 0.16,
+      "fluteCount": 0,
+      "fluteDepth": 0.02,
+      "fluteWidth": 0.02,
+      "spiralTwist": 0,
+      "spiralRibCount": 0,
+      "panelCount": 0,
+      "panelInsetDepth": 0.02,
+      "panelShape": "rectangle",
+      "latheRingCount": 0,
+      "latheRingSpacing": "ends",
+      "carvingLevel": 0,
+      "carvingPlacement": "capital",
+      "lowerBandEnabled": false,
+      "lowerBandHeight": 0.24,
+      "lowerBandCarvingLevel": 0,
+      "dentilCount": 0,
+      "beadCount": 0,
+      "supportStyle": "vertical",
+      "braceWidth": 0.16,
+      "braceDepth": 0.16,
+      "braceBottomSpread": 1.2,
+      "braceTopSpread": 0.12,
+      "bracePlateEnabled": true
+    },
+    "column_mh7rne33xz0bwfgl": {
+      "object": "node",
+      "id": "column_mh7rne33xz0bwfgl",
+      "type": "column",
+      "name": "P3 · GF column",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "positionBasis": "PDF vector trace",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Structural column P3 at plan x=434.9, z=323.35 in; 12 x 12 in"
+      },
+      "children": [],
+      "position": [
+        11.04646,
+        0,
+        8.21309
+      ],
+      "rotation": 0,
+      "style": "plain",
+      "crossSection": "square",
+      "height": 3.96,
+      "radius": 0.22,
+      "width": 0.3048,
+      "depth": 0.3048,
+      "edgeSoftness": 0.025,
+      "baseHeight": 0.18,
+      "capitalHeight": 0.18,
+      "shaftProfile": "straight",
+      "shaftTaper": 0,
+      "shaftBulge": 0,
+      "shaftStartScale": 0.72,
+      "shaftEndScale": 0.72,
+      "shaftSegmentCount": 24,
+      "shaftTwistStep": 0,
+      "shaftCornerRadius": 0.035,
+      "shaftDetail": "none",
+      "baseStyle": "round-rings",
+      "baseWidthScale": 1.24,
+      "baseDepthScale": 1.24,
+      "baseTierCount": 3,
+      "baseStepSpread": 0.42,
+      "basePlinthHeightRatio": 0.44,
+      "baseRoundBandScale": 0.92,
+      "baseNeckScale": 0.72,
+      "baseRoundBandCount": 3,
+      "baseRibCount": 0,
+      "baseCarvingLevel": 0,
+      "basePanelInset": 0.02,
+      "capitalStyle": "simple",
+      "capitalWidthScale": 1.46,
+      "capitalDepthScale": 1.46,
+      "capitalTierCount": 3,
+      "capitalStepSpread": 0.42,
+      "capitalBandCount": 2,
+      "voluteSize": 0.08,
+      "voluteCount": 4,
+      "leafCount": 18,
+      "leafRows": 2,
+      "bracketDepth": 0.35,
+      "bracketTierCount": 3,
+      "pendantCount": 0,
+      "capitalCarvingLevel": 0,
+      "ringCount": 0,
+      "ringPlacement": "ends",
+      "ringThickness": 0.055,
+      "ringSpread": 0.16,
+      "fluteCount": 0,
+      "fluteDepth": 0.02,
+      "fluteWidth": 0.02,
+      "spiralTwist": 0,
+      "spiralRibCount": 0,
+      "panelCount": 0,
+      "panelInsetDepth": 0.02,
+      "panelShape": "rectangle",
+      "latheRingCount": 0,
+      "latheRingSpacing": "ends",
+      "carvingLevel": 0,
+      "carvingPlacement": "capital",
+      "lowerBandEnabled": false,
+      "lowerBandHeight": 0.24,
+      "lowerBandCarvingLevel": 0,
+      "dentilCount": 0,
+      "beadCount": 0,
+      "supportStyle": "vertical",
+      "braceWidth": 0.16,
+      "braceDepth": 0.16,
+      "braceBottomSpread": 1.2,
+      "braceTopSpread": 0.12,
+      "bracePlateEnabled": true
+    },
+    "column_5pptjjyf9ebpzggg": {
+      "object": "node",
+      "id": "column_5pptjjyf9ebpzggg",
+      "type": "column",
+      "name": "P4 · GF column",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "positionBasis": "PDF vector trace",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Free-standing column P4 at the stair south-east corner, x=673.4, z=439.8 in; 9 x 9 in"
+      },
+      "children": [],
+      "position": [
+        17.10436,
+        0,
+        11.17092
+      ],
+      "rotation": 0,
+      "style": "plain",
+      "crossSection": "square",
+      "height": 3.96,
+      "radius": 0.22,
+      "width": 0.2286,
+      "depth": 0.2286,
+      "edgeSoftness": 0.025,
+      "baseHeight": 0.18,
+      "capitalHeight": 0.18,
+      "shaftProfile": "straight",
+      "shaftTaper": 0,
+      "shaftBulge": 0,
+      "shaftStartScale": 0.72,
+      "shaftEndScale": 0.72,
+      "shaftSegmentCount": 24,
+      "shaftTwistStep": 0,
+      "shaftCornerRadius": 0.035,
+      "shaftDetail": "none",
+      "baseStyle": "round-rings",
+      "baseWidthScale": 1.24,
+      "baseDepthScale": 1.24,
+      "baseTierCount": 3,
+      "baseStepSpread": 0.42,
+      "basePlinthHeightRatio": 0.44,
+      "baseRoundBandScale": 0.92,
+      "baseNeckScale": 0.72,
+      "baseRoundBandCount": 3,
+      "baseRibCount": 0,
+      "baseCarvingLevel": 0,
+      "basePanelInset": 0.02,
+      "capitalStyle": "simple",
+      "capitalWidthScale": 1.46,
+      "capitalDepthScale": 1.46,
+      "capitalTierCount": 3,
+      "capitalStepSpread": 0.42,
+      "capitalBandCount": 2,
+      "voluteSize": 0.08,
+      "voluteCount": 4,
+      "leafCount": 18,
+      "leafRows": 2,
+      "bracketDepth": 0.35,
+      "bracketTierCount": 3,
+      "pendantCount": 0,
+      "capitalCarvingLevel": 0,
+      "ringCount": 0,
+      "ringPlacement": "ends",
+      "ringThickness": 0.055,
+      "ringSpread": 0.16,
+      "fluteCount": 0,
+      "fluteDepth": 0.02,
+      "fluteWidth": 0.02,
+      "spiralTwist": 0,
+      "spiralRibCount": 0,
+      "panelCount": 0,
+      "panelInsetDepth": 0.02,
+      "panelShape": "rectangle",
+      "latheRingCount": 0,
+      "latheRingSpacing": "ends",
+      "carvingLevel": 0,
+      "carvingPlacement": "capital",
+      "lowerBandEnabled": false,
+      "lowerBandHeight": 0.24,
+      "lowerBandCarvingLevel": 0,
+      "dentilCount": 0,
+      "beadCount": 0,
+      "supportStyle": "vertical",
+      "braceWidth": 0.16,
+      "braceDepth": 0.16,
+      "braceBottomSpread": 1.2,
+      "braceTopSpread": 0.12,
+      "bracePlateEnabled": true
     }
   },
   "rootNodeIds": [

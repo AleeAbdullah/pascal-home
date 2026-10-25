@@ -46,7 +46,9 @@
       "wall": "gf-rear",
       "at": 895.58,
       "pdfDrawnWidth": 36.04,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "widthOverride": 36,
+      "widthDecision": "PDF drawn width 36 in governs; 48 in overlapped the laundry partition"
     },
     {
       "level": 0,
@@ -605,7 +607,7 @@
     {
       "level": 0,
       "wall": "gf-rear-rooms-front",
-      "at": 117,
+      "at": 135,
       "width": 42,
       "height": 120,
       "positionBasis": "PDF vector trace; opening at 10 ft callout"
@@ -613,42 +615,34 @@
     {
       "level": 0,
       "wall": "gf-rear-rooms-front",
-      "at": 254,
-      "width": 42,
-      "height": 120,
-      "positionBasis": "PDF vector trace; opening at 10 ft callout"
-    },
-    {
-      "level": 0,
-      "wall": "gf-rear-rooms-front",
-      "at": 645,
-      "width": 110,
+      "at": 613.4,
+      "width": 111,
       "height": 120,
       "positionBasis": "PDF vector trace; opening at 10 ft callout"
     },
     {
       "level": 0,
       "wall": "gf-guest-front",
-      "at": 798,
-      "width": 42,
-      "height": 120,
-      "positionBasis": "PDF vector trace; opening at 10 ft callout"
-    },
-    {
-      "level": 0,
-      "wall": "gf-guest-bath-front",
-      "at": 785,
-      "width": 42,
+      "at": 788.9,
+      "width": 36,
       "height": 120,
       "positionBasis": "PDF vector trace; opening at 10 ft callout"
     },
     {
       "level": 0,
       "wall": "gf-east-rooms-west",
-      "at": 430,
-      "width": 42,
+      "at": 480.3,
+      "width": 72,
       "height": 120,
       "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 0,
+      "wall": "gf-bath2-east",
+      "at": 158.35,
+      "width": 42,
+      "height": 120,
+      "positionBasis": "PDF vector trace; OPENING AT 10'-0\" callout"
     },
     {
       "level": 1,

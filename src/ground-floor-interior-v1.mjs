@@ -100,11 +100,12 @@ floor('guest','tv','guest media console',tv,22.5,7.80,180,{width:1.5,depth:.25})
 ceiling('guest','drapes','guest east window drapes',reuse('curtain'),23.36,6.15,{width:3.1,height:3.45},90);
 ceiling('guest','cove','guest ceiling cove',reuse('cove'),21.26,6.15,{width:4.38,depth:3.48});
 ceiling('guest','pendant','guest globe pendant',globe,21.3,6.45,{drop:.9});
-floor('masterCloset','wardrobe','master sliding wardrobe',wardrobe,4.24,3.95,-90,{width:2.1,height:2.65,depth:.6});
+floor('masterCloset','wardrobe','master sliding wardrobe',wardrobe,4.24,3.65,-90,{width:1.8,height:2.65,depth:.6});
 floor('masterCloset','dresser','master closet low dresser',cabinet,.32,3.95,90,{width:1.8,depth:.5,height:.85});
 floor('masterCloset','stool','master dressing stool',stool,1.55,3.85,90);
-for(const [key,x,r]of [['west',5.13,90],['east',7.36,-90]])floor('closet2',key,'bedroom two '+key+' sliding wardrobe',wardrobe,x,4.25,r,{width:1.50,height:2.65,depth:.6});
-floor('guestCloset','wardrobe','guest sliding wardrobe',wardrobe,19.29,8.97,90,{width:1.10,height:2.65,depth:.55});
+// 2026-10-25: the east wall now carries the closet 2 <-> Bed-02 opening, so the east wardrobe sits on the south wall (no door there).
+for(const [key,x,z,r]of [['west',5.13,4.25,90],['east',6.31,4.86,180]])floor('closet2',key,'bedroom two '+key+' sliding wardrobe',wardrobe,x,z,r,{width:1.50,height:2.65,depth:.6});
+floor('guestCloset','wardrobe','guest sliding wardrobe',wardrobe,19.26,9.45,90,{width:1.10,height:2.65,depth:.55});
 floor('masterBath','vanity','master stone vanity and lit mirror',vanity,2.3,.30,0,{width:1.5,depth:.50});
 floor('masterBath','shower','master walk-in shower',shower,.67,.67,0,{width:1.15,depth:1.15});
 floor('masterBath','wc','master wall-hung toilet',toilet,4.20,.38);
@@ -128,7 +129,7 @@ for(const [i,z]of [12.40,13.75].entries())floor('drawing','chair'+i,'drawing roo
 floor('drawing','coffee','drawing room stone coffee table',reuse('coffee'),21.4,13.1,0,{width:1.35,depth:.9},.019);
 floor('drawing','decor','drawing room coffee table ceramics',reuse('coffee-decor'),21.4,13.1,0,{},.3823);
 floor('drawing','console','drawing room walnut console',desk,19.22,14.93,90,{width:1.25,depth:.35});
-floor('drawing','art','drawing room abstract artwork',reuse('art'),19.04,13.1,90,{},1.20);
+floor('drawing','art','drawing room abstract artwork',reuse('art'),21.9,10.5,0,{},1.20);
 floor('drawing','plant','drawing room corner plant',reuse('plant'),23.18,13.25);
 ceiling('drawing','drapes','drawing room south window drapes',reuse('curtain'),21.26,15.75,{width:4.20,height:3.45});
 ceiling('drawing','cove','drawing room ceiling cove',reuse('cove'),21.26,13.22,{width:4.38,depth:5.30});
