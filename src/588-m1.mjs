@@ -137,7 +137,7 @@ label(f,'Rear terrace',528,0,669,203.5);
 label(f,'Main staircase',519,281.5,669,435.5);
 label(f,'Looking below · double-height lobby',519,444.5,669,590.5);
 f.voids.push(rect(438,329.5,510,563.5),rect(519,444.5,669,590.5));
-slab(f,'Front left terrace',[[18,512.5],[429,512.5],[429,710.5],[18,710.5]],0,12);
+slab(f,'Front left terrace',[[134,512.5],[429,512.5],[429,710.5],[134,710.5]],0,12); // pass 2 (owner 2026-10-26): architect terrace glass at x 134; x 18–134 is open void
 slab(f,'Front right terrace',[[678,635.5],[1055.5,635.5],[1055.5,710.5],[678,710.5]],0,12);
 slab(f,'Rear terrace',[[528,0],[669,0],[669,203.5],[528,203.5]],0,12);
 const s=level('sf','Second floor · +27′-8″',332,118);
@@ -197,4 +197,4 @@ export const constructionFloors = [
  {key:'sf-store',level:2,top:0,thickness:14,polygon:[[375,-9],[528,-9],[528,208],[375,208]],holes:[]},
  {key:'sf-east',level:2,top:0,thickness:14,polygon:[[669,-9],[915,-9],[915,38.5],[954,38.5],[954,170.4],[936,170.4],[936,444.5],[738,444.5],[738,170.5],[669,170.5]],holes:[[[678,0],[832.5,0],[832.5,62],[790.5,62],[790.5,42],[720,42],[720,122],[678,122]]]},
 ];
-export const windowHeightOverrides = {ordinary:96,source:'Owner instruction: window height should be same throughout, use 8 ft.',secondFloorHighSill:'Owner subsequent instruction: follow PDF for the 2 ft and 5 ft high-sill windows.'};
+export const windowHeightOverrides = {frontFacade:'Owner 2026-10-26: front glazing heights follow the exterior renders (see renderHeight/renderSill in 588-openings.json, applied by build-exterior render2b).',ordinary:96,source:'Owner instruction: window height should be same throughout, use 8 ft.',secondFloorHighSill:'Owner subsequent instruction: follow PDF for the 2 ft and 5 ft high-sill windows.'};

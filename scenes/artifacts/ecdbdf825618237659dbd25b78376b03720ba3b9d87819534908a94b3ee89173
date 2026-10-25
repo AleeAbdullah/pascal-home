@@ -1,0 +1,9 @@
+export const params={};
+export const mount='floor';
+export default function build({THREE:T}){const g=new T.Group();const M={};const md={"bark":{"n":"slot_bark","c":"#4f3f31","r":0.95},"leaf2":{"n":"slot_foliage_light","c":"#4c6b3b","r":0.9},"leaf":{"n":"slot_foliage","c":"#3e5a33","r":0.9}};
+for(const k in md){const v=md[k];const o={name:v.n,color:v.c,roughness:v.r??.7,metalness:v.mt??0};if(v.e){o.emissive=v.c;o.emissiveIntensity=v.e;}if(v.o!=null){o.transparent=true;o.opacity=v.o;o.depthWrite=false;}M[k]=new T.MeshStandardMaterial(o);}
+const G={};const grp=n=>{if(!G[n]){const q=new T.Group();q.name='part:'+n;g.add(q);G[n]=q;}return G[n];};
+const P=[{"k":"c","v":[0.0254,0.0406,2.7432,0.0078,1.3718,-0.0544],"m":"bark","g":"stems","r":[-0.0767,0,0.0227]},{"k":"c","v":[0.0254,0.0406,2.7432,0.0389,1.3718,0.0737],"m":"bark","g":"stems","r":[0.0578,0,0.0553]},{"k":"c","v":[0.0254,0.0406,2.7432,-0.0877,1.3718,0.0371],"m":"bark","g":"stems","r":[0.0194,0,-0.0776]},{"k":"s","v":[0.6287,0.0669,3.5816,-0.2542],"m":"leaf2","g":"crown","sc":[1,1.25,1]},{"k":"s","v":[0.6201,0.263,3.9839,-0.0471],"m":"leaf","g":"crown","sc":[1,1.25,1]},{"k":"s","v":[0.5897,0.1809,4.3863,0.226],"m":"leaf2","g":"crown","sc":[1,1.25,1]},{"k":"s","v":[0.5921,-0.0968,4.7886,0.2907],"m":"leaf","g":"crown","sc":[1,1.25,1]},{"k":"s","v":[0.5919,-0.2911,5.191,0.082],"m":"leaf2","g":"crown","sc":[1,1.25,1]},{"k":"s","v":[0.5307,-0.2068,5.5933,-0.1904],"m":"leaf","g":"crown","sc":[1,1.25,1]}];
+for(const p of P){const v=p.v;let geo;if(p.k==='b')geo=new T.BoxGeometry(v[0],v[1],v[2]);else if(p.k==='c')geo=new T.CylinderGeometry(v[0],v[1],v[2],p.seg||14);else geo=new T.SphereGeometry(v[0],12,9);
+const o=new T.Mesh(geo,M[p.m]);if(p.k==='s')o.position.set(v[1],v[2],v[3]);else o.position.set(v[3],v[4],v[5]);if(p.sc)o.scale.set(p.sc[0],p.sc[1],p.sc[2]);if(p.r)o.rotation.set(p.r[0],p.r[1],p.r[2]);grp(p.g||'body').add(o);}
+return g;}

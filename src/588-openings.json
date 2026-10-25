@@ -138,7 +138,10 @@
       "wall": "gf-master-front",
       "at": 89.99,
       "pdfDrawnWidth": 144.01,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 132,
+      "renderSill": 0,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 0,
@@ -146,7 +149,10 @@
       "wall": "gf-shaft-front",
       "at": 474.01,
       "pdfDrawnWidth": 72,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 132,
+      "renderSill": 0,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 0,
@@ -154,7 +160,10 @@
       "wall": "gf-drawing-front",
       "at": 837.06,
       "pdfDrawnWidth": 132.02,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 132,
+      "renderSill": 0,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 0,
@@ -162,7 +171,10 @@
       "wall": "gf-lounge-front",
       "at": 309,
       "pdfDrawnWidth": 240,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 132,
+      "renderSill": 0,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 0,
@@ -178,7 +190,10 @@
       "wall": "gf-drawing-front",
       "at": 687.06,
       "pdfDrawnWidth": 17.980000000000018,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 132,
+      "renderSill": 0,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 0,
@@ -346,7 +361,10 @@
       "wall": "ff-master-front",
       "at": 98.98,
       "pdfDrawnWidth": 161.99,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 120,
+      "renderSill": 0,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 1,
@@ -354,7 +372,10 @@
       "wall": "ff-lounge-front",
       "at": 309.03,
       "pdfDrawnWidth": 180.04,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 120,
+      "renderSill": 0,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 1,
@@ -362,7 +383,10 @@
       "wall": "ff-shaft-front",
       "at": 474.01,
       "pdfDrawnWidth": 72,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 100,
+      "renderSill": 3,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 1,
@@ -370,7 +394,10 @@
       "wall": "ff-front-bedroom-front",
       "at": 708.08,
       "pdfDrawnWidth": 60.00999999999999,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 100,
+      "renderSill": 4,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 1,
@@ -378,7 +405,10 @@
       "wall": "ff-front-bedroom-front",
       "at": 838.6,
       "pdfDrawnWidth": 133.04,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "renderHeight": 120,
+      "renderSill": 0,
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
     },
     {
       "level": 1,

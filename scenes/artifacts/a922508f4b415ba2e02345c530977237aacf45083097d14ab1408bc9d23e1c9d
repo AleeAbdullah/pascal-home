@@ -1,0 +1,9 @@
+export const params={};
+export const mount='floor';
+export default function build({THREE:T}){const g=new T.Group();const M={};const md={"pave":{"n":"slot_paving","c":"#d0d1cd","r":0.8}};
+for(const k in md){const v=md[k];const o={name:v.n,color:v.c,roughness:v.r??.7,metalness:v.mt??0};if(v.e){o.emissive=v.c;o.emissiveIntensity=v.e;}if(v.o!=null){o.transparent=true;o.opacity=v.o;o.depthWrite=false;}M[k]=new T.MeshStandardMaterial(o);}
+const G={};const grp=n=>{if(!G[n]){const q=new T.Group();q.name='part:'+n;g.add(q);G[n]=q;}return G[n];};
+const P=[{"k":"b","v":[8.8392,0.0508,1.8364,0,0.1016,0],"m":"pave","g":"ramp","r":[0.0831,0,0]}];
+for(const p of P){const v=p.v;let geo;if(p.k==='b')geo=new T.BoxGeometry(v[0],v[1],v[2]);else if(p.k==='c')geo=new T.CylinderGeometry(v[0],v[1],v[2],p.seg||14);else geo=new T.SphereGeometry(v[0],12,9);
+const o=new T.Mesh(geo,M[p.m]);if(p.k==='s')o.position.set(v[1],v[2],v[3]);else o.position.set(v[3],v[4],v[5]);if(p.sc)o.scale.set(p.sc[0],p.sc[1],p.sc[2]);if(p.r)o.rotation.set(p.r[0],p.r[1],p.r[2]);grp(p.g||'body').add(o);}
+return g;}

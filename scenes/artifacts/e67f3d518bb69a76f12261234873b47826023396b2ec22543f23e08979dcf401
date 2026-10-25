@@ -1,0 +1,20 @@
+export const params={"width":{"default":5.0292,"min":0,"max":50,"step":0.001},"height":{"default":5.6896,"min":0,"max":50,"step":0.001},"screenWidth":{"default":5.0292,"min":0,"max":50,"step":0.001},"screenHeight":{"default":2.8956,"min":0,"max":50,"step":0.001},"footer":{"default":0.6096,"min":0,"max":50,"step":0.001},"centerJoint":{"default":0,"min":0,"max":50,"step":0.001},"lampX":{"default":2.5146,"min":0,"max":50,"step":0.001}};
+export const mount='floor';
+export default function build({params:p,THREE:T}){
+const g=new T.Group();const mat=(name,color,extra={})=>new T.MeshStandardMaterial({name,color,roughness:.65,...extra});
+const metal=mat('slot_metal','#282c2b',{metalness:.65}),stone=mat('slot_concrete','#cecac0'),glass=mat('glass','#b9d8dd',{transparent:true,opacity:.32,metalness:.1,roughness:.15});
+function box(w,h,d,x,y,z,m=stone,parent=g){const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);parent.add(o);return o;}
+function beam(a,b,w,d,m=metal,parent=g){const va=new T.Vector3(...a),vb=new T.Vector3(...b),o=new T.Mesh(new T.BoxGeometry(w,va.distanceTo(vb),d),m);o.position.copy(va.clone().add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),vb.sub(va).normalize());parent.add(o);return o;}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q;}
+const em=(name,color,i)=>new T.MeshStandardMaterial({name,color,emissive:color,emissiveIntensity:i,roughness:.4});
+
+const w=p.width,h=p.height,sw=p.screenWidth,sh=p.screenHeight,b=p.footer,head=h-sh-b,lx=p.lampX>0?p.lampX:w/2;
+const face=mat('face','#dedfdd',{roughness:.85}),band=mat('band','#e6e7e5',{roughness:.8}),joint=mat('joint','#b4b5b3',{roughness:.9});
+const left=-w/2,cx=left+sw/2;
+const frame=part('architectural_bands');box(w,b,.24,0,b/2,0,face,frame);box(w,head,.24,0,h-head/2,0,face,frame);box(w+.01,.025,.25,0,h+.0125,0,band,frame);
+const pnl=part('panel_face');pnl.userData.type='panel';box(sw,sh,.22,cx,b+sh/2,0,face,pnl);
+for(const s of [1,-1]){box(w-.01,.012,.004,0,h*.73,s*.1212,joint,pnl);box(sw-.01,.012,.004,cx,h*.13,s*.1212,joint,pnl);
+ if(p.centerJoint>0&&sw<w-.01){const xj=left+sw;box(.012,b,.004,xj,b/2,s*.1212,joint,pnl);box(.012,head,.004,xj,h-head/2,s*.1212,joint,pnl);}}
+const lamp=part('wall_lamp'),ly=h*.49,zf=.12,xl=left+lx,warm=em('lamp_emissive','#ffe2a8',3),streak=em('lamp_streak','#ffe6b8',1.5);streak.transparent=true;streak.opacity=.12;streak.depthWrite=false;
+box(.09,.3,.09,xl,ly,zf+.045,metal,lamp);box(.06,.01,.06,xl,ly+.155,zf+.046,warm,lamp);box(.06,.01,.06,xl,ly-.155,zf+.046,warm,lamp);
+box(.04,.75,.002,xl,ly+.16+.375,zf+.002,streak,lamp);box(.04,.75,.002,xl,ly-.16-.375,zf+.002,streak,lamp);return g;}

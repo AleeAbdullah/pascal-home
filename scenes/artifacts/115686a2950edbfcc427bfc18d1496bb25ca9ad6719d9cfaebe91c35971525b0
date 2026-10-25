@@ -1,0 +1,19 @@
+export const params={"width":{"default":3.76936,"min":0,"max":50,"step":0.001},"depth":{"default":2.6162,"min":0,"max":50,"step":0.001},"fasciaH":{"default":0.762,"min":0,"max":50,"step":0.001}};
+export const mount='floor';
+export default function build({params:p,THREE:T}){
+const g=new T.Group();const mat=(name,color,extra={})=>new T.MeshStandardMaterial({name,color,roughness:.65,...extra});
+const metal=mat('slot_metal','#282c2b',{metalness:.65}),stone=mat('slot_concrete','#cecac0'),glass=mat('glass','#b9d8dd',{transparent:true,opacity:.32,metalness:.1,roughness:.15});
+function box(w,h,d,x,y,z,m=stone,parent=g){const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);parent.add(o);return o;}
+function beam(a,b,w,d,m=metal,parent=g){const va=new T.Vector3(...a),vb=new T.Vector3(...b),o=new T.Mesh(new T.BoxGeometry(w,va.distanceTo(vb),d),m);o.position.copy(va.clone().add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),vb.sub(va).normalize());parent.add(o);return o;}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q;}
+const em=(name,color,i)=>new T.MeshStandardMaterial({name,color,emissive:color,emissiveIntensity:i,roughness:.4});
+
+const W=p.width,D=p.depth;
+const tm=mat('slot_timber','#85674a',{roughness:.7}),dl=em('downlight_emissive','#fff0c8',4),ledm=em('led_emissive','#ffd98a',3);
+const s=part('slat_soffit');const pitch=.0508,n=Math.floor(W/pitch);
+for(let i=0;i<n;i++)box(.0381,.03,D-.0762,-W/2+(i+.5)*(W/n),.019,0,tm,s);
+const fh=p.fasciaH>0?p.fasciaH:.32,pl2=mat('slot_plaster','#e6e7e5',{roughness:.85});const slab=part('canopy_slab');box(W,.12,D,0,.004+.03+.06,0,pl2,slab);box(W,fh,.18,0,fh/2,D/2-.09,pl2,slab);
+if(p.fasciaH>0){box(W,.2,D,0,fh-.1,0,pl2,slab);box(.02,fh-.12,D-.18,-W/2+.01,.12+(fh-.12)/2,-.09,pl2,slab);box(.02,fh-.12,D-.18,W/2-.01,.12+(fh-.12)/2,-.09,pl2,slab);}
+const lights=part('downlights');lights.userData.type='light';
+for(let i=0;i<7;i++){const dsc=new T.Mesh(new T.CylinderGeometry(.05,.05,.004,20),dl);dsc.position.set((i-3)*.5,.002,-D*.11);lights.add(dsc);}
+const led=part('led_reveal');box(W-.2,.004,.012,0,.002,-D*.3,ledm,led);return g;}

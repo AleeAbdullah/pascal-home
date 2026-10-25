@@ -1,0 +1,15 @@
+export const params={"width":{"default":0.4572,"min":0,"max":50,"step":0.001},"depth":{"default":0.4572,"min":0,"max":50,"step":0.001},"height":{"default":1.9812,"min":0,"max":50,"step":0.001},"lanternHeight":{"default":0.1778,"min":0,"max":50,"step":0.001},"lanternWidth":{"default":0.3048,"min":0,"max":50,"step":0.001}};
+export const mount='floor';
+export default function build({params:p,THREE:T}){
+const g=new T.Group();const mat=(name,color,extra={})=>new T.MeshStandardMaterial({name,color,roughness:.65,...extra});
+const metal=mat('slot_metal','#282c2b',{metalness:.65}),stone=mat('slot_concrete','#cecac0'),glass=mat('glass','#b9d8dd',{transparent:true,opacity:.32,metalness:.1,roughness:.15});
+function box(w,h,d,x,y,z,m=stone,parent=g){const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);parent.add(o);return o;}
+function beam(a,b,w,d,m=metal,parent=g){const va=new T.Vector3(...a),vb=new T.Vector3(...b),o=new T.Mesh(new T.BoxGeometry(w,va.distanceTo(vb),d),m);o.position.copy(va.clone().add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),vb.sub(va).normalize());parent.add(o);return o;}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q;}
+const em=(name,color,i)=>new T.MeshStandardMaterial({name,color,emissive:color,emissiveIntensity:i,roughness:.4});
+
+const w=p.width,d=p.depth,h=p.height,lh=p.lanternHeight,lw=p.lanternWidth;
+const pm=mat('slot_pier','#e6e7e5',{roughness:.85}),jm=mat('slot_pier_joint','#cfd0ce',{roughness:.9}),dark=mat('slot_lantern_frame','#1e1f20',{roughness:.5,metalness:.5}),glow=em('lantern_emissive','#ffe2a8',3);
+const q=part('masonry_pier');box(w,h,d,0,h/2,0,pm,q);box(w+.03,.04,d+.03,0,h+.02,0,dark,q);
+const l=part('box_lantern'),y0=h+.04,lwx=Math.min(lw,w*.9);box(lwx,lh,lw*.9,0,y0+lh/2,0,dark,l);
+for(let i=0;i<3;i++)box(lwx+.004,lh*.12,lw*.9+.004,0,y0+lh*(.2+i*.28),0,glow,l);box(lwx+.02,.02,lw*.9+.02,0,y0+lh+.01,0,dark,l);return g;}

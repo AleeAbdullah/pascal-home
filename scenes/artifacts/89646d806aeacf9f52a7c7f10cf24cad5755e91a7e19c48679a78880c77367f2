@@ -1,0 +1,15 @@
+export const params={"width":{"default":1.3208,"min":0,"max":50,"step":0.001},"height":{"default":6.4008,"min":0,"max":50,"step":0.001},"depth":{"default":0.0762,"min":0,"max":50,"step":0.001},"pitch":{"default":0.0762,"min":0,"max":50,"step":0.001},"holeX":{"default":0,"min":0,"max":50,"step":0.001},"holeY":{"default":0,"min":0,"max":50,"step":0.001},"holeW":{"default":0,"min":0,"max":50,"step":0.001},"holeH":{"default":0,"min":0,"max":50,"step":0.001}};
+export const mount='floor';
+export default function build({params:p,THREE:T}){
+const g=new T.Group();const mat=(name,color,extra={})=>new T.MeshStandardMaterial({name,color,roughness:.65,...extra});
+const metal=mat('slot_metal','#282c2b',{metalness:.65}),stone=mat('slot_concrete','#cecac0'),glass=mat('glass','#b9d8dd',{transparent:true,opacity:.32,metalness:.1,roughness:.15});
+function box(w,h,d,x,y,z,m=stone,parent=g){const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);parent.add(o);return o;}
+function beam(a,b,w,d,m=metal,parent=g){const va=new T.Vector3(...a),vb=new T.Vector3(...b),o=new T.Mesh(new T.BoxGeometry(w,va.distanceTo(vb),d),m);o.position.copy(va.clone().add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),vb.sub(va).normalize());parent.add(o);return o;}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q;}
+
+const w=p.width,h=p.height,d=p.depth,pitch=p.pitch,hx=p.holeX,hy=p.holeY,hw=p.holeW,hh=p.holeH;
+const dark=mat('slot_cladding','#3a3b3d',{roughness:.5,metalness:.55});const q=part('cladding_panel');q.userData.type='panel';
+const rects=hw>0&&hh>0?[[0,0,w,hy],[0,hy+hh,w,h-hy-hh],[0,hy,hx,hh],[hx+hw,hy,w-hx-hw,hh]]:[[0,0,w,h]];
+const bd=pitch>0?d*.55:d;for(const r of rects){if(r[2]<.002||r[3]<.002)continue;box(r[2],r[3],bd,r[0]+r[2]/2-w/2,r[1]+r[3]/2,bd/2,dark,q);
+ if(pitch>0)for(let x=r[0]+pitch/2;x<r[0]+r[2]-.01;x+=pitch)box(.035,r[3],d*.45,x-w/2,r[1]+r[3]/2,d*.775,dark,q);}
+return g;}
