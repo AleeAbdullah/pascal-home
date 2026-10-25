@@ -143,7 +143,7 @@ V(s,'store-east',523.5,-4.5,203.5,9,108);
 H(s,'store-front',379.5,523.5,203.5,9,108);
 H(s,'rear',673.5,910.5,-4.5,9,108);
 V(s,'mumty-west',673.5,-4.5,163.75,9,108);
-V(s,'void-east-stub',673.5,163.75,208,9,42); // 2026-10-25: rear-void east edge, parapet height; owner may want 108
+V(s,'void-east-stub',673.5,163.75,208,9,108); // 2026-10-25: rear-void east edge, full height like mumty-west (owner decision)
 V(s,'maid-west',834.75,-4.5,163.75,4.5,108);
 V(s,'maid-rear-east',910.5,-4.5,43,9,108);
 H(s,'balcony-return',910.5,949.5,43,9,108);

@@ -25,8 +25,8 @@ export const newWalls=[
   meta:{...parapetBase,sourceParapet:'parapet-14'},basis:'Stair-void/shaft west parapet runs continuously x=510..519, z=272.4..572.3 in; z 277..440 was missing'},
  {key:'parapet-15',template:'wall_vjv0rzneossz91q0',name:parapetName,start:[433.5,568],end:[514.5,568],t:9,h:42,
   meta:{...parapetBase,sourceParapet:'parapet-15'},basis:'Shaft south parapet z=563.3..572.3 in closes x 429..519; was missing east of x=438'},
- {key:'void-east-stub',template:'wall_vjv0rzneossz91q0',name:'sf-void-east-stub',start:[673.5,163.75],end:[673.5,208],t:9,h:42,
-  meta:{sourceFile,sheet:1,plan:'sf',sourceWall:'void-east-stub',positionBasis:'PDF vector trace; continues sf-mumty-west to the void front parapet',heightBasis:'Built at the 42 in void-edge parapet height; the drawing shows 9 in wall lines, so owner may want the full 108 in'},
+ {key:'void-east-stub',template:'wall_vjv0rzneossz91q0',name:'sf-void-east-stub',start:[673.5,163.75],end:[673.5,208],t:9,h:108,
+  meta:{sourceFile,sheet:1,plan:'sf',sourceWall:'void-east-stub',positionBasis:'PDF vector trace; continues sf-mumty-west to the void front parapet',heightBasis:'Owner decision 2026-10-25: full 108 in height, matching sf-mumty-west'},
   basis:'Rear void east edge x=669..678, z=163.75..208 in continues sf-mumty-west; the edge was open between z 168.8 and 203.5'},
 ];
 // Item 8 / 19: mumty front wall thickened to 9 in where the drawing shows it; centres from the drawn faces.
