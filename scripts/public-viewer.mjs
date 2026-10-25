@@ -2,9 +2,10 @@
 // Read-only public front door for one Pascal scene.
 // Serves the scene's editor page (open Preview to walk through it; Pascal's
 // /embed viewer does not draw authored objects, so it is not used) and the
-// static files and compiled objects it loads. Only GET/HEAD pass: every save,
-// server action and API write is a POST/PUT, so visitors can look but nothing
-// they do is stored. Other scenes, the project list and settings answer 404.
+// static files and compiled objects it loads. Editing is ALLOWED for this one
+// scene with no password (owner decision 2026-10-25): saves, the live events
+// stream, thumbnails and page server actions pass through. Deleting the scene,
+// changing its sharing, other scenes, the project list and settings answer 404.
 // Put a tunnel (e.g. ngrok) in front of the port.
 // Usage: node scripts/public-viewer.mjs [sceneId] [port]
 import http from 'node:http';
@@ -23,6 +24,14 @@ function upstream() {
 }
 
 const page = `/project/${sceneId}`;
+const read = ['GET', 'HEAD'], write = ['GET', 'HEAD', 'POST', 'PUT', 'PATCH'];
+const api = `/api/scenes/${sceneId}`;
+const writable = [
+  p => p === page,
+  p => p === api,
+  p => p === api + '/events',
+  p => p === api + '/thumbnail',
+];
 const allowed = [
   p => p === page,
   p => p.startsWith('/_next/static/') && !p.includes('..'),
@@ -36,13 +45,17 @@ const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://viewer');
   const p = decodeURIComponent(url.pathname);
   if (p === '/') { res.writeHead(302, {Location: page}); res.end(); return; }
-  if (!['GET', 'HEAD'].includes(req.method) || !allowed.some(ok => ok(p))) {
+  const canWrite = writable.some(ok => ok(p));
+  if (!(canWrite ? write : read).includes(req.method) || !(canWrite || allowed.some(ok => ok(p)))) {
     res.writeHead(404, {'Content-Type': 'text/plain'}); res.end('Not found'); return;
   }
   let up;
   try { up = upstream(); } catch { res.writeHead(503); res.end('Pascal is not running'); return; }
   const headers = {...req.headers, host: up.host};
   delete headers.cookie; delete headers.authorization;
+  // Pascal refuses writes from a foreign Origin; present the tunnel's requests as its own.
+  if (headers.origin) headers.origin = `http://${up.host}`;
+  if (headers.referer) headers.referer = `http://${up.host}${new URL(headers.referer).pathname}`;
   const proxied = http.request({hostname: '127.0.0.1', port: up.port, path: req.url, method: req.method, headers}, reply => {
     const out = {...reply.headers};
     delete out['set-cookie'];
@@ -51,7 +64,7 @@ const server = http.createServer((req, res) => {
   });
   proxied.on('error', () => { if (!res.headersSent) res.writeHead(502); res.end('Pascal is not reachable'); });
   req.on('aborted', () => proxied.destroy());
-  proxied.end();
+  req.pipe(proxied);
 });
 server.on('upgrade', (req, socket) => socket.destroy());
 server.listen(port, '127.0.0.1', () => console.log(`Read-only viewer for ${sceneId}: http://127.0.0.1:${port}${page}`));
