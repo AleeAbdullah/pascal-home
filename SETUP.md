@@ -21,14 +21,34 @@ It prints the editor address, for example `http://pascal.localhost:61617`.
 ## 3. Load the house
 
 ```bash
-node scripts/import-scene.mjs
+npm run scene:import
 ```
 
-It loads `scenes/588-m1-interior-v1.json` and its compiled objects into this machine's Pascal. Then it prints the link to open.
+It loads the committed house into this device's Pascal and prints the link to open.
 
-## 4. View it
+## 4. View and edit
 
-Open the printed link. Click **Preview** at the top right to walk through the house.
+Open the printed link. Click **Preview** at the top right to walk through the house. Edits in the editor save to this device's Pascal automatically.
+
+## 5. Save your changes to git
+
+```bash
+npm run scene:export
+git add scenes
+git commit -m "Describe what you changed"
+git push
+```
+
+`scene:export` writes the house to `scenes/588-m1-interior-v1.json` and copies its 3D object files into `scenes/artifacts`. Commit both.
+
+## 6. Get changes made on another device
+
+```bash
+git pull
+npm run scene:import
+```
+
+Importing replaces this device's copy with the committed one. Export and commit your own edits first, or they are lost.
 
 ## Everyday commands
 
@@ -37,10 +57,10 @@ Open the printed link. Click **Preview** at the top right to walk through the ho
 | Start Pascal | `npm start` |
 | Stop Pascal | `npm stop` |
 | Check it is running | `npm run status` |
-| Reload the house after a `git pull` | `node scripts/import-scene.mjs` |
+| Load the committed house | `npm run scene:import` |
+| Write your edits to the repo | `npm run scene:export` |
 
 ## Notes
 
-- Each device keeps its own copy. Edits on one device do not reach the others until the scene is exported, committed and pulled, then imported again.
-- Re-importing replaces that device's copy of the house with the committed one.
+- Only one device should edit at a time. Two devices editing between commits means one set of changes overwrites the other.
 - The `.pascal/` folder holds the local database and is not in git.

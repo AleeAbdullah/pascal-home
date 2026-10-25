@@ -15,7 +15,9 @@
     "resume": "node scripts/pascal.mjs resume",
     "mcp": "node scripts/pascal.mjs mcp connect",
     "patch:viewing": "node scripts/patch-pascal-viewing.mjs",
-    "patch:viewing:restore": "node scripts/patch-pascal-viewing.mjs --restore"
+    "patch:viewing:restore": "node scripts/patch-pascal-viewing.mjs --restore",
+    "scene:import": "node scripts/import-scene.mjs",
+    "scene:export": "node --no-warnings scripts/export-scene.mjs"
   },
   "dependencies": {
     "@pascal-app/cli": "1.0.6"
