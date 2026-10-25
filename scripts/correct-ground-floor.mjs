@@ -1,11 +1,12 @@
-// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|save]
+// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|entrance|save]
+// `entrance` applies the room-review changes: lobby depth z 444.3, D1 single east-hinged leaf, console set removed, plain square columns.
 // `decisions` re-applies only the five owner decisions of 2026-10-25 (ground-floor ones: W19 width, pantry opening, podium levels).
 // Applies the 2026-10-25 ground-floor blueprint corrections to the live scene (idempotent), verifies, optionally checkpoints.
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
 import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
-import {byKey,groundFloorId,inch,newPassage,columns,columnMetadata,openingPatches,wallPatches,furniturePatches,windowDecisionPatches,pantryPatches,podiumPatches,entryStepPatches} from '../src/ground-floor-blueprint-corrections.mjs';
+import {byKey,groundFloorId,inch,newPassage,columns,columnMetadata,openingPatches,wallPatches,furniturePatches,windowDecisionPatches,pantryPatches,podiumPatches,entryStepPatches,lobbyDepthPatches,entryDoorPatches,entryConsolePatches,columnStylePatches,plainColumnFields} from '../src/ground-floor-blueprint-corrections.mjs';
 const c=new Client({name:'ground-floor-blueprint-correction',version:'1'},{capabilities:{}}),id='588-m1-interior-v1';
 const outDir=process.env.GF_OUT??'/tmp';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -19,6 +20,12 @@ async function zoneSnap(tag){const s=await call('get_scene');
  const rows=Object.values(s.nodes).filter(n=>n.type==='zone'&&n.parentId===groundFloorId).map(x=>({id:x.id,name:x.name,area:Number(area(x.polygon).toFixed(2)),hasFloor:x.hasFloor,hasCeiling:x.hasCeiling,ceilings:ceil[x.id]??0}));
  fs.writeFileSync(`${outDir}/gf-zones-${tag}.json`,JSON.stringify(rows,null,2));return rows;}
 function show(rows){for(const r of rows)console.log(' ',r.id,String(r.name).padEnd(28),r.area,r.hasFloor,r.hasCeiling,'ceil',r.ceilings);}
+async function entrance(){
+ let scene=await call('get_scene');console.log('zones before entrance');show(await zoneSnap('E0'));
+ await call('apply_patch',{patches:[...lobbyDepthPatches(scene.nodes),...entryDoorPatches(scene.nodes),...columnStylePatches(scene.nodes)]});
+ scene=await call('get_scene');const del=entryConsolePatches(scene.nodes);console.log('console removals',del.length);if(del.length)await call('apply_patch',{patches:del});
+ console.log('zones after entrance');show(await zoneSnap('E1'));
+}
 async function decisions(){
  let scene=await call('get_scene');console.log('zones before decisions');show(await zoneSnap('D0'));
  await call('apply_patch',{patches:windowDecisionPatches(scene.nodes)});
@@ -54,15 +61,17 @@ try{
   scene=await call('get_scene');
   for(const col of columns){
    if(Object.values(scene.nodes).some(n=>n.name===col.name))continue;
-   await call('add_column',{x:inch(col.x),z:inch(col.z),height:3.96,width:inch(col.w),depth:inch(col.d),crossSection:col.w===col.d?'square':'rectangular',style:'plain',level:groundFloorId,name:col.name});
+   await call('add_column',{...plainColumnFields,x:inch(col.x),z:inch(col.z),height:3.96,width:inch(col.w),depth:inch(col.d),crossSection:col.w===col.d?'square':'rectangular',style:'plain',level:groundFloorId,name:col.name});
    const after=await call('get_scene');const added=Object.values(after.nodes).filter(x=>!scene.nodes[x.id]);console.log('column added',col.name,added.map(x=>x.id+':'+x.type+':'+x.name).join(','));const n=added.find(x=>x.name===col.name)??added[0];if(!n)throw Error('Missing column '+col.name);
    await call('apply_patch',{patches:[{op:'update',id:n.id,data:{metadata:{...n.metadata,...columnMetadata(col.basis)}}}]});scene=after;
   }
   console.log('zones after columns');show(await zoneSnap('C'));
   scene=await call('get_scene');await call('apply_patch',{patches:furniturePatches(scene.nodes)});
   await decisions();
+  await entrance();
  }
  if(mode==='decisions')await decisions();
+ if(mode==='entrance')await entrance();
  const v=await call('verify_scene');fs.writeFileSync(`${outDir}/gf-verify-after.json`,JSON.stringify(v,null,2));fs.writeFileSync(`${outDir}/gf-scene-after.json`,JSON.stringify(await call('get_scene')));console.log('Verification',v.issues.length);
  if(mode==='save'){
   const st=await call('get_project_status',{id});console.log(JSON.stringify(await call('save_scene',{id,name:st.name,expectedVersion:st.version,saveMode:'checkpoint',includeCurrentScene:true})).slice(0,900));

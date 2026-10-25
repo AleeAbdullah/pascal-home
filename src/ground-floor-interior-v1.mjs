@@ -155,7 +155,3 @@ floor('kitchen','hood','integrated kitchen extractor',integratedHood,13.62,1.8,9
 
 const pouf=source(`const q=part('dressing_pouf');cyl(q,.23,.32,0,.18,0,'linen');cyl(q,.245,.10,0,.39,0,'ivory');cyl(q,.20,.04,0,.02,0,'walnut');`);
 items.find(i=>i.key==='masterCloset-stool').code=pouf;
-const entryMirror=source(`const q=part('bronze_mirror');box(q,.58,1.05,.028,0,.525,0,'bronze',.014);box(q,.54,1.01,.008,0,.525,.019,'mirror',.004);`);
-floor('lobby','console','entry oak console',desk,16.82,14.65,-90,{width:.70,depth:.30});
-floor('lobby','mirror','entry bronze-framed mirror',entryMirror,16.955,14.65,-90,{},1.05);
-floor('lobby','decor','entry ceramic and books',reuse('coffee-decor'),16.82,14.65,-90,{},.785);

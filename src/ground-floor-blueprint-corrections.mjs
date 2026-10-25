@@ -116,3 +116,33 @@ export function entryStepPatches(nodes){
  const s=nodes['slab_588_ext_entry-step-12'];if(!s)return [];
  return [{op:'update',id:s.id,data:{polygon:[p(519,695.5),p(669,695.5),p(669,707.5),p(519,707.5)],metadata:{...s.metadata,blueprintReview:review,correctionBasis:'Starts at the lowered podium front z=695.5 in',ownerDecision:ownerDecisionPodium}}}];
 }
+
+// ---- Room review 2026-10-25: entrance (idempotent; run with `node scripts/correct-ground-floor.mjs entrance`) ----
+const ownerEntrance='Room review 2026-10-25: entrance';
+const entryMeta=(n,reason)=>({...n.metadata,blueprintReview:review,correctionBasis:reason,ownerDecision:ownerEntrance});
+export const lobbyBackZ=444.3;
+export const entryDoorId='door_p4au1lr69jeii7u9';
+export const entryConsoleIds=['item_mpmurjm7w37g62dc','item_hdwhrx3sxye63vy9','item_4jo6km4jhwo7y8p9'];
+// Plain structural columns: the column node defaults to a round-rings base and a simple capital even for style 'plain'; 'none' removes both.
+export const plainColumnFields={baseStyle:'none',capitalStyle:'none'};
+export function lobbyDepthPatches(nodes){
+ const out=[];
+ const sep=(id,data,reason)=>{const n=nodes[id];if(!n)throw Error('Missing separator '+id);out.push({op:'update',id,data:{...data,metadata:entryMeta(n,reason)}});};
+ const reason='Lobby back boundary moved from z=449 to z=444.3 in (owner room review; clear lobby depth 12\'-2")';
+ sep('separator_588_gf_lobby_back',{start:p(514.5,lobbyBackZ),end:p(673.5,lobbyBackZ)},reason);
+ sep('separator_588_gf_lobby_east',{start:p(673.5,lobbyBackZ),end:p(673.5,516.3)},reason);
+ sep('separator_588_gf_stair_east',{end:p(673.5,lobbyBackZ)},'Stair east boundary ends at the moved lobby back z=444.3 in so the outlines stay closed');
+ return out;
+}
+// D1: single leaf, hinged on the east jamb, swinging north into the lobby.
+// Wall wall_as8bd1c732 runs west->east (x 514.5 -> 673.5); face a (front, exterior) is +Z (street), face b (back, interior) is -Z (lobby).
+// Pascal swings 'inward' at rotation 0 toward face a, so the lobby swing is swingDirection 'outward' at rotation 0 (door side stays 'front').
+// Seen from the street (facing -Z) east is on the right, so the east hinge is hingesSide 'right' and the handle goes opposite (west, 'left').
+export function entryDoorPatches(nodes){
+ const n=nodes[entryDoorId];if(!n)throw Error('Missing D1 '+entryDoorId);
+ return [{op:'update',id:n.id,data:{doorType:'hinged',leafCount:1,hingesSide:'right',handleSide:'left',swingDirection:'outward',swingAngle:0,metadata:entryMeta(n,'D1 is a single timber leaf hinged on the east jamb (x=624 in) swinging into the lobby (north)')}}];
+}
+export function entryConsolePatches(nodes){return entryConsoleIds.filter(id=>nodes[id]).map(id=>({op:'delete',id,cascade:false}));}
+export function columnStylePatches(nodes){
+ return Object.values(nodes).filter(n=>n.type==='column'&&n.parentId===groundFloorId&&/^P[1-4] · GF column$/.test(n.name)).map(n=>({op:'update',id:n.id,data:{...plainColumnFields,metadata:entryMeta(n,'Plain structural column: round base and capital removed (baseStyle/capitalStyle none)')}}));
+}

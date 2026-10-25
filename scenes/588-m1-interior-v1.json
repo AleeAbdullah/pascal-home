@@ -9756,9 +9756,6 @@
         "item_j2au1kse13hqjhu2",
         "item_ha5lqt8qe4zzfm93",
         "item_7ym5wbdl2ie6nmq8",
-        "item_mpmurjm7w37g62dc",
-        "item_hdwhrx3sxye63vy9",
-        "item_4jo6km4jhwo7y8p9",
         "column_6stq5lg37szmpvk5",
         "column_sekuyvipd8w7wv44",
         "column_mh7rne33xz0bwfgl",
@@ -15195,7 +15192,7 @@
         ],
         [
           13.0683,
-          11.4046
+          11.28522
         ],
         [
           13.0683,
@@ -18720,7 +18717,10 @@
       "visible": true,
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "physical": false
+        "physical": false,
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Stair east boundary ends at the moved lobby back z=444.3 in so the outlines stay closed",
+        "ownerDecision": "Room review 2026-10-25: entrance"
       },
       "start": [
         17.1069,
@@ -18728,7 +18728,7 @@
       ],
       "end": [
         17.1069,
-        11.4046
+        11.28522
       ]
     },
     "separator_588_gf_lobby_back": {
@@ -18740,15 +18740,18 @@
       "visible": true,
       "metadata": {
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "physical": false
+        "physical": false,
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Lobby back boundary moved from z=449 to z=444.3 in (owner room review; clear lobby depth 12'-2\")",
+        "ownerDecision": "Room review 2026-10-25: entrance"
       },
       "start": [
         13.0683,
-        11.4046
+        11.28522
       ],
       "end": [
         17.1069,
-        11.4046
+        11.28522
       ]
     },
     "separator_588_gf_lobby_east": {
@@ -18762,11 +18765,12 @@
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "physical": false,
         "blueprintReview": "2026-10-25",
-        "correctionBasis": "Lobby boundary kept in the open gap; real wall now covers z=516.3..653.3 in"
+        "correctionBasis": "Lobby back boundary moved from z=449 to z=444.3 in (owner room review; clear lobby depth 12'-2\")",
+        "ownerDecision": "Room review 2026-10-25: entrance"
       },
       "start": [
         17.1069,
-        11.4046
+        11.28522
       ],
       "end": [
         17.1069,
@@ -20718,11 +20722,11 @@
         ],
         [
           17.1069,
-          11.4046
+          11.2852
         ],
         [
           13.0683,
-          11.4046
+          11.2852
         ]
       ],
       "holes": [],
@@ -20927,11 +20931,11 @@
         ],
         [
           17.1069,
-          11.4046
+          11.28522
         ],
         [
           13.0683,
-          11.4046
+          11.28522
         ],
         [
           13.0683,
@@ -21014,7 +21018,7 @@
         ],
         [
           17.1069,
-          11.4046
+          11.28522
         ],
         [
           17.1069,
@@ -21729,11 +21733,11 @@
       "polygon": [
         [
           13.0683,
-          11.4046
+          11.28522
         ],
         [
           17.1069,
-          11.4046
+          11.28522
         ],
         [
           17.1069,
@@ -29347,7 +29351,10 @@
         "sourcePositionInches": 594,
         "operability": "Door swing to be checked",
         "frontKey": "entry-door-wood",
-        "appearance": "Solid timber leaf per owner render p6 (walnut panel ~38% of width)."
+        "appearance": "Solid timber leaf per owner render p6 (walnut panel ~38% of width).",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "D1 is a single timber leaf hinged on the east jamb (x=624 in) swinging into the lobby (north)",
+        "ownerDecision": "Room review 2026-10-25: entrance"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt",
@@ -29371,7 +29378,7 @@
       "constructionType": "framed",
       "dimensionReference": "nominal",
       "doorCategory": "interior",
-      "doorType": "double",
+      "doorType": "hinged",
       "leafCount": 1,
       "operationState": 0,
       "slideDirection": "left",
@@ -29391,8 +29398,8 @@
       "frameDepth": 0.07,
       "threshold": true,
       "thresholdHeight": 0.02,
-      "hingesSide": "left",
-      "swingDirection": "inward",
+      "hingesSide": "right",
+      "swingDirection": "outward",
       "swingAngle": 0,
       "segments": [
         {
@@ -29408,7 +29415,7 @@
       ],
       "handle": true,
       "handleHeight": 1.05,
-      "handleSide": "right",
+      "handleSide": "left",
       "contentPadding": [
         0.04,
         0.04
@@ -105579,784 +105586,6 @@
         }
       }
     },
-    "item_mpmurjm7w37g62dc": {
-      "object": "node",
-      "id": "item_mpmurjm7w37g62dc",
-      "type": "item",
-      "name": "V1 · entry oak console",
-      "parentId": "level_as4e3a9d57",
-      "visible": true,
-      "metadata": {
-        "groundInteriorV1Key": "lobby-console",
-        "zoneId": "zone_toaclo72dsgxkle0",
-        "room": "lobby",
-        "dimensionBasis": "Proposed editable interior; checked blueprint and accepted corrections preserve room geometry",
-        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62"
-      },
-      "position": [
-        16.82,
-        0,
-        14.65
-      ],
-      "rotation": [
-        0,
-        -1.5707963267948966,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ],
-      "children": [],
-      "supportSlabId": "slab_588_gf_main",
-      "collectionIds": [
-        "collection_nohz2leqck7cczky"
-      ],
-      "slots": {
-        "oak": "scene:mat_klft9pgzm0imcypx",
-        "walnut": "scene:mat_ywtc1qhjsze54iyb",
-        "bronze": "scene:mat_y4ob1ery8ecaowjj",
-        "greige": "scene:mat_ic503qcrqrtbm9gx"
-      },
-      "source": {
-        "kind": "script",
-        "meta": {
-          "description": "Editable Interior V1 design proposal. Board-inspired furniture dimensions; governing architecture retained.",
-          "tags": [
-            "interior-v1",
-            "ground-floor",
-            "lobby"
-          ],
-          "parent": "441440f6464832517292920e22bccdaa52308bde55410f1d847a0b770f1ff878"
-        },
-        "language": "three",
-        "script": "b859777a4f140f45f03fc3569b2bca95c9c3ddd2041ecb0a2eb8bd292a792b31",
-        "params": {
-          "width": 0.7,
-          "depth": 0.3,
-          "detail": 1,
-          "shadows": 1
-        },
-        "artifact": "cf382ac88ced2b62062201fd1f131e5f7c1104c5bf95406d72e3cb5622d25420",
-        "manifest": {
-          "bounds": {
-            "min": [
-              -0.35,
-              0,
-              -0.16125
-            ],
-            "max": [
-              0.35,
-              0.7825,
-              0.16125
-            ]
-          },
-          "params": [
-            {
-              "id": "width",
-              "kind": "number",
-              "default": 1.4,
-              "min": 0.5599999999999999,
-              "max": 3.5,
-              "step": 0.01
-            },
-            {
-              "id": "depth",
-              "kind": "number",
-              "default": 0.45,
-              "min": 0.18000000000000002,
-              "max": 1.125,
-              "step": 0.01
-            },
-            {
-              "id": "detail",
-              "kind": "number",
-              "default": 1,
-              "min": 0,
-              "max": 1,
-              "step": 1
-            },
-            {
-              "id": "shadows",
-              "kind": "number",
-              "default": 1,
-              "min": 0,
-              "max": 1,
-              "step": 1
-            }
-          ],
-          "parts": [
-            {
-              "id": "writing_console",
-              "bounds": {
-                "min": [
-                  -0.35,
-                  0,
-                  -0.16125
-                ],
-                "max": [
-                  0.35,
-                  0.7825,
-                  0.16125
-                ]
-              }
-            }
-          ],
-          "surfaces": [
-            {
-              "part": "writing_console",
-              "y": 0.78,
-              "polygon": [
-                [
-                  -0.342,
-                  -0.146
-                ],
-                [
-                  -0.341,
-                  -0.152
-                ],
-                [
-                  -0.335,
-                  -0.153
-                ],
-                [
-                  0.335,
-                  -0.153
-                ],
-                [
-                  0.341,
-                  -0.152
-                ],
-                [
-                  0.342,
-                  -0.146
-                ],
-                [
-                  0.342,
-                  0.124
-                ],
-                [
-                  0.341,
-                  0.13
-                ],
-                [
-                  0.335,
-                  0.13
-                ],
-                [
-                  -0.335,
-                  0.13
-                ],
-                [
-                  -0.341,
-                  0.13
-                ],
-                [
-                  -0.342,
-                  0.124
-                ]
-              ]
-            },
-            {
-              "part": "writing_console",
-              "y": 0.73,
-              "polygon": [
-                [
-                  -0.244,
-                  -0.126
-                ],
-                [
-                  -0.244,
-                  -0.13
-                ],
-                [
-                  -0.24,
-                  -0.131
-                ],
-                [
-                  0.24,
-                  -0.131
-                ],
-                [
-                  0.244,
-                  -0.13
-                ],
-                [
-                  0.244,
-                  -0.126
-                ],
-                [
-                  0.244,
-                  0.104
-                ],
-                [
-                  0.244,
-                  0.108
-                ],
-                [
-                  0.24,
-                  0.108
-                ],
-                [
-                  -0.24,
-                  0.108
-                ],
-                [
-                  -0.244,
-                  0.108
-                ],
-                [
-                  -0.244,
-                  0.104
-                ]
-              ]
-            }
-          ],
-          "slots": [
-            {
-              "id": "oak",
-              "label": "oak",
-              "color": "#a98764",
-              "roughness": 0.68,
-              "metalness": 0,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "walnut",
-              "label": "walnut",
-              "color": "#58402e",
-              "roughness": 0.58,
-              "metalness": 0,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "greige",
-              "label": "greige",
-              "color": "#b4aa99",
-              "roughness": 0.65,
-              "metalness": 0,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "bronze",
-              "label": "bronze",
-              "color": "#40362b",
-              "roughness": 0.4,
-              "metalness": 0.65,
-              "transparent": false,
-              "emissive": false
-            }
-          ],
-          "anchors": [],
-          "lights": [],
-          "undersides": [
-            {
-              "part": "writing_console",
-              "polygon": [
-                [
-                  -0.335,
-                  -0.146
-                ],
-                [
-                  0.335,
-                  -0.146
-                ],
-                [
-                  0.335,
-                  0.124
-                ],
-                [
-                  -0.335,
-                  0.124
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0.7375
-              ]
-            },
-            {
-              "part": "writing_console",
-              "polygon": [
-                [
-                  -0.24,
-                  -0.126
-                ],
-                [
-                  0.24,
-                  -0.126
-                ],
-                [
-                  0.24,
-                  0.104
-                ],
-                [
-                  -0.24,
-                  0.104
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0.59
-              ]
-            }
-          ],
-          "animations": [],
-          "cutters": [],
-          "cutout": false,
-          "collider": false,
-          "triangles": 1500
-        }
-      },
-      "asset": {
-        "id": "script_cf382ac88ced2b62",
-        "category": "interior design",
-        "name": "V1 · entry oak console",
-        "thumbnail": "",
-        "source": "mine",
-        "src": "artifact://cf382ac88ced2b62062201fd1f131e5f7c1104c5bf95406d72e3cb5622d25420",
-        "dimensions": [
-          0.7,
-          0.7825,
-          0.3225
-        ],
-        "offset": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ],
-        "surface": {
-          "height": 0.78
-        }
-      }
-    },
-    "item_hdwhrx3sxye63vy9": {
-      "object": "node",
-      "id": "item_hdwhrx3sxye63vy9",
-      "type": "item",
-      "name": "V1 · entry bronze-framed mirror",
-      "parentId": "level_as4e3a9d57",
-      "visible": true,
-      "metadata": {
-        "groundInteriorV1Key": "lobby-mirror",
-        "zoneId": "zone_toaclo72dsgxkle0",
-        "room": "lobby",
-        "dimensionBasis": "Proposed editable interior; checked blueprint and accepted corrections preserve room geometry",
-        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62"
-      },
-      "position": [
-        16.955,
-        1.05,
-        14.65
-      ],
-      "rotation": [
-        0,
-        -1.5707963267948966,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ],
-      "children": [],
-      "supportSlabId": "slab_588_gf_main",
-      "collectionIds": [
-        "collection_nohz2leqck7cczky"
-      ],
-      "slots": {
-        "bronze": "scene:mat_y4ob1ery8ecaowjj",
-        "mirror": "scene:mat_9mvojf6semsc6ylc"
-      },
-      "source": {
-        "kind": "script",
-        "meta": {
-          "description": "Editable Interior V1 design proposal. Board-inspired furniture dimensions; governing architecture retained.",
-          "tags": [
-            "interior-v1",
-            "ground-floor",
-            "lobby"
-          ],
-          "parent": "1e489c20a99e6b0cf5a9b031133f42cba36cfd529f19fff82a5d957a1f58565d"
-        },
-        "language": "three",
-        "script": "bb68bda2389bea773caed39593bc980ca23fd0e7b6a4d66b0528bde8d5dc701c",
-        "params": {
-          "detail": 1,
-          "shadows": 1
-        },
-        "artifact": "cf73021aefe9cbeb0f89ae0a8645615aea5e59275e28b366256335472d0febb2",
-        "manifest": {
-          "bounds": {
-            "min": [
-              -0.29,
-              0,
-              -0.0185
-            ],
-            "max": [
-              0.29,
-              1.05,
-              0.0185
-            ]
-          },
-          "params": [
-            {
-              "id": "detail",
-              "kind": "number",
-              "default": 1,
-              "min": 0,
-              "max": 1,
-              "step": 1
-            },
-            {
-              "id": "shadows",
-              "kind": "number",
-              "default": 1,
-              "min": 0,
-              "max": 1,
-              "step": 1
-            }
-          ],
-          "parts": [
-            {
-              "id": "bronze_mirror",
-              "bounds": {
-                "min": [
-                  -0.29,
-                  0,
-                  -0.0185
-                ],
-                "max": [
-                  0.29,
-                  1.05,
-                  0.0185
-                ]
-              }
-            }
-          ],
-          "surfaces": [],
-          "slots": [
-            {
-              "id": "bronze",
-              "label": "bronze",
-              "color": "#40362b",
-              "roughness": 0.4,
-              "metalness": 0.65,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "mirror",
-              "label": "mirror",
-              "color": "#c5c7bf",
-              "roughness": 0.08,
-              "metalness": 0.95,
-              "transparent": false,
-              "emissive": false
-            }
-          ],
-          "anchors": [],
-          "lights": [],
-          "undersides": [],
-          "animations": [],
-          "cutters": [],
-          "cutout": false,
-          "collider": false,
-          "triangles": 600
-        }
-      },
-      "asset": {
-        "id": "script_cf73021aefe9cbeb",
-        "category": "interior design",
-        "name": "V1 · entry bronze-framed mirror",
-        "thumbnail": "",
-        "source": "mine",
-        "src": "artifact://cf73021aefe9cbeb0f89ae0a8645615aea5e59275e28b366256335472d0febb2",
-        "dimensions": [
-          0.58,
-          1.05,
-          0.037
-        ],
-        "offset": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      }
-    },
-    "item_4jo6km4jhwo7y8p9": {
-      "object": "node",
-      "id": "item_4jo6km4jhwo7y8p9",
-      "type": "item",
-      "name": "V1 · entry ceramic and books",
-      "parentId": "level_as4e3a9d57",
-      "visible": true,
-      "metadata": {
-        "groundInteriorV1Key": "lobby-decor",
-        "zoneId": "zone_toaclo72dsgxkle0",
-        "room": "lobby",
-        "dimensionBasis": "Proposed editable interior; checked blueprint and accepted corrections preserve room geometry",
-        "styleReference": "Lake City mood board: entry 2–6; drawing 7–11; kitchen 31–37; laundry 38; bedrooms 39–49; bathrooms 50–62"
-      },
-      "position": [
-        16.82,
-        0.785,
-        14.65
-      ],
-      "rotation": [
-        0,
-        -1.5707963267948966,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ],
-      "children": [],
-      "supportSlabId": "slab_588_gf_main",
-      "collectionIds": [
-        "collection_nohz2leqck7cczky"
-      ],
-      "slots": {
-        "paper": "scene:mat_tg09aex1gsbmxlab",
-        "ivory": "scene:mat_0naony6thwus8szz",
-        "bronze": "scene:mat_y4ob1ery8ecaowjj",
-        "taupe": "scene:mat_qn2i52zqsoo8s4nl",
-        "sage": "scene:mat_xwxeqft3whx3cz8o"
-      },
-      "source": {
-        "kind": "script",
-        "meta": {
-          "description": "Editable Interior V1 design proposal. Board-inspired furniture dimensions; governing architecture retained.",
-          "tags": [
-            "interior-v1",
-            "ground-floor",
-            "lobby"
-          ],
-          "parent": "9d63a8d7ee64b1efa0298627ac2c699e9d7f1a7f7f049043374231d0cd9d6aee"
-        },
-        "language": "three",
-        "script": "46f33e2a6d119176b962091f3e1f3141d374d37fafd3cf380810ff52bd684173",
-        "params": {
-          "detail": 1,
-          "shadows": 1
-        },
-        "artifact": "fe1430f7824bbb705f6be9927af4d44dd1734af77ef58faf1339f7863d52e774",
-        "manifest": {
-          "bounds": {
-            "min": [
-              -0.2425,
-              0,
-              -0.105
-            ],
-            "max": [
-              0.2425,
-              0.25,
-              0.105
-            ]
-          },
-          "params": [
-            {
-              "id": "detail",
-              "kind": "number",
-              "default": 1,
-              "min": 0,
-              "max": 1,
-              "step": 1
-            },
-            {
-              "id": "shadows",
-              "kind": "number",
-              "default": 1,
-              "min": 0,
-              "max": 1,
-              "step": 1
-            }
-          ],
-          "parts": [
-            {
-              "id": "books_and_ceramic",
-              "bounds": {
-                "min": [
-                  -0.2425,
-                  0,
-                  -0.105
-                ],
-                "max": [
-                  0.2425,
-                  0.25,
-                  0.105
-                ]
-              }
-            }
-          ],
-          "surfaces": [
-            {
-              "part": "books_and_ceramic",
-              "y": 0.05,
-              "polygon": [
-                [
-                  -0.228,
-                  -0.09
-                ],
-                [
-                  0.022,
-                  -0.09
-                ],
-                [
-                  0.022,
-                  0.09
-                ],
-                [
-                  -0.228,
-                  0.09
-                ]
-              ]
-            }
-          ],
-          "slots": [
-            {
-              "id": "taupe",
-              "label": "taupe",
-              "color": "#ad9c88",
-              "roughness": 0.94,
-              "metalness": 0,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "paper",
-              "label": "paper",
-              "color": "#f3e8d6",
-              "roughness": 0.9,
-              "metalness": 0,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "ivory",
-              "label": "ivory",
-              "color": "#eee8dc",
-              "roughness": 0.82,
-              "metalness": 0,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "bronze",
-              "label": "bronze",
-              "color": "#40362b",
-              "roughness": 0.4,
-              "metalness": 0.65,
-              "transparent": false,
-              "emissive": false
-            },
-            {
-              "id": "sage",
-              "label": "sage",
-              "color": "#6c725c",
-              "roughness": 0.94,
-              "metalness": 0,
-              "transparent": false,
-              "emissive": false
-            }
-          ],
-          "anchors": [],
-          "lights": [],
-          "undersides": [
-            {
-              "part": "books_and_ceramic",
-              "polygon": [
-                [
-                  -0.228,
-                  -0.09
-                ],
-                [
-                  0.022,
-                  -0.09
-                ],
-                [
-                  0.022,
-                  0.09
-                ],
-                [
-                  -0.228,
-                  0.09
-                ]
-              ],
-              "plane": [
-                0,
-                -1,
-                0,
-                0
-              ]
-            }
-          ],
-          "animations": [],
-          "cutters": [],
-          "cutout": false,
-          "collider": false,
-          "triangles": 2216
-        }
-      },
-      "asset": {
-        "id": "script_fe1430f7824bbb70",
-        "category": "interior design",
-        "name": "V1 · entry ceramic and books",
-        "thumbnail": "",
-        "source": "mine",
-        "src": "artifact://fe1430f7824bbb705f6be9927af4d44dd1734af77ef58faf1339f7863d52e774",
-        "dimensions": [
-          0.485,
-          0.25,
-          0.21
-        ],
-        "offset": [
-          0,
-          0,
-          0
-        ],
-        "rotation": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      }
-    },
     "item_17r2wki7dhc5e5y4": {
       "object": "node",
       "id": "item_17r2wki7dhc5e5y4",
@@ -153829,7 +153058,8 @@
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "positionBasis": "PDF vector trace",
         "blueprintReview": "2026-10-25",
-        "correctionBasis": "Structural column P1 at plan x=362.9, z=279.9 in; 12 x 15 in (x by z)"
+        "correctionBasis": "Plain structural column: round base and capital removed (baseStyle/capitalStyle none)",
+        "ownerDecision": "Room review 2026-10-25: entrance"
       },
       "children": [],
       "position": [
@@ -153856,7 +153086,7 @@
       "shaftTwistStep": 0,
       "shaftCornerRadius": 0.035,
       "shaftDetail": "none",
-      "baseStyle": "round-rings",
+      "baseStyle": "none",
       "baseWidthScale": 1.24,
       "baseDepthScale": 1.24,
       "baseTierCount": 3,
@@ -153868,7 +153098,7 @@
       "baseRibCount": 0,
       "baseCarvingLevel": 0,
       "basePanelInset": 0.02,
-      "capitalStyle": "simple",
+      "capitalStyle": "none",
       "capitalWidthScale": 1.46,
       "capitalDepthScale": 1.46,
       "capitalTierCount": 3,
@@ -153921,7 +153151,8 @@
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "positionBasis": "PDF vector trace",
         "blueprintReview": "2026-10-25",
-        "correctionBasis": "Structural column P2 at plan x=362.9, z=323.35 in; 12 x 12 in"
+        "correctionBasis": "Plain structural column: round base and capital removed (baseStyle/capitalStyle none)",
+        "ownerDecision": "Room review 2026-10-25: entrance"
       },
       "children": [],
       "position": [
@@ -153948,7 +153179,7 @@
       "shaftTwistStep": 0,
       "shaftCornerRadius": 0.035,
       "shaftDetail": "none",
-      "baseStyle": "round-rings",
+      "baseStyle": "none",
       "baseWidthScale": 1.24,
       "baseDepthScale": 1.24,
       "baseTierCount": 3,
@@ -153960,7 +153191,7 @@
       "baseRibCount": 0,
       "baseCarvingLevel": 0,
       "basePanelInset": 0.02,
-      "capitalStyle": "simple",
+      "capitalStyle": "none",
       "capitalWidthScale": 1.46,
       "capitalDepthScale": 1.46,
       "capitalTierCount": 3,
@@ -154013,7 +153244,8 @@
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "positionBasis": "PDF vector trace",
         "blueprintReview": "2026-10-25",
-        "correctionBasis": "Structural column P3 at plan x=434.9, z=323.35 in; 12 x 12 in"
+        "correctionBasis": "Plain structural column: round base and capital removed (baseStyle/capitalStyle none)",
+        "ownerDecision": "Room review 2026-10-25: entrance"
       },
       "children": [],
       "position": [
@@ -154040,7 +153272,7 @@
       "shaftTwistStep": 0,
       "shaftCornerRadius": 0.035,
       "shaftDetail": "none",
-      "baseStyle": "round-rings",
+      "baseStyle": "none",
       "baseWidthScale": 1.24,
       "baseDepthScale": 1.24,
       "baseTierCount": 3,
@@ -154052,7 +153284,7 @@
       "baseRibCount": 0,
       "baseCarvingLevel": 0,
       "basePanelInset": 0.02,
-      "capitalStyle": "simple",
+      "capitalStyle": "none",
       "capitalWidthScale": 1.46,
       "capitalDepthScale": 1.46,
       "capitalTierCount": 3,
@@ -154105,7 +153337,8 @@
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "positionBasis": "PDF vector trace",
         "blueprintReview": "2026-10-25",
-        "correctionBasis": "Free-standing column P4 at the stair south-east corner, x=673.4, z=439.8 in; 9 x 9 in"
+        "correctionBasis": "Plain structural column: round base and capital removed (baseStyle/capitalStyle none)",
+        "ownerDecision": "Room review 2026-10-25: entrance"
       },
       "children": [],
       "position": [
@@ -154132,7 +153365,7 @@
       "shaftTwistStep": 0,
       "shaftCornerRadius": 0.035,
       "shaftDetail": "none",
-      "baseStyle": "round-rings",
+      "baseStyle": "none",
       "baseWidthScale": 1.24,
       "baseDepthScale": 1.24,
       "baseTierCount": 3,
@@ -154144,7 +153377,7 @@
       "baseRibCount": 0,
       "baseCarvingLevel": 0,
       "basePanelInset": 0.02,
-      "capitalStyle": "simple",
+      "capitalStyle": "none",
       "capitalWidthScale": 1.46,
       "capitalDepthScale": 1.46,
       "capitalTierCount": 3,
@@ -161575,10 +160808,7 @@
       "id": "collection_nohz2leqck7cczky",
       "name": "Interior V1 · lobby",
       "nodeIds": [
-        "item_y9gvqxg21z4eg3tq",
-        "item_mpmurjm7w37g62dc",
-        "item_hdwhrx3sxye63vy9",
-        "item_4jo6km4jhwo7y8p9"
+        "item_y9gvqxg21z4eg3tq"
       ],
       "color": "#b99769"
     },
