@@ -25,9 +25,8 @@ const source=(body,params)=>`export const params=${JSON.stringify({...Object.fro
 // Walnut boards at a 3 in pitch running along the shaft (z), bronze joists and thin fascia, stone entry tread on the lounge side.
 export const deckCode=source(`const bd=part('walnut_boards'),fr=part('bronze_frame'),st=part('stone_step');
 const W=p.width,Dp=p.depth,n=Math.max(1,Math.round(W/.0762)),pitch=W/n;
-for(let i=0;i<n;i++)box(bd,pitch-.006,.035,Dp,-W/2+(i+.5)*pitch,-.0175,0,'walnut',.004);
-for(const x of [-W/2+.05,-W/4,0,W/4,W/2-.05])box(fr,.06,.08,Dp-.03,x,-.075,0,'bronze',.004);
-for(const s of [-1,1])box(fr,W,.12,.012,0,-.06,s*(Dp/2-.006),'bronze',.003);
+// Owner 2026-10-26: thin flat deck flush with the lobby floor, no joists or edge band (it must not read as raised).
+for(let i=0;i<n;i++)box(bd,pitch-.004,.025,Dp,-W/2+(i+.5)*pitch,-.0125,0,'walnut',.003);
 if(p.stepLength>0)box(st,p.stepLength,p.stepRise,Dp,-W/2-p.stepLength/2,-p.stepRise*1.5,0,'stone',.006);`,{width:inch(72),depth:inch(72),stepLength:0,stepRise:inch(6)});
 export const treeCode=source(`const bed=part('planting_bed'),tr=part('trunk_and_limbs'),cn=part('canopy');
 const R=p.radius,H=p.height,B=p.bed,bh=p.bedHeight;
