@@ -121,7 +121,8 @@ H(f,'shaft-back',433.5,514.5,325);
 H(f,'shaft-front',433.5,514.5,568);
 V(f,'shaft-east',514.5,325,595);
 H(f,'stair-back',514.5,673.5,277);
-H(f,'stair-front',514.5,673.5,440); // PDF vector wall faces at z=435.5 and 444.5 in.
+// Room review 2026-10-26: the PDF's stair-front wall (faces z=435.5/444.5) is replaced by a 42 in glass guard (scripts/build-exterior.mjs); the separator keeps stair and lobby void as separate zones.
+sep(f,'stair-front',[514.5,440],[673.5,440]);
 sep(f,'lounge-back',[184.5,277],[433.5,277]);
 sep(f,'hall-stair',[433.5,277],[514.5,277]);
 sep(f,'stair-console',[514.5,277],[514.5,325]);

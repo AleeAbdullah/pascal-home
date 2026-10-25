@@ -31,3 +31,14 @@ export function architecturePatches(nodes){
  // Deleting the opening is enough; its host wall's children list is maintained by Pascal.
  return [...changes].map(([id,data])=>({op:'update',id,data})).concat(nodes[removed]?[{op:'delete',id:removed,cascade:false}]:[]);
 }
+
+// Room review 2026-10-26: the stair-front wall (514.5,440)->(673.5,440) becomes an open 42 in glass guard.
+// A non-physical separator keeps the same line so "Main staircase" and the double-height lobby void stay separate zones.
+export const stairGuard={wallId:'wall_as9a3f1d7a',separatorId:'separator_588_ff_stair_front',key:'ff-stair-front',x0:514.5,x1:673.5,z:440,
+ ownerDecision:'Room review 2026-10-26: replace first-floor stair-front wall with 42 in glass guard',
+ basis:'Owner decision: stair-front wall removed; 42 in glass guard on the same centreline (514.5..673.5, z 440 in), same guard as the other house guards'};
+// Pascal's zone auto-derivation drops the old void zone when the wall is removed and re-creates it as "Room 1"; these fields restore it.
+export const lobbyVoidSeed=[15.0876,13.1445];
+export const lobbyVoidFields={name:'Looking below · double-height lobby',visible:true,holes:[],autoFromWalls:true,hasFloor:false,hasCeiling:false,spaceRole:'room',roomNumber:'',enclosureStatus:'enclosed',floorFinish:'',wallFinish:'',ceilingFinish:'',ceilingHeight:2.7,occupancy:'',clearDimensionPolicy:'none',color:'#22c55e',
+ floor:{sourceSlabId:'slab_588_ff_main',finish:'scene:mat_i5cw7zebgp01ed9b'},
+ metadata:{correctionBasis:'Void over the double-height lobby restored after the corridor was opened alongside the recessed D2 entrance',blueprintReview:'2026-10-25',ownerDecision:stairGuard.ownerDecision,restoredAfter:'Pascal re-derived this zone as "Room 1" (new id) when the stair-front wall was removed; name, flags, finish and metadata restored from zone_bv6shzjn724wsmcg'}};

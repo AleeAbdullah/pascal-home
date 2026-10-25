@@ -11350,7 +11350,6 @@
         "wall_as0208a4c7",
         "wall_asd7c7990d",
         "wall_as01a26594",
-        "wall_as9a3f1d7a",
         "slab_asdb03d167",
         "slab_asda03cfd4",
         "slab_asdd03d48d",
@@ -11524,13 +11523,15 @@
         "item_cyh6xqiulw9xmfgu",
         "spawn_first_interior_v1",
         "separator_rr9s28yu3s9rx37r",
-        "zone_bv6shzjn724wsmcg",
         "item_r1423t43ejyk7sdt",
         "item_iepxsfxorxeu6wgw",
         "item_lhvjz49e7xpuk9mu",
         "item_pmg9bwwd5yugwalm",
         "item_r0xn8a5q76uxzjlr",
-        "item_ywnqkcddo02gjwlu"
+        "item_ywnqkcddo02gjwlu",
+        "separator_588_ff_stair_front",
+        "zone_uydkdxu6mqgvt6fc",
+        "item_rxfzqm7jb4cyhu9t"
       ],
       "level": 1,
       "baseElevation": 0,
@@ -12695,46 +12696,6 @@
         7.0358
       ],
       "frontSide": "interior",
-      "backSide": "interior"
-    },
-    "wall_as9a3f1d7a": {
-      "object": "node",
-      "id": "wall_as9a3f1d7a",
-      "type": "wall",
-      "name": "ff-stair-front",
-      "parentId": "level_as4d3a9bc4",
-      "visible": true,
-      "metadata": {
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "sheet": 1,
-        "plan": "ff",
-        "sourceWall": "ff-stair-front",
-        "positionBasis": "dimension-chain grid; undimensioned returns traced from PDF",
-        "sourceStart": [
-          13.0683,
-          11.176
-        ],
-        "sourceEnd": [
-          17.1069,
-          11.176
-        ]
-      },
-      "children": [],
-      "slots": {
-        "a": "scene:mat_cvmusa3ms3wea9le",
-        "b": "scene:mat_cvmusa3ms3wea9le"
-      },
-      "thickness": 0.2286,
-      "height": 3.6576,
-      "start": [
-        13.0683,
-        11.176
-      ],
-      "end": [
-        17.1069,
-        11.176
-      ],
-      "frontSide": "exterior",
       "backSide": "interior"
     },
     "slab_asdb03d167": {
@@ -13938,12 +13899,12 @@
       "autoFromWalls": true,
       "boundaryWallIds": [
         "wall_as01a26594",
-        "wall_as9a3f1d7a",
         "wall_asd7c7990d"
       ],
       "boundarySeparatorIds": [
         "separator_588_ff_stair_console",
-        "separator_588_ff_stair_east"
+        "separator_588_ff_stair_east",
+        "separator_588_ff_stair_front"
       ],
       "seed": [
         13.202181692385201,
@@ -152893,76 +152854,6 @@
         13.3477
       ]
     },
-    "zone_bv6shzjn724wsmcg": {
-      "object": "node",
-      "id": "zone_bv6shzjn724wsmcg",
-      "type": "zone",
-      "name": "Looking below · double-height lobby",
-      "parentId": "level_as4d3a9bc4",
-      "visible": true,
-      "metadata": {
-        "correctionBasis": "Void over the double-height lobby restored after the corridor was opened alongside the recessed D2 entrance",
-        "blueprintReview": "2026-10-25"
-      },
-      "polygon": [
-        [
-          13.0683,
-          11.176
-        ],
-        [
-          17.1069,
-          11.176
-        ],
-        [
-          17.1069,
-          13.3477
-        ],
-        [
-          17.1069,
-          15.113
-        ],
-        [
-          13.0683,
-          15.113
-        ],
-        [
-          13.0683,
-          14.4272
-        ]
-      ],
-      "holes": [],
-      "autoFromWalls": true,
-      "boundaryWallIds": [
-        "wall_588_ff_shaft_east_1",
-        "wall_588_ff_shaft_east_2",
-        "wall_as72938221",
-        "wall_as9a3f1d7a"
-      ],
-      "boundarySeparatorIds": [
-        "separator_588_ff_lobby_front",
-        "separator_rr9s28yu3s9rx37r"
-      ],
-      "seed": [
-        15.087599999999997,
-        13.144499999999992
-      ],
-      "floor": {
-        "sourceSlabId": "slab_588_ff_main",
-        "finish": "scene:mat_i5cw7zebgp01ed9b"
-      },
-      "hasFloor": false,
-      "hasCeiling": false,
-      "spaceRole": "room",
-      "roomNumber": "",
-      "enclosureStatus": "enclosed",
-      "floorFinish": "",
-      "wallFinish": "",
-      "ceilingFinish": "",
-      "ceilingHeight": 2.7,
-      "occupancy": "",
-      "clearDimensionPolicy": "none",
-      "color": "#22c55e"
-    },
     "door_iebwabd2nbyu6jfw": {
       "object": "node",
       "id": "door_iebwabd2nbyu6jfw",
@@ -160526,6 +160417,363 @@
       "doorCloser": false,
       "panicBar": false,
       "panicBarHeight": 1
+    },
+    "separator_588_ff_stair_front": {
+      "object": "node",
+      "id": "separator_588_ff_stair_front",
+      "type": "separator",
+      "name": "ff-stair-front",
+      "parentId": "level_as4d3a9bc4",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "physical": false,
+        "sourceWall": "ff-stair-front",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Owner decision: stair-front wall removed; 42 in glass guard on the same centreline (514.5..673.5, z 440 in), same guard as the other house guards",
+        "ownerDecision": "Room review 2026-10-26: replace first-floor stair-front wall with 42 in glass guard"
+      },
+      "start": [
+        13.0683,
+        11.176
+      ],
+      "end": [
+        17.1069,
+        11.176
+      ]
+    },
+    "zone_uydkdxu6mqgvt6fc": {
+      "object": "node",
+      "id": "zone_uydkdxu6mqgvt6fc",
+      "type": "zone",
+      "name": "Looking below · double-height lobby",
+      "parentId": "level_as4d3a9bc4",
+      "visible": true,
+      "metadata": {
+        "correctionBasis": "Void over the double-height lobby restored after the corridor was opened alongside the recessed D2 entrance",
+        "blueprintReview": "2026-10-25",
+        "ownerDecision": "Room review 2026-10-26: replace first-floor stair-front wall with 42 in glass guard",
+        "restoredAfter": "Pascal re-derived this zone as \"Room 1\" (new id) when the stair-front wall was removed; name, flags, finish, metadata restored from zone_bv6shzjn724wsmcg"
+      },
+      "polygon": [
+        [
+          13.0683,
+          11.176
+        ],
+        [
+          17.1069,
+          11.176
+        ],
+        [
+          17.1069,
+          13.3477
+        ],
+        [
+          17.1069,
+          15.113
+        ],
+        [
+          13.0683,
+          15.113
+        ],
+        [
+          13.0683,
+          14.4272
+        ]
+      ],
+      "holes": [],
+      "autoFromWalls": true,
+      "boundaryWallIds": [
+        "wall_588_ff_shaft_east_1",
+        "wall_588_ff_shaft_east_2",
+        "wall_as72938221"
+      ],
+      "boundarySeparatorIds": [
+        "separator_588_ff_lobby_front",
+        "separator_588_ff_stair_front",
+        "separator_rr9s28yu3s9rx37r"
+      ],
+      "seed": [
+        15.087599999999997,
+        13.144499999999992
+      ],
+      "floor": {
+        "sourceSlabId": "slab_588_ff_main",
+        "finish": "scene:mat_i5cw7zebgp01ed9b"
+      },
+      "hasFloor": false,
+      "hasCeiling": false,
+      "spaceRole": "room",
+      "roomNumber": "",
+      "enclosureStatus": "enclosed",
+      "floorFinish": "",
+      "wallFinish": "",
+      "ceilingFinish": "",
+      "ceilingHeight": 2.7,
+      "occupancy": "",
+      "clearDimensionPolicy": "none",
+      "color": "#22c55e"
+    },
+    "item_rxfzqm7jb4cyhu9t": {
+      "object": "node",
+      "id": "item_rxfzqm7jb4cyhu9t",
+      "type": "item",
+      "name": "ff-stair-front · glass guard",
+      "parentId": "level_as4d3a9bc4",
+      "visible": true,
+      "metadata": {
+        "reason": "Owner room review: replace stair-front wall with a glass guard; same guard as the other house guards.",
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "undimensioned": "PDF trace or explicitly labeled owner-authorized assumption; not surveyed or engineered",
+        "exteriorKey": "ff-stair-front",
+        "dimensionBasis": "Owner decision: 42 inch glass guard along z=440 in, x 514.5..673.5 in; glass plane on the former wall centreline.",
+        "blueprintReview": "2026-10-25",
+        "correctionBasis": "Owner decision: stair-front wall removed; 42 in glass guard on the same centreline (514.5..673.5, z 440 in), same guard as the other house guards",
+        "ownerDecision": "Room review 2026-10-26: replace first-floor stair-front wall with 42 in glass guard"
+      },
+      "position": [
+        15.0876,
+        0,
+        11.176
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [],
+      "slots": {
+        "glass": "library:preset-glass",
+        "metal": "library:metal-steel"
+      },
+      "source": {
+        "kind": "script",
+        "meta": {
+          "description": "Glass railing on the removed stair-front wall line; 42 inch height."
+        },
+        "language": "three",
+        "script": "eeabe95543603d04c89a19e5b7f51f13b59e54514acbab5401a46eec94d481b9",
+        "params": {
+          "width": 4.0386,
+          "height": 1.0668
+        },
+        "artifact": "73d6f436d8be6aa8fb89621393a845ea72a50a75b791318699577bbb25a9b40d",
+        "manifest": {
+          "bounds": {
+            "min": [
+              -2.0368,
+              0,
+              -0.0325
+            ],
+            "max": [
+              2.0368,
+              1.0668,
+              0.0325
+            ]
+          },
+          "params": [
+            {
+              "id": "width",
+              "kind": "number",
+              "default": 4.0386,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "height",
+              "kind": "number",
+              "default": 1.0668,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            }
+          ],
+          "parts": [
+            {
+              "id": "glass_guard",
+              "type": "railing",
+              "bounds": {
+                "min": [
+                  -2.0368,
+                  0,
+                  -0.0325
+                ],
+                "max": [
+                  2.0368,
+                  1.0668,
+                  0.0325
+                ]
+              }
+            }
+          ],
+          "surfaces": [
+            {
+              "part": "glass_guard",
+              "y": 0.06,
+              "polygon": [
+                [
+                  -2.019,
+                  -0.032
+                ],
+                [
+                  2.019,
+                  -0.032
+                ],
+                [
+                  2.019,
+                  0.032
+                ],
+                [
+                  -2.019,
+                  0.032
+                ]
+              ]
+            },
+            {
+              "part": "glass_guard",
+              "y": 1.07,
+              "polygon": [
+                [
+                  -2.019,
+                  -0.023
+                ],
+                [
+                  2.019,
+                  -0.023
+                ],
+                [
+                  2.019,
+                  0.023
+                ],
+                [
+                  -2.019,
+                  0.023
+                ]
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "id": "glass",
+              "label": "glass",
+              "color": "#b9d8dd",
+              "roughness": 0.15,
+              "metalness": 0.1,
+              "transparent": true,
+              "emissive": false
+            },
+            {
+              "id": "metal",
+              "label": "metal",
+              "color": "#282c2b",
+              "roughness": 0.65,
+              "metalness": 0.65,
+              "transparent": false,
+              "emissive": false
+            }
+          ],
+          "anchors": [],
+          "lights": [],
+          "undersides": [
+            {
+              "part": "glass_guard",
+              "polygon": [
+                [
+                  -2.019,
+                  -0.032
+                ],
+                [
+                  2.019,
+                  -0.032
+                ],
+                [
+                  2.019,
+                  0.032
+                ],
+                [
+                  -2.019,
+                  0.032
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "part": "glass_guard",
+              "polygon": [
+                [
+                  -2.019,
+                  -0.023
+                ],
+                [
+                  2.019,
+                  -0.023
+                ],
+                [
+                  2.019,
+                  0.023
+                ],
+                [
+                  -2.019,
+                  0.023
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                1.0268
+              ]
+            }
+          ],
+          "animations": [],
+          "cutters": [],
+          "cutout": false,
+          "collider": false,
+          "triangles": 132
+        }
+      },
+      "asset": {
+        "id": "script_73d6f436d8be6aa8",
+        "category": "architectural detail",
+        "name": "ff-stair-front · glass guard",
+        "thumbnail": "",
+        "source": "mine",
+        "src": "artifact://73d6f436d8be6aa8fb89621393a845ea72a50a75b791318699577bbb25a9b40d",
+        "dimensions": [
+          4.0736,
+          1.0668,
+          0.065
+        ],
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "surface": {
+          "height": 1.07
+        }
+      }
     }
   },
   "rootNodeIds": [
