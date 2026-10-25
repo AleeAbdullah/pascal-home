@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Copy every compiled module a scene export references from the local Pascal
-// store (.pascal/data/pascal.db.artifacts) into scenes/artifacts, which the
-// presentation serves. Usage: node scripts/sync-scene-artifacts.mjs [scene.json]
+// store (.pascal/data/pascal.db.artifacts) into scenes/artifacts, so a clone can import
+// the scene with scripts/import-scene.mjs. Usage: node scripts/sync-scene-artifacts.mjs [scene.json]
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
