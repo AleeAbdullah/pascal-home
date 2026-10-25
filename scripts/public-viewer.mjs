@@ -12,6 +12,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import zlib from 'node:zlib';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const sceneId = process.argv[2] ?? '588-m1-interior-v1';
@@ -41,6 +42,7 @@ const allowed = [
   p => ['/pascal-logo-shape.svg', '/pascal-trackpad-navigation.js', '/favicon.ico'].includes(p),
 ];
 
+const gzipCache = new Map();
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://viewer');
   const p = decodeURIComponent(url.pathname);
@@ -56,9 +58,26 @@ const server = http.createServer((req, res) => {
   // Pascal refuses writes from a foreign Origin; present the tunnel's requests as its own.
   if (headers.origin) headers.origin = `http://${up.host}`;
   if (headers.referer) headers.referer = `http://${up.host}${new URL(headers.referer).pathname}`;
+  // Compiled objects are immutable and Pascal sends them uncompressed (~77 MB raw, ~8 MB
+  // gzipped); over a slow uplink that is most of a visitor's first load, so gzip them here.
+  const gzipIt = req.method === 'GET' && p.startsWith('/api/artifacts/') && /\bgzip\b/.test(req.headers['accept-encoding'] ?? '');
+  if (gzipIt && gzipCache.has(p)) { const c = gzipCache.get(p); res.writeHead(200, {...c.headers, 'content-length': c.body.length}); res.end(c.body); return; }
   const proxied = http.request({hostname: '127.0.0.1', port: up.port, path: req.url, method: req.method, headers}, reply => {
     const out = {...reply.headers};
     delete out['set-cookie'];
+    if (gzipIt && reply.statusCode === 200 && !out['content-encoding']) {
+      const chunks = [];
+      reply.on('data', d => chunks.push(d));
+      reply.on('end', () => {
+        const body = zlib.gzipSync(Buffer.concat(chunks), {level: 6});
+        delete out['content-length'];
+        const headers = {...out, 'content-encoding': 'gzip', vary: 'Accept-Encoding'};
+        gzipCache.set(p, {headers, body});
+        res.writeHead(200, {...headers, 'content-length': body.length});
+        res.end(body);
+      });
+      return;
+    }
     res.writeHead(reply.statusCode, out);
     reply.pipe(res);
   });

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "presentation",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "present"],
+      "port": 55880
+    }
+  ]
+}
