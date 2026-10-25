@@ -146,3 +146,6 @@ export function entryConsolePatches(nodes){return entryConsoleIds.filter(id=>nod
 export function columnStylePatches(nodes){
  return Object.values(nodes).filter(n=>n.type==='column'&&n.parentId===groundFloorId&&/^P[1-4] · GF column$/.test(n.name)).map(n=>({op:'update',id:n.id,data:{...plainColumnFields,metadata:entryMeta(n,'Plain structural column: round base and capital removed (baseStyle/capitalStyle none)')}}));
 }
+
+// Room review 2026-10-26: architect bridge across the shaft. The two facing W11 windows (lounge-east, shaft-east) become 72 in openings; deck, guards and planting live in shaft-bridge.mjs.
+export {openingSpecs as bridgeOpeningSpecs,ownerDecision as bridgeOwnerDecision} from './shaft-bridge.mjs';

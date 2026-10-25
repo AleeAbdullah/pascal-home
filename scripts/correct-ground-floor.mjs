@@ -1,9 +1,11 @@
-// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|entrance|save]
+// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|entrance|bridge|save]
 // `entrance` applies the room-review changes: lobby depth z 444.3, D1 single east-hinged leaf, console set removed, plain square columns.
+// `bridge` adds the architect's shaft bridge (2026-10-26): openings replacing the two W11 windows, walnut deck + lounge entry step, glass guards, shaft tree and planters.
 // `decisions` re-applies only the five owner decisions of 2026-10-25 (ground-floor ones: W19 width, pantry opening, podium levels).
 // Applies the 2026-10-25 ground-floor blueprint corrections to the live scene (idempotent), verifies, optionally checkpoints.
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
+import {runBridge} from '../src/shaft-bridge.mjs';
 import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
 import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
 import {byKey,groundFloorId,inch,newPassage,columns,columnMetadata,openingPatches,wallPatches,furniturePatches,windowDecisionPatches,pantryPatches,podiumPatches,entryStepPatches,lobbyDepthPatches,entryDoorPatches,entryConsolePatches,columnStylePatches,plainColumnFields} from '../src/ground-floor-blueprint-corrections.mjs';
@@ -70,6 +72,7 @@ try{
   await decisions();
   await entrance();
  }
+ if(mode==='bridge'){console.log('zones before bridge');show(await zoneSnap('BR0'));await runBridge({call,level:'ground'});console.log('zones after bridge');show(await zoneSnap('BR1'));}
  if(mode==='decisions')await decisions();
  if(mode==='entrance')await entrance();
  const v=await call('verify_scene');fs.writeFileSync(`${outDir}/gf-verify-after.json`,JSON.stringify(v,null,2));fs.writeFileSync(`${outDir}/gf-scene-after.json`,JSON.stringify(await call('get_scene')));console.log('Verification',v.issues.length);

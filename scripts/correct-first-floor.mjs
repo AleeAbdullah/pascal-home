@@ -1,7 +1,8 @@
-// Usage: node scripts/correct-first-floor.mjs [architecture|stairguard|save]  (stairguard = 2026-10-26 stair-front wall -> 42 in glass guard)
+// Usage: node scripts/correct-first-floor.mjs [architecture|stairguard|bridge|save]  (stairguard = 2026-10-26 stair-front wall -> 42 in glass guard)
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {guardCode,paramCode} from '../src/588-exterior.mjs';
+import {runBridge} from '../src/shaft-bridge.mjs';
 import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
 import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
 import {architecturePatches,inch,stairGuard as SG,lobbyVoidSeed,lobbyVoidFields,firstFloorId} from '../src/first-floor-blueprint-corrections.mjs';
@@ -57,6 +58,7 @@ try{
   }
  }
  if(process.argv[2]==='architecture'||process.argv[2]==='stairguard')await stairGuard();
+ if(process.argv[2]==='bridge'){zoneSnap(scene,'BR0');await runBridge({call,level:'first'});for(const r of zoneSnap(await call('get_scene'),'BR1'))console.log(' ',r.id,String(r.name).padEnd(34),r.area,r.hasFloor,r.hasCeiling,'ceil',r.ceilings);}
  const checked=await call('get_scene');fs.writeFileSync('/tmp/pascal-first-review-after.json',JSON.stringify(checked));
  const v=await call('verify_scene');fs.writeFileSync('/tmp/pascal-first-review-verify.json',JSON.stringify(v,null,2));console.log('Verification',JSON.stringify(v).slice(0,300));
  if(process.argv[2]==='save'){

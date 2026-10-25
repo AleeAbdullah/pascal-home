@@ -42,3 +42,6 @@ export const lobbyVoidSeed=[15.0876,13.1445];
 export const lobbyVoidFields={name:'Looking below · double-height lobby',visible:true,holes:[],autoFromWalls:true,hasFloor:false,hasCeiling:false,spaceRole:'room',roomNumber:'',enclosureStatus:'enclosed',floorFinish:'',wallFinish:'',ceilingFinish:'',ceilingHeight:2.7,occupancy:'',clearDimensionPolicy:'none',color:'#22c55e',
  floor:{sourceSlabId:'slab_588_ff_main',finish:'scene:mat_i5cw7zebgp01ed9b'},
  metadata:{correctionBasis:'Void over the double-height lobby restored after the corridor was opened alongside the recessed D2 entrance',blueprintReview:'2026-10-25',ownerDecision:stairGuard.ownerDecision,restoredAfter:'Pascal re-derived this zone as "Room 1" (new id) when the stair-front wall was removed; name, flags, finish and metadata restored from zone_bv6shzjn724wsmcg'}};
+
+// Room review 2026-10-26: architect bridge across the shaft. W14 (lounge wall, 60 in) and W11 (shaft-east, 72 in) become openings; deck and guards live in shaft-bridge.mjs.
+export {openingSpecs as bridgeOpeningSpecs,ownerDecision as bridgeOwnerDecision} from './shaft-bridge.mjs';

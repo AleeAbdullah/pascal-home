@@ -196,7 +196,10 @@
       "wall": "gf-lounge-east",
       "at": 480.45,
       "pdfDrawnWidth": 72,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "replacedByBridgeOpening": true,
+      "ownerDecision": "Room review 2026-10-26: architect bridge across the shaft",
+      "replacedNote": "GF lounge-east W11 replaced by passages-0-12 (72 in opening to the bridge)"
     },
     {
       "level": 0,
@@ -204,7 +207,10 @@
       "wall": "gf-shaft-east",
       "at": 480.45,
       "pdfDrawnWidth": 72,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "replacedByBridgeOpening": true,
+      "ownerDecision": "Room review 2026-10-26: architect bridge across the shaft",
+      "replacedNote": "GF shaft-east W11 replaced by passages-0-13 (72 in opening from the bridge)"
     },
     {
       "level": 1,
@@ -388,7 +394,10 @@
       "wall": "ff-lounge-shaft-west",
       "at": 473.94,
       "pdfDrawnWidth": 58.99,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "replacedByBridgeOpening": true,
+      "ownerDecision": "Room review 2026-10-26: architect bridge across the shaft",
+      "replacedNote": "FF lounge W14 replaced by passages-1-14 (60 in opening to the bridge)"
     },
     {
       "level": 1,
@@ -396,7 +405,10 @@
       "wall": "ff-shaft-east",
       "at": 480.45,
       "pdfDrawnWidth": 72,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "replacedByBridgeOpening": true,
+      "ownerDecision": "Room review 2026-10-26: architect bridge across the shaft",
+      "replacedNote": "FF shaft-east W11 replaced by passages-1-15 (72 in opening from the bridge)"
     },
     {
       "level": 2,
@@ -713,6 +725,42 @@
       "width": 36,
       "height": 96,
       "positionBasis": "PDF vector trace; opening at 10 ft callout"
+    },
+    {
+      "level": 0,
+      "wall": "gf-lounge-east",
+      "at": 480.45,
+      "width": 72,
+      "height": 96,
+      "positionBasis": "PDF vector trace; bridge jambs on the architect plan",
+      "ownerDecision": "Room review 2026-10-26: architect bridge across the shaft"
+    },
+    {
+      "level": 0,
+      "wall": "gf-shaft-east",
+      "at": 480.45,
+      "width": 72,
+      "height": 96,
+      "positionBasis": "PDF vector trace; bridge jambs on the architect plan",
+      "ownerDecision": "Room review 2026-10-26: architect bridge across the shaft"
+    },
+    {
+      "level": 1,
+      "wall": "ff-lounge-shaft-west",
+      "at": 473.94,
+      "width": 60,
+      "height": 96,
+      "positionBasis": "PDF vector trace; bridge jambs on the architect plan",
+      "ownerDecision": "Room review 2026-10-26: architect bridge across the shaft"
+    },
+    {
+      "level": 1,
+      "wall": "ff-shaft-east",
+      "at": 480.45,
+      "width": 72,
+      "height": 96,
+      "positionBasis": "PDF vector trace; bridge jambs on the architect plan",
+      "ownerDecision": "Room review 2026-10-26: architect bridge across the shaft"
     }
   ]
 }

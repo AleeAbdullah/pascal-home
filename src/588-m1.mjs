@@ -63,11 +63,11 @@ H(g,'drawing-front',673.5,931.5,631);
 H(g,'powder-back',673.5,742.5,561.25,4.5);
 V(g,'powder-west',673.5,516.3,653.3);
 H(g,'master-front',-4.5,184.5,508);
-V(g,'lounge-east',433.5,325,710.3);
+V(g,'lounge-east',433.5,325,710.3); // Room review 2026-10-26: its W11 (z 444.45..516.45) is now a 72 in bridge opening (src/588-openings.json passages-0-12)
 H(g,'lounge-front',184.5,433.5,658);
 H(g,'shaft-back',433.5,514.5,325);
 H(g,'shaft-front',433.5,514.5,568);
-V(g,'shaft-east',514.5,277,653.3);
+V(g,'shaft-east',514.5,277,653.3); // Room review 2026-10-26: its W11 is now a 72 in bridge opening (passages-0-13); deck, guards, tree and planters: src/shaft-bridge.mjs
 H(g,'stair-back',514.5,677.9,277);
 H(g,'entry-front',514.5,673.5,595,9,300);
 sep(g,'hall-lounge',[184.5,277],[433.5,277]);
@@ -116,10 +116,10 @@ V(f,'front-bedroom-west',673.5,440,631);
 H(f,'front-bedroom-front',673.5,931.5,631);
 H(f,'master-front',-4.5,184.5,508);
 H(f,'lounge-front',184.5,433.5,508);
-V(f,'lounge-shaft-west',433.5,277,568);
+V(f,'lounge-shaft-west',433.5,277,568); // Room review 2026-10-26: W14 is now a 60 in bridge opening (passages-1-14)
 H(f,'shaft-back',433.5,514.5,325);
 H(f,'shaft-front',433.5,514.5,568);
-V(f,'shaft-east',514.5,325,595);
+V(f,'shaft-east',514.5,325,595); // Room review 2026-10-26: W11 is now a 72 in bridge opening (passages-1-15); first-floor bridge deck/guards: src/shaft-bridge.mjs
 H(f,'stair-back',514.5,673.5,277);
 // Room review 2026-10-26: the PDF's stair-front wall (faces z=435.5/444.5) is replaced by a 42 in glass guard (scripts/build-exterior.mjs); the separator keeps stair and lobby void as separate zones.
 sep(f,'stair-front',[514.5,440],[673.5,440]);

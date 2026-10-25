@@ -1,0 +1,21 @@
+export const params={"width":{"default":1.8288,"min":0,"max":50,"step":0.001},"depth":{"default":1.8288,"min":0,"max":50,"step":0.001},"stepLength":{"default":0,"min":0,"max":50,"step":0.001},"stepRise":{"default":0.1524,"min":0,"max":50,"step":0.001},"detail":{"default":1,"min":0,"max":1,"step":1},"shadows":{"default":1,"min":0,"max":1,"step":1}};export const mount="floor";
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+const palette={"stone":["#d5c6b0",0.68,0],"walnut":["#58402e",0.58,0],"ivory":["#eee8dc",0.82,0],"linen":["#dcd2bf",0.96,0],"taupe":["#ad9c88",0.94,0],"bronze":["#40362b",0.4,0.65],"sage":["#6c725c",0.94,0],"charcoal":["#242522",0.8,0],"rug":["#d3c7b3",1,0],"vein":["#b4a18a",0.7,0],"leaf":["#455a36",0.8,0],"paper":["#f3e8d6",0.9,0],"oak":["#a98764",0.68,0]};
+export default function build({params:p,THREE:T}){
+const g=new T.Group(), mats={};
+const D=(p.detail??1)>=.5, S=(p.shadows??1)>=.5;
+function mat(k){if(!mats[k]){const [color,roughness,metalness]=palette[k];mats[k]=new T.MeshStandardMaterial({color,roughness,metalness});mats[k].name='slot_'+k;}return mats[k]}
+function part(name){const q=new T.Group();q.name='part:'+name;g.add(q);return q}
+function mesh(q,geo,k,x,y,z){const m=new T.Mesh(geo,mat(k));m.position.set(x,y,z);m.castShadow=S;m.receiveShadow=true;q.add(m);return m}
+function box(q,w,h,d,x,y,z,k,r=.01){return mesh(q,D&&Math.min(w,h,d)>.02?new RoundedBoxGeometry(w,h,d,2,Math.min(r,w/3,h/3,d/3)):new T.BoxGeometry(w,h,d),k,x,y,z)}
+function cyl(q,r,h,x,y,z,k,r2=r){return mesh(q,new T.CylinderGeometry(r,r2,h,D?40:16),k,x,y,z)}
+function ball(q,w,h,d,x,y,z,k){const m=mesh(q,new T.SphereGeometry(1,D?20:10,D?14:7),k,x,y,z);m.scale.set(w/2,h/2,d/2);return m}
+function line(q,points,r,k){const curve=new T.CatmullRomCurve3(points.map(v=>new T.Vector3(...v)));return mesh(q,new T.TubeGeometry(curve,D?20:8,r,D?8:5,false),k,0,0,0)}
+
+const bd=part('walnut_boards'),fr=part('bronze_frame'),st=part('stone_step');
+const W=p.width,Dp=p.depth,n=Math.max(1,Math.round(W/.0762)),pitch=W/n;
+for(let i=0;i<n;i++)box(bd,pitch-.006,.035,Dp,-W/2+(i+.5)*pitch,-.0175,0,'walnut',.004);
+for(const x of [-W/2+.05,-W/4,0,W/4,W/2-.05])box(fr,.06,.08,Dp-.03,x,-.075,0,'bronze',.004);
+for(const s of [-1,1])box(fr,W,.12,.012,0,-.06,s*(Dp/2-.006),'bronze',.003);
+if(p.stepLength>0)box(st,p.stepLength,p.stepRise,Dp,-W/2-p.stepLength/2,-p.stepRise*1.5,0,'stone',.006);
+return g;}
