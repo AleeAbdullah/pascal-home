@@ -90,3 +90,17 @@ export const balconyDoor={sourceOpening:'doors-2-24',wallSourceName:'sf-balcony-
 export const balconyDoorWall=nodes=>Object.values(nodes).find(n=>n.type==='wall'&&n.parentId===secondFloorId&&n.metadata?.sourceWall===balconyDoor.wallSourceName);
 export const balconyDoorNode=nodes=>byKey(nodes,balconyDoor.sourceOpening);
 export const balconyDoorMetadata=n=>({...n.metadata,sourceFile,sourceOpening:balconyDoor.sourceOpening,sourceTag:balconyDoor.tag,positionBasis:'Owner decision 2026-10-25',widthBasis:'Owner decision 2026-10-25',heightBasis:'Owner rule: 8 ft (96 in)',sourcePositionInches:balconyDoor.centre,operability:'Door swing to be checked',blueprintReview:review,correctionBasis:'Glazed door onto the maid balcony at x=915..945 in',ownerDecision:balconyDoor.decision});
+
+// ---- Owner decision 2026-10-26: maid bathroom partition and door as drawn on architect page 3 ----
+// Page-3 vectors: partition faces z=42.9 and 47.4 in (4.5 in thick, centre 45.15), running between the maid-room west wall (x=837.05 face) and the
+// maid-rear-east wall (x=906.1 face). The door leaf is drawn 24 in wide at x 881.3..905.4, hinged on the east jamb (centre ~(906,37)), swinging 90 degrees
+// NORTH into the bathroom (quarter arc radius ~27 in, open leaf along x=906 up to z~10). The drawing leaf sits 6 in north of the wall face; it is placed in the wall.
+export const maidPartition={id:'wall_588_sf_maid_bath_partition',name:'sf-maid-bath-partition',key:'maid-bath-partition',template:'wall_588_sf_maid_mumty_front_1',start:[834.8,45.15],end:[910.5,45.15],t:4.5,h:108,
+ door:{centre:892.6,width:27,height:96,name:'D-maid bath · SF',tag:'D-maid-bath',sourceOpening:'doors-2-maid-bath',hingesSide:'left',swingDirection:'outward'},
+ basis:'Architect floor plan page 3: partition faces z=42.9..47.4 in between the maid-room west wall and the east wall; owner approved 2026-10-26'};
+export function maidPartitionCreate(nodes){
+ const w=maidPartition,t=nodes[w.template];
+ return {op:'create',parentId:secondFloorId,node:{id:w.id,type:'wall',parentId:secondFloorId,name:w.name,visible:true,
+  metadata:{sourceFile:'SAQIB AZZIZ RESEIDENCE FLOOR PLANS (03-11-2025).pdf',sheet:3,plan:'sf',sourceWall:w.name,positionBasis:'Architect page-3 vector trace',heightBasis:'Same 108 in as the other second-floor interior walls',blueprintReview:'2026-10-26',correctionBasis:w.basis,ownerDecision:'Owner 2026-10-26: add the maid bathroom partition and door as the architect draws them'},
+  children:[],slots:t.slots,thickness:inch(w.t),height:inch(w.h),start:p(...w.start),end:p(...w.end),frontSide:'interior',backSide:'interior'}};
+}
