@@ -31,9 +31,9 @@ add('stairHead','table','stair head round side table',src(ff,'frontMaster-side')
 add('stairHead','plant','stair head corner planter',src(ff,'frontMaster-plant'),740,150);
 ceil('stairHead','lights','stair head downlights',770,95,{count:2,spacing:.9});
 
-// 2. Maid room + maid bath (architect page 3: single bed at the north partition, bedside east of it; western wall-hung WC under W18).
+// 2. Maid room + maid bath (architect page 3: single bed at the north partition, bedside east of it, moved south to z 78.5 so it clears the maid bathroom door (owner 2026-10-26); western wall-hung WC under W18).
 add('maid','bed','maid room single bed (39 x 75 in), headboard north',src(ff,'rearBed-bed'),859,87.3,0,{width:.99,depth:1.905});
-add('maid','night','maid room bedside table east of the bed',src(ff,'frontMaster-night0'),889.3,58.1,0,{width:.46});
+add('maid','night','maid room bedside table east of the bed',src(ff,'frontMaster-night0'),889.3,78.5,0,{width:.46});
 add('maidBath','wc','maid bathroom wall-hung western toilet under W18',src(gf,'maidBath-wc'),855.9,12.6,0);
 add('maidBath','washer','maid bathroom handheld washer beside the toilet',src(gf,'maidBath-shower'),869,1.2,0);
 add('maidBath','basin','maid bathroom compact basin beside the toilet',src(gf,'maidBath-basin'),886.9,5.9,0,{width:.45,depth:.30});
