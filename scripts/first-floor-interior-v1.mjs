@@ -18,11 +18,11 @@ if(mode==='build'){
  for(const spec of items.filter(x=>!only||x.room===only||only.split(',').includes(x.key))){
   const old=Object.values(scene.nodes).find(n=>n.metadata?.firstInteriorV1Key===spec.key||n.name===spec.name);
   if(old&&!only)continue;
-  const {key,room,...args}=spec;
+  const {key,room,zoneId:zid,...args}=spec;
   const r=await call('add_object',{...args,...(old?{nodeId:old.id}:{}),category:key.includes('rug')?'rug':key.includes('light')||key.includes('pendant')?'light':'interior design',tags:['interior-v1','first-floor',room],description:'Editable first-floor Interior V1 proposal. Board-inspired furniture dimensions; governing architecture retained.',reason:'Custom board-inspired form and exact fit to this existing room; individually editable joinery, furniture or fixture.'});
   const id=old?.id??r.nodeId??r.id;
   if(!id)throw Error('Missing object id '+key+' '+JSON.stringify(r).slice(0,1000));
-  await call('apply_patch',{patches:[{op:'update',id,data:{...(spec.parentId===levelId?{supportSlabId:'slab_588_ff_main'}:{}),metadata:{...(old?.metadata??{}),firstInteriorV1Key:key,zoneId:rooms[room][0],room,dimensionBasis:'Proposed editable interior; checked blueprint and accepted corrections preserve room geometry',styleReference:'Lake City mood board: lounge 20–30; kitchen 31–37; bedrooms 39–49; bathrooms 50–62; lights and finishes 73–81'}}}]});
+  await call('apply_patch',{patches:[{op:'update',id,data:{...(spec.parentId===levelId?{supportSlabId:'slab_588_ff_main'}:{}),metadata:{...(old?.metadata??{}),firstInteriorV1Key:key,zoneId:zid??rooms[room][0],room,dimensionBasis:'Proposed editable interior; checked blueprint and accepted corrections preserve room geometry',styleReference:'Lake City mood board: lounge 20–30; kitchen 31–37; bedrooms 39–49; bathrooms 50–62; lights and finishes 73–81'}}}]});
   fs.writeFileSync('/tmp/pascal-first-v1-'+key+'.json',JSON.stringify(r));
   scene.nodes[id]={id,name:spec.name,metadata:{firstInteriorV1Key:key}};
   if(++built%5===0)console.log('Built '+built+' this run · '+room+' · '+key);

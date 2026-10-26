@@ -49,7 +49,7 @@ import { fileURLToPath } from 'node:url'
 import { spawnSync } from 'node:child_process'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
-const SCENE = path.resolve(HERE, '../scenes/588-m1-interior-v1.json')
+const SCENE = process.env.ROOM_PLAN_SCENE || path.resolve(HERE, '../scenes/588-m1-interior-v1.json')
 const SCRATCH = '/private/tmp/claude-501/-Users-alee--claude-spares-spare-3mbic2/25218af8-fe26-45ea-bbba-f4c6ec9a3ab4/scratchpad'
 const OUT_DIR = process.env.ROOM_PLAN_OUT || path.join(SCRATCH, 'rooms')
 const PDF_JSON = process.env.ROOM_PLAN_PDF || path.join(SCRATCH, 'pdf/bc-sheet.json')
@@ -82,6 +82,7 @@ for (let i = 0; i < argv.length; i++) {
   else if (a === '--out') opt.out = argv[++i]
   else if (a === '--no-pdf') opt.pdf = false
   else if (a === '--no-arch') opt.arch = false
+  else if (a === '--grid') opt.grid = true
   else if (a === '--floor') opt.floor = argv[++i]
   else pos.push(a)
 }
@@ -221,6 +222,11 @@ const Z = (z) => MT + (z - clip.z0) * S
 const pt = (p) => `${r1(X(p[0]))},${r1(Z(p[1]))}`
 
 // ---------------------------------------------------------------- svg buffers
+const GRID = []
+if (opt.grid) { // --grid: 24 in lines labelled in model inches (measuring aid)
+  for (let x = Math.ceil(clip.x0 / 24) * 24; x < clip.x1; x += 24) GRID.push(`<line x1="${r1(X(x))}" y1="${r1(MT)}" x2="${r1(X(x))}" y2="${r1(MT + PH)}" stroke="#c0392b" stroke-width="0.6" stroke-dasharray="3 5"/><text x="${r1(X(x) + 2)}" y="${r1(MT + 12)}" font-size="13" fill="#c0392b">${x}</text>`)
+  for (let z = Math.ceil(clip.z0 / 24) * 24; z < clip.z1; z += 24) GRID.push(`<line x1="${ML}" y1="${r1(Z(z))}" x2="${ML + PW}" y2="${r1(Z(z))}" stroke="#c0392b" stroke-width="0.6" stroke-dasharray="3 5"/><text x="${ML + 2}" y="${r1(Z(z) - 2)}" font-size="13" fill="#c0392b">${z}</text>`)
+}
 const L = { zones: [], seps: [], rugs: [], walls: [], floor: [], cols: [], stairs: [], ceil: [], pdf: [], arch: [], open: [], dims: [], text: [] }
 const FONT = `font-family="Helvetica Neue, Helvetica, Arial, sans-serif"`
 
@@ -669,7 +675,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${CW / 2}" height="$
 <g id="arch-overlay" fill="none" stroke="#00897b" stroke-opacity="0.6" stroke-linecap="round">${L.arch.join('')}</g>
 <g id="labels">${L.text.join('')}</g>
 </g>
-<g id="dimensions">${L.dims.join('')}</g>
+<g id="dimensions">${L.dims.join('')}</g><g id="grid">${GRID.join('')}</g>
 <g id="title">${tb}</g>
 </svg>
 `
