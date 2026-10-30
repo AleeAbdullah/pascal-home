@@ -181,3 +181,12 @@ export function carParts(x,z,base,color){const p=[],W=70,L=180;
  p.push(BX(x-W/2+6,x+W/2-6,base+53.5,base+56,z-L/2+46,z+L/2-60,color,'roof'));
  for(const sx of [-1,1])for(const sz of [-1,1])p.push(CYL(13,13,8,x+sx*(W/2-4),base+13-4,z+sz*58,'tyre','wheels',[0,0,Math.PI/2],16));
  return p;}
+
+// Black vertical fin screen parts (render p2/p4/p7/p12). `gaps` = [[x0,x1],...] plan-inch spans left open (2026-10-31: walk-through for the lounge garden door).
+export function finParts(x0,x1,z,y0,y1,gaps=[]){
+ const p=[],pat=[4,7,4,12,5,8,4,14],inGap=x=>gaps.some(([a,b])=>x>=a&&x<=b);let x=x0+2,i=0;
+ while(x<x1-2){if(!inGap(x))p.push(BX(x-1,x+1,y0+2,y1-2,z-2,z+2,'black','fins'));x+=pat[i++%pat.length];}
+ const segs=[[x0,x1]];for(const [a,b] of gaps){for(let k=segs.length-1;k>=0;k--){const [s,e]=segs[k];if(b<=s||a>=e)continue;segs.splice(k,1,...[[s,a],[b,e]].filter(([u,v])=>v>u+.01&&u>=s&&v<=e));}}
+ for(const [s,e] of segs)p.push(BX(s,e,y1-2,y1,z-2.5,z+2.5,'black','channel'),BX(s,e,y0,y0+2,z-2.5,z+2.5,'black','channel'));
+ return p;
+}

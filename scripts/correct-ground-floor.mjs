@@ -1,4 +1,4 @@
-// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|entrance|bridge|rooms|loungestep|save]
+// Usage: node scripts/correct-ground-floor.mjs [apply|decisions|entrance|bridge|rooms|loungestep|garden|save]  (garden = 2026-10-31 audit: lounge garden door + fin gap, maid-bath door steps, D1 9 ft + timber panel)
 // `loungestep` (2026-10-26) moves the lounge level change to the corridor edge: lounge floor (-12) extends to z 287, two-riser step band z 277..287 (tread -6), items/columns re-seated.
 // `rooms` applies the architectural part of the 2026-10-26 room review: dirty-kitchen rear door replacing W16 plus the two outside steps (furniture lives in src/ground-floor-interior-v1.mjs).
 // `entrance` applies the room-review changes: lobby depth z 444.3, D1 single east-hinged leaf, console set removed, plain square columns.
@@ -56,7 +56,51 @@ async function rooms(){
  await call('apply_patch',{patches:rearDoorPatch(scene.nodes,rearDoorNode(scene.nodes).id)});
  scene=await call('get_scene');await call('apply_patch',{patches:rearStepPatches(scene.nodes)});
  console.log('zones after rooms');show(await zoneSnap('R1'));
+}// Review 2026-10-31 (audit): GF lounge garden door + fin gap, maid-bath door steps, entrance D1 9 ft + timber panel. Idempotent. (`node scripts/correct-ground-floor.mjs garden`)
+async function garden(){
+ const p=(x,z)=>[inch(x),inch(z)];
+ const A=await import('../src/ground-floor-blueprint-corrections.mjs');const EX=await import('../src/588-exterior.mjs');const {FRAME_MAT,TIMBER_MAT,loungeDoor:LD,maidSteps,entryDoor:ED,auditDecision}=A;
+ let scene=await call('get_scene');
+ const skip=new Set(['object','id','type','parentId','name','polygon','elevation','metadata','children','thickness']);
+ const ref=scene.nodes['slab_588_ext_entry-step-12'];const copy=Object.fromEntries(Object.entries(ref).filter(([k])=>!skip.has(k)));
+ const slabPatch=(s,meta,th)=>{const data={polygon:[p(s.x0,s.z0),p(s.x1,s.z0),p(s.x1,s.z1),p(s.x0,s.z1)],elevation:inch(s.top),thickness:inch(th),metadata:meta};
+  return scene.nodes[s.id]?{op:'update',id:s.id,data}:{op:'create',parentId:groundFloorId,node:{...copy,id:s.id,type:'slab',parentId:groundFloorId,name:s.name,...data}};};
+ // 1. Lounge: west lite resize, east lite, central sliding door, in-wall tread
+ const wall=scene.nodes[LD.wallId],win=scene.nodes[LD.westWindowId];
+ const local=c=>inch(c-LD.wallStartX);
+ await call('apply_patch',{patches:[{op:'update',id:win.id,data:{width:inch(LD.west.width),position:[local(LD.west.centre),win.position[1],0],columnRatios:[1,1],metadata:{...win.metadata,splitBasis:LD.basis,ownerDecision:auditDecision+': lounge garden door',widthOverride:LD.west.width}}}]});
+ scene=await call('get_scene');
+ let east=Object.values(scene.nodes).find(n=>n.type==='window'&&n.metadata?.sourceOpening===LD.eastKey);
+ if(!east){const r=await call('add_window',{wallId:LD.wallId,t:(LD.east.centre-LD.wallStartX)/249,width:inch(LD.east.width),height:inch(LD.door.height),sillHeight:0,windowType:'fixed'});await sleep(700);scene=await call('get_scene');east=scene.nodes[r.windowId??r.id]??Object.values(scene.nodes).find(n=>n.type==='window'&&n.parentId===LD.wallId&&!n.metadata?.sourceOpening&&Math.abs(n.position[0]-local(LD.east.centre))<.05);if(!east)throw Error('no east lite '+JSON.stringify(r).slice(0,200));}
+ {const wskip=new Set(['object','id','type','parentId','wallId','position','rotation','width','metadata','name','children','visible']);const wcopy=Object.fromEntries(Object.entries(scene.nodes[LD.westWindowId]).filter(([k])=>!wskip.has(k)));
+  await call('apply_patch',{patches:[{op:'update',id:east.id,data:{...wcopy,name:LD.east.name,width:inch(LD.east.width),height:inch(LD.door.height),position:[local(LD.east.centre),inch(LD.door.height)/2,0],columnRatios:[1,1],metadata:{sourceFile:'588 - M1 (Checked by Building Control).pdf',sourceOpening:LD.eastKey,sourceTag:LD.east.tag,positionBasis:'Split of W1 (windows-0-19)',widthBasis:'Owner audit 2026-10-31',heightBasis:'132 in, sill 0 (as W1)',sourcePositionInches:LD.east.centre,operability:'Fixed',blueprintReview:'2026-10-31',correctionBasis:LD.basis,ownerDecision:auditDecision+': lounge garden door',renderHeightInches:132,renderSillInches:0}}}]});}
+ scene=await call('get_scene');
+ let door=Object.values(scene.nodes).find(n=>n.type==='door'&&n.metadata?.sourceOpening===LD.doorKey);
+ if(!door){const r=await call('add_door',{wallId:LD.wallId,t:(LD.door.centre-LD.wallStartX)/249,width:inch(LD.door.width),height:inch(LD.door.height),openingKind:'door',doorType:'sliding',style:'glass'});await sleep(700);scene=await call('get_scene');door=scene.nodes[r.doorId];if(!door)throw Error('no door');}
+ await call('apply_patch',{patches:[{op:'update',id:door.id,data:{name:LD.door.name,doorType:'sliding',leafCount:2,slideDirection:'left',width:inch(LD.door.width),height:inch(LD.door.height),position:[local(LD.door.centre),inch(LD.door.height)/2,0],segments:(door.segments??[]).map((s,i)=>i?s:{...s,type:'glass',columnRatios:[1,1]}),slots:{...(door.slots??{}),frame:FRAME_MAT},
+  metadata:{sourceFile:'588 - M1 (Checked by Building Control).pdf',sourceOpening:LD.doorKey,sourceTag:'W1',positionBasis:'Central section of W1, x 255..363',widthBasis:'Owner audit: 96-120 in',heightBasis:'132 in, sill 0 (as W1)',sourcePositionInches:LD.door.centre,operability:'Sliding glass door onto the sitting deck',blueprintReview:'2026-10-31',correctionBasis:LD.basis,ownerDecision:auditDecision+': lounge garden door'}}}]});
+ scene=await call('get_scene');
+ await call('apply_patch',{patches:[slabPatch(LD.step,{sourceFile:'588 - M1 (Checked by Building Control).pdf',undimensioned:'Tread in the wall depth; rise derived from deck -6 / lounge floor -12',blueprintReview:'2026-10-31',correctionBasis:'Inside tread (top -6) in the lounge-front wall depth below the door sill (0)',ownerDecision:auditDecision+': lounge garden door'},LD.step.thickness)]});
+ // 2. fin screen with a walk-through gap
+ scene=await call('get_scene');
+ {const old=Object.values(scene.nodes).find(n=>n.metadata?.exteriorKey==='fins-w1');
+  if(old&&!old.metadata.finGap){const b=EX.bake(EX.finParts(189,429,668.5,-6,132,[LD.finGap]));
+   await call('add_object',{nodeId:old.id,name:old.name,code:EX.paramCode(b.code,{}),params:{},parentId:groundFloorId,position:[inch(b.pos[0]),inch(b.pos[1]),inch(b.pos[2])],rotation:0,category:'architectural detail',description:'Fin screen with a walk-through gap at the lounge garden door.',reason:auditDecision+': fin screen opened over the lounge garden door'});
+   await sleep(800);scene=await call('get_scene');await call('apply_patch',{patches:[{op:'update',id:old.id,data:{metadata:{...scene.nodes[old.id].metadata,finGap:LD.finGap,dimensionBasis:'Render p2/p7 fins; open between x '+LD.finGap.join('..')+' for the garden door (2026-10-31)'}}}]});console.log('fins rebuilt');}}
+ // 3. maid bathroom steps
+ scene=await call('get_scene');
+ await call('apply_patch',{patches:maidSteps.map(s=>slabPatch(s,{sourceFile:'588 - M1 (Checked by Building Control).pdf',undimensioned:'Rise derived from site levels (assumed side passage +6 in), as the dirty-kitchen rear door',blueprintReview:'2026-10-31',correctionBasis:s.tag,ownerDecision:auditDecision+': D4 maid-bathroom exterior door steps'},6))});
+ // 4. entrance D1
+ scene=await call('get_scene');const d1=scene.nodes[ED.doorId];
+ await call('apply_patch',{patches:[{op:'update',id:d1.id,data:{height:inch(ED.height),position:[d1.position[0],inch(ED.height)/2,0],name:'D1 · GF',metadata:{...d1.metadata,heightBasis:'Owner audit 2026-10-31: 108 in (9 ft) operable leaf',appearance:'Solid timber leaf per owner render p6; modelled as a hinged leaf (Pascal has no pivot type)',blueprintReview:'2026-10-31',correctionBasis:ED.basis,ownerDecision:auditDecision+': entrance door'}}}]});
+ scene=await call('get_scene');
+ let panel=Object.values(scene.nodes).find(n=>n.type==='window'&&n.metadata?.sourceOpening===ED.panelKey);
+ if(!panel){const r=await call('add_window',{wallId:ED.wallId,t:(ED.centre-ED.wallStartX)/159,width:inch(ED.width),height:inch(ED.panelHeight),sillHeight:inch(ED.height),windowType:'fixed'});await sleep(700);scene=await call('get_scene');panel=scene.nodes[r.windowId??r.id];if(!panel)throw Error('no panel '+JSON.stringify(r).slice(0,200));}
+ await call('apply_patch',{patches:[{op:'update',id:panel.id,data:{name:ED.panelName,width:inch(ED.width),height:inch(ED.panelHeight),position:[inch(ED.centre-ED.wallStartX),inch(ED.height+ED.panelHeight/2),0],frameThickness:inch(32),frameDepth:inch(9),sill:false,columnRatios:[1],rowRatios:[1],slots:{...(panel.slots??{}),frame:TIMBER_MAT},
+  metadata:{sourceFile:'588 - M1 (Checked by Building Control).pdf',sourceOpening:ED.panelKey,sourceTag:'D1-panel',frontKey:'entry-door-panel',positionBasis:'Above D1 (windows-0 / doors-0-22), same 60 in width',widthBasis:'D1 width',heightBasis:'180 in above the 108 in leaf (top 288 in; transom 289..297 unchanged)',sourcePositionInches:ED.centre,operability:'Fixed timber panel',blueprintReview:'2026-10-31',correctionBasis:ED.basis,ownerDecision:auditDecision+': entrance door'}}}]});
+ scene=await call('get_scene');console.log('panel',JSON.stringify(scene.nodes[panel.id]).slice(0,900));
 }
+
 try{
  await c.connect(new StdioClientTransport({command:process.execPath,args:['scripts/pascal.mjs','mcp','connect']}));
  await call('load_scene',{id});
@@ -97,6 +141,7 @@ try{
  if(mode==='decisions')await decisions();
  if(mode==='rooms')await rooms();
  if(mode==='loungestep')await loungestep();
+ if(mode==='garden')await garden();
  if(mode==='entrance')await entrance();
  const v=await call('verify_scene');fs.writeFileSync(`${outDir}/gf-verify-after.json`,JSON.stringify(v,null,2));fs.writeFileSync(`${outDir}/gf-scene-after.json`,JSON.stringify(await call('get_scene')));console.log('Verification',v.issues.length);
  if(mode==='save'){

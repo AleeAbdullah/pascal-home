@@ -174,7 +174,9 @@
       "positionBasis": "PDF vector trace",
       "renderHeight": 132,
       "renderSill": 0,
-      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions.",
+      "splitByRoomReview": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): lounge garden door. W1 is now a 66 in fixed lite (x 189..255); doors-0-29 (108 in sliding glass door x 255..363) and windows-0-54 (66 in lite x 363..429) fill the rest; 132 in, sill 0",
+      "widthOverrideAfterReview": 66
     },
     {
       "level": 0,
@@ -300,7 +302,10 @@
       "wall": "ff-rear-rooms-front",
       "at": 598.54,
       "pdfDrawnWidth": 132.02,
-      "positionBasis": "PDF vector trace"
+      "positionBasis": "PDF vector trace",
+      "replacedByRoomReview": true,
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors",
+      "replacedNote": "FF corridor W6 replaced by doors-1-28 (2-panel sliding glass door onto the rear terrace, same jambs, 96 in, sill 0)"
     },
     {
       "level": 1,
@@ -378,7 +383,10 @@
       "positionBasis": "PDF vector trace",
       "renderHeight": 120,
       "renderSill": 0,
-      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions.",
+      "replacedByRoomReview": true,
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors",
+      "replacedNote": "FF lounge W3 replaced by doors-1-26 (3-panel sliding glass door onto the front left terrace, same jambs, 120 in, sill 0)"
     },
     {
       "level": 1,
@@ -411,7 +419,10 @@
       "positionBasis": "PDF vector trace",
       "renderHeight": 120,
       "renderSill": 0,
-      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions."
+      "heightDecision": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions.",
+      "replacedByRoomReview": true,
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors",
+      "replacedNote": "FF front master W6 replaced by doors-1-27 (2-panel sliding glass door onto the front right terrace, same jambs, 120 in, sill 0)"
     },
     {
       "level": 1,
@@ -484,6 +495,30 @@
       "positionBasis": "PDF vector trace",
       "widthOverride": 48,
       "widthDecision": "Owner decision 2026-10-25: PDF drawn width 48 in governs over the 36 in schedule"
+    },
+    {
+      "level": 0,
+      "tag": "W1-east",
+      "wall": "gf-lounge-front",
+      "at": 396,
+      "widthOverride": 66,
+      "positionBasis": "Split of W1 (windows-0-19)",
+      "builtByCorrection": true,
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): lounge garden door",
+      "note": "Built by scripts/correct-ground-floor.mjs garden"
+    },
+    {
+      "level": 0,
+      "tag": "D1-panel",
+      "wall": "gf-entry-front",
+      "at": 594,
+      "widthOverride": 60,
+      "positionBasis": "Above D1 (doors-0-22)",
+      "builtByCorrection": true,
+      "panelHeight": 180,
+      "sill": 108,
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): entrance door",
+      "note": "Fixed timber panel 60 x 180 in above the 108 in D1 leaf, flush in the same opening; built by scripts/correct-ground-floor.mjs garden"
     }
   ],
   "doors": [
@@ -492,7 +527,9 @@
       "tag": "D4",
       "wall": "gf-rear-east",
       "at": 30.67,
-      "pdfDrawnWidth": 28.29
+      "pdfDrawnWidth": 28.29,
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): D4 maid-bathroom exterior door steps",
+      "note": "Two outside steps (slab_588_gf_maid_step_1/2) as the dirty-kitchen rear door; built by scripts/correct-ground-floor.mjs garden"
     },
     {
       "level": 0,
@@ -643,7 +680,10 @@
       "level": 0,
       "tag": "D1",
       "wall": "gf-entry-front",
-      "at": 594
+      "at": 594,
+      "heightOverride": 108,
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): entrance door",
+      "note": "Operable leaf 60 x 108 in (9 ft, modelled hinged: no pivot type) with a 60 x 180 in fixed timber panel above (windows-0-55)"
     },
     {
       "level": 1,
@@ -671,6 +711,62 @@
       "widthOverride": 36,
       "ownerDecision": "Room review 2026-10-26: dirty kitchen",
       "note": "Replaces W16 (windows-0-22); two outside steps to the rear passage (see correct-ground-floor.mjs rooms)"
+    },
+    {
+      "level": 1,
+      "tag": "W3",
+      "wall": "ff-lounge-front",
+      "at": 309.03,
+      "widthOverride": 180,
+      "heightOverride": 120,
+      "doorType": "sliding",
+      "style": "glass",
+      "builtByCorrection": true,
+      "positionBasis": "Same jambs as the replaced fixed window",
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors (none of the three FF terraces had a door)",
+      "note": "3-panel sliding glass door onto the front left terrace (replaces windows-1-42); built by scripts/correct-first-floor.mjs terraces"
+    },
+    {
+      "level": 1,
+      "tag": "W6",
+      "wall": "ff-front-bedroom-front",
+      "at": 838.6,
+      "widthOverride": 132,
+      "heightOverride": 120,
+      "doorType": "sliding",
+      "style": "glass",
+      "builtByCorrection": true,
+      "positionBasis": "Same jambs as the replaced fixed window",
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors (none of the three FF terraces had a door)",
+      "note": "2-panel sliding glass door onto the front right terrace (replaces windows-1-45); W4 and its Juliet guard unchanged; built by scripts/correct-first-floor.mjs terraces"
+    },
+    {
+      "level": 1,
+      "tag": "W6",
+      "wall": "ff-rear-rooms-front",
+      "at": 598.54,
+      "widthOverride": 132,
+      "heightOverride": 96,
+      "doorType": "sliding",
+      "style": "glass",
+      "builtByCorrection": true,
+      "positionBasis": "Same jambs as the replaced fixed window",
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors (none of the three FF terraces had a door)",
+      "note": "2-panel sliding glass door from the corridor onto the rear terrace (replaces windows-1-33); built by scripts/correct-first-floor.mjs terraces"
+    },
+    {
+      "level": 0,
+      "tag": "W1",
+      "wall": "gf-lounge-front",
+      "at": 309,
+      "widthOverride": 108,
+      "heightOverride": 132,
+      "doorType": "sliding",
+      "style": "glass",
+      "builtByCorrection": true,
+      "positionBasis": "Central section of W1 (x 255..363)",
+      "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): lounge garden door",
+      "note": "Sliding glass door onto the existing +12 in sitting deck (deck is the first 6 in step; in-wall tread slab_588_gf_lounge_door_step); built by scripts/correct-ground-floor.mjs garden"
     }
   ],
   "passages": [

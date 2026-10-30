@@ -229,3 +229,24 @@ export function loungeStepZonePatches(nodes){
  }
  return out;
 }
+
+// ---- Review 2026-10-31 (owner approved the whole-house audit, "all"): lounge garden door, maid-bath door steps, entrance door 9 ft + timber panel ----
+export const auditDecision='Owner review 2026-10-31 (whole-house audit, "all" approved)';
+const FRAME_MAT='scene:mat_m548d3ql7l2z76yt',TIMBER_MAT='scene:mat_yllacqa9i7s62l6g';
+export {FRAME_MAT,TIMBER_MAT};
+// Lounge front wall gf-lounge-front (x 184.5..433.5, z 658). W1 (x 189..429, 132 in, sill 0) -> 66 in fixed lite | 108 in sliding door | 66 in fixed lite.
+// Levels (inches from the GF floor): lounge floor -12, sitting deck outside -6 (z 662.5..710.5), lawn -12, door sill 0. The deck is already the first 6 in step down;
+// a 6 in tread inside the wall depth (top -6) makes the inside rise 6 + 6 instead of one 12 in step.
+export const loungeDoor={wallId:'wall_asa168b878',westWindowId:'window_5zttqap3p8rw5nvv',windowKey:'windows-0-19',doorKey:'doors-0-29',eastKey:'windows-0-54',wallStartX:184.5,
+ door:{centre:309,width:108,height:132,panels:2,name:'W1 · GF (sliding glass door)'},west:{centre:222,width:66},east:{centre:396,width:66,name:'W1 east lite · GF',tag:'W1-east'},
+ step:{id:'slab_588_gf_lounge_door_step',name:'gf-lounge-door-step',x0:255,x1:363,z0:653.5,z1:662.5,top:-6,thickness:8.25},finGap:[252,366],
+ basis:'GF lounge W1 (x 189..429): central 108 in sliding glass door x 255..363 onto the sitting deck, the rest stays fixed glazing'};
+// Maid bathroom exterior door D4 (wall gf-rear-east x 949.5, outer face 954; door centre z 30.67, 30 in). Same three 4 in risers as the dirty-kitchen rear door:
+// side passage taken as +6 in (-12 from the GF floor); step 1 outside (12.1 in run, top -8), step 2 in the wall depth (top -4), sill 0.
+export const maidSteps=[
+ {id:'slab_588_gf_maid_step_1',name:'maid-door-step-1',x0:954,x1:966.1,z0:6.27,z1:55.07,top:-8,tag:'tag 1: tread outside the wall, 12.1 in run, 4 in rise (as the dirty-kitchen rear door)'},
+ {id:'slab_588_gf_maid_step_2',name:'maid-door-step-2',x0:945,x1:954,z0:15.67,z1:45.67,top:-4,tag:'tag 2: tread inside the wall depth, 9 in run, 4 in rise to the door sill at the GF floor'},
+];
+// Entrance D1: 60 x 108 in (9 ft) operable timber leaf (hinged model of a pivot: Pascal has no pivot type), fixed timber panel 60 x 180 in above it, flush in the same opening.
+export const entryDoor={doorId:'door_p4au1lr69jeii7u9',wallId:'wall_as8bd1c732',wallStartX:514.5,centre:594,width:60,height:108,panelKey:'windows-0-55',panelHeight:180,panelName:'D1 timber panel · GF',
+ basis:'Owner audit 2026-10-31: D1 operable leaf is a realistic 60 x 108 in (9 ft) pivot door; the 180 in above it is a fixed timber panel in the leaf finish, flush in the same opening; side curtain wall unchanged'};

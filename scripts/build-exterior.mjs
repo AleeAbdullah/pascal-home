@@ -131,7 +131,7 @@ await slab('entry-step-12',gf,[[519,695.5],[669,695.5],[669,707.5],[519,707.5]],
  await clad('slat-strip','Dark slat strip · beside left box',104,128,6,332,717,9,2.5,null,'Render s02/f-left: dark vertical slat strip between left fin and left box, in the box plane (z 717..726).');
  // 5. Window mullions on front-facing windows (sizes and heights untouched).
  const front={window_78bgjba2ntnv4ii4:4,window_5zttqap3p8rw5nvv:6,window_kxctyh4o7f47fxq8:2,window_klgt5jm9er5a1o7y:4,window_e049zxtna9o1msyv:4,window_41ipsx11sbxbe55f:4,window_xtcvc9xi029wfeuc:2,window_o0l3bclru7g3z1l5:2,window_37rm0ngmon7vq1s4:4};
- await call('apply_patch',{patches:Object.entries(front).map(([id,n])=>({op:'update',id,data:{columnRatios:Array(n).fill(1),metadata:{...scene.nodes[id].metadata,frontKey:'mullions-'+n,mullionBasis:'BC elevation 4-panel/2-panel groups; divisions only, size unchanged'}}}))});scene=await call('get_scene');
+ await call('apply_patch',{patches:Object.entries(front).filter(([id])=>scene.nodes[id]).map(([id,n])=>({op:'update',id,data:{columnRatios:Array(n).fill(1),metadata:{...scene.nodes[id].metadata,frontKey:'mullions-'+n,mullionBasis:'BC elevation 4-panel/2-panel groups; divisions only, size unchanged'}}}))});scene=await call('get_scene');
  // 6. Vehicle gate: solid leaves (gateCode in the boundary stage) and two white masonry piers with emissive lanterns.
  // Pass 2: gate leaves, pedestrian gate and gate piers are built by boundaryStage() at the architect positions.
 
@@ -207,14 +207,14 @@ await slab('entry-step-12',gf,[[519,695.5],[669,695.5],[669,707.5],[519,707.5]],
  if(sub.includes('b')){
   // D1. Front glazing heights follow the renders (openings.json renderHeight/renderSill; centre = sill + h/2).
   const op=JSON.parse(fs.readFileSync('src/588-openings.json'));const lvlOf=[gf,ff,sf];const wp=[];
-  for(const o of op.windows.filter(o=>o.renderHeight)){const w=Object.values(scene.nodes).find(n=>n.type==='window'&&n.metadata?.sourceTag===o.tag&&scene.nodes[n.wallId]?.name===o.wall&&scene.nodes[n.wallId]?.parentId===lvlOf[o.level]);
+  for(const o of op.windows.filter(o=>o.renderHeight&&!o.replacedByRoomReview)){const w=Object.values(scene.nodes).find(n=>n.type==='window'&&n.metadata?.sourceTag===o.tag&&scene.nodes[n.wallId]?.name===o.wall&&scene.nodes[n.wallId]?.parentId===lvlOf[o.level]);
    if(!w){console.log('window not found',o.tag,o.wall);continue;}
    wp.push({op:'update',id:w.id,data:{height:inch(o.renderHeight),position:[w.position[0],inch(o.renderSill+o.renderHeight/2),w.position[2]],metadata:{...w.metadata,heightBasis:o.heightDecision,renderHeightInches:o.renderHeight,renderSillInches:o.renderSill}}});}
   await call('apply_patch',{patches:wp});scene=await call('get_scene');console.log('windows resized',wp.length);
   // D2. Black vertical fin screens in front of the GF front glazing (renders p2/p4/p7/p12); D3. LED line under the box soffits.
-  const fins=(x0,x1,z,y0,y1)=>{const p=[];const pat=[4,7,4,12,5,8,4,14];let x=x0+2,i=0;while(x<x1-2){p.push(BX(x-1,x+1,y0+2,y1-2,z-2,z+2,'black','fins'));x+=pat[i++%pat.length];}p.push(BX(x0,x1,y1-2,y1,z-2.5,z+2.5,'black','channel'),BX(x0,x1,y0,y0+2,z-2.5,z+2.5,'black','channel'));return p;};
+  const fins=(x0,x1,z,y0,y1,gaps=[])=>EX.finParts(x0,x1,z,y0,y1,gaps); // 2026-10-31: finParts lives in src/588-exterior.mjs
   await baked('fins-w5','Fin screen · master W5',fins(18,162,518.5,-6,132),gf,'Render p12: irregular black vertical fins 2×4 in in front of the full-height master glazing (pattern estimated).');
-  await baked('fins-w1','Fin screen · lounge W1',fins(189,429,668.5,-6,132),gf,'Render p2/p7: irregular black vertical fins in front of the full-height lounge glazing (pattern estimated).');
+  await baked('fins-w1','Fin screen · lounge W1',fins(189,429,668.5,-6,132,[[252,366]]),gf,'Render p2/p7: irregular black vertical fins in front of the full-height lounge glazing (pattern estimated).');
   await baked('fins-w6','Fin screen · drawing room W6',fins(771,903,645,-12,132),gf,'Render p4: irregular black vertical fins in front of the drawing-room glazing (pattern estimated).');
   await baked('box-soffit-led','Box soffit LED lines',[BX(132,438,131.4,131.8,715.6,716.4,'led','led_line'),BX(742,940,131.4,131.8,715.6,716.4,'led','led_line')],gf,'Render p2/p7/p12: LED line under the front boxes.');
   // E1. White porch end wall (architect GF bar at x ≈1050; render p4), inboard of the east boundary. E2. Charcoal FF slab fascia. E3. Timber soffit + downlights.

@@ -143,12 +143,12 @@ try{
    patches.push(scene.nodes[id]?{op:'update',id,data}:{op:'create',parentId,node:{id,type:'slab',parentId,...data}});
   }
   let secondary=Object.values(scene.nodes).find(n=>n.type==='stair'&&n.name==='Secondary stair · PDF winders');
-  if(!secondary){const r=await call('create_stair',{name:'Secondary stair · PDF winders',x:inch(699),z:inch(122),rotation:180,width:inch(42),length:inch(170.5),height:inch(158),steps:23,levelId:ids['level/1'],toLevelId:ids['level/2'],railingMode:'none',openingOffset:0});scene=await call('get_scene');secondary=scene.nodes[r.stairId];}
-  const chain=[{n:8,run:80},{n:3,run:42,winder:true},{n:7,run:70.5},{n:3,run:42,winder:true},{n:2,run:20}];
+  if(!secondary){const r=await call('create_stair',{name:'Secondary stair · PDF winders',x:inch(699),z:inch(152),rotation:180,width:inch(42),length:inch(200.5),height:inch(158),steps:23,levelId:ids['level/1'],toLevelId:ids['level/2'],railingMode:'none',openingOffset:0});scene=await call('get_scene');secondary=scene.nodes[r.stairId];}
+  const chain=[{n:11,run:110},{n:0,run:42,landing:true},{n:7,run:70.5,side:'right'},{n:3,run:42,winder:true},{n:2,run:20}]; // 2026-10-31 audit: first (NW) winder set -> flat quarter landing, its 3 risers on flight 1 (stair origin z 152)
   const children=[];
   for(const [i,f]of chain.entries()){
    const id=secondary.children[i]??`sseg_588_secondary_${i}`;children.push(id);
-   const data={segmentType:'stair',width:inch(42),length:inch(f.run),height:inch(158*f.n/23),stepCount:f.n,attachmentSide:'front',position:[0,0,0],rotation:0,fillToFloor:false,thickness:inch(6),...(f.winder?{winder:{turn:'left',innerGap:0,walkingLineOffset:inch(21),division:'equal-angle'}}:{})};
+   const data={segmentType:f.landing?'landing':'stair',width:inch(42),length:inch(f.run),height:inch(158*f.n/23),stepCount:f.landing?1:f.n,attachmentSide:f.side??'front',position:[0,0,0],rotation:0,fillToFloor:false,thickness:inch(6),...(f.winder?{winder:{turn:'left',innerGap:0,walkingLineOffset:inch(21),division:'equal-angle'}}:{})};
    patches.push(scene.nodes[id]?{op:'update',id,data}:{op:'create',parentId:secondary.id,node:{id,type:'stair-segment',parentId:secondary.id,...data}});
   }
   patches.push({op:'update',id:secondary.id,data:{children,stepCount:23,totalRise:inch(158),uniformRisers:true,fillToFloor:false,thickness:inch(6),metadata:{sourceFile:model.source.file,riserBasis:'Owner approved: preserve 158 inch section rise and calculate equal risers; 22 numbered treads plus destination floor = 23 rises',riserInches:158/23,positionBasis:'PDF vector trace; final tread is integrated with destination floor',constructionBasis:'6 inch display body; structural thickness not dimensioned'}}});
@@ -193,12 +193,12 @@ try{
   let scene=await call('get_scene');let added=0;const pending=[];
   for(const kind of ['windows','doors','passages'])for(const [index,q]of specs[kind].entries()){
    const key=`${kind}-${q.level}-${index}`;
-   if(q.replacedByBridgeOpening||q.replacedByRoomReview)continue; // Room review 2026-10-26: window replaced by a bridge opening (appended passages entry)
+   if(q.replacedByBridgeOpening||q.replacedByRoomReview||q.builtByCorrection)continue; // builtByCorrection: created by the 2026-10-31 audit modes in scripts/correct-*-floor.mjs // Room review 2026-10-26: window replaced by a bridge opening (appended passages entry)
    if(Object.values(scene.nodes).some(n=>n.metadata?.sourceOpening===key))continue;
    const base=model.levels[q.level].walls.find(w=>w.id===q.wall),axis=base.start[1]===base.end[1]?0:1;
    const size=kind==='windows'?windowSchedule[q.tag]:kind==='doors'?doorSchedule[q.tag]:[q.width,q.height];
    const width=q.widthOverride??size[0],at=inch(q.at);
-   let height=kind==='windows'?96:size[1],sill=kind==='windows'?size[2]:0;
+   let height=kind==='windows'?96:(q.heightOverride??size[1]),sill=kind==='windows'?size[2]:0;
    if(kind==='windows'&&q.level===2&&["W11'","W18'"].includes(q.tag))height=size[1];
    const w=splitWalls(model.levels[q.level]).find(w=>w.id.split(':')[0]===q.wall&&at-inch(width/2)>=w.start[axis]-1e-7&&at+inch(width/2)<=w.end[axis]+1e-7);
    if(!w){pending.push({key,...q,reason:'Scheduled width crosses a wall junction at its traced position.'});continue;}

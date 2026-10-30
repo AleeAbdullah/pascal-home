@@ -64,3 +64,28 @@ export const voidGuards=[
  {key:'ff-stairwell-east',x:690,z0:280,z1:373.5,basis:'Main stair-well east edge x 689 from the stair-back wall (z 277) to the upper flight top step (z 374.5); the step-off edge z 374.5..434.5 stays open.'},
 ];
 export const voidGuardDecision='Owner review 2026-10-31: add 42 in glass guards on the open first-floor edges of the main stair well and the double-height lobby void';
+
+// ---- Review 2026-10-31 (owner approved the whole-house audit fixes: "all"): terrace guards, terrace doors, secondary stair ----
+export const auditDecision='Owner review 2026-10-31 (whole-house audit, "all" approved)';
+// 42 in glass guards (same guard as elsewhere; add_object rotation is in DEGREES: 0 = east-west run, -90 = north-south run).
+export const terraceGuards=[
+ {key:'ff-right-north',x0:936,x1:1038,z:635.5,rotation:0,basis:'Front right terrace north edge z 635.5, east of the front-master-bedroom wall (outer face x 936) to the porch-east FF upstand (west face x 1036; guard overlaps it to 1038). The slab edge was an open drop to the car porch.'},
+ {key:'ff-rear-terrace-north',x0:523.5,x1:673.5,z:-4.5,rotation:0,basis:'Rear terrace north edge on the rear wall line z -4.5 (floor plate ff-main reaches z -9), between the rear-left wall end (x 523.5) and the rear-terrace-east wall (x 673.5); architect page-2 plan draws a parapet here. Planters at z 11 stay.'},
+];
+export const terraceGuardDecision=auditDecision+': 42 in glass guards on the open edges of the front right terrace (north, east of the bedroom) and the rear terrace (north)';
+// Earlier void guards (3df23b8) were added with rotation -PI/2 DEGREES (= -1.57 deg), i.e. east-west; they must run north-south.
+export const voidGuardRotationRad=-Math.PI/2;
+// Sliding glass doors replacing the fixed terrace glazing (same jambs, same height). Centres/widths in plan inches along the wall.
+export const terraceDoors=[
+ {doorKey:'doors-1-26',windowKey:'windows-1-42',tag:'W3',wallId:'wall_as68eeea9f',axis:0,centre:309.03,width:180,height:120,panels:3,name:'W3 · FF (sliding glass door)',
+  basis:'FF lounge front glazing W3 (x 219..399, z 508, 120 in) becomes a 3-panel sliding glass door onto the front left terrace; same jambs and height, sill 0'},
+ {doorKey:'doors-1-27',windowKey:'windows-1-45',tag:'W6',wallId:'wall_asbafc323d',axis:0,centre:838.6,width:132,height:120,panels:2,name:'W6 · FF (sliding glass door, front master)',
+  basis:'FF front master bedroom W6 (x 772.6..904.6, z 631, 120 in) becomes a 2-panel sliding glass door onto the front right terrace; same jambs and height, sill 0. W4 and its Juliet guard are unchanged'},
+ {doorKey:'doors-1-28',windowKey:'windows-1-33',tag:'W6',wallId:'wall_588_ff_rear_rooms_front_3',axis:0,centre:598.54,width:132,height:96,panels:2,name:'W6 · FF (sliding glass door, corridor to rear terrace)',
+  basis:'FF corridor window W6 (x 532.5..664.5, z 208, was sill 6 / 96 in) becomes a 2-panel sliding glass door onto the rear terrace; same jambs and 96 in height, sill 0'},
+];
+// ---- Secondary stair (FF -> SF): first (NW) winder set replaced by a flat 42 x 42 quarter landing, its 3 risers moved to the first flight ----
+// Stair origin (middle of the bottom riser) z 122 -> 152; flight 1 = 11 risers x 10 in going (z 152 -> 42); landing x 678..720, z 42..0 at +75.57 in;
+// flight 2 (7 risers, east), NE winder and the 2-riser last flight are untouched. 23 equal risers of 158/23 = 6.8696 in.
+export const secondaryStair={id:'stair_kp9tpho9wsnlkr4s',z:152,flight1:{id:'sseg_asla75j2vki8lwoe',steps:11,run:110},landing:{id:'sseg_588_secondary_1',run:42},flight2:{id:'sseg_588_secondary_2'},rise:158,count:23,
+ basis:auditDecision+': the NW winder set had near-zero inner treads; replaced by a square quarter landing, its three risers added to the first flight (starts z 152, 11 x 10 in going). SF floor opening and sf-stair-guard-z122 unchanged: headroom at the SF slab edge (z 122, tread +20.6 in, slab underside +144 in) is 123 in.'};

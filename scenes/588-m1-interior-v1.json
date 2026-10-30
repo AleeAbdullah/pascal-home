@@ -9839,7 +9839,10 @@
         "item_z8l8d5k85yc7gdws",
         "slab_588_gf_lounge_step",
         "ceiling_ufdt4l48p0dj4p6w",
-        "zone_4xu1zh666qjq248g"
+        "zone_4xu1zh666qjq248g",
+        "slab_588_gf_lounge_door_step",
+        "slab_588_gf_maid_step_1",
+        "slab_588_gf_maid_step_2"
       ],
       "level": 0,
       "baseElevation": 0,
@@ -10937,7 +10940,9 @@
         ]
       },
       "children": [
-        "window_5zttqap3p8rw5nvv"
+        "window_5zttqap3p8rw5nvv",
+        "window_e9umoh3vkav9nsjb",
+        "door_rrz8141na7kp2vdr"
       ],
       "slots": {
         "a": "scene:mat_k998jpy1zmsu8lsd",
@@ -11153,7 +11158,8 @@
         "door_p4au1lr69jeii7u9",
         "window_iaiygtc98ih8r8wb",
         "window_saspl9n0o33jfkua",
-        "window_mkifucnaj6am5auh"
+        "window_mkifucnaj6am5auh",
+        "window_b9pa82d0wpsviglg"
       ],
       "slots": {
         "a": "scene:mat_k998jpy1zmsu8lsd",
@@ -11635,7 +11641,9 @@
         "item_dhozf7krf9ai7h1g",
         "item_k2brzfi98mel1vue",
         "item_04azvz0ke3rj1p3c",
-        "item_i5ajefly10n1xnsq"
+        "item_i5ajefly10n1xnsq",
+        "item_r86865fisrer2z25",
+        "item_vmg5tm0viaar7k4r"
       ],
       "level": 1,
       "baseElevation": 0,
@@ -12493,7 +12501,7 @@
       },
       "children": [
         "window_o0l3bclru7g3z1l5",
-        "window_37rm0ngmon7vq1s4"
+        "door_i0rqswyc7x7vtrst"
       ],
       "slots": {
         "a": "scene:mat_k998jpy1zmsu8lsd",
@@ -12577,7 +12585,7 @@
         ]
       },
       "children": [
-        "window_41ipsx11sbxbe55f"
+        "door_ozyu9cpq34cpngsc"
       ],
       "slots": {
         "a": "scene:mat_k998jpy1zmsu8lsd",
@@ -19380,7 +19388,7 @@
         ]
       },
       "children": [
-        "window_x9fl2xwq1cs03ju7"
+        "door_7dlo31aj0c5dlh8r"
       ],
       "slots": {
         "a": "scene:mat_cvmusa3ms3wea9le",
@@ -24090,13 +24098,16 @@
         "frontKey": "mullions-6",
         "mullionBasis": "BC elevation 4-panel/2-panel groups; divisions only, size unchanged",
         "renderHeightInches": 132,
-        "renderSillInches": 0
+        "renderSillInches": 0,
+        "splitBasis": "GF lounge W1 (x 189..429): central 108 in sliding glass door x 255..363 onto the sitting deck, the rest stays fixed glazing",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): lounge garden door",
+        "widthOverride": 66
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt"
       },
       "position": [
-        3.1623000000000006,
+        0.9525,
         1.6764,
         0
       ],
@@ -24107,7 +24118,7 @@
       ],
       "floorThresholdVersion": 1,
       "wallId": "wall_asa168b878",
-      "width": 6.096,
+      "width": 1.6764,
       "height": 3.3528,
       "constructionType": "framed",
       "dimensionReference": "nominal",
@@ -24131,10 +24142,6 @@
       "frameThickness": 0.05,
       "frameDepth": 0.07,
       "columnRatios": [
-        1,
-        1,
-        1,
-        1,
         1,
         1
       ],
@@ -24829,74 +24836,6 @@
       "sillDepth": 0.08,
       "sillThickness": 0.03
     },
-    "window_x9fl2xwq1cs03ju7": {
-      "object": "node",
-      "id": "window_x9fl2xwq1cs03ju7",
-      "type": "window",
-      "name": "W6 · FF",
-      "parentId": "wall_588_ff_rear_rooms_front_3",
-      "visible": true,
-      "metadata": {
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "sourceOpening": "windows-1-33",
-        "sourceTag": "W6",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF opening schedule",
-        "heightBasis": "Owner override: 8 ft",
-        "pdfDrawnWidthInches": 132.02,
-        "sourcePositionInches": 598.54,
-        "operability": "Unspecified in PDF; fixed representation only"
-      },
-      "slots": {
-        "frame": "scene:mat_m548d3ql7l2z76yt"
-      },
-      "position": [
-        1.9060159999999993,
-        1.3716000000000002,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "floorThresholdVersion": 1,
-      "wallId": "wall_588_ff_rear_rooms_front_3",
-      "width": 3.3528,
-      "height": 2.4384,
-      "constructionType": "framed",
-      "dimensionReference": "nominal",
-      "openingKind": "window",
-      "windowType": "fixed",
-      "operationState": 0,
-      "awningDirection": "up",
-      "casementStyle": "single",
-      "hingesSide": "left",
-      "openingShape": "rectangle",
-      "openingRadiusMode": "all",
-      "openingCornerRadii": [
-        0.15,
-        0.15,
-        0.15,
-        0.15
-      ],
-      "cornerRadius": 0.15,
-      "archHeight": 0.35,
-      "openingRevealRadius": 0.025,
-      "frameThickness": 0.05,
-      "frameDepth": 0.07,
-      "columnRatios": [
-        1
-      ],
-      "rowRatios": [
-        1
-      ],
-      "columnDividerThickness": 0.03,
-      "rowDividerThickness": 0.03,
-      "sill": true,
-      "sillDepth": 0.08,
-      "sillThickness": 0.03
-    },
     "window_n3xe2z41kmpr5tjy": {
       "object": "node",
       "id": "window_n3xe2z41kmpr5tjy",
@@ -25448,81 +25387,6 @@
       "sillDepth": 0.08,
       "sillThickness": 0.03
     },
-    "window_41ipsx11sbxbe55f": {
-      "object": "node",
-      "id": "window_41ipsx11sbxbe55f",
-      "type": "window",
-      "name": "W3 · FF",
-      "parentId": "wall_as68eeea9f",
-      "visible": true,
-      "metadata": {
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "sourceOpening": "windows-1-42",
-        "sourceTag": "W3",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF opening schedule",
-        "heightBasis": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions.",
-        "pdfDrawnWidthInches": 180.04,
-        "sourcePositionInches": 309.03,
-        "operability": "Unspecified in PDF; fixed representation only",
-        "frontKey": "mullions-4",
-        "mullionBasis": "BC elevation 4-panel/2-panel groups; divisions only, size unchanged",
-        "renderHeightInches": 120,
-        "renderSillInches": 0
-      },
-      "slots": {
-        "frame": "scene:mat_m548d3ql7l2z76yt"
-      },
-      "position": [
-        3.1630619999999996,
-        1.524,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "floorThresholdVersion": 1,
-      "wallId": "wall_as68eeea9f",
-      "width": 4.572,
-      "height": 3.048,
-      "constructionType": "framed",
-      "dimensionReference": "nominal",
-      "openingKind": "window",
-      "windowType": "fixed",
-      "operationState": 0,
-      "awningDirection": "up",
-      "casementStyle": "single",
-      "hingesSide": "left",
-      "openingShape": "rectangle",
-      "openingRadiusMode": "all",
-      "openingCornerRadii": [
-        0.15,
-        0.15,
-        0.15,
-        0.15
-      ],
-      "cornerRadius": 0.15,
-      "archHeight": 0.35,
-      "openingRevealRadius": 0.025,
-      "frameThickness": 0.05,
-      "frameDepth": 0.07,
-      "columnRatios": [
-        1,
-        1,
-        1,
-        1
-      ],
-      "rowRatios": [
-        1
-      ],
-      "columnDividerThickness": 0.03,
-      "rowDividerThickness": 0.03,
-      "sill": true,
-      "sillDepth": 0.08,
-      "sillThickness": 0.03
-    },
     "window_xtcvc9xi029wfeuc": {
       "object": "node",
       "id": "window_xtcvc9xi029wfeuc",
@@ -25657,81 +25521,6 @@
       "frameThickness": 0.05,
       "frameDepth": 0.07,
       "columnRatios": [
-        1,
-        1
-      ],
-      "rowRatios": [
-        1
-      ],
-      "columnDividerThickness": 0.03,
-      "rowDividerThickness": 0.03,
-      "sill": true,
-      "sillDepth": 0.08,
-      "sillThickness": 0.03
-    },
-    "window_37rm0ngmon7vq1s4": {
-      "object": "node",
-      "id": "window_37rm0ngmon7vq1s4",
-      "type": "window",
-      "name": "W6 · FF",
-      "parentId": "wall_asbafc323d",
-      "visible": true,
-      "metadata": {
-        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
-        "sourceOpening": "windows-1-45",
-        "sourceTag": "W6",
-        "positionBasis": "PDF vector trace",
-        "widthBasis": "PDF opening schedule",
-        "heightBasis": "Owner 2026-10-26: front glazing heights follow the exterior renders (GF to the soffit 132 in, FF terrace glazing 120 in, W11/W14 FF 100 in between the dark spandrels / cladding hole); estimates from render proportions.",
-        "pdfDrawnWidthInches": 133.04,
-        "sourcePositionInches": 838.6,
-        "operability": "Unspecified in PDF; fixed representation only",
-        "frontKey": "mullions-4",
-        "mullionBasis": "BC elevation 4-panel/2-panel groups; divisions only, size unchanged",
-        "renderHeightInches": 120,
-        "renderSillInches": 0
-      },
-      "slots": {
-        "frame": "scene:mat_m548d3ql7l2z76yt"
-      },
-      "position": [
-        4.193539999999999,
-        1.524,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "floorThresholdVersion": 1,
-      "wallId": "wall_asbafc323d",
-      "width": 3.3528,
-      "height": 3.048,
-      "constructionType": "framed",
-      "dimensionReference": "nominal",
-      "openingKind": "window",
-      "windowType": "fixed",
-      "operationState": 0,
-      "awningDirection": "up",
-      "casementStyle": "single",
-      "hingesSide": "left",
-      "openingShape": "rectangle",
-      "openingRadiusMode": "all",
-      "openingCornerRadii": [
-        0.15,
-        0.15,
-        0.15,
-        0.15
-      ],
-      "cornerRadius": 0.15,
-      "archHeight": 0.35,
-      "openingRevealRadius": 0.025,
-      "frameThickness": 0.05,
-      "frameDepth": 0.07,
-      "columnRatios": [
-        1,
-        1,
         1,
         1
       ],
@@ -29130,14 +28919,14 @@
         "sourceTag": "D1",
         "positionBasis": "PDF vector trace",
         "widthBasis": "PDF opening schedule",
-        "heightBasis": "PDF schedule",
+        "heightBasis": "Owner audit 2026-10-31: 108 in (9 ft) operable leaf",
         "sourcePositionInches": 594,
         "operability": "Door swing to be checked",
         "frontKey": "entry-door-wood",
-        "appearance": "Solid timber leaf per owner render p6 (walnut panel ~38% of width).",
-        "blueprintReview": "2026-10-25",
-        "correctionBasis": "D1 is a single timber leaf hinged on the east jamb (x=624 in) swinging into the lobby (north)",
-        "ownerDecision": "Room review 2026-10-25: entrance"
+        "appearance": "Solid timber leaf per owner render p6; modelled as a hinged leaf (Pascal has no pivot type)",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "Owner audit 2026-10-31: D1 operable leaf is a realistic 60 x 108 in (9 ft) pivot door; the 180 in above it is a fixed timber panel in the leaf finish, flush in the same opening; side curtain wall unchanged",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): entrance door"
       },
       "slots": {
         "frame": "scene:mat_m548d3ql7l2z76yt",
@@ -29145,7 +28934,7 @@
       },
       "position": [
         2.0192999999999994,
-        3.6576,
+        1.3716,
         0
       ],
       "rotation": [
@@ -29157,7 +28946,7 @@
       "floorThresholdVersion": 1,
       "wallId": "wall_as8bd1c732",
       "width": 1.524,
-      "height": 7.3152,
+      "height": 2.7432,
       "constructionType": "framed",
       "dimensionReference": "nominal",
       "doorCategory": "interior",
@@ -29536,12 +29325,13 @@
         "riserInches": 6.869565217391305,
         "positionBasis": "PDF vector trace; final tread is integrated with destination floor",
         "constructionBasis": "6 inch display body; structural thickness not dimensioned",
-        "openingBasis": "Explicit PDF-traced persistent floor opening; automatic stair opening disabled to avoid loss on editor reload"
+        "openingBasis": "Explicit PDF-traced persistent floor opening; automatic stair opening disabled to avoid loss on editor reload",
+        "landingBasis": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): the NW winder set had near-zero inner treads; replaced by a square quarter landing, its three risers added to the first flight (starts z 152, 11 x 10 in going). SF floor opening and sf-stair-guard-z122 unchanged: headroom at the SF slab edge (z 122, tread +20.6 in, slab underside +144 in) is 123 in."
       },
       "position": [
         17.7546,
         0,
-        3.0988
+        3.8608
       ],
       "rotation": 3.141592653589793,
       "stairType": "straight",
@@ -29586,9 +29376,9 @@
       "rotation": 0,
       "segmentType": "stair",
       "width": 1.0668,
-      "length": 2.032,
-      "height": 1.39589565,
-      "stepCount": 8,
+      "length": 2.794,
+      "height": 1.91935656,
+      "stepCount": 11,
       "attachmentSide": "front",
       "fillToFloor": false,
       "thickness": 0.1524
@@ -29688,19 +29478,13 @@
         0
       ],
       "rotation": 0,
-      "segmentType": "stair",
+      "segmentType": "landing",
       "width": 1.0668,
       "length": 1.0668,
-      "height": 0.52346087,
-      "stepCount": 3,
+      "height": 0,
+      "stepCount": 1,
       "attachmentSide": "front",
       "fillToFloor": false,
-      "winder": {
-        "turn": "left",
-        "innerGap": 0,
-        "walkingLineOffset": 0.5334,
-        "division": "equal-angle"
-      },
       "thickness": 0.1524
     },
     "sseg_588_secondary_2": {
@@ -29721,7 +29505,7 @@
       "length": 1.7907,
       "height": 1.2214087,
       "stepCount": 7,
-      "attachmentSide": "front",
+      "attachmentSide": "right",
       "fillToFloor": false,
       "thickness": 0.1524
     },
@@ -119715,7 +119499,7 @@
         "styleReference": "Lake City mood board: lounge 20–30; kitchen 31–37; bedrooms 39–49; bathrooms 50–62; lights and finishes 73–81"
       },
       "position": [
-        19.3,
+        19.5,
         0,
         3.8
       ],
@@ -139342,11 +139126,15 @@
       "parentId": "level_as4e3a9d57",
       "visible": true,
       "metadata": {
-        "reason": "Reconstruct the governing PDF exterior; preserve traced and assumed dimensions as editable parameters.",
+        "reason": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): fin screen opened over the lounge garden door",
         "sourceFile": "588 - M1 (Checked by Building Control).pdf",
         "undimensioned": "PDF trace or explicitly labeled owner-authorized assumption; not surveyed or engineered",
         "exteriorKey": "fins-w1",
-        "dimensionBasis": "Render p2/p7: irregular black vertical fins in front of the full-height lounge glazing (pattern estimated)."
+        "dimensionBasis": "Render p2/p7 fins; open between x 252..366 for the garden door (2026-10-31)",
+        "finGap": [
+          252,
+          366
+        ]
       },
       "position": [
         7.8486,
@@ -139370,12 +139158,13 @@
       "source": {
         "kind": "script",
         "meta": {
-          "description": "Render p2/p7: irregular black vertical fins in front of the full-height lounge glazing (pattern estimated)."
+          "description": "Fin screen with a walk-through gap at the lounge garden door.",
+          "parent": "febcc15916d9e28e2fd0e41d069876398693bda0da84f53b5957c810c21fdc44"
         },
         "language": "three",
-        "script": "febcc15916d9e28e2fd0e41d069876398693bda0da84f53b5957c810c21fdc44",
+        "script": "8c372b401e319472567ba0d24d96d4452501c718bbfe7ad6acbe11dfea171568",
         "params": {},
-        "artifact": "cfd0963e8a0b1f9dd0e3d9b934feded20f49fac5a4e7fd6cd9e10c749fc33821",
+        "artifact": "22b3c3d6c554cbe043306951e42c8dae9db8c64d5d7f2ecb496bcbfdd09fad13",
         "manifest": {
           "bounds": {
             "min": [
@@ -139432,11 +139221,11 @@
                   -0.064
                 ],
                 [
-                  3.048,
+                  -1.448,
                   -0.064
                 ],
                 [
-                  3.048,
+                  -1.448,
                   0.064
                 ],
                 [
@@ -139454,6 +139243,28 @@
                   -0.064
                 ],
                 [
+                  -1.448,
+                  -0.064
+                ],
+                [
+                  -1.448,
+                  0.064
+                ],
+                [
+                  -3.048,
+                  0.064
+                ]
+              ]
+            },
+            {
+              "part": "channel",
+              "y": 3.51,
+              "polygon": [
+                [
+                  1.448,
+                  -0.064
+                ],
+                [
                   3.048,
                   -0.064
                 ],
@@ -139462,7 +139273,29 @@
                   0.064
                 ],
                 [
-                  -3.048,
+                  1.448,
+                  0.064
+                ]
+              ]
+            },
+            {
+              "part": "channel",
+              "y": 0.05,
+              "polygon": [
+                [
+                  1.448,
+                  -0.064
+                ],
+                [
+                  3.048,
+                  -0.064
+                ],
+                [
+                  3.048,
+                  0.064
+                ],
+                [
+                  1.448,
                   0.064
                 ]
               ]
@@ -139490,11 +139323,11 @@
                   -0.064
                 ],
                 [
-                  3.048,
+                  -1.448,
                   -0.064
                 ],
                 [
-                  3.048,
+                  -1.448,
                   0.064
                 ],
                 [
@@ -139517,6 +139350,33 @@
                   -0.064
                 ],
                 [
+                  -1.448,
+                  -0.064
+                ],
+                [
+                  -1.448,
+                  0.064
+                ],
+                [
+                  -3.048,
+                  0.064
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "part": "channel",
+              "polygon": [
+                [
+                  1.448,
+                  -0.064
+                ],
+                [
                   3.048,
                   -0.064
                 ],
@@ -139525,7 +139385,34 @@
                   0.064
                 ],
                 [
-                  -3.048,
+                  1.448,
+                  0.064
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                3.4544
+              ]
+            },
+            {
+              "part": "channel",
+              "polygon": [
+                [
+                  1.448,
+                  -0.064
+                ],
+                [
+                  3.048,
+                  -0.064
+                ],
+                [
+                  3.048,
+                  0.064
+                ],
+                [
+                  1.448,
                   0.064
                 ]
               ],
@@ -139541,16 +139428,16 @@
           "cutters": [],
           "cutout": false,
           "collider": false,
-          "triangles": 420
+          "triangles": 252
         }
       },
       "asset": {
-        "id": "script_cfd0963e8a0b1f9d",
+        "id": "script_22b3c3d6c554cbe0",
         "category": "architectural detail",
         "name": "Fin screen · lounge W1",
         "thumbnail": "",
         "source": "mine",
-        "src": "artifact://cfd0963e8a0b1f9dd0e3d9b934feded20f49fac5a4e7fd6cd9e10c749fc33821",
+        "src": "artifact://22b3c3d6c554cbe043306951e42c8dae9db8c64d5d7f2ecb496bcbfdd09fad13",
         "dimensions": [
           6.096,
           3.5052,
@@ -139570,10 +139457,7 @@
           1,
           1,
           1
-        ],
-        "surface": {
-          "height": 3.51
-        }
+        ]
       }
     },
     "item_9d5dpkmwjtwxe33d": {
@@ -236407,7 +236291,8 @@
         "reason": "Owner review 2026-10-31: add 42 in glass guards on the open first-floor edges of the main stair well and the double-height lobby void",
         "exteriorKey": "ff-lobby-void-east",
         "ownerDecision": "Owner review 2026-10-31: add 42 in glass guards on the open first-floor edges of the main stair well and the double-height lobby void",
-        "dimensionBasis": "Lobby void east edge: slab notch edge x 678 / separator x 674 from the stair-front guard end (z 440) to the front-bedroom wall corner (z 526)."
+        "dimensionBasis": "Lobby void east edge: slab notch edge x 678 / separator x 674 from the stair-front guard end (z 440) to the front-bedroom wall corner (z 526).",
+        "rotationFix": "2026-10-31: add_object rotation is in degrees; guard turned from -1.6 deg to -90 deg so it runs north-south"
       },
       "position": [
         17.1958,
@@ -236416,7 +236301,7 @@
       ],
       "rotation": [
         0,
-        -0.02741556778080377,
+        -1.5707963267948966,
         0
       ],
       "scale": [
@@ -236664,7 +236549,8 @@
         "reason": "Owner review 2026-10-31: add 42 in glass guards on the open first-floor edges of the main stair well and the double-height lobby void",
         "exteriorKey": "ff-stairwell-east",
         "ownerDecision": "Owner review 2026-10-31: add 42 in glass guards on the open first-floor edges of the main stair well and the double-height lobby void",
-        "dimensionBasis": "Main stair-well east edge x 689 from the stair-back wall (z 277) to the upper flight top step (z 374.5); the step-off edge z 374.5..434.5 stays open."
+        "dimensionBasis": "Main stair-well east edge x 689 from the stair-back wall (z 277) to the upper flight top step (z 374.5); the step-off edge z 374.5..434.5 stays open.",
+        "rotationFix": "2026-10-31: add_object rotation is in degrees; guard turned from -1.6 deg to -90 deg so it runs north-south"
       },
       "position": [
         17.526,
@@ -236673,7 +236559,7 @@
       ],
       "rotation": [
         0,
-        -0.02741556778080377,
+        -1.5707963267948966,
         0
       ],
       "scale": [
@@ -236909,6 +236795,1143 @@
           "height": 1.07
         }
       }
+    },
+    "door_ozyu9cpq34cpngsc": {
+      "object": "node",
+      "id": "door_ozyu9cpq34cpngsc",
+      "type": "door",
+      "name": "W3 · FF (sliding glass door)",
+      "parentId": "wall_as68eeea9f",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceOpening": "doors-1-26",
+        "sourceTag": "W3",
+        "positionBasis": "Same jambs as the replaced fixed window windows-1-42",
+        "widthBasis": "Unchanged from the window",
+        "heightBasis": "120 in, sill 0",
+        "sourcePositionInches": 309.03,
+        "operability": "Sliding glass door onto the terrace (owner audit 2026-10-31)",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "FF lounge front glazing W3 (x 219..399, z 508, 120 in) becomes a 3-panel sliding glass door onto the front left terrace; same jambs and height, sill 0",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors (none of the three first-floor terraces had a door)"
+      },
+      "slots": {
+        "frame": "scene:mat_m548d3ql7l2z76yt"
+      },
+      "position": [
+        3.163062,
+        1.524,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "side": "front",
+      "floorThresholdVersion": 1,
+      "wallId": "wall_as68eeea9f",
+      "width": 4.572,
+      "height": 3.048,
+      "constructionType": "framed",
+      "dimensionReference": "nominal",
+      "doorCategory": "interior",
+      "doorType": "sliding",
+      "leafCount": 2,
+      "operationState": 0,
+      "slideDirection": "left",
+      "trackStyle": "none",
+      "garagePanelCount": 4,
+      "openingKind": "door",
+      "openingShape": "rectangle",
+      "openingRadiusMode": "all",
+      "openingTopRadii": [
+        0.15,
+        0.15
+      ],
+      "cornerRadius": 0.15,
+      "archHeight": 0.45,
+      "openingRevealRadius": 0.025,
+      "frameThickness": 0.05,
+      "frameDepth": 0.07,
+      "threshold": true,
+      "thresholdHeight": 0.02,
+      "hingesSide": "left",
+      "swingDirection": "inward",
+      "swingAngle": 0,
+      "segments": [
+        {
+          "type": "glass",
+          "heightRatio": 1,
+          "columnRatios": [
+            1,
+            1,
+            1
+          ],
+          "dividerThickness": 0.03,
+          "panelDepth": 0.01,
+          "panelInset": 0.04
+        }
+      ],
+      "handle": true,
+      "handleHeight": 1.05,
+      "handleSide": "right",
+      "contentPadding": [
+        0.04,
+        0.04
+      ],
+      "doorCloser": false,
+      "panicBar": false,
+      "panicBarHeight": 1
+    },
+    "item_r86865fisrer2z25": {
+      "object": "node",
+      "id": "item_r86865fisrer2z25",
+      "type": "item",
+      "name": "ff-right-north · glass guard",
+      "parentId": "level_as4d3a9bc4",
+      "visible": true,
+      "metadata": {
+        "reason": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): 42 in glass guards on the open edges of the front right terrace (north, east of the bedroom) and the rear terrace (north)",
+        "exteriorKey": "ff-right-north",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): 42 in glass guards on the open edges of the front right terrace (north, east of the bedroom) and the rear terrace (north)",
+        "dimensionBasis": "Front right terrace north edge z 635.5, east of the front-master-bedroom wall (outer face x 936) to the porch-east FF upstand (west face x 1036; guard overlaps it to 1038). The slab edge was an open drop to the car porch."
+      },
+      "position": [
+        25.0698,
+        0,
+        16.1417
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [],
+      "slots": {
+        "glass": "library:preset-glass",
+        "metal": "library:metal-steel"
+      },
+      "source": {
+        "kind": "script",
+        "meta": {
+          "description": "42 inch glass railing on an open first-floor terrace edge."
+        },
+        "language": "three",
+        "script": "2cb83d0a0db6199e0f6f6c28f1dd75fea7e4e9e0f20720491562b734f04f86d3",
+        "params": {
+          "width": 2.5908,
+          "height": 1.0668
+        },
+        "artifact": "afa893b4f69326cf6aa76befdc5bcdb88b96e88160adecc457964929c816b033",
+        "manifest": {
+          "bounds": {
+            "min": [
+              -1.3129,
+              0,
+              -0.0325
+            ],
+            "max": [
+              1.3129,
+              1.0668,
+              0.0325
+            ]
+          },
+          "params": [
+            {
+              "id": "width",
+              "kind": "number",
+              "default": 2.5908,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "height",
+              "kind": "number",
+              "default": 1.0668,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            }
+          ],
+          "parts": [
+            {
+              "id": "glass_guard",
+              "type": "railing",
+              "bounds": {
+                "min": [
+                  -1.3129,
+                  0,
+                  -0.0325
+                ],
+                "max": [
+                  1.3129,
+                  1.0668,
+                  0.0325
+                ]
+              }
+            }
+          ],
+          "surfaces": [
+            {
+              "part": "glass_guard",
+              "y": 0.06,
+              "polygon": [
+                [
+                  -1.295,
+                  -0.032
+                ],
+                [
+                  1.295,
+                  -0.032
+                ],
+                [
+                  1.295,
+                  0.032
+                ],
+                [
+                  -1.295,
+                  0.032
+                ]
+              ]
+            },
+            {
+              "part": "glass_guard",
+              "y": 1.07,
+              "polygon": [
+                [
+                  -1.295,
+                  -0.023
+                ],
+                [
+                  1.295,
+                  -0.023
+                ],
+                [
+                  1.295,
+                  0.023
+                ],
+                [
+                  -1.295,
+                  0.023
+                ]
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "id": "glass",
+              "label": "glass",
+              "color": "#b9d8dd",
+              "roughness": 0.15,
+              "metalness": 0.1,
+              "transparent": true,
+              "emissive": false
+            },
+            {
+              "id": "metal",
+              "label": "metal",
+              "color": "#282c2b",
+              "roughness": 0.65,
+              "metalness": 0.65,
+              "transparent": false,
+              "emissive": false
+            }
+          ],
+          "anchors": [],
+          "lights": [],
+          "undersides": [
+            {
+              "part": "glass_guard",
+              "polygon": [
+                [
+                  -1.295,
+                  -0.032
+                ],
+                [
+                  1.295,
+                  -0.032
+                ],
+                [
+                  1.295,
+                  0.032
+                ],
+                [
+                  -1.295,
+                  0.032
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "part": "glass_guard",
+              "polygon": [
+                [
+                  -1.295,
+                  -0.023
+                ],
+                [
+                  1.295,
+                  -0.023
+                ],
+                [
+                  1.295,
+                  0.023
+                ],
+                [
+                  -1.295,
+                  0.023
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                1.0268
+              ]
+            }
+          ],
+          "animations": [],
+          "cutters": [],
+          "cutout": false,
+          "collider": false,
+          "triangles": 108
+        }
+      },
+      "asset": {
+        "id": "script_afa893b4f69326cf",
+        "category": "architectural detail",
+        "name": "ff-right-north · glass guard",
+        "thumbnail": "",
+        "source": "mine",
+        "src": "artifact://afa893b4f69326cf6aa76befdc5bcdb88b96e88160adecc457964929c816b033",
+        "dimensions": [
+          2.6258,
+          1.0668,
+          0.065
+        ],
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "surface": {
+          "height": 1.07
+        }
+      }
+    },
+    "item_vmg5tm0viaar7k4r": {
+      "object": "node",
+      "id": "item_vmg5tm0viaar7k4r",
+      "type": "item",
+      "name": "ff-rear-terrace-north · glass guard",
+      "parentId": "level_as4d3a9bc4",
+      "visible": true,
+      "metadata": {
+        "reason": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): 42 in glass guards on the open edges of the front right terrace (north, east of the bedroom) and the rear terrace (north)",
+        "exteriorKey": "ff-rear-terrace-north",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): 42 in glass guards on the open edges of the front right terrace (north, east of the bedroom) and the rear terrace (north)",
+        "dimensionBasis": "Rear terrace north edge on the rear wall line z -4.5 (floor plate ff-main reaches z -9), between the rear-left wall end (x 523.5) and the rear-terrace-east wall (x 673.5); architect page-2 plan draws a parapet here. Planters at z 11 stay."
+      },
+      "position": [
+        15.2019,
+        0,
+        -0.1143
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [],
+      "slots": {
+        "glass": "library:preset-glass",
+        "metal": "library:metal-steel"
+      },
+      "source": {
+        "kind": "script",
+        "meta": {
+          "description": "42 inch glass railing on an open first-floor terrace edge."
+        },
+        "language": "three",
+        "script": "0e7b1beaf5d95023669549ea1eda96b8d46de7bc2169254e8fe0e7660389b452",
+        "params": {
+          "width": 3.81,
+          "height": 1.0668
+        },
+        "artifact": "fb0ca23ee4df3f731a5750b90d7200ecc8ff72c9e3b92c6d00ebb78ed282a5e3",
+        "manifest": {
+          "bounds": {
+            "min": [
+              -1.9225,
+              0,
+              -0.0325
+            ],
+            "max": [
+              1.9225,
+              1.0668,
+              0.0325
+            ]
+          },
+          "params": [
+            {
+              "id": "width",
+              "kind": "number",
+              "default": 3.81,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "height",
+              "kind": "number",
+              "default": 1.0668,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            }
+          ],
+          "parts": [
+            {
+              "id": "glass_guard",
+              "type": "railing",
+              "bounds": {
+                "min": [
+                  -1.9225,
+                  0,
+                  -0.0325
+                ],
+                "max": [
+                  1.9225,
+                  1.0668,
+                  0.0325
+                ]
+              }
+            }
+          ],
+          "surfaces": [
+            {
+              "part": "glass_guard",
+              "y": 0.06,
+              "polygon": [
+                [
+                  -1.905,
+                  -0.032
+                ],
+                [
+                  1.905,
+                  -0.032
+                ],
+                [
+                  1.905,
+                  0.032
+                ],
+                [
+                  -1.905,
+                  0.032
+                ]
+              ]
+            },
+            {
+              "part": "glass_guard",
+              "y": 1.07,
+              "polygon": [
+                [
+                  -1.905,
+                  -0.023
+                ],
+                [
+                  1.905,
+                  -0.023
+                ],
+                [
+                  1.905,
+                  0.023
+                ],
+                [
+                  -1.905,
+                  0.023
+                ]
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "id": "glass",
+              "label": "glass",
+              "color": "#b9d8dd",
+              "roughness": 0.15,
+              "metalness": 0.1,
+              "transparent": true,
+              "emissive": false
+            },
+            {
+              "id": "metal",
+              "label": "metal",
+              "color": "#282c2b",
+              "roughness": 0.65,
+              "metalness": 0.65,
+              "transparent": false,
+              "emissive": false
+            }
+          ],
+          "anchors": [],
+          "lights": [],
+          "undersides": [
+            {
+              "part": "glass_guard",
+              "polygon": [
+                [
+                  -1.905,
+                  -0.032
+                ],
+                [
+                  1.905,
+                  -0.032
+                ],
+                [
+                  1.905,
+                  0.032
+                ],
+                [
+                  -1.905,
+                  0.032
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "part": "glass_guard",
+              "polygon": [
+                [
+                  -1.905,
+                  -0.023
+                ],
+                [
+                  1.905,
+                  -0.023
+                ],
+                [
+                  1.905,
+                  0.023
+                ],
+                [
+                  -1.905,
+                  0.023
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                1.0268
+              ]
+            }
+          ],
+          "animations": [],
+          "cutters": [],
+          "cutout": false,
+          "collider": false,
+          "triangles": 132
+        }
+      },
+      "asset": {
+        "id": "script_fb0ca23ee4df3f73",
+        "category": "architectural detail",
+        "name": "ff-rear-terrace-north · glass guard",
+        "thumbnail": "",
+        "source": "mine",
+        "src": "artifact://fb0ca23ee4df3f731a5750b90d7200ecc8ff72c9e3b92c6d00ebb78ed282a5e3",
+        "dimensions": [
+          3.845,
+          1.0668,
+          0.065
+        ],
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "surface": {
+          "height": 1.07
+        }
+      }
+    },
+    "door_i0rqswyc7x7vtrst": {
+      "object": "node",
+      "id": "door_i0rqswyc7x7vtrst",
+      "type": "door",
+      "name": "W6 · FF (sliding glass door, front master)",
+      "parentId": "wall_asbafc323d",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceOpening": "doors-1-27",
+        "sourceTag": "W6",
+        "positionBasis": "Same jambs as the replaced fixed window windows-1-45",
+        "widthBasis": "Unchanged from the window",
+        "heightBasis": "120 in, sill 0",
+        "sourcePositionInches": 838.6,
+        "operability": "Sliding glass door onto the terrace (owner audit 2026-10-31)",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "FF front master bedroom W6 (x 772.6..904.6, z 631, 120 in) becomes a 2-panel sliding glass door onto the front right terrace; same jambs and height, sill 0. W4 and its Juliet guard are unchanged",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors (none of the three first-floor terraces had a door)"
+      },
+      "slots": {
+        "frame": "scene:mat_m548d3ql7l2z76yt"
+      },
+      "position": [
+        4.19354,
+        1.524,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "side": "front",
+      "floorThresholdVersion": 1,
+      "wallId": "wall_asbafc323d",
+      "width": 3.3528,
+      "height": 3.048,
+      "constructionType": "framed",
+      "dimensionReference": "nominal",
+      "doorCategory": "interior",
+      "doorType": "sliding",
+      "leafCount": 2,
+      "operationState": 0,
+      "slideDirection": "left",
+      "trackStyle": "none",
+      "garagePanelCount": 4,
+      "openingKind": "door",
+      "openingShape": "rectangle",
+      "openingRadiusMode": "all",
+      "openingTopRadii": [
+        0.15,
+        0.15
+      ],
+      "cornerRadius": 0.15,
+      "archHeight": 0.45,
+      "openingRevealRadius": 0.025,
+      "frameThickness": 0.05,
+      "frameDepth": 0.07,
+      "threshold": true,
+      "thresholdHeight": 0.02,
+      "hingesSide": "left",
+      "swingDirection": "inward",
+      "swingAngle": 0,
+      "segments": [
+        {
+          "type": "glass",
+          "heightRatio": 1,
+          "columnRatios": [
+            1,
+            1
+          ],
+          "dividerThickness": 0.03,
+          "panelDepth": 0.01,
+          "panelInset": 0.04
+        }
+      ],
+      "handle": true,
+      "handleHeight": 1.05,
+      "handleSide": "right",
+      "contentPadding": [
+        0.04,
+        0.04
+      ],
+      "doorCloser": false,
+      "panicBar": false,
+      "panicBarHeight": 1
+    },
+    "door_7dlo31aj0c5dlh8r": {
+      "object": "node",
+      "id": "door_7dlo31aj0c5dlh8r",
+      "type": "door",
+      "name": "W6 · FF (sliding glass door, corridor to rear terrace)",
+      "parentId": "wall_588_ff_rear_rooms_front_3",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceOpening": "doors-1-28",
+        "sourceTag": "W6",
+        "positionBasis": "Same jambs as the replaced fixed window windows-1-33",
+        "widthBasis": "Unchanged from the window",
+        "heightBasis": "96 in, sill 0",
+        "sourcePositionInches": 598.54,
+        "operability": "Sliding glass door onto the terrace (owner audit 2026-10-31)",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "FF corridor window W6 (x 532.5..664.5, z 208, was sill 6 / 96 in) becomes a 2-panel sliding glass door onto the rear terrace; same jambs and 96 in height, sill 0",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): terrace doors (none of the three first-floor terraces had a door)"
+      },
+      "slots": {
+        "frame": "scene:mat_m548d3ql7l2z76yt"
+      },
+      "position": [
+        1.906016,
+        1.2192,
+        0
+      ],
+      "rotation": [
+        0,
+        3.141592653589793,
+        0
+      ],
+      "side": "back",
+      "floorThresholdVersion": 1,
+      "wallId": "wall_588_ff_rear_rooms_front_3",
+      "width": 3.3528,
+      "height": 2.4384,
+      "constructionType": "framed",
+      "dimensionReference": "nominal",
+      "doorCategory": "interior",
+      "doorType": "sliding",
+      "leafCount": 2,
+      "operationState": 0,
+      "slideDirection": "left",
+      "trackStyle": "none",
+      "garagePanelCount": 4,
+      "openingKind": "door",
+      "openingShape": "rectangle",
+      "openingRadiusMode": "all",
+      "openingTopRadii": [
+        0.15,
+        0.15
+      ],
+      "cornerRadius": 0.15,
+      "archHeight": 0.45,
+      "openingRevealRadius": 0.025,
+      "frameThickness": 0.05,
+      "frameDepth": 0.07,
+      "threshold": true,
+      "thresholdHeight": 0.02,
+      "hingesSide": "left",
+      "swingDirection": "inward",
+      "swingAngle": 0,
+      "segments": [
+        {
+          "type": "glass",
+          "heightRatio": 1,
+          "columnRatios": [
+            1,
+            1
+          ],
+          "dividerThickness": 0.03,
+          "panelDepth": 0.01,
+          "panelInset": 0.04
+        }
+      ],
+      "handle": true,
+      "handleHeight": 1.05,
+      "handleSide": "right",
+      "contentPadding": [
+        0.04,
+        0.04
+      ],
+      "doorCloser": false,
+      "panicBar": false,
+      "panicBarHeight": 1
+    },
+    "window_e9umoh3vkav9nsjb": {
+      "object": "node",
+      "id": "window_e9umoh3vkav9nsjb",
+      "type": "window",
+      "name": "W1 east lite · GF",
+      "parentId": "wall_asa168b878",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceOpening": "windows-0-54",
+        "sourceTag": "W1-east",
+        "positionBasis": "Split of W1 (windows-0-19)",
+        "widthBasis": "Owner audit 2026-10-31",
+        "heightBasis": "132 in, sill 0 (as W1)",
+        "sourcePositionInches": 396,
+        "operability": "Fixed",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "GF lounge W1 (x 189..429): central 108 in sliding glass door x 255..363 onto the sitting deck, the rest stays fixed glazing",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): lounge garden door",
+        "renderHeightInches": 132,
+        "renderSillInches": 0
+      },
+      "slots": {
+        "frame": "scene:mat_m548d3ql7l2z76yt"
+      },
+      "position": [
+        5.3721,
+        1.6764,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "floorThresholdVersion": 1,
+      "wallId": "wall_asa168b878",
+      "width": 1.6764,
+      "height": 3.3528,
+      "constructionType": "framed",
+      "dimensionReference": "nominal",
+      "openingKind": "window",
+      "windowType": "fixed",
+      "operationState": 0,
+      "awningDirection": "up",
+      "casementStyle": "single",
+      "hingesSide": "left",
+      "openingShape": "rectangle",
+      "openingRadiusMode": "all",
+      "openingCornerRadii": [
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "cornerRadius": 0.15,
+      "archHeight": 0.35,
+      "openingRevealRadius": 0.025,
+      "frameThickness": 0.05,
+      "frameDepth": 0.07,
+      "columnRatios": [
+        1,
+        1
+      ],
+      "rowRatios": [
+        1
+      ],
+      "columnDividerThickness": 0.03,
+      "rowDividerThickness": 0.03,
+      "sill": true,
+      "sillDepth": 0.08,
+      "sillThickness": 0.03
+    },
+    "door_rrz8141na7kp2vdr": {
+      "object": "node",
+      "id": "door_rrz8141na7kp2vdr",
+      "type": "door",
+      "name": "W1 · GF (sliding glass door)",
+      "parentId": "wall_asa168b878",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceOpening": "doors-0-29",
+        "sourceTag": "W1",
+        "positionBasis": "Central section of W1, x 255..363",
+        "widthBasis": "Owner audit: 96-120 in",
+        "heightBasis": "132 in, sill 0 (as W1)",
+        "sourcePositionInches": 309,
+        "operability": "Sliding glass door onto the sitting deck",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "GF lounge W1 (x 189..429): central 108 in sliding glass door x 255..363 onto the sitting deck, the rest stays fixed glazing",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): lounge garden door"
+      },
+      "slots": {
+        "frame": "scene:mat_m548d3ql7l2z76yt"
+      },
+      "position": [
+        3.1623,
+        1.6764,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "side": "front",
+      "floorThresholdVersion": 1,
+      "wallId": "wall_asa168b878",
+      "width": 2.7432,
+      "height": 3.3528,
+      "constructionType": "framed",
+      "dimensionReference": "nominal",
+      "doorCategory": "interior",
+      "doorType": "sliding",
+      "leafCount": 2,
+      "operationState": 0,
+      "slideDirection": "left",
+      "trackStyle": "none",
+      "garagePanelCount": 4,
+      "openingKind": "door",
+      "openingShape": "rectangle",
+      "openingRadiusMode": "all",
+      "openingTopRadii": [
+        0.15,
+        0.15
+      ],
+      "cornerRadius": 0.15,
+      "archHeight": 0.45,
+      "openingRevealRadius": 0.025,
+      "frameThickness": 0.05,
+      "frameDepth": 0.07,
+      "threshold": true,
+      "thresholdHeight": 0.02,
+      "hingesSide": "left",
+      "swingDirection": "inward",
+      "swingAngle": 0,
+      "segments": [
+        {
+          "type": "glass",
+          "heightRatio": 1,
+          "columnRatios": [
+            1,
+            1
+          ],
+          "dividerThickness": 0.03,
+          "panelDepth": 0.01,
+          "panelInset": 0.04
+        }
+      ],
+      "handle": true,
+      "handleHeight": 1.05,
+      "handleSide": "right",
+      "contentPadding": [
+        0.04,
+        0.04
+      ],
+      "doorCloser": false,
+      "panicBar": false,
+      "panicBarHeight": 1
+    },
+    "slab_588_gf_lounge_door_step": {
+      "object": "node",
+      "id": "slab_588_gf_lounge_door_step",
+      "type": "slab",
+      "name": "gf-lounge-door-step",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "undimensioned": "Tread in the wall depth; rise derived from deck -6 / lounge floor -12",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "Inside tread (top -6) in the lounge-front wall depth below the door sill (0)",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): lounge garden door"
+      },
+      "slots": {
+        "surface": "scene:mat_s2d4st7kq7mqh9kq"
+      },
+      "polygon": [
+        [
+          6.477,
+          16.5989
+        ],
+        [
+          9.2202,
+          16.5989
+        ],
+        [
+          9.2202,
+          16.8275
+        ],
+        [
+          6.477,
+          16.8275
+        ]
+      ],
+      "holes": [],
+      "holeMetadata": [],
+      "elevation": -0.1524,
+      "thickness": 0.20955,
+      "recessed": false,
+      "autoFromWalls": false
+    },
+    "slab_588_gf_maid_step_1": {
+      "object": "node",
+      "id": "slab_588_gf_maid_step_1",
+      "type": "slab",
+      "name": "maid-door-step-1",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "undimensioned": "Rise derived from site levels (assumed side passage +6 in), as the dirty-kitchen rear door",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "tag 1: tread outside the wall, 12.1 in run, 4 in rise (as the dirty-kitchen rear door)",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): D4 maid-bathroom exterior door steps"
+      },
+      "slots": {
+        "surface": "scene:mat_s2d4st7kq7mqh9kq"
+      },
+      "polygon": [
+        [
+          24.2316,
+          0.159258
+        ],
+        [
+          24.53894,
+          0.159258
+        ],
+        [
+          24.53894,
+          1.398778
+        ],
+        [
+          24.2316,
+          1.398778
+        ]
+      ],
+      "holes": [],
+      "holeMetadata": [],
+      "elevation": -0.2032,
+      "thickness": 0.1524,
+      "recessed": false,
+      "autoFromWalls": false
+    },
+    "slab_588_gf_maid_step_2": {
+      "object": "node",
+      "id": "slab_588_gf_maid_step_2",
+      "type": "slab",
+      "name": "maid-door-step-2",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "undimensioned": "Rise derived from site levels (assumed side passage +6 in), as the dirty-kitchen rear door",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "tag 2: tread inside the wall depth, 9 in run, 4 in rise to the door sill at the GF floor",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): D4 maid-bathroom exterior door steps"
+      },
+      "slots": {
+        "surface": "scene:mat_s2d4st7kq7mqh9kq"
+      },
+      "polygon": [
+        [
+          24.003,
+          0.398018
+        ],
+        [
+          24.2316,
+          0.398018
+        ],
+        [
+          24.2316,
+          1.160018
+        ],
+        [
+          24.003,
+          1.160018
+        ]
+      ],
+      "holes": [],
+      "holeMetadata": [],
+      "elevation": -0.1016,
+      "thickness": 0.1524,
+      "recessed": false,
+      "autoFromWalls": false
+    },
+    "window_b9pa82d0wpsviglg": {
+      "object": "node",
+      "id": "window_b9pa82d0wpsviglg",
+      "type": "window",
+      "name": "D1 timber panel · GF",
+      "parentId": "wall_as8bd1c732",
+      "visible": true,
+      "metadata": {
+        "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+        "sourceOpening": "windows-0-55",
+        "sourceTag": "D1-panel",
+        "frontKey": "entry-door-panel",
+        "positionBasis": "Above D1 (windows-0 / doors-0-22), same 60 in width",
+        "widthBasis": "D1 width",
+        "heightBasis": "180 in above the 108 in leaf (top 288 in; transom 289..297 unchanged)",
+        "sourcePositionInches": 594,
+        "operability": "Fixed timber panel",
+        "blueprintReview": "2026-10-31",
+        "correctionBasis": "Owner audit 2026-10-31: D1 operable leaf is a realistic 60 x 108 in (9 ft) pivot door; the 180 in above it is a fixed timber panel in the leaf finish, flush in the same opening; side curtain wall unchanged",
+        "ownerDecision": "Owner review 2026-10-31 (whole-house audit, \"all\" approved): entrance door"
+      },
+      "slots": {
+        "frame": "scene:mat_yllacqa9i7s62l6g"
+      },
+      "position": [
+        2.0193,
+        5.0292,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "floorThresholdVersion": 1,
+      "wallId": "wall_as8bd1c732",
+      "width": 1.524,
+      "height": 4.572,
+      "constructionType": "framed",
+      "dimensionReference": "nominal",
+      "openingKind": "window",
+      "windowType": "fixed",
+      "operationState": 0,
+      "awningDirection": "up",
+      "casementStyle": "single",
+      "hingesSide": "left",
+      "openingShape": "rectangle",
+      "openingRadiusMode": "all",
+      "openingCornerRadii": [
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "cornerRadius": 0.15,
+      "archHeight": 0.35,
+      "openingRevealRadius": 0.025,
+      "frameThickness": 0.8128,
+      "frameDepth": 0.2286,
+      "columnRatios": [
+        1
+      ],
+      "rowRatios": [
+        1
+      ],
+      "columnDividerThickness": 0.03,
+      "rowDividerThickness": 0.03,
+      "sill": false,
+      "sillDepth": 0.08,
+      "sillThickness": 0.03
     }
   },
   "rootNodeIds": [

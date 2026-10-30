@@ -116,7 +116,7 @@ floor('kitchen','sink','upper kitchen sink and mixer','kitchen-sink',20.73,2.62,
 floor('kitchen','hob','upper kitchen induction and drawers','kitchen-west@legacy',20.73,3.45,-90,{width:.80});
 floor('kitchen','hood','upper kitchen extractor','kitchen-hood',20.90,3.45,-90,{},1.70);
 floor('kitchen','upper','upper kitchen walnut storage','kitchen-upper',20.88,2.62,-90,{width:.72,height:.8},1.8);
-floor('kitchen','prep','upper kitchen preparation console','kitchen-north-left',19.30,3.80,180,{width:.90,depth:.55,height:.9});
+floor('kitchen','prep','upper kitchen preparation console','kitchen-north-left',19.50,3.80,180,{width:.90,depth:.55,height:.9});
 ceil('kitchen','lights','upper kitchen task lights','masterBath-lights',19.45,2.65,{count:2,spacing:.8});
 // Terraces: three round planters with shrubs along the parapet at the architect positions (page-2 vectors).
 for(const [i,x] of [13.911,14.599,15.286].entries())floor('rearTerrace','planter'+i,'rear terrace round planter with shrub '+(i+1)+' (north parapet)',planterCode,x,.267,0,{radius:.26,height:.45});
