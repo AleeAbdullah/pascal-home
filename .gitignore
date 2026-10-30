@@ -4,3 +4,7 @@ node_modules/
 *.log
 
 dist/
+
+# Private business research (kept local; repo is public)
+reports/
+research_notes/

@@ -1,4 +1,4 @@
-// Usage: node scripts/correct-first-floor.mjs [architecture|stairguard|bridge|rooms|save]  (rooms = 2026-10-26 room review: syncs every first-floor Interior V1 item with src/first-floor-interior-v1.mjs and re-hangs the Kitchen+Store door; idempotent, FF_DRY=1 lists the plan only)
+// Usage: node scripts/correct-first-floor.mjs [architecture|stairguard|bridge|rooms|voidguards|save]  (rooms = 2026-10-26 room review: syncs every first-floor Interior V1 item with src/first-floor-interior-v1.mjs and re-hangs the Kitchen+Store door; idempotent, FF_DRY=1 lists the plan only)
 // (previous usage:  (stairguard = 2026-10-26 stair-front wall -> 42 in glass guard)
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
@@ -8,7 +8,7 @@ import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mj
 import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
 import crypto from 'node:crypto';
 import {items as specItems,rooms as specRooms,levelId as ffLevel,extraRooms} from '../src/first-floor-interior-v1.mjs';
-import {kitchenDoorPatch,architecturePatches,inch,stairGuard as SG,lobbyVoidSeed,lobbyVoidFields,firstFloorId} from '../src/first-floor-blueprint-corrections.mjs';
+import {kitchenDoorPatch,architecturePatches,inch,stairGuard as SG,voidGuards,voidGuardDecision,lobbyVoidSeed,lobbyVoidFields,firstFloorId} from '../src/first-floor-blueprint-corrections.mjs';
 const supportSlab='slab_588_ff_main';
 const c=new Client({name:'first-floor-blueprint-correction',version:'1'},{capabilities:{}}),id='588-m1-interior-v1';
 async function call(name,args={},tries=1){const raw=await c.callTool({name,arguments:args});const r=raw.structuredContent??JSON.parse(raw.content.find(x=>x.type==='text').text);if(r.code==='design_brief_required'&&tries<4){await designBrief();return call(name,args,tries+1)}if((r.code==='script_failed'||/rate/i.test(String(r.error)))&&tries<4){await new Promise(z=>setTimeout(z,4000*tries));return call(name,args,tries+1)}if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,1800));return r;}
@@ -50,6 +50,22 @@ async function stairGuard(){
   await call('apply_patch',{patches:[{op:'update',id:lz.id,data:lobbyVoidFields},...dead]});await sleep(1000);scene=await call('get_scene');console.log('void zone restored',lz.id);
  }
  for(const r of zoneSnap(scene,'SG1'))console.log(' ',r.id,String(r.name).padEnd(34),r.area,r.hasFloor,r.hasCeiling,'ceil',r.ceilings);
+}
+
+// Review 2026-10-31: 42 in glass guards on the open first-floor edges of the stair well and lobby void. Idempotent.
+async function voidGuardsMode(){
+ let scene=await call('get_scene');
+ for(const G of voidGuards){
+  if(Object.values(scene.nodes).some(n=>n.type==='item'&&n.metadata?.exteriorKey===G.key)){console.log('exists',G.key);continue;}
+  const q='There is no glass railing on the first floor at the double-height lobby.';
+  await call('design_brief',{source:'open',vision:'Owner review: add the same 42 in glass guard used elsewhere in the house on the open first-floor stair-well and lobby-void edges. No other dressing.',axes:Object.fromEntries(['action','size','pieces','openings','style','materials','dressing'].map(k=>[k,{kind:'bounded',extent:'exact',quote:q,reading:'Only glass guards on the open void edges.'}])),beyond:Object.fromEntries(['textiles','light','windows','walls','floor','plants','objects','smallFurniture'].map(k=>[k,{none:'No unrelated dressing.'}]))});
+  const len=G.z1-G.z0,params={width:inch(len),height:inch(42)};
+  const r=await call('add_object',{name:G.key+' · glass guard',code:paramCode(guardCode,params),params,parentId:firstFloorId,position:[inch(G.x),0,inch((G.z0+G.z1)/2)],rotation:-Math.PI/2,category:'architectural detail',description:'42 inch glass railing on an open first-floor void edge.',reason:voidGuardDecision});
+  await sleep(1000);scene=await call('get_scene');
+  const g=r.nodeId??r.id??Object.values(scene.nodes).find(n=>n.type==='item'&&n.name===G.key+' · glass guard')?.id;if(!g)throw Error('No guard id '+JSON.stringify(r).slice(0,300));
+  await call('apply_patch',{patches:[{op:'update',id:g,data:{metadata:{...scene.nodes[g].metadata,exteriorKey:G.key,ownerDecision:voidGuardDecision,dimensionBasis:G.basis}}}]});
+  await sleep(1000);scene=await call('get_scene');console.log('guard',G.key,g);
+ }
 }
 
 // Room review 2026-10-26: sync the live first-floor Interior V1 objects with the spec (add / rebuild / move / delete). Idempotent.
@@ -112,6 +128,7 @@ try{
  }
  if(process.argv[2]==='architecture'||process.argv[2]==='stairguard')await stairGuard();
  if(process.argv[2]==='rooms')await roomsMode();
+ if(process.argv[2]==='voidguards')await voidGuardsMode();
  if(process.argv[2]==='bridge'){zoneSnap(scene,'BR0');await runBridge({call,level:'first'});for(const r of zoneSnap(await call('get_scene'),'BR1'))console.log(' ',r.id,String(r.name).padEnd(34),r.area,r.hasFloor,r.hasCeiling,'ceil',r.ceilings);}
  const checked=await call('get_scene');fs.writeFileSync('/tmp/pascal-first-review-after.json',JSON.stringify(checked));
  const v=await call('verify_scene');fs.writeFileSync('/tmp/pascal-first-review-verify.json',JSON.stringify(v,null,2));console.log('Verification',JSON.stringify(v).slice(0,300));

@@ -55,3 +55,12 @@ export function kitchenDoorPatch(nodes){
  return [{op:'update',id:n.id,data:{name:'Kitchen door · FF (corridor, 3 ft hinged)',openingKind:'door',doorType:'hinged',leafCount:1,hingesSide:'left',handleSide:'right',swingDirection:'outward',width:inch(kitchenDoor.width),position:[inch(kitchenDoor.centre-kitchenDoor.wallStartX),n.position[1],n.position[2]],
   metadata:{...n.metadata,blueprintReview:'2026-10-26',correctionBasis:kitchenDoor.basis,widthBasis:'Architect page-2 36 in leaf; replaces the 60 in open passage of the Building Control trace',positionBasis:'Architect page-2 vectors x 679..715 in',operability:'Door swing to be checked'}}}];
 }
+
+// Review 2026-10-31 (owner: "in the double height lobby first floor there is no glass railing"): the corridor's east strip
+// had only non-physical separators along the main-stair well and the double-height lobby void. Two 42 in glass guards,
+// same guard as the rest of the house. The upper flight's top step (x 689, z 374.5..434.5) stays open.
+export const voidGuards=[
+ {key:'ff-lobby-void-east',x:677,z0:438,z1:526,basis:'Lobby void east edge: slab notch edge x 678 / separator x 674 from the stair-front guard end (z 440) to the front-bedroom wall corner (z 526).'},
+ {key:'ff-stairwell-east',x:690,z0:280,z1:373.5,basis:'Main stair-well east edge x 689 from the stair-back wall (z 277) to the upper flight top step (z 374.5); the step-off edge z 374.5..434.5 stays open.'},
+];
+export const voidGuardDecision='Owner review 2026-10-31: add 42 in glass guards on the open first-floor edges of the main stair well and the double-height lobby void';
