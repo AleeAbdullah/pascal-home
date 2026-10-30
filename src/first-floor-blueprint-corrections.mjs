@@ -89,3 +89,11 @@ export const terraceDoors=[
 // flight 2 (7 risers, east), NE winder and the 2-riser last flight are untouched. 23 equal risers of 158/23 = 6.8696 in.
 export const secondaryStair={id:'stair_kp9tpho9wsnlkr4s',z:152,flight1:{id:'sseg_asla75j2vki8lwoe',steps:11,run:110},landing:{id:'sseg_588_secondary_1',run:42},flight2:{id:'sseg_588_secondary_2'},rise:158,count:23,
  basis:auditDecision+': the NW winder set had near-zero inner treads; replaced by a square quarter landing, its three risers added to the first flight (starts z 152, 11 x 10 in going). SF floor opening and sf-stair-guard-z122 unchanged: headroom at the SF slab edge (z 122, tread +20.6 in, slab underside +144 in) is 123 in.'};
+
+// Review 2026-10-31 (owner: "stairs also need railing"): 42 in glass railings on the open sides of the inside stairs
+// (Pascal railingMode is relative to the walking direction; checked in 3D: walls are on the other sides).
+export const stairRailings={'Main stair · lower flight':'left','Main stair · middle flight':'left','Main stair · upper flight':'both','Secondary stair · PDF winders':'right'};
+export const stairRailingData=mode=>({railingMode:mode,railingStyle:'glass',railingHeight:inch(42)});
+// The main stair's upper landing (91 in above the ground floor) is open to the double-height lobby on its south edge.
+export const landingGuard={key:'gf-stair-landing2-south',levelId:'level_as4e3a9d57',x0:519,x1:579,z:436,y:91,
+ basis:'Main stair landing 2 (519..579, 374.5..434.5, top 91 in above GF) south edge, open to the double-height lobby.'};

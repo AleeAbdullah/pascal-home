@@ -8,7 +8,7 @@ import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mj
 import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
 import crypto from 'node:crypto';
 import {items as specItems,rooms as specRooms,levelId as ffLevel,extraRooms} from '../src/first-floor-interior-v1.mjs';
-import {kitchenDoorPatch,architecturePatches,inch,stairGuard as SG,voidGuards,voidGuardDecision,terraceGuards,terraceGuardDecision,voidGuardRotationRad,terraceDoors,secondaryStair,auditDecision,lobbyVoidSeed,lobbyVoidFields,firstFloorId} from '../src/first-floor-blueprint-corrections.mjs';
+import {kitchenDoorPatch,architecturePatches,inch,stairGuard as SG,voidGuards,voidGuardDecision,stairRailings,stairRailingData,landingGuard,terraceGuards,terraceGuardDecision,voidGuardRotationRad,terraceDoors,secondaryStair,auditDecision,lobbyVoidSeed,lobbyVoidFields,firstFloorId} from '../src/first-floor-blueprint-corrections.mjs';
 const supportSlab='slab_588_ff_main';
 const c=new Client({name:'first-floor-blueprint-correction',version:'1'},{capabilities:{}}),id='588-m1-interior-v1';
 async function call(name,args={},tries=1){const raw=await c.callTool({name,arguments:args});const r=raw.structuredContent??JSON.parse(raw.content.find(x=>x.type==='text').text);if(r.code==='design_brief_required'&&tries<4){await designBrief();return call(name,args,tries+1)}if((r.code==='script_failed'||/rate/i.test(String(r.error)))&&tries<4){await new Promise(z=>setTimeout(z,4000*tries));return call(name,args,tries+1)}if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,1800));return r;}
@@ -66,6 +66,15 @@ async function voidGuardsMode(){
   const g=r.nodeId??r.id??Object.values(scene.nodes).find(n=>n.type==='item'&&n.name===G.key+' · glass guard')?.id;if(!g)throw Error('No guard id '+JSON.stringify(r).slice(0,300));
   await call('apply_patch',{patches:[{op:'update',id:g,data:{metadata:{...scene.nodes[g].metadata,exteriorKey:G.key,ownerDecision:voidGuardDecision,dimensionBasis:G.basis}}}]});
   await sleep(1000);scene=await call('get_scene');console.log('guard',G.key,g);
+ }
+ // 2026-10-31: glass railings on the inside stairs + the upper landing's lobby edge (idempotent).
+ const rp=[];for(const n of Object.values(scene.nodes)){const m=n.type==='stair'&&stairRailings[n.name];if(!m)continue;const d=stairRailingData(m);if(n.railingMode!==d.railingMode||n.railingStyle!==d.railingStyle||Math.abs((n.railingHeight??0)-d.railingHeight)>1e-4)rp.push({op:'update',id:n.id,data:d});}
+ if(rp.length){await call('apply_patch',{patches:rp});await sleep(1000);scene=await call('get_scene');console.log('stair railings',rp.length);}
+ if(!Object.values(scene.nodes).some(n=>n.type==='item'&&n.metadata?.exteriorKey===landingGuard.key)){
+  const L=landingGuard,params={width:inch(L.x1-L.x0),height:inch(42)};
+  const r=await call('add_object',{name:L.key+' · glass guard',code:paramCode(guardCode,params),params,parentId:L.levelId,position:[inch((L.x0+L.x1)/2),inch(L.y),inch(L.z)],rotation:0,category:'architectural detail',description:'42 inch glass guard on the main stair upper landing, lobby side.',reason:'Owner review 2026-10-31: stairs need railings.'});
+  await sleep(1000);scene=await call('get_scene');const g=r.nodeId??r.id??Object.values(scene.nodes).find(n=>n.type==='item'&&n.name===L.key+' · glass guard')?.id;
+  await call('apply_patch',{patches:[{op:'update',id:g,data:{position:[inch((L.x0+L.x1)/2),inch(L.y),inch(L.z)],rotation:[0,0,0],metadata:{...scene.nodes[g].metadata,exteriorKey:L.key,ownerDecision:'Owner review 2026-10-31: stairs need railings',dimensionBasis:L.basis}}}]});await sleep(1000);scene=await call('get_scene');console.log('landing guard',g);
  }
 }
 

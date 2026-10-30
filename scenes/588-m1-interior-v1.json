@@ -9842,7 +9842,8 @@
         "zone_4xu1zh666qjq248g",
         "slab_588_gf_lounge_door_step",
         "slab_588_gf_maid_step_1",
-        "slab_588_gf_maid_step_2"
+        "slab_588_gf_maid_step_2",
+        "item_rjbdu5qha1y780bd"
       ],
       "level": 0,
       "baseElevation": 0,
@@ -29152,8 +29153,9 @@
       "topLandingDepth": 0.9,
       "showCenterColumn": true,
       "showStepSupports": true,
-      "railingMode": "none",
-      "railingHeight": 0.92,
+      "railingMode": "left",
+      "railingHeight": 1.0668,
+      "railingStyle": "glass",
       "children": [
         "sseg_ac20et1ioiqw3syn"
       ]
@@ -29218,8 +29220,9 @@
       "topLandingDepth": 0.9,
       "showCenterColumn": true,
       "showStepSupports": true,
-      "railingMode": "none",
-      "railingHeight": 0.92,
+      "railingMode": "left",
+      "railingHeight": 1.0668,
+      "railingStyle": "glass",
       "children": [
         "sseg_j3lhzxjdrm9p536u"
       ]
@@ -29284,8 +29287,9 @@
       "topLandingDepth": 0.9,
       "showCenterColumn": true,
       "showStepSupports": true,
-      "railingMode": "none",
-      "railingHeight": 0.92,
+      "railingMode": "both",
+      "railingHeight": 1.0668,
+      "railingStyle": "glass",
       "children": [
         "sseg_o2ffhtc37smb8mf4"
       ]
@@ -29351,8 +29355,9 @@
       "topLandingDepth": 0.9,
       "showCenterColumn": true,
       "showStepSupports": true,
-      "railingMode": "none",
-      "railingHeight": 0.92,
+      "railingMode": "right",
+      "railingHeight": 1.0668,
+      "railingStyle": "glass",
       "children": [
         "sseg_asla75j2vki8lwoe",
         "sseg_588_secondary_1",
@@ -237932,6 +237937,263 @@
       "sill": false,
       "sillDepth": 0.08,
       "sillThickness": 0.03
+    },
+    "item_rjbdu5qha1y780bd": {
+      "object": "node",
+      "id": "item_rjbdu5qha1y780bd",
+      "type": "item",
+      "name": "gf-stair-landing2-south · glass guard",
+      "parentId": "level_as4e3a9d57",
+      "visible": true,
+      "metadata": {
+        "reason": "Owner review 2026-10-31: stairs need railings.",
+        "exteriorKey": "gf-stair-landing2-south",
+        "ownerDecision": "Owner review 2026-10-31: stairs need railings",
+        "dimensionBasis": "Main stair landing 2 (519..579, 374.5..434.5, top 91 in above GF) south edge, open to the double-height lobby."
+      },
+      "position": [
+        13.9446,
+        2.3114,
+        11.0744
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "children": [],
+      "slots": {
+        "glass": "library:preset-glass",
+        "metal": "library:metal-steel"
+      },
+      "source": {
+        "kind": "script",
+        "meta": {
+          "description": "42 inch glass guard on the main stair upper landing, lobby side."
+        },
+        "language": "three",
+        "script": "125f7c9ead16531e3a3da6358aa9908e60b04a0e73fe43ecdf2d639ed0433751",
+        "params": {
+          "width": 1.524,
+          "height": 1.0668
+        },
+        "artifact": "711386039ec4d70dd2b8678c525701d235e147b72e8e34c3c0b0352fb4aea045",
+        "manifest": {
+          "bounds": {
+            "min": [
+              -0.7795,
+              0,
+              -0.0325
+            ],
+            "max": [
+              0.7795,
+              1.0668,
+              0.0325
+            ]
+          },
+          "params": [
+            {
+              "id": "width",
+              "kind": "number",
+              "default": 1.524,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            },
+            {
+              "id": "height",
+              "kind": "number",
+              "default": 1.0668,
+              "min": 0,
+              "max": 50,
+              "step": 0.001
+            }
+          ],
+          "parts": [
+            {
+              "id": "glass_guard",
+              "type": "railing",
+              "bounds": {
+                "min": [
+                  -0.7795,
+                  0,
+                  -0.0325
+                ],
+                "max": [
+                  0.7795,
+                  1.0668,
+                  0.0325
+                ]
+              }
+            }
+          ],
+          "surfaces": [
+            {
+              "part": "glass_guard",
+              "y": 0.06,
+              "polygon": [
+                [
+                  -0.762,
+                  -0.032
+                ],
+                [
+                  0.762,
+                  -0.032
+                ],
+                [
+                  0.762,
+                  0.032
+                ],
+                [
+                  -0.762,
+                  0.032
+                ]
+              ]
+            },
+            {
+              "part": "glass_guard",
+              "y": 1.07,
+              "polygon": [
+                [
+                  -0.762,
+                  -0.023
+                ],
+                [
+                  0.762,
+                  -0.023
+                ],
+                [
+                  0.762,
+                  0.023
+                ],
+                [
+                  -0.762,
+                  0.023
+                ]
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "id": "glass",
+              "label": "glass",
+              "color": "#b9d8dd",
+              "roughness": 0.15,
+              "metalness": 0.1,
+              "transparent": true,
+              "emissive": false
+            },
+            {
+              "id": "metal",
+              "label": "metal",
+              "color": "#282c2b",
+              "roughness": 0.65,
+              "metalness": 0.65,
+              "transparent": false,
+              "emissive": false
+            }
+          ],
+          "anchors": [],
+          "lights": [],
+          "undersides": [
+            {
+              "part": "glass_guard",
+              "polygon": [
+                [
+                  -0.762,
+                  -0.032
+                ],
+                [
+                  0.762,
+                  -0.032
+                ],
+                [
+                  0.762,
+                  0.032
+                ],
+                [
+                  -0.762,
+                  0.032
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "part": "glass_guard",
+              "polygon": [
+                [
+                  -0.762,
+                  -0.023
+                ],
+                [
+                  0.762,
+                  -0.023
+                ],
+                [
+                  0.762,
+                  0.023
+                ],
+                [
+                  -0.762,
+                  0.023
+                ]
+              ],
+              "plane": [
+                0,
+                -1,
+                0,
+                1.0268
+              ]
+            }
+          ],
+          "animations": [],
+          "cutters": [],
+          "cutout": false,
+          "collider": false,
+          "triangles": 84
+        }
+      },
+      "asset": {
+        "id": "script_711386039ec4d70d",
+        "category": "architectural detail",
+        "name": "gf-stair-landing2-south · glass guard",
+        "thumbnail": "",
+        "source": "mine",
+        "src": "artifact://711386039ec4d70dd2b8678c525701d235e147b72e8e34c3c0b0352fb4aea045",
+        "dimensions": [
+          1.559,
+          1.0668,
+          0.065
+        ],
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "surface": {
+          "height": 1.07
+        }
+      }
     }
   },
   "rootNodeIds": [
