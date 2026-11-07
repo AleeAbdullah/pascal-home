@@ -1,0 +1,2 @@
+export const params={};
+export const mount='floor';export default function build({params:p,THREE:T}){const g=new T.Group();const M=(c,r=.6,m=0)=>new T.MeshStandardMaterial({color:c,roughness:r,metalness:m});const box=(w,h,d,x,y,z,m,par=g)=>{const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);par.add(o);return o};const part=n=>{const q=new T.Group();q.name='part:'+n;g.add(q);return q};const q=part('keyboard');box(.44,.018,.14,0,.009,0,M('#20232a',.5,.2),q);return g;}

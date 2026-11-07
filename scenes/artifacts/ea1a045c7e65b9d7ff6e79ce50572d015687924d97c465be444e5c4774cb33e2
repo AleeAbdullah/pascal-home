@@ -1,0 +1,40 @@
+export const params={
+ width:{default:4.25,min:1.2,max:6,step:0.01,unit:'m',label:'Width'},
+ height:{default:2.4,min:1.2,max:2.9,step:0.01,unit:'m',label:'Height'},
+ depth:{default:0.45,min:0.3,max:0.65,step:0.01,unit:'m',label:'Cupboard depth'},
+ baseHeight:{default:0.9,min:0.6,max:1.1,step:0.01,unit:'m',label:'Cupboard height'},
+ doors:{default:6,min:2,max:10,step:1,label:'Doors'},
+ bays:{default:4,min:2,max:8,step:1,label:'Shelf bays'},
+ detail:{default:1,min:0,max:1,step:1},shadows:{default:1,min:0,max:1,step:1}};
+export const mount='floor';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+const palette={walnut:['#58402e',0.58,0],stone:['#d5c6b0',0.68,0],bronze:['#40362b',0.4,0.65],ivory:['#eee8dc',0.82,0],taupe:['#ad9c88',0.94,0],sage:['#6c725c',0.94,0],paper:['#f3e8d6',0.9,0]};
+export default function build({params:p,THREE:T}){
+ const g=new T.Group(),mats={};const D=(p.detail??1)>=.5,S=(p.shadows??1)>=.5;
+ const W=p.width,H=p.height,Dp=p.depth,B=p.baseHeight,n=Math.round(p.doors),bays=Math.round(p.bays);
+ function mat(k){if(!mats[k]){const [c,r,m]=palette[k];mats[k]=new T.MeshStandardMaterial({color:c,roughness:r,metalness:m});mats[k].name='slot_'+k;}return mats[k]}
+ function part(name,type){const q=new T.Group();q.name='part:'+name;if(type)q.userData.type=type;g.add(q);return q}
+ function box(q,w,h,d,x,y,z,k,r=.008){const geo=D&&Math.min(w,h,d)>.012?new RoundedBoxGeometry(w,h,d,2,Math.min(r,w/3,h/3,d/3)):new T.BoxGeometry(w,h,d);const m=new T.Mesh(geo,mat(k));m.position.set(x,y,z);m.castShadow=S;m.receiveShadow=true;q.add(m);return m}
+ function cyl(q,r1,r2,h,x,y,z,k){const m=new T.Mesh(new T.CylinderGeometry(r1,r2,h,D?28:12),mat(k));m.position.set(x,y,z);m.castShadow=S;m.receiveShadow=true;q.add(m);return m}
+ // closed cupboards: plinth, carcass, doors on the front (+Z), stone top
+ const base=part('cupboard','panel'),top=part('stone_top','slab');
+ const plinth=.08,t=.018;
+ box(base,W-.04,plinth,Dp-.06,0,plinth/2,-.01,'bronze',.004);
+ box(base,W,B-plinth-.03,Dp-.02,0,plinth+(B-plinth-.03)/2,-.01,'walnut');
+ const dw=(W-.006*(n+1))/n,dh=B-plinth-.03-.012;
+ for(let i=0;i<n;i++){const x=-W/2+.006+dw/2+i*(dw+.006);
+  box(base,dw,dh,t,x,plinth+.006+dh/2,Dp/2-t/2,'walnut',.004);
+  const side=i%2?-1:1;box(base,.012,.22,.02,x+side*(dw/2-.05),plinth+dh-.16,Dp/2+.01,'bronze',.004);}
+ box(top,W+.01,.03,Dp+.01,0,B-.015,0,'stone',.004);
+ // open walnut shelves above, see-through from both sides
+ const sh=part('open_shelves','panel'),sd=Math.min(.36,Dp-.06),pt=.03,y0=B,y1=H;
+ for(let i=0;i<=bays;i++){const x=-W/2+pt/2+i*((W-pt)/bays);box(sh,pt,y1-y0,sd,x,y0+(y1-y0)/2,0,'walnut',.004)}
+ box(sh,W,pt,sd,0,y1-pt/2,0,'walnut',.004);
+ const levels=[y0+(y1-y0)*.34,y0+(y1-y0)*.67];for(const y of levels)box(sh,W-.02,.025,sd,0,y,0,'walnut',.004);
+ // a few objects on the shelves
+ if(D){const dec=part('decor');const bw=(W-pt)/bays;
+  const items=[[0,0,'v'],[1,1,'b'],[2,0,'b'],[3,1,'v'],[1,0,'v'],[2,1,'v'],[0,1,'b'],[3,0,'b']];
+  for(const [b,l,kind] of items){if(b>=bays)continue;const cx=-W/2+pt+bw*(b+.5)+(l?-.12:.1),y=l<0?y0:(l===0?y0:levels[l-1]);const yb=l===0?y0:levels[l-1]+.0125;
+   if(kind==='v'){cyl(dec,.06,.08,.26,cx,yb+.13,0,b%2?'ivory':'sage');cyl(dec,.03,.06,.06,cx,yb+.29,0,b%2?'ivory':'sage')}
+   else{for(let j=0;j<4;j++)box(dec,.035,.22+.02*(j%2),.17,cx-.06+j*.04,yb+.11+.01*(j%2),0,j%2?'taupe':'paper',.003)}}}
+ return g;}
