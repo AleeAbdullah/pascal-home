@@ -3,13 +3,12 @@
 // Applies the 2026-10-25 second-floor blueprint corrections to the live scene (idempotent), verifies, optionally checkpoints.
 // Source files (src/588-m1.mjs, src/588-openings.json, scripts/build-home.mjs, scripts/build-exterior.mjs) carry the same changes.
 import fs from 'node:fs';
-import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
-import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
+import {connectPascal} from './mcp-client.mjs';
 import {secondFloorId,inch,newWalls,wallCreate,voidZonePatches,openingPatches,wallPatches,slabPatches,tank,windowDecisionPatches,balconyDoor,balconyDoorWall,balconyDoorNode,balconyDoorMetadata,maidPartition,maidPartitionCreate} from '../src/second-floor-blueprint-corrections.mjs';
-import {spawnSync} from 'node:child_process';
+import {saveSceneSnapshot} from './sync-scene-artifacts.mjs';
 import crypto from 'node:crypto';
 import {items as specItems,rooms as specRooms,levelId as sfLevel,supportSlabId as supportSlab,guards as guardSpecs,guardParams,walnutGuardCode,paramCode} from '../src/second-floor-interior-v1.mjs';
-const c=new Client({name:'second-floor-blueprint-correction',version:'1'},{capabilities:{}}),id='588-m1-interior-v1';
+const c=await connectPascal('second-floor-blueprint-correction'),id='588-m1-interior-v1';
 const outDir=process.env.SF_OUT??'/tmp';
 const axisOf=w=>w.start[0]===w.end[0]?1:0,dirOf=w=>Math.sign(w.end[axisOf(w)]-w.start[axisOf(w)]);
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -18,7 +17,6 @@ async function call(name,args={}){for(let i=0;;i++){await sleep(600);const raw=a
  if(r.code==='design_brief_required'&&i<4){await designBrief();continue;}
  if(r.code==='script_failed'&&i<4){await sleep(4000*(i+1));continue;}
  if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,1800));return r;}}
-function fullGraph(){const r=spawnSync('python3',['-c',"import sqlite3; c=sqlite3.connect('file:.pascal/data/pascal.db?mode=ro',uri=True);print(c.execute('select graph_json from scenes where id=?',('588-m1-interior-v1',)).fetchone()[0])"],{encoding:'utf8',maxBuffer:60e6});if(r.status)throw Error(r.stderr);const g=JSON.parse(r.stdout);if(!g.materials||Object.keys(g.materials).length<26)throw Error('Incomplete material registry');return g;}
 const area=pl=>Math.abs(pl.reduce((a,q,i)=>{const r=pl[(i+1)%pl.length];return a+q[0]*r[1]-r[0]*q[1]},0))/2;
 async function zoneSnap(tag){const s=await call('get_scene');
  const ceil={};for(const n of Object.values(s.nodes))if(n.type==='ceiling'&&n.zoneId)ceil[n.zoneId]=(ceil[n.zoneId]??0)+1;
@@ -118,7 +116,7 @@ async function roomsMode(){
  }
 }
 try{
- await c.connect(new StdioClientTransport({command:process.execPath,args:['scripts/pascal.mjs','mcp','connect']}));
+
  await call('load_scene',{id});
  const mode=process.argv[2];
  if(mode==='apply'){
@@ -155,7 +153,7 @@ try{
  const v=await call('verify_scene');fs.writeFileSync(`${outDir}/sf-verify-after.json`,JSON.stringify(v,null,2));fs.writeFileSync(`${outDir}/sf-scene-after.json`,JSON.stringify(await call('get_scene')));console.log('Verification',v.issues?.length);
  if(mode==='save'){
   const st=await call('get_project_status',{id});console.log(JSON.stringify(await call('save_scene',{id,name:st.name,expectedVersion:st.version,saveMode:'checkpoint',includeCurrentScene:true})).slice(0,900));
-  fs.writeFileSync('scenes/588-m1-interior-v1.json',JSON.stringify(fullGraph(),null,2)+'\n');{const {syncSceneArtifacts}=await import('./sync-scene-artifacts.mjs');console.log('Artifacts',JSON.stringify(syncSceneArtifacts()));}
+  saveSceneSnapshot('588-m1-interior-v1',26,'Incomplete material registry');
  }
  console.log(JSON.stringify(await call('get_project_status',{id})));
 }finally{await c.close()}

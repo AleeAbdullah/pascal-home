@@ -48,7 +48,7 @@ export {openingSpecs as bridgeOpeningSpecs,ownerDecision as bridgeOwnerDecision}
 
 // Room review 2026-10-26 (owner queue section 6): hinged 3 ft door from the corridor at the Kitchen+Store south-west corner.
 // The architect (page 2) draws the leaf in the 36 in gap x 679..715 hinged on the west jamb; the model's south wall (z 208) carries a 60 in open passage (x 678..738), so that opening becomes the 36 in leaf and the wall closes x 715..738.
-export const kitchenDoor={wallId:'wall_588_ff_rear_rooms_front_4',doorId:'door_y8r5e8p1bhus18nz',wallStartX:673.5,centre:697,width:36,height:120,
+const kitchenDoor={wallId:'wall_588_ff_rear_rooms_front_4',doorId:'door_y8r5e8p1bhus18nz',wallStartX:673.5,centre:697,width:36,height:120,
  basis:'Owner room review 2026-10-26 (queue 6): hinged 3 ft door at the Kitchen+Store south-west corner, architect page-2 position x 679..715 in, hinged on the west jamb, swinging north into the kitchen'};
 export function kitchenDoorPatch(nodes){
  const n=nodes[kitchenDoor.doorId];if(!n)throw Error('Missing kitchen entry door');

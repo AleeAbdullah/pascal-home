@@ -69,7 +69,7 @@ export function wallPatches(nodes){
 // The master sliding wardrobe was also shortened 2.1 -> 1.8 m (centre z 3.65): run
 //   node scripts/ground-floor-interior-v1.mjs build masterCloset-wardrobe
 // after editing the spec; a size change needs add_object, which this script does not repeat.
-export const furnitureMoves=[
+const furnitureMoves=[
  {key:'closet2-east',position:[6.31,0,4.86],rotation:[0,3.14159265,0],basis:'Moved from the east wall (now carries the closet 2 opening) to the south wall of closet 2'},
  {key:'guestCloset-wardrobe',position:[19.26,0,9.45],basis:'Shifted south and against the west wall to clear the relocated guest closet opening keep-out'},
  {key:'drawing-art',position:[21.9,1.2,10.5],rotation:[0,0,0],basis:'Moved from the west wall, where the drawing-room opening now sits, to the north wall behind the sofa'},
@@ -87,8 +87,8 @@ export function windowDecisionPatches(nodes){
  return [{op:'update',id:n.id,data:{width:inch(30),metadata:meta(n,'Bathroom 2 W19 drawn 30 in (x 262.12..292.12) governs; schedule 18 in superseded',{widthOverride:30,widthDecision:ownerDecisionW19,widthBasis:'Owner decision 2026-10-25',ownerDecision:ownerDecisionW19})}}];
 }
 // Decision 3: the pantry opens to the open kitchen. The 4.5 in west wall becomes a non-physical separator on the same line so the zone keeps its name.
-export const pantryWestWallId='wall_588_gf_pantry_west';
-export const pantrySeparatorId='separator_588_gf_pantry_west';
+const pantryWestWallId='wall_588_gf_pantry_west';
+const pantrySeparatorId='separator_588_gf_pantry_west';
 const ownerDecisionPantry='Owner decision 2026-10-25: pantry opens to the open kitchen; west wall (x 711.75, z 68.25..163.75) removed and replaced by a separator';
 export function pantryPatches(nodes){
  const out=[];
@@ -97,7 +97,7 @@ export function pantryPatches(nodes){
  return out;
 }
 // Decision 4: entrance podium in two levels: +18 in to z 653.3, then +12 in (top -6 in) to the front edge z 695.5.
-export const podiumRearName='Entrance podium · +18″',podiumFrontName='Entrance podium front · +12″',podiumFrontId='slab_588_gf_podium_front';
+const podiumRearName='Entrance podium · +18″',podiumFrontName='Entrance podium front · +12″',podiumFrontId='slab_588_gf_podium_front';
 const ownerDecisionPodium='Owner decision 2026-10-25: entrance podium has two levels, +18 in rear (z 599.5..653.3) and +12 in front (z 653.3..695.5)';
 export function podiumPatches(nodes){
  const rear=Object.values(nodes).find(n=>n.type==='slab'&&n.parentId===groundFloorId&&n.name===podiumRearName);if(!rear)throw Error('Missing podium slab');
@@ -120,9 +120,9 @@ export function entryStepPatches(nodes){
 // ---- Room review 2026-10-25: entrance (idempotent; run with `node scripts/correct-ground-floor.mjs entrance`) ----
 const ownerEntrance='Room review 2026-10-25: entrance';
 const entryMeta=(n,reason)=>({...n.metadata,blueprintReview:review,correctionBasis:reason,ownerDecision:ownerEntrance});
-export const lobbyBackZ=444.3;
-export const entryDoorId='door_p4au1lr69jeii7u9';
-export const entryConsoleIds=['item_mpmurjm7w37g62dc','item_hdwhrx3sxye63vy9','item_4jo6km4jhwo7y8p9'];
+const lobbyBackZ=444.3;
+const entryDoorId='door_p4au1lr69jeii7u9';
+const entryConsoleIds=['item_mpmurjm7w37g62dc','item_hdwhrx3sxye63vy9','item_4jo6km4jhwo7y8p9'];
 // Plain structural columns: the column node defaults to a round-rings base and a simple capital even for style 'plain'; 'none' removes both.
 export const plainColumnFields={baseStyle:'none',capitalStyle:'none'};
 export function lobbyDepthPatches(nodes){
@@ -157,7 +157,7 @@ export {openingSpecs as bridgeOpeningSpecs,ownerDecision as bridgeOwnerDecision}
 // so three 4 in risers: passage -12 -> step 1 top -8 -> step 2 top -4 -> door sill 0.
 const ownerRoomsDirty='Room review 2026-10-26: dirty kitchen';
 export const rearDoor={wallId:'wall_588_gf_rear_4',windowKey:'windows-0-22',doorKey:'doors-0-25',refDoorKey:'doors-0-3',centre:765.06,width:36,name:'D3 · GF (rear exterior)'};
-export const rearSteps=[
+const rearSteps=[
  {id:'slab_588_gf_rear_step_1',name:'rear-door-step-1',x0:737.6,x1:792.4,z0:-21,z1:-8.9,top:-8,tag:'tag 1: tread outside the wall, 12.1 in run, 4 in rise'},
  {id:'slab_588_gf_rear_step_2',name:'rear-door-step-2',x0:747,x1:783,z0:-8.9,z1:0,top:-4,tag:'tag 2: tread inside the wall depth, 8.9 in run, 4 in rise to the door sill at the GF floor'},
 ];
@@ -181,11 +181,11 @@ export function rearStepPatches(nodes){
 // Step band measured from page-1 vectors: display x 250.38..355.53 (west wall to column P1), y 529.38..538.77 -> plan x 189..357, z 272.5..287.5 in (risers at the band edges, tread nosings run N-S pairs at 17.5 in pitch).
 // Two 6 in risers: corridor level 0 -> intermediate tread -6 (z 277..287, the approach zone) -> lounge floor -12 from z 287 south. The whole lounge + dining is one level.
 const loungeStepReview='2026-10-26',loungeStepDecision='Room review 2026-10-26: lounge step at the corridor edge per architect';
-export const loungeStep={z0:277,z1:287,x0:184.5,x1:433.5,treadTop:-6,lowTop:-12,thickness:8.25,slabId:'slab_588_gf_lounge_step',slabName:'gf-lounge-step · PDF floor construction',
+const loungeStep={z0:277,z1:287,x0:184.5,x1:433.5,treadTop:-6,lowTop:-12,thickness:8.25,slabId:'slab_588_gf_lounge_step',slabName:'gf-lounge-step · PDF floor construction',
  loungeZoneId:'zone_00015marrt4a3m4i',approachZoneId:'zone_pjp68o1aowuy1h0l',approachName:'Lounge step band · tread -6″'};
 const lsMeta=(n,basis,extra={})=>({...(n?.metadata??{}),...extra,blueprintReview:loungeStepReview,correctionBasis:basis,ownerDecision:loungeStepDecision});
 const setZ=(poly,from,to)=>poly.map(q=>Math.abs(q[1]-from)<1e-4?[q[0],to]:q);
-export const loungeStepFurniture=[
+const loungeStepFurniture=[
  {key:'plant',x:5.212,z:7.42,basis:'Lounge floor now reaches z 287 in; plant moved north to the riser edge (its foliage bbox is z +-0.30 m) so it clears the dining rug'},
  {key:'plant-ne',x:10.3,z:7.65,basis:'Lounge floor now reaches z 287 in; plant moved east of the dining rug and columns, still in the north-east corner'},
  {key:'dining-rug',x:7.007,z:9.5,basis:'Rug shifted 0.25 m south so the north-west corner plant stands clear of it'},

@@ -1,3 +1,4 @@
+import {relaxParams} from './interior-v1.mjs';
 // Room review 2026-10-26 (second floor): owner-approved layouts in the Interior V1 language.
 // Reuses the first-floor / ground-floor Interior V1 pieces; positions come from the architect plan page 3
 // (X=(x-118.382)*1.53942, Z=(y-304.623)*1.54014 in). Level-local metres = inches*0.0254.
@@ -13,12 +14,11 @@ export const rooms={
 };
 const m=x=>Number((x*.0254).toFixed(4));
 const src=(list,key)=>{const i=list.find(x=>x.key===key);if(!i)throw Error('Missing template '+key);return i};
-const relax=c=>c.replace(/"(\w+)":\{"default":([\d.e-]+),"min":[\d.e-]+,"max":[\d.e-]+/g,(all,k,d)=>k==='detail'||k==='shadows'?all:`"${k}":{"default":${d},"min":0.1,"max":15`);
 export const items=[];
 // room,key,label,template item,x,z (inches),rotation (deg),params override,y (m, default template y),mount
 function add(room,key,label,tpl,x,z,rotation=0,params={},y,mount='floor'){
  const parentId=mount==='ceiling'?rooms[room][1]:levelId;
- items.push({key:room+'-'+key,room,name:'V1 · second floor · '+label,code:relax(tpl.code),parentId,position:[m(x),y??tpl.position[1],m(z)],rotation,params:{...tpl.params,...params}});
+ items.push({key:room+'-'+key,room,name:'V1 · second floor · '+label,code:relaxParams(tpl.code),parentId,position:[m(x),y??tpl.position[1],m(z)],rotation,params:{...tpl.params,...params}});
  return items.at(-1);
 }
 const lights=src(ff,'frontBath-lights');

@@ -413,13 +413,6 @@ for (const c of all.filter((n) => n.type === 'column' && n.parentId === levelId 
 
 // ---------------------------------------------------------------- items
 const CEIL_RE = /ceiling|cove|pendant|chandelier|lights|downlights|drapes/i
-function itemLevel(n) {
-  const p = N[n.parentId]
-  if (!p) return null
-  if (p.type === 'level') return p.id
-  if (p.type === 'ceiling' || p.type === 'slab' || p.type === 'item') return N[p.parentId]?.type === 'level' ? p.parentId : null
-  return null
-}
 function shortName(name) {
   let s = name.replace(/^V\d+\s*·\s*(?:(?:first|ground|second)\s+floor\s*·\s*)?/i, '')
   s = s.replace(/\s*·\s*(elevation trace|PDF.*|ASSUMED.*)$/i, '')

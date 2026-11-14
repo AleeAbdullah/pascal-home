@@ -1,18 +1,16 @@
 // Usage: node scripts/correct-first-floor.mjs [architecture|stairguard|bridge|rooms|voidguards|terraces|stair2|save]  (terraces = 2026-10-31 audit: terrace glass guards + sliding terrace doors + void-guard rotation fix; stair2 = secondary-stair flat quarter landing; both idempotent)  (rooms = 2026-10-26 room review: syncs every first-floor Interior V1 item with src/first-floor-interior-v1.mjs and re-hangs the Kitchen+Store door; idempotent, FF_DRY=1 lists the plan only)
 // (previous usage:  (stairguard = 2026-10-26 stair-front wall -> 42 in glass guard)
 import fs from 'node:fs';
-import {spawnSync} from 'node:child_process';
+import {saveSceneSnapshot} from './sync-scene-artifacts.mjs';
 import {guardCode,paramCode} from '../src/588-exterior.mjs';
 import {runBridge} from '../src/shaft-bridge.mjs';
-import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
-import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
+import {connectPascal} from './mcp-client.mjs';
 import crypto from 'node:crypto';
-import {items as specItems,rooms as specRooms,levelId as ffLevel,extraRooms} from '../src/first-floor-interior-v1.mjs';
+import {items as specItems,rooms as specRooms,levelId as ffLevel} from '../src/first-floor-interior-v1.mjs';
 import {kitchenDoorPatch,architecturePatches,inch,stairGuard as SG,voidGuards,voidGuardDecision,stairRailings,stairRailingData,landingGuard,terraceGuards,terraceGuardDecision,voidGuardRotationRad,terraceDoors,secondaryStair,auditDecision,lobbyVoidSeed,lobbyVoidFields,firstFloorId} from '../src/first-floor-blueprint-corrections.mjs';
 const supportSlab='slab_588_ff_main';
-const c=new Client({name:'first-floor-blueprint-correction',version:'1'},{capabilities:{}}),id='588-m1-interior-v1';
+const c=await connectPascal('first-floor-blueprint-correction'),id='588-m1-interior-v1';
 async function call(name,args={},tries=1){const raw=await c.callTool({name,arguments:args});const r=raw.structuredContent??JSON.parse(raw.content.find(x=>x.type==='text').text);if(r.code==='design_brief_required'&&tries<4){await designBrief();return call(name,args,tries+1)}if((r.code==='script_failed'||/rate/i.test(String(r.error)))&&tries<4){await new Promise(z=>setTimeout(z,4000*tries));return call(name,args,tries+1)}if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,1800));return r;}
-function fullGraph(){const r=spawnSync('python3',['-c',"import sqlite3; c=sqlite3.connect('file:.pascal/data/pascal.db?mode=ro',uri=True);print(c.execute('select graph_json from scenes where id=?',('588-m1-interior-v1',)).fetchone()[0])"],{encoding:'utf8',maxBuffer:30e6});if(r.status)throw Error(r.stderr);const g=JSON.parse(r.stdout);if(!g.materials||Object.keys(g.materials).length<26)throw Error('Incomplete material registry');return g;}
 
 async function designBrief(){const bd=(quote,reading)=>({kind:'bounded',quote,reading}),op=design=>({kind:'open',design});
  const r=await c.callTool({name:'design_brief',arguments:{source:'open',vision:'Room review 2026-10-26: apply the owner-approved first-floor furniture changes (architect plans govern placement, orientation and count) in the existing Interior V1 language; preserve every wall, opening, level, stair and the other floors.',axes:{action:bd('apply every owner-approved FIRST-FLOOR furniture change','Only the listed first-floor room-review changes.'),size:bd('keeping the blueprint geometry','Existing rooms unchanged; furniture fitted to the architect positions.'),pieces:op('Beds with benches, sofas, L-sofa, side and coffee tables, media units, hanging runs, glass showers and screens, vanities, built-in cabinet, ledge and planters per the owner queue.'),openings:bd('keeping the blueprint geometry','Retain every opening and avoid door swings; only the kitchen corridor door changes as ordered.'),style:bd('Interior V1 styling stays','Warm stone, walnut, ivory textiles, bronze fixtures.'),materials:op('Existing Interior V1 palette.'),dressing:op('Plants and ceramics already on the floor stay; nothing unrelated is added.')},beyond:{textiles:['Existing bedding and sofas'],light:['Existing coves and lamps'],windows:['Existing drapes'],walls:['Walnut built-in cabinet and lounge ledge'],floor:['Existing rugs'],plants:['Terrace planters'],objects:['Existing ceramics'],smallFurniture:['Benches, side tables']}}});
@@ -177,7 +175,7 @@ async function stair2Mode(){
 }
 
 try{
- await c.connect(new StdioClientTransport({command:process.execPath,args:['scripts/pascal.mjs','mcp','connect']}));
+
  await call('load_scene',{id});const scene=await call('get_scene');
  if(process.argv[2]==='architecture'){
   const patches=architecturePatches(scene.nodes);console.log(JSON.stringify(await call('apply_patch',{patches})).slice(0,1800));
@@ -199,7 +197,7 @@ try{
  const v=await call('verify_scene');fs.writeFileSync('/tmp/pascal-first-review-verify.json',JSON.stringify(v,null,2));console.log('Verification',JSON.stringify(v).slice(0,300));
  if(process.argv[2]==='save'){
   const st=await call('get_project_status',{id});console.log(JSON.stringify(await call('save_scene',{id,name:st.name,expectedVersion:st.version,saveMode:'checkpoint',includeCurrentScene:true})).slice(0,900));
-  fs.writeFileSync('scenes/588-m1-interior-v1.json',JSON.stringify(fullGraph(),null,2)+'\n');{const {syncSceneArtifacts}=await import('./sync-scene-artifacts.mjs');console.log('Artifacts',JSON.stringify(syncSceneArtifacts()));}
+  saveSceneSnapshot('588-m1-interior-v1',26,'Incomplete material registry');
  }
  console.log(JSON.stringify(await call('get_project_status',{id})));
 }finally{await c.close()}

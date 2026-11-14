@@ -23,12 +23,12 @@ function line(q,points,r,k){const curve=new T.CatmullRomCurve3(points.map(v=>new
 `;
 const source=(body,params)=>`export const params=${JSON.stringify({...Object.fromEntries(Object.entries(params).map(([k,v])=>[k,{default:v,min:0,max:50,step:.001}])),detail:{default:1,min:0,max:1,step:1},shadows:{default:1,min:0,max:1,step:1}})};export const mount="floor";\n${helper}\n${body}\nreturn g;}`;
 // Walnut boards at a 3 in pitch running along the shaft (z), bronze joists and thin fascia, stone entry tread on the lounge side.
-export const deckCode=source(`const bd=part('walnut_boards'),fr=part('bronze_frame'),st=part('stone_step');
+const deckCode=source(`const bd=part('walnut_boards'),fr=part('bronze_frame'),st=part('stone_step');
 const W=p.width,Dp=p.depth,n=Math.max(1,Math.round(W/.0762)),pitch=W/n;
 // Owner 2026-10-26: thin flat deck flush with the lobby floor, no joists or edge band (it must not read as raised).
 for(let i=0;i<n;i++)box(bd,pitch-.004,.025,Dp,-W/2+(i+.5)*pitch,-.0125,0,'walnut',.003);
 if(p.stepLength>0)box(st,p.stepLength,p.stepRise,Dp,-W/2-p.stepLength/2,-p.stepRise*1.5,0,'stone',.006);`,{width:inch(72),depth:inch(72),stepLength:0,stepRise:inch(6)});
-export const treeCode=source(`const bed=part('planting_bed'),tr=part('trunk_and_limbs'),cn=part('canopy');
+const treeCode=source(`const bed=part('planting_bed'),tr=part('trunk_and_limbs'),cn=part('canopy');
 const R=p.radius,H=p.height,B=p.bed,bh=p.bedHeight;
 cyl(bed,B,bh,0,bh/2,0,'stone',B+.015);cyl(bed,B-.07,.02,0,bh-.01,0,'charcoal');
 line(tr,[[0,bh,0],[.03,bh+H*.2,-.02],[.0,bh+H*.4,.03]],.1,'walnut');
@@ -36,18 +36,18 @@ const tops=[];for(let i=0;i<6;i++){const a=i*1.0472+.3,rr=R*(.45+.12*(i%2)),y=bh
 for(let i=0;i<tops.length;i++){const [x,y,z]=tops[i];ball(cn,R*.78,H*.2,R*.78,x,y+H*.06,z,i%2?'sage':'leaf');ball(cn,R*.6,H*.16,R*.6,x*.55,y+H*.17,z*.55,i%2?'leaf':'sage');}
 ball(cn,R*.9,H*.2,R*.9,0,bh+H*.78,0,'leaf');`,{radius:inch(28.5),height:inch(138),bed:inch(31),bedHeight:inch(10)});
 // Five round planters traced from the plan circles: two shrubs (radial leaf symbol) and three low mounds. Positions are local (x east, z south of item origin).
-export const plantersCode=source(`const pots=part('planters'),fo=part('foliage');
+const plantersCode=source(`const pots=part('planters'),fo=part('foliage');
 const list=[[-.3708,-.1016,1],[.5766,-.1016,1],[.1143,-.2286,0],[.2794,.1778,0],[-.6147,.127,0]];
 for(const [x,z,k] of list){cyl(pots,.215,.4,x,.2,z,'ivory',.18);cyl(pots,.19,.008,x,.396,z,'charcoal');
  if(k===1){for(let i=0;i<9;i++){const a=i*2.4,h=.7+(i%3)*.16,dx=Math.cos(a)*.15,dz=Math.sin(a)*.15;line(fo,[[x,.4,z],[x+dx*.5,.4+h*.6,z+dz*.5],[x+dx,.4+h,z+dz]],.006,'leaf');const l=ball(fo,.16,.5,.03,x+dx,.4+h+.15,z+dz,i%2?'leaf':'sage');l.rotation.set(.45*Math.cos(a),a,.45*Math.sin(a));}}
  else{ball(fo,.4,.28,.4,x,.5,z,'sage');ball(fo,.28,.22,.28,x+.04,.62,z-.03,'leaf');}}`,{});
-export const plantersModule=plantersCode;
+const plantersModule=plantersCode;
 export const tree={key:'bridge-gf-shaft-tree',name:'Open-to-sky shaft · tree',x:473.4,z:382,note:'Architect ground plan: large tree symbol in the shaft north of the bridge, canopy x 445..502, z 353..411 in. Plant form is an Interior V1-style authored object (walnut limbs, sage/leaf canopy, stone bed).'};
 export const planters={key:'bridge-gf-shaft-planters',name:'Open-to-sky shaft · planters',x:472,z:540,note:'Architect ground plan: five round planters south of the bridge, z 522.5..555.6 in (two shrubs, three low mounds). Interior V1-style pots and foliage.'};
-export const bridgeObjects=(level)=>level==='ground'
+const bridgeObjects=(level)=>level==='ground'
  ?[{key:'bridge-gf-deck',name:'Shaft bridge · walnut deck + lounge entry step',code:deckCode,params:{width:inch(72),depth:inch(72),stepLength:inch(9),stepRise:inch(6)},x:deck.cx,z:deck.cz,note:'Architect ground plan: timber-boarded bridge x 438..510, z 444.45..516.45 in (72 x 72); boards run N-S, 3 in pitch. Deck top at the lobby floor (+18 in plan = 0 in model); lounge floor is 12 in lower, so two 6 in risers: one stone tread in the lounge-east wall thickness (x 429..438, top -6 in) then the deck.'}]
  :[{key:'bridge-ff-deck',name:'Shaft bridge · walnut deck (first floor)',code:deckCode,params:{width:inch(72),depth:inch(72),stepLength:0,stepRise:inch(6)},x:deck.cx,z:deck.cz,note:'Architect first-floor plan: BRIDGE across the open-to-sky shaft between its two OPEN TO SKY areas, x 438..510, z 444.45..516.45 in; deck top at first-floor level (0).'}];
-export const guardKeys=level=>[['bridge-'+(level==='ground'?'gf':'ff')+'-guard-north',deck.z0],['bridge-'+(level==='ground'?'gf':'ff')+'-guard-south',deck.z1]];
+const guardKeys=level=>[['bridge-'+(level==='ground'?'gf':'ff')+'-guard-north',deck.z0],['bridge-'+(level==='ground'?'gf':'ff')+'-guard-south',deck.z1]];
 // Openings replacing the two facing W11 (ground) / W11 + W14 (first) windows. Each is {key,wall,windowId,centre,width,height,...}.
 export const openingSpecs={
  ground:[

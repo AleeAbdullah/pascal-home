@@ -1,5 +1,5 @@
 import {items as ground,palette,projectId} from './ground-floor-interior-v1.mjs';
-import {items as lounge,library as loungeLibrary} from './interior-v1.mjs';
+import {items as lounge,library as loungeLibrary,relaxParams} from './interior-v1.mjs';
 import legacy from './first-floor-legacy-templates.json' with {type:'json'};
 export {palette,projectId};
 export const levelId='level_as4d3a9bc4', supportSlabId='slab_588_ff_main';
@@ -9,9 +9,9 @@ export const rooms={
  masterBath:['zone_0002r4qhy8azxspn','ceiling_as5b23627e',2.28,1.28],bath2:['zone_00019fkyt9hvq6xh','ceiling_as3ab8f494',6.25,1.22],rearBath:['zone_0000evaprx3adrz3','ceiling_as30b8e4d6',22.66,1.05],frontBath:['zone_0002e28una64iqah','ceiling_as2fb8e343',22.18,9.67],
  lounge:['zone_f0r1by0mpfy2ayxp','ceiling_7sadoifxgql85zav',7.85,9.97],hall:['zone_i7n5ppporimr3o3z','ceiling_bzrnelkbztvjs1q1',12,6.16],console:['zone_fj6oo1p0c5g64q6p','ceiling_cjocl6pjpl9jco4l',12.04,7.65],kitchen:['zone_0000r13b0ok25v3x','ceiling_as34b8eb22',19.4,2.8]
 };
-const code=(key)=>{const item=ground.find(x=>x.key===key)??lounge.find(x=>x.key===key)??loungeLibrary.find(x=>x.key===key)??(legacy[key]?{code:legacy[key]}:null);if(!item)throw Error(key);return item.code.replace(/"(\w+)":\{"default":([\d.e-]+),"min":[\d.e-]+,"max":[\d.e-]+/g,(all,k,d)=>k==='detail'||k==='shadows'?all:`"${k}":{"default":${d},"min":0.1,"max":15`)};
+const code=(key)=>{const item=ground.find(x=>x.key===key)??lounge.find(x=>x.key===key)??loungeLibrary.find(x=>x.key===key)??(legacy[key]?{code:legacy[key]}:null);if(!item)throw Error(key);return relaxParams(item.code)};
 // Terraces are not interior rooms (no floor finish or ceiling of their own); their zones only tag the planters.
-export const extraRooms={rearTerrace:'zone_c3dnsyu90t8kwvnw',frontTerrace:'zone_lci8s55pg6nuywy0'};
+const extraRooms={rearTerrace:'zone_c3dnsyu90t8kwvnw',frontTerrace:'zone_lci8s55pg6nuywy0'};
 export const items=[];
 function add(room,key,label,template,x,z,rotation=0,params={},y=0,mount='floor'){
  let src=template.includes('export default')?template:code(template),parentId=levelId;
@@ -27,9 +27,9 @@ const paramSet=(o)=>'export const params='+JSON.stringify({...Object.fromEntries
 const bodyAfterHelpers=(src,marker)=>src.slice(0,src.indexOf(marker));
 const customModule=(template,marker,params,body)=>bodyAfterHelpers(moduleHeader(template),marker).replace('@@PARAMS@@',paramSet(params))+body+'\nreturn g;}';
 // Low walnut ledge (lounge corridor edge): 16-18 in high, stone-capped.
-export const ledgeCode=customModule('bench',"const q=part('upholstered_bench')",{width:[4.17,.5,8],depth:[.38,.2,.8],height:[.43,.2,.8]},"const q=part('walnut_ledge');box(q,p.width,p.height-.03,p.depth,0,(p.height-.03)/2,0,'walnut',.012);box(q,p.width+.02,.03,p.depth+.02,0,p.height-.015,0,'stone',.008);for(let i=1;i<Math.round(p.width/.55);i++)box(q,.012,p.height-.12,.01,-p.width/2+i*p.width/Math.round(p.width/.55),(p.height-.03)/2,p.depth/2+.002,'charcoal',.003);");
+const ledgeCode=customModule('bench',"const q=part('upholstered_bench')",{width:[4.17,.5,8],depth:[.38,.2,.8],height:[.43,.2,.8]},"const q=part('walnut_ledge');box(q,p.width,p.height-.03,p.depth,0,(p.height-.03)/2,0,'walnut',.012);box(q,p.width+.02,.03,p.depth+.02,0,p.height-.015,0,'stone',.008);for(let i=1;i<Math.round(p.width/.55);i++)box(q,.012,p.height-.12,.01,-p.width/2+i*p.width/Math.round(p.width/.55),(p.height-.03)/2,p.depth/2+.002,'charcoal',.003);");
 // Built-in walnut cabinet (front master west wall): fluted doors with bronze pulls.
-export const cabinetCode=customModule('bench',"const q=part('upholstered_bench')",{width:[2.17,.5,5],depth:[.5,.2,.9],height:[2.3,1,3.2]},"const q=part('walnut_cabinet'),f=part('doors');box(q,p.width,p.height,p.depth,0,p.height/2,0,'walnut',.012);const n=Math.max(2,Math.round(p.width/.55)),dw=p.width/n;for(let i=0;i<n;i++){box(f,dw-.012,p.height-.12,.02,-p.width/2+dw*(i+.5),p.height/2,p.depth/2+.008,'walnut',.006);if(D)for(let k=1;k<5;k++)box(f,.008,p.height-.16,.008,-p.width/2+dw*i+dw*k/5,p.height/2,p.depth/2+.02,'charcoal',.002);box(f,.014,.32,.02,-p.width/2+dw*(i+(i%2?.18:.82)),1.05,p.depth/2+.03,'bronze',.004)}box(q,p.width+.01,.06,p.depth+.01,0,.03,0,'charcoal',.004);");
+const cabinetCode=customModule('bench',"const q=part('upholstered_bench')",{width:[2.17,.5,5],depth:[.5,.2,.9],height:[2.3,1,3.2]},"const q=part('walnut_cabinet'),f=part('doors');box(q,p.width,p.height,p.depth,0,p.height/2,0,'walnut',.012);const n=Math.max(2,Math.round(p.width/.55)),dw=p.width/n;for(let i=0;i<n;i++){box(f,dw-.012,p.height-.12,.02,-p.width/2+dw*(i+.5),p.height/2,p.depth/2+.008,'walnut',.006);if(D)for(let k=1;k<5;k++)box(f,.008,p.height-.16,.008,-p.width/2+dw*i+dw*k/5,p.height/2,p.depth/2+.02,'charcoal',.002);box(f,.014,.32,.02,-p.width/2+dw*(i+(i%2?.18:.82)),1.05,p.depth/2+.03,'bronze',.004)}box(q,p.width+.01,.06,p.depth+.01,0,.03,0,'charcoal',.004);");
 // Round planter with a clipped shrub (rear and front terraces).
 export const planterCode=customModule('plant',"if(!D)return g;",{radius:[.26,.12,.6],height:[.45,.2,.9]},"const q=part('round_planter'),l=part('shrub'),R=p.radius,H=p.height;cyl(q,R,H,0,H/2,0,'ivory',R*.86);cyl(q,R*.92,.012,0,H-.006,0,'walnut');ball(l,R*1.7,R*1.25,R*1.7,0,H+R*.55,0,'leaf');if(D)for(let i=0;i<8;i++){const a=i*.785+.3;ball(l,R*.8,R*.6,R*.8,Math.cos(a)*R*.62,H+R*.5+(i%2)*.07,Math.sin(a)*R*.62,i%2?'sage':'leaf')}");
 // Reuse the established design language as separately editable objects, never the ground-floor nodes.

@@ -33,7 +33,7 @@ const ring=new T.Shape();ring.absarc(0,0,r,0,Math.PI*2,false);const hole=new T.P
 const shell=new T.Mesh(new T.ExtrudeGeometry(ring,{depth:h,bevelEnabled:false,curveSegments:32}),stone);shell.rotation.x=-Math.PI/2;body.add(shell);
 const grate=part('inspection_grate');for(let x=-r+.03;x<r;x+=.08){const d=2*Math.sqrt(r*r-x*x);box(.025,.035,d,x,h,0,metal,grate);}return g;}`;
 // ---- Street-front dressing (owner exterior renders). Emissive geometry only: no point/spot lights anywhere. ----
-export const emitHelper=`const em=(name,color,i)=>new T.MeshStandardMaterial({name,color,emissive:color,emissiveIntensity:i,roughness:.4});
+const emitHelper=`const em=(name,color,i)=>new T.MeshStandardMaterial({name,color,emissive:color,emissiveIntensity:i,roughness:.4});
 `;
 // Solid light panel box face (renders p2/p3/f-left, pass 2): one uniform panel colour over head, panel and foot, thin joints at 27 % and 87 % from the top,
 // optional vertical joint on the cut-out line, one small sconce at 51 % from the top with two faint narrow light streaks (no opaque wash fans).

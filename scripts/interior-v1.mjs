@@ -1,10 +1,9 @@
 import fs from 'node:fs';
-import {spawnSync} from 'node:child_process';
-import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
-import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
+import {readSceneGraph} from './sync-scene-artifacts.mjs';
+import {connectPascal,callMcpTool} from './mcp-client.mjs';
 import {projectId,levelId,zoneId,ceilingId,palette,items} from '../src/interior-v1.mjs';
-const c=new Client({name:'interior-v1-builder',version:'1'},{capabilities:{}});await c.connect(new StdioClientTransport({command:process.execPath,args:['scripts/pascal.mjs','mcp','connect']}));
-export async function call(name,args={}){await new Promise(r=>setTimeout(r,1100));const raw=await c.callTool({name,arguments:args});const r=raw.structuredContent??JSON.parse(raw.content.find(x=>x.type==='text').text);if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,1200));return r}
+const c=await connectPascal('interior-v1-builder');
+async function call(name,args={}){return callMcpTool(c,name,args,1100)}
 const open=design=>({kind:'open',design});const bounded=(quote,reading)=>({kind:'bounded',quote,reading});
 const mode=process.argv[2]??'build';
 try{
@@ -48,6 +47,6 @@ if(mode==='check'){
 }
 if(mode==='save'){
  const st=await call('get_project_status',{id:projectId});console.log(JSON.stringify(await call('save_scene',{id:projectId,name:st.name,includeCurrentScene:true,expectedVersion:st.version,saveMode:'checkpoint'})));
- const out=spawnSync('python3',['-c',`import sqlite3,sys;c=sqlite3.connect('file:'+sys.argv[1]+'?mode=ro',uri=True);print(c.execute('select graph_json from scenes where id=?',(sys.argv[2],)).fetchone()[0])`,'.pascal/data/pascal.db',projectId],{encoding:'utf8',maxBuffer:20e6});if(out.status!==0)throw Error(out.stderr);const graph=JSON.parse(out.stdout);if(!graph.materials||Object.keys(graph.materials).length<5)throw Error('Complete material registry missing');fs.writeFileSync('scenes/588-m1-interior-v1.json',JSON.stringify(graph,null,2));await call('load_scene',{id:projectId});console.log(JSON.stringify(await call('get_project_status',{id:projectId})));
+ const graph=readSceneGraph(projectId);if(!graph.materials||Object.keys(graph.materials).length<5)throw Error('Complete material registry missing');fs.writeFileSync('scenes/588-m1-interior-v1.json',JSON.stringify(graph,null,2));await call('load_scene',{id:projectId});console.log(JSON.stringify(await call('get_project_status',{id:projectId})));
 }
 }finally{await c.close()}

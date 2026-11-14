@@ -4,8 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
-import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
+import {connectPascal} from './mcp-client.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const id = process.argv[2] ?? '588-m1-interior-v1';
@@ -22,8 +21,8 @@ for (const h of fs.readdirSync(path.join(root, 'scenes/artifacts'))) {
   if (!fs.existsSync(dest)) { fs.copyFileSync(path.join(root, 'scenes/artifacts', h), dest); copied++; }
 }
 
-const c = new Client({name: 'import-scene', version: '1'}, {capabilities: {}});
-await c.connect(new StdioClientTransport({command: process.execPath, args: [path.join(root, 'scripts/pascal.mjs'), 'mcp', 'connect'], cwd: root}));
+const c = await connectPascal('import-scene',{args:[path.join(root, 'scripts/pascal.mjs'), 'mcp', 'connect'],cwd:root});
+
 const call = async (n, a) => { const r = await c.callTool({name: n, arguments: a}); const v = r.structuredContent ?? JSON.parse(r.content.find(x => x.type === 'text').text); if (r.isError || v.code) throw Error(n + ': ' + JSON.stringify(v).slice(0, 400)); return v; };
 try {
   const exists = (await call('list_scenes', {})).scenes?.some?.(s => s.id === id);

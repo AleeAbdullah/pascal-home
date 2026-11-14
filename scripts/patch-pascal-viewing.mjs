@@ -3,9 +3,9 @@
 // runtime so Preview mode and the embed viewer get trackpad-friendly navigation.
 //
 // The runtime is a prebuilt Next.js bundle under .pascal/runtime/<version>. This script
-//   1. copies the navigation module into the runtime's public/ folder, and
-//   2. injects one React effect into the chunk that renders Pascal's view-only camera,
-//      which dynamically imports that module.
+//   1. computes both camera injections before writing any runtime files, then
+//   2. copies the navigation module into public/ and writes one React effect into
+//      each camera chunk, which dynamically imports that module.
 // The original chunk is kept next to it as <chunk>.orig; `--restore` puts it back.
 // Running it again is safe: it always re-applies from the original.
 //
@@ -35,7 +35,7 @@ async function findRuntimeDirectory() {
   }
   const runtimes = path.join(pascalHome, 'runtime');
   if (!(await exists(runtimes))) return null;
-  const versions = (await fs.readdir(runtimes)).filter((v) => /^\d+\.\d+\.\d+/.test(v)).sort();
+  const versions = (await fs.readdir(runtimes)).filter((v) => /^\d+\.\d+\.\d+/.test(v)).sort((a,b)=>{const x=a.split('.').map(Number),y=b.split('.').map(Number);return x[0]-y[0]||x[1]-y[1]||x[2]-y[2]});
   return versions.length ? path.join(runtimes, versions.at(-1)) : null;
 }
 
@@ -116,16 +116,20 @@ export async function patchPascalViewing({ restore = false, log = console.log } 
   const version = createHash('sha256').update(module).digest('hex').slice(0, 10);
   const moduleUrl = `/${MODULE_PUBLIC_NAME}?v=${version}`;
   const moduleIsNew = !(await exists(publicModule));
-  await fs.writeFile(publicModule, module);
+  const patches = [];
   let changed = false;
   for (const { target, chunk } of chunks) {
     const orig = chunk + '.orig';
     const current = await fs.readFile(chunk, 'utf8');
     if (!(await exists(orig))) {
       if (current.includes(MARKER)) throw new Error(`${target.name}: chunk already patched but backup is missing`);
-      await fs.writeFile(orig, current);
     }
-    const patched = inject(await fs.readFile(orig, 'utf8'), target, moduleUrl);
+    const source = await exists(orig) ? await fs.readFile(orig, 'utf8') : current;
+    patches.push({target,chunk,orig,current,patched:inject(source,target,moduleUrl),source});
+  }
+  await fs.writeFile(publicModule, module);
+  for (const {target,chunk,orig,current,patched,source} of patches) {
+    if (!(await exists(orig))) await fs.writeFile(orig,source);
     if (patched === current) continue;
     await fs.writeFile(chunk, patched);
     changed = true;

@@ -51,7 +51,8 @@ const hanging=source(`const q=part('hanging_run'),r=part('rails'),c=part('garmen
 box(q,L,.08,d,0,.04,0,'walnut',.015);box(q,L,2.2,.025,0,1.1,-d/2+.0125,'walnut',.01);for(const x of [-L/2+.0125,L/2-.0125])box(q,.025,2.2,d,x,1.1,0,'walnut',.01);box(q,L,.03,d,0,2.2,0,'walnut',.012);box(q,L-.05,.025,d-.04,0,.4,0,'taupe',.008);
 const rod=mesh(r,new T.CylinderGeometry(.013,.013,L-.05,D?20:8),'bronze',0,1.78,0);rod.rotation.z=Math.PI/2;const rod2=mesh(r,new T.CylinderGeometry(.013,.013,L-.05,D?20:8),'bronze',0,1.0,.02);rod2.rotation.z=Math.PI/2;
 if(D){const ks=['linen','ivory','taupe','sage','paper','linen'];const n=Math.floor((L-.12)/.075);for(let i=0;i<n;i++){const x=-L/2+.07+i*(L-.14)/(n-1);box(c,.045,.95+(i%3)*.04,d*.58,x,1.78-.5-(i%3)*.02,.0,ks[(i*7)%ks.length],.012);if(i%2===0)box(c,.04,.7,d*.5,x,1.0-.4,.02,ks[(i*3+1)%ks.length],.012)}}glow(r,L-.1,.01,.02,0,2.17,d/2-.05)`,{length:2,depth:.6});
-export const relax=code=>code.replace(/export const params=.*?;export const mount=/s,m=>m.replace(/"(\w+)":\{"default":([\d.e-]+),"min":[\d.e-]+,"max":[\d.e-]+/g,(all,k,d)=>k==='detail'||k==='shadows'?all:`"${k}":{"default":${d},"min":0.1,"max":15`));
+export const relaxParams=code=>code.replace(/"(\w+)":\{"default":([\d.e-]+),"min":[\d.e-]+,"max":[\d.e-]+/g,(all,k,d)=>k==='detail'||k==='shadows'?all:`"${k}":{"default":${d},"min":0.1,"max":15`);
+export const relax=code=>code.replace(/export const params=.*?;export const mount=/s,relaxParams);
 const items=[];
 function item(key,name,code,x,z,rotation=0,options={}){items.push({key,name,code,parentId:levelId,position:[x,0,z],rotation,...options})}
 // Room review 2026-10-26: dining group at the architect position; L-sofa group, square table, side tables, three corner plants.

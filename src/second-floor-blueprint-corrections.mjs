@@ -18,7 +18,7 @@ export function openingPatches(nodes){
 }
 
 // Items 1, 2, 5: new walls (all 9 in). Parapets follow the roof parapet recipe in scripts/build-home.mjs (42 in, keys parapet-14/15).
-export const parapetName='Roof parapet · section level +31′-2″';
+const parapetName='Roof parapet · section level +31′-2″';
 const parapetBase={sourceFile,heightBasis:'Owner-delegated conflict resolution: 42 inch difference between section levels',positionBasis:'PDF wall-face grid and vector trace'};
 export const newWalls=[
  {key:'parapet-14',template:'wall_vjv0rzneossz91q0',name:parapetName,start:[514.5,277],end:[514.5,440],t:9,h:42,
@@ -30,7 +30,7 @@ export const newWalls=[
   basis:'Rear void east edge x=669..678, z=163.75..208 in continues sf-mumty-west; the edge was open between z 168.8 and 203.5'},
 ];
 // Item 8 / 19: mumty front wall thickened to 9 in where the drawing shows it; centres from the drawn faces.
-export const frontWalls=[
+const frontWalls=[
  {id:'wall_as693d64ae',z:165.8,t:9,reason:'Mumty front wall x 673.5..742.5 is 9 in, faces z=161.3 and 170.3 in (centre 165.8)'},
  {id:'wall_588_sf_maid_mumty_front_3',z:165.9,t:9,end:954,reason:'Maid/bedroom-east end block x 936..954, z 161.4..170.4 in is 9 in'},
 ];
@@ -42,7 +42,7 @@ export function wallPatches(nodes){
 }
 
 // Items 3, 4, 10, 14: slab polygons (inches). East circulation/front terrace edges are the parapet-face z 444.4 in.
-export const slabPolygons={
+const slabPolygons={
  slab_as0b8b8246:{reason:'West roof terrace also covers x 429..519, z 272.5..320.5 in (stops at the shaft parapet and the stair-void west face; shaft void x 433.5..514.5, z 325..568 stays open)',
   polygon:[[-9,-9],[375,-9],[375,208],[528,208],[528,281.5],[519,281.5],[519,320.5],[429,320.5],[429,572.5],[-9,572.5]]},
  slab_as098b7f20:{reason:'East circulation roof starts at z=170.5 in (floor hole outside mumty door D-3′) and ends at the stair-void south parapet face z=444.4 in',
@@ -71,7 +71,7 @@ export function wallCreate(nodes,w){
 // Closing the shaft/stair-void rings re-claims those two zones as auto-derived rooms (polygons run to the wall centrelines; Pascal ignores a
 // patch back to the hand-drawn rectangles). Names are kept; floor and ceiling stay off. The stub wall (item 5) closes the roof perimeter, so
 // Pascal also derives one roof-wide room: keep it as a floorless, ceilingless "Roof terrace" zone like the original build did.
-export const voidZoneIds=['zone_3gf3yqu2qcbklm8o','zone_wc15jlwxzc3jn9v0'];
+const voidZoneIds=['zone_3gf3yqu2qcbklm8o','zone_wc15jlwxzc3jn9v0'];
 export const voidZonePatches=nodes=>[
  ...voidZoneIds.filter(id=>nodes[id]).map(id=>({op:'update',id,data:{hasFloor:false,hasCeiling:false}})),
  ...Object.values(nodes).filter(n=>n.parentId===secondFloorId&&n.type==='zone'&&n.autoFromWalls&&/^Room \d+$/.test(n.name)).map(z=>({op:'update',id:z.id,data:{name:'Roof terrace',hasFloor:false,hasCeiling:false,spaceRole:'generic',enclosureStatus:'open'}})),

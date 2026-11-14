@@ -1,6 +1,6 @@
 # Run the 588 M1 house on another device
 
-Needs Node.js 22.13 or newer and git. Works on macOS, Linux and Windows.
+Needs Node.js 22.13 or newer and git. Python 3 is needed only for `scripts/pdf-vectors.py`, not scene export: `readSceneGraph` in `scripts/sync-scene-artifacts.mjs` uses `node:sqlite`. Works on macOS, Linux and Windows.
 
 ## 1. Get the project
 
@@ -24,7 +24,7 @@ It prints the editor address, for example `http://pascal.localhost:61617`.
 npm run scene:import
 ```
 
-It loads the committed house into this device's Pascal and prints the link to open.
+It loads the committed house into this device's Pascal and prints the link to open. MCP connection uses `connectPascal` in `scripts/mcp-client.mjs`.
 
 ## 4. View and edit
 

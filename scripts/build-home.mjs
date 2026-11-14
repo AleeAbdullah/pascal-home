@@ -1,13 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
-import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
+import {connectPascal} from './mcp-client.mjs';
 import {model,payload,projectId,inch,splitWalls,constructionFloors,xy,windowSchedule,doorSchedule} from '../src/588-m1.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const statePath=path.join(root,'.pascal/588-build-state.json');
-const client=new Client({name:'pascal-home-588',version:'1.0.0'},{capabilities:{}});
-await client.connect(new StdioClientTransport({command:process.execPath,args:[path.join(root,'scripts/pascal.mjs'),'mcp','connect']}));
+const client=await connectPascal('pascal-home-588',{version:'1.0.0',args:[path.join(root,'scripts/pascal.mjs'),'mcp','connect']});
+
 const value=r=>{if(r.structuredContent)return r.structuredContent;const t=r.content.find(c=>c.type==='text')?.text??'';try{return JSON.parse(t);}catch{return {error:t};}};
 let lastCall=0;
 async function call(name,args={}){await new Promise(resolve=>setTimeout(resolve,Math.max(0,1100-(Date.now()-lastCall))));lastCall=Date.now();const raw=await client.callTool({name,arguments:args});const r=value(raw);if(raw.isError||r.error||r.code||r.conflicts?.some(c=>c.severity==='error'||r.changes===0)){fs.writeFileSync('/tmp/pascal-last-error.json',JSON.stringify(raw,null,2));throw Error(`${name}: ${JSON.stringify(r).slice(0,500)}`);}return r;}

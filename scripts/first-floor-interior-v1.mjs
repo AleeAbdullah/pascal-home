@@ -1,13 +1,10 @@
 import fs from 'node:fs';
-import {spawnSync} from 'node:child_process';
-import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
-import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
+import {readSceneGraph} from './sync-scene-artifacts.mjs';
+import {connectPascal,callMcpTool} from './mcp-client.mjs';
 import {projectId,levelId,rooms,palette,items,floorFinishes} from '../src/first-floor-interior-v1.mjs';
-const c=new Client({name:'first-floor-interior-v1',version:'1'},{capabilities:{}});
-await c.connect(new StdioClientTransport({command:process.execPath,args:['scripts/pascal.mjs','mcp','connect']}));
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-async function call(name,args={}){await sleep(1150);const raw=await c.callTool({name,arguments:args});const r=raw.structuredContent??JSON.parse(raw.content.find(x=>x.type==='text').text);if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,1200));return r}
-function fullGraph(){const p=spawnSync('python3',['-c',"import sqlite3; c=sqlite3.connect('file:.pascal/data/pascal.db?mode=ro',uri=True);print(c.execute('select graph_json from scenes where id=?',('588-m1-interior-v1',)).fetchone()[0])"],{encoding:'utf8',maxBuffer:30e6});if(p.status)throw Error(p.stderr);return JSON.parse(p.stdout)}
+const c=await connectPascal('first-floor-interior-v1');
+
+async function call(name,args={}){return callMcpTool(c,name,args,1150)}
 const mode=process.argv[2]??'build';
 try{
 await call('load_scene',{id:projectId});let scene=await call('get_scene');
@@ -57,7 +54,7 @@ if(mode==='check'){
 }
 if(mode==='save'){
  const st=await call('get_project_status',{id:projectId});console.log(JSON.stringify(await call('save_scene',{id:projectId,name:st.name,includeCurrentScene:true,expectedVersion:st.version,saveMode:'checkpoint'})));
- const g=fullGraph();if(!g.materials||Object.keys(g.materials).length<20)throw Error('Incomplete material registry');fs.writeFileSync('scenes/588-m1-interior-v1.json',JSON.stringify(g,null,2));{const {syncSceneArtifacts}=await import('./sync-scene-artifacts.mjs');console.log('Artifacts',JSON.stringify(syncSceneArtifacts()));}
+ const g=readSceneGraph('588-m1-interior-v1');if(!g.materials||Object.keys(g.materials).length<20)throw Error('Incomplete material registry');fs.writeFileSync('scenes/588-m1-interior-v1.json',JSON.stringify(g,null,2));{const {syncSceneArtifacts}=await import('./sync-scene-artifacts.mjs');console.log('Artifacts',JSON.stringify(syncSceneArtifacts()));}
  await call('load_scene',{id:projectId});console.log(JSON.stringify(await call('get_project_status',{id:projectId})));
 }
 if(mode==='walk'){

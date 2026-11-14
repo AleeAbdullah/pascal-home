@@ -1,11 +1,10 @@
 import fs from 'node:fs';
-import {spawnSync} from 'node:child_process';
-import {Client} from '../node_modules/@modelcontextprotocol/client/dist/index.mjs';
-import {StdioClientTransport} from '../node_modules/@modelcontextprotocol/client/dist/stdio.mjs';
+import {saveSceneSnapshot} from './sync-scene-artifacts.mjs';
+import {connectPascal} from './mcp-client.mjs';
 import {inch,xy,projectId,source} from '../src/588-m1.mjs';
-import {screenCode,guardCode,tankCode,gateCode,slatGateCode,gatePierCode,entrySoffitCode,ledReveal,claddingCode,pergolaCode,planterCode,trimCode,rechargeCode,paramCode,sourceUrl} from '../src/588-exterior.mjs';
+import {screenCode,guardCode,tankCode,gateCode,gatePierCode,entrySoffitCode,ledReveal,claddingCode,pergolaCode,planterCode,rechargeCode,paramCode,sourceUrl} from '../src/588-exterior.mjs';
 import * as EX from '../src/588-exterior.mjs';
-const c=new Client({name:'pascal-exterior',version:'1'},{capabilities:{}});await c.connect(new StdioClientTransport({command:process.execPath,args:['scripts/pascal.mjs','mcp','connect']}));
+const c=await connectPascal('pascal-exterior');
 async function call(name,args={}){await new Promise(r=>setTimeout(r,Number(process.env.PASCAL_THROTTLE_MS??1000)));const raw=await c.callTool({name,arguments:args});let r=raw.structuredContent;if(!r){try{r=JSON.parse(raw.content.find(x=>x.type==='text').text)}catch{throw Error(JSON.stringify(raw).slice(0,500));}}if(raw.isError||r.error||r.code)throw Error(name+': '+JSON.stringify(r).slice(0,700));return r;}
 const gf='level_as4e3a9d57',ff='level_as4d3a9bc4',sf='level_as503aa07d';
 let scene;
@@ -304,15 +303,13 @@ await slab('entry-step-12',gf,[[519,695.5],[669,695.5],[669,707.5],[519,707.5]],
  }
 }else throw Error('Unknown stage');
 console.log('Completed '+stage);
-// Optional: node scripts/build-exterior.mjs <stage> [save]. Edits live only in this process until a checkpoint is saved.
+// Optional: node scripts/build-exterior.mjs <stage> [save]. Use save to checkpoint the scene after the stage completes.
 const out=process.env.EXT_OUT??'/tmp';
 fs.writeFileSync(out+'/ext-scene-after.json',JSON.stringify(await call('get_scene')));
 const v=await call('verify_scene');fs.writeFileSync(out+'/ext-verify-after.json',JSON.stringify(v,null,2));console.log('Verification issues',v.issues.length);
 if(process.argv[3]==='save'){
  const id=sceneId,st=await call('get_project_status',{id});
  console.log(JSON.stringify(await call('save_scene',{id,name:st.name,expectedVersion:st.version,saveMode:'checkpoint',includeCurrentScene:true})).slice(0,600));
- const r=spawnSync('python3',['-c',"import sqlite3; c=sqlite3.connect('file:.pascal/data/pascal.db?mode=ro',uri=True);print(c.execute('select graph_json from scenes where id=?',('"+id+"',)).fetchone()[0])"],{encoding:'utf8',maxBuffer:30e6});if(r.status)throw Error(r.stderr);
- const g=JSON.parse(r.stdout);if(!g.materials||Object.keys(g.materials).length<26)throw Error('Incomplete material registry');
- fs.writeFileSync('scenes/'+id+'.json',JSON.stringify(g,null,2)+'\n');{const {syncSceneArtifacts}=await import('./sync-scene-artifacts.mjs');console.log('Artifacts',JSON.stringify(syncSceneArtifacts()));}console.log(JSON.stringify(await call('get_project_status',{id})));
+ saveSceneSnapshot(id,26,'Incomplete material registry');console.log(JSON.stringify(await call('get_project_status',{id})));
 }
 }finally{await c.close();}

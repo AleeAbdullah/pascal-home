@@ -39,4 +39,5 @@ After a patch, hard-reload any open Pascal tab once (the bundle is cached as imm
 the module file was new, restart Pascal as well so its static file list is rebuilt.
 
 If a future Pascal runtime changes the camera component shape, the script fails with a message
-naming which pattern it could not find, and the editor keeps running unpatched.
+naming which pattern it could not find. Both injections are computed before writing, so a failed
+injection leaves runtime files unchanged.

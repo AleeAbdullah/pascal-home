@@ -394,9 +394,6 @@ class Pdf:
         pg = self.pages()
         return pg[n - 1] if 1 <= n <= len(pg) else None
 
-    def first_page(self):
-        return self.get_page(1)
-
 
 def _predictor(data, parms):
     if not isinstance(parms, dict):
