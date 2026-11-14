@@ -17,7 +17,8 @@
     "patch:viewing": "node scripts/patch-pascal-viewing.mjs",
     "patch:viewing:restore": "node scripts/patch-pascal-viewing.mjs --restore",
     "scene:import": "node scripts/import-scene.mjs",
-    "scene:export": "node --no-warnings scripts/export-scene.mjs"
+    "scene:export": "node --no-warnings scripts/export-scene.mjs",
+    "variant": "node scripts/variant.mjs"
   },
   "dependencies": {
     "@pascal-app/cli": "1.0.6"

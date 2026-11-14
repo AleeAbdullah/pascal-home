@@ -1,0 +1,92 @@
+[
+  {
+    "name": "checkpoint-265",
+    "file": "scenes/588-m1-checkpoint-265.json",
+    "sceneId": "588-m1-checkpoint-265",
+    "parent": null,
+    "kind": "checkpoint",
+    "producedBy": "snapshot-only",
+    "commit": "20f5d17",
+    "note": "Historical stage snapshot."
+  },
+  {
+    "name": "governing-plan",
+    "file": "scenes/588-m1-governing-plan.json",
+    "sceneId": "588-m1-governing-plan",
+    "parent": "checkpoint-265",
+    "kind": "checkpoint",
+    "producedBy": "snapshot-only",
+    "commit": "20f5d17",
+    "note": "Historical stage snapshot."
+  },
+  {
+    "name": "interior-v1-ground-baseline-583",
+    "file": "scenes/588-m1-interior-v1-ground-baseline-583.json",
+    "sceneId": "588-m1-interior-v1-ground-baseline-583",
+    "parent": "interior-v1-lounge-baseline-89",
+    "kind": "checkpoint",
+    "producedBy": "snapshot-only",
+    "commit": "20f5d17",
+    "note": "Historical stage snapshot."
+  },
+  {
+    "name": "interior-v1-lounge-baseline-89",
+    "file": "scenes/588-m1-interior-v1-lounge-baseline-89.json",
+    "sceneId": "588-m1-interior-v1-lounge-baseline-89",
+    "parent": "pre-interior-v1-421",
+    "kind": "checkpoint",
+    "producedBy": "snapshot-only",
+    "commit": "20f5d17",
+    "note": "Historical stage snapshot."
+  },
+  {
+    "name": "interior-v1",
+    "file": "scenes/588-m1-interior-v1.json",
+    "sceneId": "588-m1-interior-v1",
+    "parent": "pre-first-floor-blueprint-review-899",
+    "kind": "design",
+    "producedBy": "snapshot-only",
+    "commit": "59d64f4",
+    "note": "Reviewed whole-house interior."
+  },
+  {
+    "name": "master-a",
+    "file": "scenes/588-m1-master-a.json",
+    "sceneId": "588-m1-master-a",
+    "parent": "interior-v1",
+    "kind": "design",
+    "producedBy": "snapshot-only",
+    "commit": "65844de",
+    "note": "New stairs, dining cupboard and lighter scene."
+  },
+  {
+    "name": "pre-first-floor-blueprint-review-899",
+    "file": "scenes/588-m1-pre-first-floor-blueprint-review-899.json",
+    "sceneId": "588-m1-pre-first-floor-blueprint-review-899",
+    "parent": "interior-v1-ground-baseline-583",
+    "kind": "checkpoint",
+    "producedBy": "snapshot-only",
+    "commit": "b5fc5e8",
+    "note": "Historical stage snapshot."
+  },
+  {
+    "name": "pre-interior-v1-421",
+    "file": "scenes/588-m1-pre-interior-v1-421.json",
+    "sceneId": "588-m1-pre-interior-v1-421",
+    "parent": "governing-plan",
+    "kind": "checkpoint",
+    "producedBy": "snapshot-only",
+    "commit": "20f5d17",
+    "note": "Historical stage snapshot."
+  },
+  {
+    "name": "sample-cedar-house",
+    "file": "scenes/sample-cedar-house.json",
+    "sceneId": "sample-cedar-house",
+    "parent": null,
+    "kind": "sample",
+    "producedBy": "snapshot-only",
+    "commit": "53846c9",
+    "note": "Sample cedar house."
+  }
+]

@@ -1,0 +1,4921 @@
+{
+  "nodes": {
+    "added": {
+      "item_13e45cb4e667840d": {
+        "object": "node",
+        "id": "item_13e45cb4e667840d",
+        "type": "item",
+        "name": "V1 · first floor · master window-zone light rug",
+        "parentId": "level_as4d3a9bc4",
+        "visible": true,
+        "metadata": {
+          "firstInteriorV1Key": "master-rug",
+          "firstInteriorV1Hash": "a81b19311b9e917d",
+          "zoneId": "zone_0003hs4xwvjxbe6j",
+          "room": "master",
+          "dimensionBasis": "Proposed editable interior; checked blueprint and accepted corrections preserve room geometry",
+          "styleReference": "Lake City mood board: lounge 20–30; kitchen 31–37; bedrooms 39–49; bathrooms 50–62; lights and finishes 73–81",
+          "blueprintReview": "2026-10-26",
+          "ownerDecision": "Room review 2026-10-26: first-floor furniture follows the architect floor plans (page 2), Interior V1 styling kept"
+        },
+        "position": [
+          2.286,
+          0,
+          11.94
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "supportSlabId": "slab_588_ff_main",
+        "collectionIds": [
+          "collection_4uicns5juyhw3rq8"
+        ],
+        "slots": {
+          "rug": "library:preset-beige"
+        },
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Editable first-floor Interior V1 proposal. Board-inspired furniture dimensions; governing architecture retained.",
+            "tags": [
+              "interior-v1",
+              "first-floor",
+              "master"
+            ],
+            "parent": "8a70ab659793cc6a46ca3ad9e47bacd193644ad3b7667f209839271e9fd391aa"
+          },
+          "language": "three",
+          "script": "80ac014414516d065f497651acaf106c1351e1883abff771d6a80b7a3c2d0a01",
+          "params": {
+            "width": 3.05,
+            "depth": 1.52,
+            "detail": 1,
+            "shadows": 1
+          },
+          "artifact": "3ec89d32234fb953b1be334ec82a22b0a065fe1c7dea486bb66af0dc5fbb64b3",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -1.7,
+                0,
+                -1.6
+              ],
+              "max": [
+                1.7,
+                0.0185,
+                1.6
+              ]
+            },
+            "params": [
+              {
+                "id": "width",
+                "kind": "number",
+                "default": 4.3,
+                "min": 0.1,
+                "max": 15,
+                "step": 0.01
+              },
+              {
+                "id": "depth",
+                "kind": "number",
+                "default": 3.8,
+                "min": 0.1,
+                "max": 15,
+                "step": 0.01
+              },
+              {
+                "id": "detail",
+                "kind": "number",
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 1
+              },
+              {
+                "id": "shadows",
+                "kind": "number",
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 1
+              }
+            ],
+            "parts": [
+              {
+                "id": "woven_rug",
+                "bounds": {
+                  "min": [
+                    -1.7,
+                    0,
+                    -1.6
+                  ],
+                  "max": [
+                    1.7,
+                    0.0185,
+                    1.6
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "woven_rug",
+                "y": 0.01,
+                "polygon": [
+                  [
+                    -1.697,
+                    -1.595
+                  ],
+                  [
+                    -1.697,
+                    -1.597
+                  ],
+                  [
+                    -1.695,
+                    -1.597
+                  ],
+                  [
+                    1.695,
+                    -1.597
+                  ],
+                  [
+                    1.697,
+                    -1.597
+                  ],
+                  [
+                    1.697,
+                    -1.595
+                  ],
+                  [
+                    1.697,
+                    1.595
+                  ],
+                  [
+                    1.697,
+                    1.597
+                  ],
+                  [
+                    1.695,
+                    1.597
+                  ],
+                  [
+                    -1.695,
+                    1.597
+                  ],
+                  [
+                    -1.697,
+                    1.597
+                  ],
+                  [
+                    -1.697,
+                    1.595
+                  ]
+                ]
+              },
+              {
+                "part": "woven_rug",
+                "y": 0.02,
+                "polygon": [
+                  [
+                    -1.65,
+                    -1.549
+                  ],
+                  [
+                    -1.65,
+                    -1.55
+                  ],
+                  [
+                    -1.649,
+                    -1.55
+                  ],
+                  [
+                    1.649,
+                    -1.55
+                  ],
+                  [
+                    1.65,
+                    -1.55
+                  ],
+                  [
+                    1.65,
+                    -1.549
+                  ],
+                  [
+                    1.65,
+                    1.549
+                  ],
+                  [
+                    1.65,
+                    1.55
+                  ],
+                  [
+                    1.649,
+                    1.55
+                  ],
+                  [
+                    -1.649,
+                    1.55
+                  ],
+                  [
+                    -1.65,
+                    1.55
+                  ],
+                  [
+                    -1.65,
+                    1.549
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "rug",
+                "label": "rug",
+                "color": "#d3c7b3",
+                "roughness": 1,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "linen",
+                "label": "linen",
+                "color": "#dcd2bf",
+                "roughness": 0.96,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "taupe",
+                "label": "taupe",
+                "color": "#ad9c88",
+                "roughness": 0.94,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "woven_rug",
+                "polygon": [
+                  [
+                    -1.695,
+                    -1.595
+                  ],
+                  [
+                    1.695,
+                    -1.595
+                  ],
+                  [
+                    1.695,
+                    1.595
+                  ],
+                  [
+                    -1.695,
+                    1.595
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ]
+              },
+              {
+                "part": "woven_rug",
+                "polygon": [
+                  [
+                    -1.649,
+                    -1.549
+                  ],
+                  [
+                    1.649,
+                    -1.549
+                  ],
+                  [
+                    1.649,
+                    1.549
+                  ],
+                  [
+                    -1.649,
+                    1.549
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0.014
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 2352
+          }
+        },
+        "asset": {
+          "id": "script_3ec89d32234fb953",
+          "category": "rug",
+          "name": "V1 · first floor · master woven bedroom rug",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://3ec89d32234fb953b1be334ec82a22b0a065fe1c7dea486bb66af0dc5fbb64b3",
+          "dimensions": [
+            3.4,
+            0.0185,
+            3.2
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 0.02
+          }
+        }
+      },
+      "item_22xbt91typh0z59c": {
+        "object": "node",
+        "id": "item_22xbt91typh0z59c",
+        "type": "item",
+        "name": "V1 · dining cupboard with open shelves",
+        "parentId": "level_as4e3a9d57",
+        "visible": true,
+        "metadata": {
+          "reason": "Owner request 2026-11-07: cupboard from the two pillars to the master bedroom wall, doors to the dining side, open shelves above (option C)."
+        },
+        "position": [
+          6.93605,
+          0.019,
+          7.11696
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "supportSlabId": "slab_588_gf_lounge_step",
+        "slots": {
+          "bronze": "library:metal-steel",
+          "walnut": "library:wood-squareparquet21",
+          "stone": "library:preset-beige",
+          "paper": "library:preset-cream",
+          "ivory": "library:preset-softwhite"
+        },
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Closed walnut crockery cupboards facing the dining table, stone top, open walnut display shelves above up to 2.4 m.",
+            "tags": [
+              "cupboard",
+              "crockery",
+              "shelves",
+              "dining",
+              "walnut"
+            ]
+          },
+          "language": "three",
+          "script": "ea1a045c7e65b9d7ff6e79ce50572d015687924d97c465be444e5c4774cb33e2",
+          "params": {
+            "width": 4.253,
+            "height": 2.4,
+            "depth": 0.381,
+            "baseHeight": 0.9,
+            "doors": 6,
+            "bays": 4,
+            "detail": 1,
+            "shadows": 1
+          },
+          "artifact": "51b03196dcd045708ce8bfcd4a35b35fb9350c8bb697b27d6a6e059ced8940fe",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -2.1315,
+                0,
+                -0.203
+              ],
+              "max": [
+                2.1315,
+                2.4,
+                0.203
+              ]
+            },
+            "params": [
+              {
+                "id": "width",
+                "label": "Width",
+                "kind": "number",
+                "default": 4.25,
+                "min": 1.2,
+                "max": 6,
+                "step": 0.01,
+                "unit": "m"
+              },
+              {
+                "id": "height",
+                "label": "Height",
+                "kind": "number",
+                "default": 2.4,
+                "min": 1.2,
+                "max": 2.9,
+                "step": 0.01,
+                "unit": "m"
+              },
+              {
+                "id": "depth",
+                "label": "Cupboard depth",
+                "kind": "number",
+                "default": 0.45,
+                "min": 0.3,
+                "max": 0.65,
+                "step": 0.01,
+                "unit": "m"
+              },
+              {
+                "id": "baseHeight",
+                "label": "Cupboard height",
+                "kind": "number",
+                "default": 0.9,
+                "min": 0.6,
+                "max": 1.1,
+                "step": 0.01,
+                "unit": "m"
+              },
+              {
+                "id": "doors",
+                "label": "Doors",
+                "kind": "number",
+                "default": 6,
+                "min": 2,
+                "max": 10,
+                "step": 1
+              },
+              {
+                "id": "bays",
+                "label": "Shelf bays",
+                "kind": "number",
+                "default": 4,
+                "min": 2,
+                "max": 8,
+                "step": 1
+              },
+              {
+                "id": "detail",
+                "kind": "number",
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 1
+              },
+              {
+                "id": "shadows",
+                "kind": "number",
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 1
+              }
+            ],
+            "parts": [
+              {
+                "id": "cupboard",
+                "type": "panel",
+                "bounds": {
+                  "min": [
+                    -2.1265,
+                    0,
+                    -0.198
+                  ],
+                  "max": [
+                    2.1265,
+                    0.87,
+                    0.203
+                  ]
+                }
+              },
+              {
+                "id": "stone_top",
+                "type": "slab",
+                "bounds": {
+                  "min": [
+                    -2.1315,
+                    0.87,
+                    -0.203
+                  ],
+                  "max": [
+                    2.1315,
+                    0.9,
+                    0.188
+                  ]
+                }
+              },
+              {
+                "id": "open_shelves",
+                "type": "panel",
+                "bounds": {
+                  "min": [
+                    -2.1265,
+                    0.9,
+                    -0.168
+                  ],
+                  "max": [
+                    2.1265,
+                    2.4,
+                    0.153
+                  ]
+                }
+              },
+              {
+                "id": "decor",
+                "bounds": {
+                  "min": [
+                    -1.766125,
+                    0.9,
+                    -0.0925
+                  ],
+                  "max": [
+                    1.776125,
+                    1.7425,
+                    0.0775
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "stone_top",
+                "y": 0.9,
+                "polygon": [
+                  [
+                    -2.129,
+                    -0.199
+                  ],
+                  [
+                    -2.129,
+                    -0.201
+                  ],
+                  [
+                    -2.128,
+                    -0.201
+                  ],
+                  [
+                    2.128,
+                    -0.201
+                  ],
+                  [
+                    2.129,
+                    -0.201
+                  ],
+                  [
+                    2.129,
+                    -0.199
+                  ],
+                  [
+                    2.129,
+                    0.184
+                  ],
+                  [
+                    2.129,
+                    0.186
+                  ],
+                  [
+                    2.128,
+                    0.186
+                  ],
+                  [
+                    -2.128,
+                    0.186
+                  ],
+                  [
+                    -2.129,
+                    0.186
+                  ],
+                  [
+                    -2.129,
+                    0.184
+                  ]
+                ]
+              },
+              {
+                "part": "cupboard",
+                "y": 0.87,
+                "polygon": [
+                  [
+                    -2.122,
+                    -0.19
+                  ],
+                  [
+                    -2.122,
+                    -0.193
+                  ],
+                  [
+                    -2.118,
+                    -0.194
+                  ],
+                  [
+                    2.118,
+                    -0.194
+                  ],
+                  [
+                    2.122,
+                    -0.193
+                  ],
+                  [
+                    2.122,
+                    -0.19
+                  ],
+                  [
+                    2.122,
+                    0.155
+                  ],
+                  [
+                    2.122,
+                    0.158
+                  ],
+                  [
+                    2.118,
+                    0.159
+                  ],
+                  [
+                    -2.118,
+                    0.159
+                  ],
+                  [
+                    -2.122,
+                    0.158
+                  ],
+                  [
+                    -2.122,
+                    0.155
+                  ]
+                ]
+              },
+              {
+                "part": "open_shelves",
+                "y": 2.4,
+                "polygon": [
+                  [
+                    -2.124,
+                    -0.164
+                  ],
+                  [
+                    -2.124,
+                    -0.166
+                  ],
+                  [
+                    -2.122,
+                    -0.166
+                  ],
+                  [
+                    2.122,
+                    -0.166
+                  ],
+                  [
+                    2.124,
+                    -0.166
+                  ],
+                  [
+                    2.124,
+                    -0.164
+                  ],
+                  [
+                    2.124,
+                    0.149
+                  ],
+                  [
+                    2.124,
+                    0.151
+                  ],
+                  [
+                    2.122,
+                    0.151
+                  ],
+                  [
+                    -2.122,
+                    0.151
+                  ],
+                  [
+                    -2.124,
+                    0.151
+                  ],
+                  [
+                    -2.124,
+                    0.149
+                  ]
+                ]
+              },
+              {
+                "part": "open_shelves",
+                "y": 1.42,
+                "polygon": [
+                  [
+                    -2.114,
+                    -0.164
+                  ],
+                  [
+                    -2.114,
+                    -0.166
+                  ],
+                  [
+                    -2.112,
+                    -0.166
+                  ],
+                  [
+                    2.112,
+                    -0.166
+                  ],
+                  [
+                    2.114,
+                    -0.166
+                  ],
+                  [
+                    2.114,
+                    -0.164
+                  ],
+                  [
+                    2.114,
+                    0.149
+                  ],
+                  [
+                    2.114,
+                    0.151
+                  ],
+                  [
+                    2.112,
+                    0.151
+                  ],
+                  [
+                    -2.112,
+                    0.151
+                  ],
+                  [
+                    -2.114,
+                    0.151
+                  ],
+                  [
+                    -2.114,
+                    0.149
+                  ]
+                ]
+              },
+              {
+                "part": "open_shelves",
+                "y": 1.92,
+                "polygon": [
+                  [
+                    -2.114,
+                    -0.164
+                  ],
+                  [
+                    -2.114,
+                    -0.166
+                  ],
+                  [
+                    -2.112,
+                    -0.166
+                  ],
+                  [
+                    2.112,
+                    -0.166
+                  ],
+                  [
+                    2.114,
+                    -0.166
+                  ],
+                  [
+                    2.114,
+                    -0.164
+                  ],
+                  [
+                    2.114,
+                    0.149
+                  ],
+                  [
+                    2.114,
+                    0.151
+                  ],
+                  [
+                    2.112,
+                    0.151
+                  ],
+                  [
+                    -2.112,
+                    0.151
+                  ],
+                  [
+                    -2.114,
+                    0.151
+                  ],
+                  [
+                    -2.114,
+                    0.149
+                  ]
+                ]
+              },
+              {
+                "part": "cupboard",
+                "y": 0.08,
+                "polygon": [
+                  [
+                    -2.104,
+                    -0.174
+                  ],
+                  [
+                    -2.104,
+                    -0.176
+                  ],
+                  [
+                    -2.102,
+                    -0.176
+                  ],
+                  [
+                    2.102,
+                    -0.176
+                  ],
+                  [
+                    2.104,
+                    -0.176
+                  ],
+                  [
+                    2.104,
+                    -0.174
+                  ],
+                  [
+                    2.104,
+                    0.139
+                  ],
+                  [
+                    2.104,
+                    0.141
+                  ],
+                  [
+                    2.102,
+                    0.141
+                  ],
+                  [
+                    -2.102,
+                    0.141
+                  ],
+                  [
+                    -2.104,
+                    0.141
+                  ],
+                  [
+                    -2.104,
+                    0.139
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "bronze",
+                "label": "bronze",
+                "color": "#40362b",
+                "roughness": 0.4,
+                "metalness": 0.65,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "walnut",
+                "label": "walnut",
+                "color": "#58402e",
+                "roughness": 0.58,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "stone",
+                "label": "stone",
+                "color": "#d5c6b0",
+                "roughness": 0.68,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "sage",
+                "label": "sage",
+                "color": "#6c725c",
+                "roughness": 0.94,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "paper",
+                "label": "paper",
+                "color": "#f3e8d6",
+                "roughness": 0.9,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "taupe",
+                "label": "taupe",
+                "color": "#ad9c88",
+                "roughness": 0.94,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "ivory",
+                "label": "ivory",
+                "color": "#eee8dc",
+                "roughness": 0.82,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "stone_top",
+                "polygon": [
+                  [
+                    -2.128,
+                    -0.199
+                  ],
+                  [
+                    2.128,
+                    -0.199
+                  ],
+                  [
+                    2.128,
+                    0.184
+                  ],
+                  [
+                    -2.128,
+                    0.184
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0.87
+                ]
+              },
+              {
+                "part": "cupboard",
+                "polygon": [
+                  [
+                    -2.118,
+                    -0.19
+                  ],
+                  [
+                    2.118,
+                    -0.19
+                  ],
+                  [
+                    2.118,
+                    0.155
+                  ],
+                  [
+                    -2.118,
+                    0.155
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0.08
+                ]
+              },
+              {
+                "part": "open_shelves",
+                "polygon": [
+                  [
+                    -2.122,
+                    -0.164
+                  ],
+                  [
+                    2.122,
+                    -0.164
+                  ],
+                  [
+                    2.122,
+                    0.149
+                  ],
+                  [
+                    -2.122,
+                    0.149
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  2.37
+                ]
+              },
+              {
+                "part": "open_shelves",
+                "polygon": [
+                  [
+                    -2.112,
+                    -0.164
+                  ],
+                  [
+                    2.112,
+                    -0.164
+                  ],
+                  [
+                    2.112,
+                    0.149
+                  ],
+                  [
+                    -2.112,
+                    0.149
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  1.3975
+                ]
+              },
+              {
+                "part": "open_shelves",
+                "polygon": [
+                  [
+                    -2.112,
+                    -0.164
+                  ],
+                  [
+                    2.112,
+                    -0.164
+                  ],
+                  [
+                    2.112,
+                    0.149
+                  ],
+                  [
+                    -2.112,
+                    0.149
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  1.8925
+                ]
+              },
+              {
+                "part": "cupboard",
+                "polygon": [
+                  [
+                    -2.102,
+                    -0.174
+                  ],
+                  [
+                    2.102,
+                    -0.174
+                  ],
+                  [
+                    2.102,
+                    0.139
+                  ],
+                  [
+                    -2.102,
+                    0.139
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 10868
+          }
+        },
+        "asset": {
+          "id": "script_51b03196dcd04570",
+          "category": "cupboard",
+          "name": "V1 · dining cupboard with open shelves",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://51b03196dcd045708ce8bfcd4a35b35fb9350c8bb697b27d6a6e059ced8940fe",
+          "dimensions": [
+            4.263,
+            2.4,
+            0.406
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 2.4
+          }
+        }
+      },
+      "item_588_ff_stair_back_guard": {
+        "object": "node",
+        "id": "item_588_ff_stair_back_guard",
+        "type": "item",
+        "name": "ff-stair-back · glass guard",
+        "parentId": "level_as4d3a9bc4",
+        "visible": true,
+        "metadata": {
+          "exteriorKey": "ff-stair-back",
+          "reason": "Owner request 2026-11-07: stair rebuilt as one landing with a 6 + 6 bottom flight"
+        },
+        "position": [
+          15.3,
+          0,
+          7.04
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "slots": {
+          "glass": "library:preset-glass",
+          "metal": "library:metal-steel"
+        },
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Glass railing on the removed stair-front wall line; 42 inch height."
+          },
+          "language": "three",
+          "script": "eeabe95543603d04c89a19e5b7f51f13b59e54514acbab5401a46eec94d481b9",
+          "params": {
+            "width": 4.46,
+            "height": 1.0668
+          },
+          "artifact": "33292b97ccef6fb7536084cd979ce8c746d0db516d4118c3b263528b33ff1928",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -2.2475,
+                0,
+                -0.0325
+              ],
+              "max": [
+                2.2475,
+                1.0668,
+                0.0325
+              ]
+            },
+            "params": [
+              {
+                "id": "width",
+                "kind": "number",
+                "default": 4.0386,
+                "min": 0,
+                "max": 50,
+                "step": 0.001
+              },
+              {
+                "id": "height",
+                "kind": "number",
+                "default": 1.0668,
+                "min": 0,
+                "max": 50,
+                "step": 0.001
+              }
+            ],
+            "parts": [
+              {
+                "id": "glass_guard",
+                "type": "railing",
+                "bounds": {
+                  "min": [
+                    -2.2475,
+                    0,
+                    -0.0325
+                  ],
+                  "max": [
+                    2.2475,
+                    1.0668,
+                    0.0325
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "glass_guard",
+                "y": 0.06,
+                "polygon": [
+                  [
+                    -2.23,
+                    -0.032
+                  ],
+                  [
+                    2.23,
+                    -0.032
+                  ],
+                  [
+                    2.23,
+                    0.032
+                  ],
+                  [
+                    -2.23,
+                    0.032
+                  ]
+                ]
+              },
+              {
+                "part": "glass_guard",
+                "y": 1.07,
+                "polygon": [
+                  [
+                    -2.23,
+                    -0.023
+                  ],
+                  [
+                    2.23,
+                    -0.023
+                  ],
+                  [
+                    2.23,
+                    0.023
+                  ],
+                  [
+                    -2.23,
+                    0.023
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "glass",
+                "label": "glass",
+                "color": "#b9d8dd",
+                "roughness": 0.15,
+                "metalness": 0.1,
+                "transparent": true,
+                "emissive": false
+              },
+              {
+                "id": "metal",
+                "label": "metal",
+                "color": "#282c2b",
+                "roughness": 0.65,
+                "metalness": 0.65,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "glass_guard",
+                "polygon": [
+                  [
+                    -2.23,
+                    -0.032
+                  ],
+                  [
+                    2.23,
+                    -0.032
+                  ],
+                  [
+                    2.23,
+                    0.032
+                  ],
+                  [
+                    -2.23,
+                    0.032
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ]
+              },
+              {
+                "part": "glass_guard",
+                "polygon": [
+                  [
+                    -2.23,
+                    -0.023
+                  ],
+                  [
+                    2.23,
+                    -0.023
+                  ],
+                  [
+                    2.23,
+                    0.023
+                  ],
+                  [
+                    -2.23,
+                    0.023
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  1.0268
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 132
+          }
+        },
+        "asset": {
+          "id": "script_33292b97ccef6fb7",
+          "category": "architectural detail",
+          "name": "ff-stair-front · glass guard",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://33292b97ccef6fb7536084cd979ce8c746d0db516d4118c3b263528b33ff1928",
+          "dimensions": [
+            4.495,
+            1.0668,
+            0.065
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 1.07
+          }
+        }
+      },
+      "item_588_ff_stair_west_corner_guard": {
+        "object": "node",
+        "id": "item_588_ff_stair_west_corner_guard",
+        "type": "item",
+        "name": "ff-stair-west-corner · glass guard",
+        "parentId": "level_as4d3a9bc4",
+        "visible": true,
+        "metadata": {
+          "exteriorKey": "ff-stair-west-corner",
+          "reason": "Owner request 2026-11-07: stair rebuilt as one landing with a 6 + 6 bottom flight"
+        },
+        "position": [
+          13.07,
+          0,
+          7.65
+        ],
+        "rotation": [
+          0,
+          1.5707963267948966,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "slots": {
+          "glass": "library:preset-glass",
+          "metal": "library:metal-steel"
+        },
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Glass railing on the removed stair-front wall line; 42 inch height."
+          },
+          "language": "three",
+          "script": "eeabe95543603d04c89a19e5b7f51f13b59e54514acbab5401a46eec94d481b9",
+          "params": {
+            "width": 1.22,
+            "height": 1.0668
+          },
+          "artifact": "2186b83804ccaccce380c2032f901283dd3501db58cc2dce626cfbd45c8f9d7b",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -0.6275,
+                0,
+                -0.0325
+              ],
+              "max": [
+                0.6275,
+                1.0668,
+                0.0325
+              ]
+            },
+            "params": [
+              {
+                "id": "width",
+                "kind": "number",
+                "default": 4.0386,
+                "min": 0,
+                "max": 50,
+                "step": 0.001
+              },
+              {
+                "id": "height",
+                "kind": "number",
+                "default": 1.0668,
+                "min": 0,
+                "max": 50,
+                "step": 0.001
+              }
+            ],
+            "parts": [
+              {
+                "id": "glass_guard",
+                "type": "railing",
+                "bounds": {
+                  "min": [
+                    -0.6275,
+                    0,
+                    -0.0325
+                  ],
+                  "max": [
+                    0.6275,
+                    1.0668,
+                    0.0325
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "glass_guard",
+                "y": 0.06,
+                "polygon": [
+                  [
+                    -0.61,
+                    -0.032
+                  ],
+                  [
+                    0.61,
+                    -0.032
+                  ],
+                  [
+                    0.61,
+                    0.032
+                  ],
+                  [
+                    -0.61,
+                    0.032
+                  ]
+                ]
+              },
+              {
+                "part": "glass_guard",
+                "y": 1.07,
+                "polygon": [
+                  [
+                    -0.61,
+                    -0.023
+                  ],
+                  [
+                    0.61,
+                    -0.023
+                  ],
+                  [
+                    0.61,
+                    0.023
+                  ],
+                  [
+                    -0.61,
+                    0.023
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "glass",
+                "label": "glass",
+                "color": "#b9d8dd",
+                "roughness": 0.15,
+                "metalness": 0.1,
+                "transparent": true,
+                "emissive": false
+              },
+              {
+                "id": "metal",
+                "label": "metal",
+                "color": "#282c2b",
+                "roughness": 0.65,
+                "metalness": 0.65,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "glass_guard",
+                "polygon": [
+                  [
+                    -0.61,
+                    -0.032
+                  ],
+                  [
+                    0.61,
+                    -0.032
+                  ],
+                  [
+                    0.61,
+                    0.032
+                  ],
+                  [
+                    -0.61,
+                    0.032
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ]
+              },
+              {
+                "part": "glass_guard",
+                "polygon": [
+                  [
+                    -0.61,
+                    -0.023
+                  ],
+                  [
+                    0.61,
+                    -0.023
+                  ],
+                  [
+                    0.61,
+                    0.023
+                  ],
+                  [
+                    -0.61,
+                    0.023
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  1.0268
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 84
+          }
+        },
+        "asset": {
+          "id": "script_2186b83804ccaccc",
+          "category": "architectural detail",
+          "name": "ff-stair-front · glass guard",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://2186b83804ccaccce380c2032f901283dd3501db58cc2dce626cfbd45c8f9d7b",
+          "dimensions": [
+            1.255,
+            1.0668,
+            0.065
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 1.07
+          }
+        }
+      },
+      "item_588_gf_corner_landing_back": {
+        "object": "node",
+        "id": "item_588_gf_corner_landing_back",
+        "type": "item",
+        "name": "gf-stair-corner-landing-back · glass guard",
+        "parentId": "level_as4e3a9d57",
+        "visible": true,
+        "metadata": {
+          "exteriorKey": "gf-stair-corner-landing-back",
+          "reason": "Owner request 2026-11-07: stair up the left glass wall, right turn"
+        },
+        "position": [
+          13.944600000000001,
+          2.3114,
+          7.1501
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "slots": {
+          "glass": "library:preset-glass",
+          "metal": "library:metal-steel"
+        },
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "42 inch glass guard on the main stair upper landing, lobby side."
+          },
+          "language": "three",
+          "script": "125f7c9ead16531e3a3da6358aa9908e60b04a0e73fe43ecdf2d639ed0433751",
+          "params": {
+            "width": 1.524,
+            "height": 1.0668
+          },
+          "artifact": "711386039ec4d70dd2b8678c525701d235e147b72e8e34c3c0b0352fb4aea045",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -0.7795,
+                0,
+                -0.0325
+              ],
+              "max": [
+                0.7795,
+                1.0668,
+                0.0325
+              ]
+            },
+            "params": [
+              {
+                "id": "width",
+                "kind": "number",
+                "default": 1.524,
+                "min": 0,
+                "max": 50,
+                "step": 0.001
+              },
+              {
+                "id": "height",
+                "kind": "number",
+                "default": 1.0668,
+                "min": 0,
+                "max": 50,
+                "step": 0.001
+              }
+            ],
+            "parts": [
+              {
+                "id": "glass_guard",
+                "type": "railing",
+                "bounds": {
+                  "min": [
+                    -0.7795,
+                    0,
+                    -0.0325
+                  ],
+                  "max": [
+                    0.7795,
+                    1.0668,
+                    0.0325
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "glass_guard",
+                "y": 0.06,
+                "polygon": [
+                  [
+                    -0.762,
+                    -0.032
+                  ],
+                  [
+                    0.762,
+                    -0.032
+                  ],
+                  [
+                    0.762,
+                    0.032
+                  ],
+                  [
+                    -0.762,
+                    0.032
+                  ]
+                ]
+              },
+              {
+                "part": "glass_guard",
+                "y": 1.07,
+                "polygon": [
+                  [
+                    -0.762,
+                    -0.023
+                  ],
+                  [
+                    0.762,
+                    -0.023
+                  ],
+                  [
+                    0.762,
+                    0.023
+                  ],
+                  [
+                    -0.762,
+                    0.023
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "glass",
+                "label": "glass",
+                "color": "#b9d8dd",
+                "roughness": 0.15,
+                "metalness": 0.1,
+                "transparent": true,
+                "emissive": false
+              },
+              {
+                "id": "metal",
+                "label": "metal",
+                "color": "#282c2b",
+                "roughness": 0.65,
+                "metalness": 0.65,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "glass_guard",
+                "polygon": [
+                  [
+                    -0.762,
+                    -0.032
+                  ],
+                  [
+                    0.762,
+                    -0.032
+                  ],
+                  [
+                    0.762,
+                    0.032
+                  ],
+                  [
+                    -0.762,
+                    0.032
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ]
+              },
+              {
+                "part": "glass_guard",
+                "polygon": [
+                  [
+                    -0.762,
+                    -0.023
+                  ],
+                  [
+                    0.762,
+                    -0.023
+                  ],
+                  [
+                    0.762,
+                    0.023
+                  ],
+                  [
+                    -0.762,
+                    0.023
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  1.0268
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 84
+          }
+        },
+        "asset": {
+          "id": "script_711386039ec4d70d",
+          "category": "architectural detail",
+          "name": "gf-stair-landing2-south · glass guard",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://711386039ec4d70dd2b8678c525701d235e147b72e8e34c3c0b0352fb4aea045",
+          "dimensions": [
+            1.559,
+            1.0668,
+            0.065
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 1.07
+          }
+        }
+      },
+      "item_6nlb7d4052v7nz2h": {
+        "object": "node",
+        "id": "item_6nlb7d4052v7nz2h",
+        "type": "item",
+        "name": "V1 · first floor · master workstation monitors 27 in",
+        "parentId": "level_as4d3a9bc4",
+        "visible": true,
+        "metadata": {
+          "reason": "Owner layout review: master bedroom option A"
+        },
+        "position": [
+          1.117,
+          0,
+          5.62
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "slots": {},
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Master bedroom layout option A"
+          },
+          "language": "three",
+          "script": "cf28dfb8a84bcb8ce4ef72a77607ad3743476b9dbb0a5692dc24bcde9d4cdf51",
+          "params": {},
+          "artifact": "91a177104cd9b388ec93f7d290ee174435a9b9d7851c119ed8565fce2e1b8ed1",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -0.64,
+                0,
+                -0.07
+              ],
+              "max": [
+                0.64,
+                0.435,
+                0.07
+              ]
+            },
+            "params": [],
+            "parts": [
+              {
+                "id": "monitors",
+                "bounds": {
+                  "min": [
+                    -0.64,
+                    0,
+                    -0.07
+                  ],
+                  "max": [
+                    0.64,
+                    0.435,
+                    0.07
+                  ]
+                }
+              }
+            ],
+            "surfaces": [],
+            "slots": [
+              {
+                "id": "material_1",
+                "color": "#0d0e0f",
+                "roughness": 0.35,
+                "metalness": 0.3,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "material_2",
+                "color": "#07090b",
+                "roughness": 0.15,
+                "metalness": 0.4,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 96
+          }
+        },
+        "asset": {
+          "id": "script_91a177104cd9b388",
+          "category": "interior design",
+          "name": "V1 · first floor · master workstation monitors 27 in",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://91a177104cd9b388ec93f7d290ee174435a9b9d7851c119ed8565fce2e1b8ed1",
+          "dimensions": [
+            1.28,
+            0.435,
+            0.14
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "item_ldnf1ioa1zaq4ro6": {
+        "object": "node",
+        "id": "item_ldnf1ioa1zaq4ro6",
+        "type": "item",
+        "name": "V1 · first floor · master workstation task chair",
+        "parentId": "level_as4d3a9bc4",
+        "visible": true,
+        "metadata": {
+          "reason": "Owner layout review: master bedroom option A"
+        },
+        "position": [
+          1.118,
+          0,
+          6.73
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "slots": {},
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Master bedroom layout option A"
+          },
+          "language": "three",
+          "script": "2bafcae2d30ad3d281e25efb68390fc6357235fbfbaf9cfdd4f4b5a749a01b90",
+          "params": {},
+          "artifact": "c7db76e3ff7b318fba182b3a2d077f13cbc3bde79436d567379da9c6f4a8a281",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -0.305,
+                0,
+                -0.311295
+              ],
+              "max": [
+                0.305,
+                0.975,
+                0.311295
+              ]
+            },
+            "params": [],
+            "parts": [
+              {
+                "id": "task_chair",
+                "bounds": {
+                  "min": [
+                    -0.305,
+                    0,
+                    -0.311295
+                  ],
+                  "max": [
+                    0.305,
+                    0.975,
+                    0.311295
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "task_chair",
+                "y": 0.48,
+                "polygon": [
+                  [
+                    -0.275,
+                    -0.25
+                  ],
+                  [
+                    0.245,
+                    -0.25
+                  ],
+                  [
+                    0.245,
+                    0.25
+                  ],
+                  [
+                    -0.275,
+                    0.25
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "material_1",
+                "color": "#4a4440",
+                "roughness": 0.85,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "material_2",
+                "color": "#1a1c1e",
+                "roughness": 0.5,
+                "metalness": 0.3,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "task_chair",
+                "polygon": [
+                  [
+                    -0.275,
+                    -0.25
+                  ],
+                  [
+                    0.245,
+                    -0.25
+                  ],
+                  [
+                    0.245,
+                    0.25
+                  ],
+                  [
+                    -0.275,
+                    0.25
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0.41
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 120
+          }
+        },
+        "asset": {
+          "id": "script_c7db76e3ff7b318f",
+          "category": "interior design",
+          "name": "V1 · first floor · master workstation task chair",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://c7db76e3ff7b318fba182b3a2d077f13cbc3bde79436d567379da9c6f4a8a281",
+          "dimensions": [
+            0.61,
+            0.975,
+            0.62259
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 0.48
+          }
+        }
+      },
+      "item_p1t47l6cfp7648hv": {
+        "object": "node",
+        "id": "item_p1t47l6cfp7648hv",
+        "type": "item",
+        "name": "V1 · first floor · master workstation keyboard",
+        "parentId": "level_as4d3a9bc4",
+        "visible": true,
+        "metadata": {
+          "reason": "Owner layout review: master bedroom option A"
+        },
+        "position": [
+          1.117,
+          0.737,
+          6.05
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "slots": {},
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Master bedroom layout option A"
+          },
+          "language": "three",
+          "script": "f8c116ed13bb50891c774793b9099e976c39775bc022c0b699f434a83cb35391",
+          "params": {},
+          "artifact": "5559764678d83d242e1b1dc92ef7ad80bd61b46ac8846c9ffe784f34fbf39aaa",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -0.22,
+                0,
+                -0.07
+              ],
+              "max": [
+                0.22,
+                0.018,
+                0.07
+              ]
+            },
+            "params": [],
+            "parts": [
+              {
+                "id": "keyboard",
+                "bounds": {
+                  "min": [
+                    -0.22,
+                    0,
+                    -0.07
+                  ],
+                  "max": [
+                    0.22,
+                    0.018,
+                    0.07
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "keyboard",
+                "y": 0.02,
+                "polygon": [
+                  [
+                    -0.22,
+                    -0.07
+                  ],
+                  [
+                    0.22,
+                    -0.07
+                  ],
+                  [
+                    0.22,
+                    0.07
+                  ],
+                  [
+                    -0.22,
+                    0.07
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "material_1",
+                "color": "#20232a",
+                "roughness": 0.5,
+                "metalness": 0.2,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "keyboard",
+                "polygon": [
+                  [
+                    -0.22,
+                    -0.07
+                  ],
+                  [
+                    0.22,
+                    -0.07
+                  ],
+                  [
+                    0.22,
+                    0.07
+                  ],
+                  [
+                    -0.22,
+                    0.07
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 12
+          }
+        },
+        "asset": {
+          "id": "script_5559764678d83d24",
+          "category": "interior design",
+          "name": "V1 · first floor · master workstation keyboard",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://5559764678d83d242e1b1dc92ef7ad80bd61b46ac8846c9ffe784f34fbf39aaa",
+          "dimensions": [
+            0.44,
+            0.018,
+            0.14
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 0.02
+          }
+        }
+      },
+      "item_x025abphmt12zqdy": {
+        "object": "node",
+        "id": "item_x025abphmt12zqdy",
+        "type": "item",
+        "name": "V1 · first floor · master workstation desk 72 x 36 in",
+        "parentId": "level_as4d3a9bc4",
+        "visible": true,
+        "metadata": {
+          "reason": "Owner layout review: master bedroom option A"
+        },
+        "position": [
+          1.117,
+          0,
+          5.855
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "children": [],
+        "slots": {
+          "material_2": "library:metal-steel"
+        },
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Master bedroom layout option A"
+          },
+          "language": "three",
+          "script": "94677d88d677fb758d530159aa6f6d6f64902c79990fd36aa43506b570e5cf46",
+          "params": {
+            "w": 1.829,
+            "d": 0.914
+          },
+          "artifact": "a0d2daee5b76ebd2959dd80ebfee071dab27ca82efb8430109e8ebc3b5a36fd3",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -0.9145,
+                0,
+                -0.457
+              ],
+              "max": [
+                0.9145,
+                0.7375,
+                0.457
+              ]
+            },
+            "params": [
+              {
+                "id": "w",
+                "kind": "number",
+                "default": 1.829,
+                "min": 0,
+                "max": 50,
+                "step": 0.001
+              },
+              {
+                "id": "d",
+                "kind": "number",
+                "default": 0.914,
+                "min": 0,
+                "max": 50,
+                "step": 0.001
+              }
+            ],
+            "parts": [
+              {
+                "id": "desk",
+                "bounds": {
+                  "min": [
+                    -0.9145,
+                    0,
+                    -0.457
+                  ],
+                  "max": [
+                    0.9145,
+                    0.7375,
+                    0.457
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "desk",
+                "y": 0.74,
+                "polygon": [
+                  [
+                    -0.914,
+                    -0.457
+                  ],
+                  [
+                    0.914,
+                    -0.457
+                  ],
+                  [
+                    0.914,
+                    0.457
+                  ],
+                  [
+                    -0.914,
+                    0.457
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "material_1",
+                "color": "#b48a5a",
+                "roughness": 0.55,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "material_2",
+                "color": "#16181a",
+                "roughness": 0.4,
+                "metalness": 0.5,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "desk",
+                "polygon": [
+                  [
+                    -0.914,
+                    -0.457
+                  ],
+                  [
+                    0.914,
+                    -0.457
+                  ],
+                  [
+                    0.914,
+                    0.457
+                  ],
+                  [
+                    -0.914,
+                    0.457
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0.7025
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 48
+          }
+        },
+        "asset": {
+          "id": "script_a0d2daee5b76ebd2",
+          "category": "interior design",
+          "name": "V1 · first floor · master workstation desk 72 x 36 in",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://a0d2daee5b76ebd2959dd80ebfee071dab27ca82efb8430109e8ebc3b5a36fd3",
+          "dimensions": [
+            1.829,
+            0.7375,
+            0.914
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 0.74
+          }
+        }
+      },
+      "sseg_588_bottom_part1": {
+        "object": "node",
+        "id": "sseg_588_bottom_part1",
+        "type": "stair-segment",
+        "parentId": "stair_588_bottom_part1",
+        "visible": true,
+        "metadata": {},
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": 0,
+        "segmentType": "stair",
+        "width": 1.524,
+        "length": 3.6321999999999997,
+        "height": 2.1463,
+        "stepCount": 13,
+        "attachmentSide": "front",
+        "fillToFloor": false,
+        "thickness": 0.1524
+      },
+      "stair_588_bottom_part1": {
+        "object": "node",
+        "id": "stair_588_bottom_part1",
+        "type": "stair",
+        "name": "Main stair · bottom flight",
+        "parentId": "level_as4e3a9d57",
+        "visible": true,
+        "metadata": {
+          "sourceFile": "588 - M1 (Checked by Building Control).pdf",
+          "assembly": "Main stair",
+          "riserInches": 6.5,
+          "treadInches": 11,
+          "sourceBasis": "PDF 5 ft width, 11 inch tread, 6.5 inch riser; traced flight positions. Two landing risers complete 24 total rises.",
+          "constructionBasis": "6 inch display body; structural stair thickness not dimensioned"
+        },
+        "position": [
+          13.944600000000001,
+          0,
+          12.306299999999998
+        ],
+        "rotation": 3.141592653589793,
+        "stairType": "straight",
+        "fromLevelId": "level_as4e3a9d57",
+        "toLevelId": null,
+        "slabOpeningMode": "none",
+        "openingOffset": 0.08,
+        "width": 1.524,
+        "totalRise": 2.1463,
+        "uniformRisers": true,
+        "stepCount": 13,
+        "thickness": 0.1524,
+        "fillToFloor": false,
+        "innerRadius": 0.9,
+        "sweepAngle": 1.5707963267948966,
+        "topLandingMode": "none",
+        "topLandingDepth": 0.9,
+        "showCenterColumn": true,
+        "showStepSupports": true,
+        "railingMode": "right",
+        "railingHeight": 1.0668,
+        "railingStyle": "glass",
+        "children": [
+          "sseg_588_bottom_part1"
+        ]
+      }
+    },
+    "removed": [
+      "item_0l9fzsylipq3esmv",
+      "item_8idkonxr9ezrdh47",
+      "item_9r9ndp3nrc1jtr64",
+      "item_g5qa2mfh4ujgd68t",
+      "item_uta67153anwsv9m2"
+    ],
+    "changed": {
+      "item_0wrixyhwxkfhq2zh": {
+        "visible": false
+      },
+      "item_0yo7epi9n59yf3jp": {
+        "position": [
+          4.29,
+          0.019,
+          8.255
+        ],
+        "rotation": [
+          0,
+          -1.5707963267948966,
+          0
+        ]
+      },
+      "item_17r2wki7dhc5e5y4": {
+        "position": [
+          4.54,
+          0,
+          9.677
+        ],
+        "rotation": [
+          0,
+          -1.5707963267948966,
+          0
+        ]
+      },
+      "item_1v4b2ulgzumstwau": {
+        "visible": false
+      },
+      "item_2kcm94d7sthwe3m4": {
+        "visible": false
+      },
+      "item_2qbfpq5tdfj9vzam": {
+        "visible": false
+      },
+      "item_2uz7gxsdo3udi80l": {
+        "visible": false
+      },
+      "item_2y5dywkt57owoyxr": {
+        "visible": false
+      },
+      "item_308o291ymrg4i0pn": {
+        "position": [
+          2.2,
+          0.019,
+          9.677
+        ]
+      },
+      "item_3pwo66a194xqy7ee": {
+        "visible": false
+      },
+      "item_4ar214dqqcqnafeh": {
+        "visible": false
+      },
+      "item_6s9dv57lof4qr50e": {
+        "position": [
+          2.28,
+          0,
+          11.9
+        ]
+      },
+      "item_7us8cctj7m9dtzim": {
+        "visible": false
+      },
+      "item_a26hbr1bjmi2goca": {
+        "visible": false
+      },
+      "item_b7dwka6jxr1ayi2k": {
+        "visible": false
+      },
+      "item_bfct9rav5ta3811b": {
+        "visible": false
+      },
+      "item_bgtao0e4dckjnmpp": {
+        "visible": false
+      },
+      "item_cn0dqiereu2ps0qd": {
+        "visible": false
+      },
+      "item_cnqzw25bvcii2vhn": {
+        "visible": false
+      },
+      "item_cvg9hldlre0sllxd": {
+        "visible": false
+      },
+      "item_dctgwl1u95fa8d43": {
+        "visible": false
+      },
+      "item_dhozf7krf9ai7h1g": {
+        "visible": false
+      },
+      "item_eectco3pz4hz8a2l": {
+        "visible": false
+      },
+      "item_ege8qsp7m11qdz6c": {
+        "visible": false
+      },
+      "item_f803y3d6id24ex8p": {
+        "visible": false
+      },
+      "item_fudnd9ctbfgrh0f0": {
+        "visible": false
+      },
+      "item_g1h7t41r28dx80mr": {
+        "visible": false
+      },
+      "item_g3e55659xgiztoma": {
+        "visible": false
+      },
+      "item_hnzmrcy5tnpu065p": {
+        "visible": false
+      },
+      "item_i5ajefly10n1xnsq": {
+        "position": [
+          17.526,
+          0,
+          9.86155
+        ]
+      },
+      "item_ij879fpcg03qgd91": {
+        "position": [
+          4.29,
+          0.019,
+          11.1
+        ],
+        "rotation": [
+          0,
+          -1.5707963267948966,
+          0
+        ]
+      },
+      "item_irplr89kuor1yvj8": {
+        "asset": {
+          "id": "script_99b23755423ff1fe",
+          "category": "interior design",
+          "name": "V1 · first floor · master floating media console",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://99b23755423ff1fe51d5295d0a05a11e09ba787ad6b3dba6f2965f0ad0d7d648",
+          "dimensions": [
+            1.95,
+            1.52,
+            0.3055
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 0.46
+          }
+        },
+        "position": [
+          0.145,
+          0,
+          8.992
+        ],
+        "rotation": [
+          0,
+          1.5707963267948966,
+          0
+        ],
+        "slots": {
+          "walnut": "library:wood-squareparquet21",
+          "stone": "library:preset-beige",
+          "bronze": "library:metal-steel",
+          "charcoal": "library:preset-nearblack"
+        },
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Editable first-floor Interior V1 proposal. Board-inspired furniture dimensions; governing architecture retained.",
+            "tags": [
+              "interior-v1",
+              "first-floor",
+              "master"
+            ],
+            "parent": "0287ed8263785e41e7ab37651f91e2de46ae212a50dec12fe8afd6ef4da7cfea"
+          },
+          "language": "three",
+          "script": "7e2e98dc46764d7610809c2b9c3e46bf1d6b2029e621e8fe55550849c23683e1",
+          "params": {
+            "width": 1.93,
+            "depth": 0.28,
+            "detail": 1,
+            "shadows": 1
+          },
+          "artifact": "99b23755423ff1fe51d5295d0a05a11e09ba787ad6b3dba6f2965f0ad0d7d648",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -0.975,
+                0,
+                -0.15275
+              ],
+              "max": [
+                0.975,
+                1.52,
+                0.15275
+              ]
+            },
+            "params": [
+              {
+                "id": "width",
+                "kind": "number",
+                "default": 1.6,
+                "min": 0.6400000000000001,
+                "max": 4,
+                "step": 0.01
+              },
+              {
+                "id": "depth",
+                "kind": "number",
+                "default": 0.28,
+                "min": 0.11200000000000002,
+                "max": 0.7000000000000001,
+                "step": 0.01
+              },
+              {
+                "id": "detail",
+                "kind": "number",
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 1
+              },
+              {
+                "id": "shadows",
+                "kind": "number",
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 1
+              }
+            ],
+            "parts": [
+              {
+                "id": "media_console",
+                "bounds": {
+                  "min": [
+                    -0.975,
+                    0,
+                    -0.15275
+                  ],
+                  "max": [
+                    0.975,
+                    1.52,
+                    0.15275
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "media_console",
+                "y": 0.46,
+                "polygon": [
+                  [
+                    -0.969,
+                    0.137
+                  ],
+                  [
+                    -0.965,
+                    -0.143
+                  ],
+                  [
+                    0.965,
+                    -0.147
+                  ],
+                  [
+                    0.969,
+                    -0.143
+                  ],
+                  [
+                    0.965,
+                    0.137
+                  ],
+                  [
+                    -0.965,
+                    0.142
+                  ]
+                ]
+              },
+              {
+                "part": "media_console",
+                "y": 0.42,
+                "polygon": [
+                  [
+                    -0.959,
+                    -0.133
+                  ],
+                  [
+                    -0.959,
+                    -0.137
+                  ],
+                  [
+                    -0.955,
+                    -0.137
+                  ],
+                  [
+                    0.955,
+                    -0.137
+                  ],
+                  [
+                    0.959,
+                    -0.137
+                  ],
+                  [
+                    0.959,
+                    -0.133
+                  ],
+                  [
+                    0.959,
+                    0.127
+                  ],
+                  [
+                    0.959,
+                    0.131
+                  ],
+                  [
+                    0.955,
+                    0.132
+                  ],
+                  [
+                    -0.955,
+                    0.132
+                  ],
+                  [
+                    -0.959,
+                    0.131
+                  ],
+                  [
+                    -0.959,
+                    0.127
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "walnut",
+                "label": "walnut",
+                "color": "#58402e",
+                "roughness": 0.58,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "stone",
+                "label": "stone",
+                "color": "#d5c6b0",
+                "roughness": 0.68,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "greige",
+                "label": "greige",
+                "color": "#b4aa99",
+                "roughness": 0.65,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "bronze",
+                "label": "bronze",
+                "color": "#40362b",
+                "roughness": 0.4,
+                "metalness": 0.65,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "charcoal",
+                "label": "charcoal",
+                "color": "#242522",
+                "roughness": 0.8,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "media_console",
+                "polygon": [
+                  [
+                    -0.965,
+                    -0.143
+                  ],
+                  [
+                    0.965,
+                    -0.143
+                  ],
+                  [
+                    0.965,
+                    0.137
+                  ],
+                  [
+                    -0.965,
+                    0.137
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0.4205
+                ]
+              },
+              {
+                "part": "media_console",
+                "polygon": [
+                  [
+                    -0.955,
+                    -0.133
+                  ],
+                  [
+                    0.955,
+                    -0.133
+                  ],
+                  [
+                    0.955,
+                    0.127
+                  ],
+                  [
+                    -0.955,
+                    0.127
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 2100
+          }
+        }
+      },
+      "item_jmhnjn1qld8adv1m": {
+        "visible": false
+      },
+      "item_jzwhpw74sumjwtfg": {
+        "visible": false
+      },
+      "item_k0hq5e9sbljlypcj": {
+        "visible": false
+      },
+      "item_k2brzfi98mel1vue": {
+        "visible": false
+      },
+      "item_k31bukk8jiybucsw": {
+        "visible": false
+      },
+      "item_m9rr26p1j39fpntf": {
+        "visible": false
+      },
+      "item_mh6d6gbn7c31jt92": {
+        "visible": false
+      },
+      "item_mnya2ugwidav7iaq": {
+        "visible": false
+      },
+      "item_nhetw7bcmams4fjk": {
+        "visible": false
+      },
+      "item_ni7oezqkzbcjech2": {
+        "visible": false
+      },
+      "item_nku8yyv13tkx2c0o": {
+        "visible": false
+      },
+      "item_o32fosrnsa4n32my": {
+        "visible": false
+      },
+      "item_oxdbii9aahcp67uk": {
+        "visible": false
+      },
+      "item_p77r50ln0vcesqg7": {
+        "visible": false
+      },
+      "item_qe50hknd027cm055": {
+        "visible": false
+      },
+      "item_qsjn0yceungmbm3s": {
+        "visible": false
+      },
+      "item_qy9xiqzpwg8j7uii": {
+        "visible": false
+      },
+      "item_r6qxtlhavf2fkc6m": {
+        "visible": false
+      },
+      "item_rfaktlv8w3x1c3iz": {
+        "visible": false
+      },
+      "item_rjbdu5qha1y780bd": {
+        "visible": false
+      },
+      "item_rkr8jhjo0oylu61x": {
+        "visible": false
+      },
+      "item_rqfkts2k7xj1jjf5": {
+        "visible": false
+      },
+      "item_rzirf2m29g0ghok6": {
+        "visible": false
+      },
+      "item_s0294mtszc2miawm": {
+        "visible": false
+      },
+      "item_s5l9ava3ti88re32": {
+        "visible": false
+      },
+      "item_ssyc0wd7fp21gk32": {
+        "visible": false
+      },
+      "item_svnxpw7q82pz8an7": {
+        "visible": false
+      },
+      "item_tzfllrdtcygsy0m6": {
+        "visible": false
+      },
+      "item_uz4pr3gnwsv27iha": {
+        "visible": false
+      },
+      "item_v1er7o8c2nm3ho7p": {
+        "visible": false
+      },
+      "item_v8at0062hqjy8p9p": {
+        "visible": false
+      },
+      "item_virf8014uv8zson7": {
+        "visible": false
+      },
+      "item_vlpstyl7vpbf1yl3": {
+        "visible": false
+      },
+      "item_vn8zfh0g7o1lrerv": {
+        "visible": false
+      },
+      "item_vz87wh8fzoo3rd56": {
+        "visible": false
+      },
+      "item_w45wt2df0igarg84": {
+        "visible": false
+      },
+      "item_wzscqe6bmguvuiq6": {
+        "asset": {
+          "id": "script_3ec89d32234fb953",
+          "category": "rug",
+          "name": "V1 · first floor · master woven bedroom rug",
+          "thumbnail": "",
+          "source": "mine",
+          "src": "artifact://3ec89d32234fb953b1be334ec82a22b0a065fe1c7dea486bb66af0dc5fbb64b3",
+          "dimensions": [
+            3.4,
+            0.0185,
+            3.2
+          ],
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "surface": {
+            "height": 0.02
+          }
+        },
+        "position": [
+          2.85,
+          0,
+          9.677
+        ],
+        "slots": {
+          "rug": "library:preset-beige"
+        },
+        "source": {
+          "kind": "script",
+          "meta": {
+            "description": "Editable first-floor Interior V1 proposal. Board-inspired furniture dimensions; governing architecture retained.",
+            "tags": [
+              "interior-v1",
+              "first-floor",
+              "master"
+            ],
+            "parent": "8a70ab659793cc6a46ca3ad9e47bacd193644ad3b7667f209839271e9fd391aa"
+          },
+          "language": "three",
+          "script": "80ac014414516d065f497651acaf106c1351e1883abff771d6a80b7a3c2d0a01",
+          "params": {
+            "width": 3.4,
+            "depth": 3.2,
+            "detail": 1,
+            "shadows": 1
+          },
+          "artifact": "3ec89d32234fb953b1be334ec82a22b0a065fe1c7dea486bb66af0dc5fbb64b3",
+          "manifest": {
+            "bounds": {
+              "min": [
+                -1.7,
+                0,
+                -1.6
+              ],
+              "max": [
+                1.7,
+                0.0185,
+                1.6
+              ]
+            },
+            "params": [
+              {
+                "id": "width",
+                "kind": "number",
+                "default": 4.3,
+                "min": 0.1,
+                "max": 15,
+                "step": 0.01
+              },
+              {
+                "id": "depth",
+                "kind": "number",
+                "default": 3.8,
+                "min": 0.1,
+                "max": 15,
+                "step": 0.01
+              },
+              {
+                "id": "detail",
+                "kind": "number",
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 1
+              },
+              {
+                "id": "shadows",
+                "kind": "number",
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 1
+              }
+            ],
+            "parts": [
+              {
+                "id": "woven_rug",
+                "bounds": {
+                  "min": [
+                    -1.7,
+                    0,
+                    -1.6
+                  ],
+                  "max": [
+                    1.7,
+                    0.0185,
+                    1.6
+                  ]
+                }
+              }
+            ],
+            "surfaces": [
+              {
+                "part": "woven_rug",
+                "y": 0.01,
+                "polygon": [
+                  [
+                    -1.697,
+                    -1.595
+                  ],
+                  [
+                    -1.697,
+                    -1.597
+                  ],
+                  [
+                    -1.695,
+                    -1.597
+                  ],
+                  [
+                    1.695,
+                    -1.597
+                  ],
+                  [
+                    1.697,
+                    -1.597
+                  ],
+                  [
+                    1.697,
+                    -1.595
+                  ],
+                  [
+                    1.697,
+                    1.595
+                  ],
+                  [
+                    1.697,
+                    1.597
+                  ],
+                  [
+                    1.695,
+                    1.597
+                  ],
+                  [
+                    -1.695,
+                    1.597
+                  ],
+                  [
+                    -1.697,
+                    1.597
+                  ],
+                  [
+                    -1.697,
+                    1.595
+                  ]
+                ]
+              },
+              {
+                "part": "woven_rug",
+                "y": 0.02,
+                "polygon": [
+                  [
+                    -1.65,
+                    -1.549
+                  ],
+                  [
+                    -1.65,
+                    -1.55
+                  ],
+                  [
+                    -1.649,
+                    -1.55
+                  ],
+                  [
+                    1.649,
+                    -1.55
+                  ],
+                  [
+                    1.65,
+                    -1.55
+                  ],
+                  [
+                    1.65,
+                    -1.549
+                  ],
+                  [
+                    1.65,
+                    1.549
+                  ],
+                  [
+                    1.65,
+                    1.55
+                  ],
+                  [
+                    1.649,
+                    1.55
+                  ],
+                  [
+                    -1.649,
+                    1.55
+                  ],
+                  [
+                    -1.65,
+                    1.55
+                  ],
+                  [
+                    -1.65,
+                    1.549
+                  ]
+                ]
+              }
+            ],
+            "slots": [
+              {
+                "id": "rug",
+                "label": "rug",
+                "color": "#d3c7b3",
+                "roughness": 1,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "linen",
+                "label": "linen",
+                "color": "#dcd2bf",
+                "roughness": 0.96,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              },
+              {
+                "id": "taupe",
+                "label": "taupe",
+                "color": "#ad9c88",
+                "roughness": 0.94,
+                "metalness": 0,
+                "transparent": false,
+                "emissive": false
+              }
+            ],
+            "anchors": [],
+            "lights": [],
+            "undersides": [
+              {
+                "part": "woven_rug",
+                "polygon": [
+                  [
+                    -1.695,
+                    -1.595
+                  ],
+                  [
+                    1.695,
+                    -1.595
+                  ],
+                  [
+                    1.695,
+                    1.595
+                  ],
+                  [
+                    -1.695,
+                    1.595
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ]
+              },
+              {
+                "part": "woven_rug",
+                "polygon": [
+                  [
+                    -1.649,
+                    -1.549
+                  ],
+                  [
+                    1.649,
+                    -1.549
+                  ],
+                  [
+                    1.649,
+                    1.549
+                  ],
+                  [
+                    -1.649,
+                    1.549
+                  ]
+                ],
+                "plane": [
+                  0,
+                  -1,
+                  0,
+                  0.014
+                ]
+              }
+            ],
+            "animations": [],
+            "cutters": [],
+            "cutout": false,
+            "collider": false,
+            "triangles": 2352
+          }
+        }
+      },
+      "item_x2v5rdpipn9bv0ve": {
+        "position": [
+          3.52,
+          0.019,
+          9.677
+        ],
+        "rotation": [
+          0,
+          -1.5707963267948966,
+          0
+        ]
+      },
+      "item_x3inecw3hkq3id1q": {
+        "visible": false
+      },
+      "item_xd9uabv70e60r1fy": {
+        "position": [
+          4.29,
+          0.529,
+          8.255
+        ]
+      },
+      "item_xlu5pubv5bjtffna": {
+        "visible": false
+      },
+      "item_ybkoszhpyy5eoedq": {
+        "visible": false
+      },
+      "item_ysp9qqg96loc4son": {
+        "visible": false
+      },
+      "item_ywnqkcddo02gjwlu": {
+        "visible": false
+      },
+      "item_yzipialxlimulgtd": {
+        "visible": false
+      },
+      "item_z1ndarft6vvwxzqb": {
+        "position": [
+          4.29,
+          0.529,
+          11.1
+        ]
+      },
+      "item_z8l8d5k85yc7gdws": {
+        "visible": false
+      },
+      "level_as4d3a9bc4": {
+        "children": [
+          "wall_as76cb5859",
+          "wall_asc241b53a",
+          "wall_as71ac7c08",
+          "wall_as54179db5",
+          "wall_asbf13ebdb",
+          "wall_as80883e6a",
+          "wall_as635cf616",
+          "wall_as08296fc6",
+          "wall_asff7cb13e",
+          "wall_ase65fccc0",
+          "wall_asf492015b",
+          "wall_as602433fb",
+          "wall_asa1fbffd5",
+          "wall_as2ee2b7c6",
+          "wall_ascee8ef6a",
+          "wall_as3861c689",
+          "wall_as589a5ff3",
+          "wall_as35026126",
+          "wall_as8ade60c7",
+          "wall_as72938221",
+          "wall_asbafc323d",
+          "wall_as6274a83f",
+          "wall_as68eeea9f",
+          "wall_asa194373c",
+          "wall_asbf26d09b",
+          "wall_as0208a4c7",
+          "wall_asd7c7990d",
+          "wall_as01a26594",
+          "slab_asdb03d167",
+          "slab_asda03cfd4",
+          "slab_asdd03d48d",
+          "zone_0002wihxmgbwj7b1",
+          "zone_0003hs4xwvjxbe6j",
+          "zone_0001ern08dd2pdhi",
+          "zone_0000r13b0ok25v3x",
+          "zone_00016gfrosg8i69a",
+          "zone_0002r4qhy8azxspn",
+          "zone_0000gg0z6q4bqyt2",
+          "zone_0002e28una64iqah",
+          "zone_00019fkyt9hvq6xh",
+          "zone_0000evaprx3adrz3",
+          "zone_0000foxvmn79q7gk",
+          "zone_00018e375yoxdxzu",
+          "ceiling_as2eb8e1b0",
+          "ceiling_as2fb8e343",
+          "ceiling_as30b8e4d6",
+          "ceiling_as31b8e669",
+          "ceiling_as32b8e7fc",
+          "ceiling_as33b8e98f",
+          "ceiling_as34b8eb22",
+          "ceiling_as35b8ecb5",
+          "ceiling_as3ab8f494",
+          "ceiling_as56235a9f",
+          "ceiling_as5b23627e",
+          "wall_588_ff_rear_left_1",
+          "wall_588_ff_rear_left_2",
+          "wall_588_ff_rear_right_1",
+          "wall_588_ff_west_1",
+          "wall_588_ff_west_2",
+          "wall_588_ff_master_east_1",
+          "wall_588_ff_master_east_2",
+          "wall_588_ff_master_east_3",
+          "wall_588_ff_bath2_east_1",
+          "wall_588_ff_rear_rooms_front_1",
+          "wall_588_ff_rear_rooms_front_2",
+          "wall_588_ff_rear_rooms_front_3",
+          "wall_588_ff_rear_rooms_front_4",
+          "wall_588_ff_rear_bath_west_1",
+          "wall_588_ff_rear_east_1",
+          "wall_588_ff_rear_closet_front_1",
+          "wall_588_ff_rear_closet_front_2",
+          "wall_588_ff_east_1",
+          "wall_588_ff_east_2",
+          "wall_588_ff_east_rooms_west_1",
+          "wall_588_ff_east_rooms_west_2",
+          "wall_588_ff_guest_front_1",
+          "wall_588_ff_guest_bath_front_1",
+          "wall_588_ff_guest_bath_front_2",
+          "wall_588_ff_lounge_shaft_west_1",
+          "wall_588_ff_lounge_shaft_west_2",
+          "wall_588_ff_shaft_east_1",
+          "wall_588_ff_shaft_east_2",
+          "separator_588_ff_lounge_back",
+          "separator_588_ff_hall_stair",
+          "separator_588_ff_stair_console",
+          "separator_588_ff_stair_east",
+          "separator_588_ff_lobby_front",
+          "ceiling_7sadoifxgql85zav",
+          "ceiling_bzrnelkbztvjs1q1",
+          "ceiling_cixusyvyr3azyr2n",
+          "ceiling_cjocl6pjpl9jco4l",
+          "ceiling_cpl7fhs127dqjwb5",
+          "zone_bi1svik5z032webx",
+          "zone_f0r1by0mpfy2ayxp",
+          "zone_fj6oo1p0c5g64q6p",
+          "zone_hucok6x506v3n6lx",
+          "zone_i7n5ppporimr3o3z",
+          "zone_jzaa3xlczpfl4xgf",
+          "floor-opening_md0p219xyf3b48lw",
+          "floor-opening_lxzjpxwdq7kf31fi",
+          "zone_c3dnsyu90t8kwvnw",
+          "slab_588_ff_main",
+          "stair_kp9tpho9wsnlkr4s",
+          "floor-opening_gn8iae10cpthcfp2",
+          "item_sknb002hu90pu6ik",
+          "item_ueztkw7rrddc6glt",
+          "item_9mckj9j84k7jfr08",
+          "item_7noeb122tsraqdys",
+          "item_0qvzfqjke5gu0kjg",
+          "item_3b0h42tqq3is5e7v",
+          "item_omb0mqpifqwfp1oy",
+          "stair_588_external_1",
+          "item_17r2wki7dhc5e5y4",
+          "item_x2v5rdpipn9bv0ve",
+          "item_wzscqe6bmguvuiq6",
+          "item_0yo7epi9n59yf3jp",
+          "item_xd9uabv70e60r1fy",
+          "item_ij879fpcg03qgd91",
+          "item_z1ndarft6vvwxzqb",
+          "item_irplr89kuor1yvj8",
+          "item_mh6d6gbn7c31jt92",
+          "item_z3uvxu314knjmo0k",
+          "item_godgc7mrpdqkj904",
+          "item_yqly64kjbq236nfu",
+          "item_zq9k5v0xvegzcb2l",
+          "item_nqmo748f4g0h725p",
+          "item_yuf7dl71mcx1jevt",
+          "item_bct8xkmj3skjwk3y",
+          "item_cc6zb0wpxccydlvv",
+          "item_9zqsl1lptcdjrgzz",
+          "item_221tw1wg9sfjlqhh",
+          "item_07h5w0c7xiqfa7yy",
+          "item_47uulzbqcff9597z",
+          "item_j8m1ajiiewpde5fh",
+          "item_pl93vuqkx8h63b80",
+          "item_he6d6cxzlyxxn5z9",
+          "item_qvszylf2o8ip3kvj",
+          "item_2y5dywkt57owoyxr",
+          "item_hfeos4lkon28obhn",
+          "item_dxksezhle281gh2s",
+          "item_rjwbxuwvaeiqfpun",
+          "item_ciczd0p19mfnycdh",
+          "item_64lnzenybwv30p7s",
+          "item_bqwijwbe8aq9mgaj",
+          "item_r0jr8wzxatkpocjh",
+          "item_jaux58zgpqbxy4ez",
+          "item_5y36l0n879mnq86r",
+          "item_wsjmpufmru62ycdh",
+          "item_ve1phkdxaub83ve4",
+          "item_s8vkcyksyx55a69y",
+          "item_7l3c6i7b7x0jr4yx",
+          "item_u1h6m9qyy5i89749",
+          "item_vjn4o7xn6vox7afp",
+          "item_qfi6rhmo4j9l20zg",
+          "item_cyfwmc4n8wmpwn5x",
+          "item_853l112fa6ey42v0",
+          "item_2uz7gxsdo3udi80l",
+          "item_utfia4utrv6q4b5s",
+          "item_qtpg8otkpftzo87c",
+          "item_x6lzbk6y9f6xiuka",
+          "item_42je7da8si9sq7a3",
+          "item_wxqwnyhbrk7e5s98",
+          "item_bt9fciqbg83nqaak",
+          "item_swhoj5hen8vmdruc",
+          "item_etg3bpjtqr51hjc1",
+          "item_vupfz1oa5q93em02",
+          "item_rp3ducj2ay7h8sne",
+          "item_hh60wq13vxrsh0iy",
+          "item_i5uw89s25l2s6k48",
+          "item_1e8ojt9totuqiraw",
+          "item_3x92r7crzjakyq4p",
+          "item_vansfq0lzo8jan6w",
+          "item_a26hbr1bjmi2goca",
+          "item_k9d3mkpz9bxkjwzb",
+          "item_ew2dshu95h4r0u0d",
+          "item_wltk22ex81ejezv0",
+          "item_uq0jmye2n988p0h3",
+          "item_2jd8qoy68tav7tbk",
+          "item_1k5r3j1pzimtnv5z",
+          "item_fd3494l4ccbm77zs",
+          "item_cyh6xqiulw9xmfgu",
+          "spawn_first_interior_v1",
+          "separator_rr9s28yu3s9rx37r",
+          "item_r1423t43ejyk7sdt",
+          "item_iepxsfxorxeu6wgw",
+          "item_lhvjz49e7xpuk9mu",
+          "item_pmg9bwwd5yugwalm",
+          "item_r0xn8a5q76uxzjlr",
+          "item_ywnqkcddo02gjwlu",
+          "separator_588_ff_stair_front",
+          "zone_uydkdxu6mqgvt6fc",
+          "item_rxfzqm7jb4cyhu9t",
+          "item_v1l6x2woy34cg91r",
+          "item_i9wnqh2mf52x87wz",
+          "item_egp6u2qkyaodlw50",
+          "item_otr70ydaarlxufgb",
+          "item_j7p329sctzdebut9",
+          "wall_588_ext_porch_east_ff",
+          "item_308o291ymrg4i0pn",
+          "item_fudnd9ctbfgrh0f0",
+          "item_qsjn0yceungmbm3s",
+          "item_uz4pr3gnwsv27iha",
+          "item_svnxpw7q82pz8an7",
+          "item_2qbfpq5tdfj9vzam",
+          "item_mnya2ugwidav7iaq",
+          "item_g3e55659xgiztoma",
+          "item_73wnt3vl9k25r4sp",
+          "item_068xkzrxjssps0g3",
+          "item_ayp1ye6m66phhp9v",
+          "item_6tziwp3koowpiszm",
+          "item_mudfbzs3th0roc2n",
+          "item_90uniiugkrg91fks",
+          "item_duh73cxb2ro2ztqe",
+          "item_dquc4pn9jql1hj9o",
+          "item_hnzmrcy5tnpu065p",
+          "item_jzwhpw74sumjwtfg",
+          "item_bgtao0e4dckjnmpp",
+          "item_cnqzw25bvcii2vhn",
+          "item_ug59ihxp8qpxxs6k",
+          "item_9bjlh05pip8tlqyw",
+          "item_krgcyznct23z9n2c",
+          "item_8daq7ui1oaijspwu",
+          "item_6fp2m4q8c2d4ptxe",
+          "item_ilnidiwn4qy8eu3t",
+          "item_w45wt2df0igarg84",
+          "item_p77r50ln0vcesqg7",
+          "item_ysp9qqg96loc4son",
+          "item_ege8qsp7m11qdz6c",
+          "item_4ar214dqqcqnafeh",
+          "item_virf8014uv8zson7",
+          "item_rqfkts2k7xj1jjf5",
+          "item_dhozf7krf9ai7h1g",
+          "item_k2brzfi98mel1vue",
+          "item_04azvz0ke3rj1p3c",
+          "item_i5ajefly10n1xnsq",
+          "item_r86865fisrer2z25",
+          "item_vmg5tm0viaar7k4r",
+          "item_x025abphmt12zqdy",
+          "item_6nlb7d4052v7nz2h",
+          "item_p1t47l6cfp7648hv",
+          "item_ldnf1ioa1zaq4ro6",
+          "item_13e45cb4e667840d",
+          "item_588_ff_stair_back_guard",
+          "item_588_ff_stair_west_corner_guard"
+        ]
+      },
+      "level_as4e3a9d57": {
+        "children": [
+          "wall_as202ba876",
+          "wall_as28f54d4f",
+          "wall_as27c614a0",
+          "wall_as6e79b7b4",
+          "wall_asb31f5219",
+          "wall_as7e0df581",
+          "wall_asf6c5c307",
+          "wall_as8016b81f",
+          "wall_as15321cd0",
+          "wall_ase616cbe2",
+          "wall_as421990ee",
+          "wall_as28d5a3b2",
+          "wall_asaa456d93",
+          "wall_asf1ae18d5",
+          "wall_asb32a5368",
+          "wall_asfda0baf5",
+          "wall_asd3b75385",
+          "wall_as971247d8",
+          "wall_as389be5d6",
+          "wall_as191cf645",
+          "wall_as801d3884",
+          "wall_as1aa8ceac",
+          "wall_asf903b3df",
+          "wall_as050475c3",
+          "wall_as2bcede44",
+          "wall_as1e46695c",
+          "wall_asa168b878",
+          "wall_asfe754fa4",
+          "wall_asdbfd6cea",
+          "wall_asb9aa1d96",
+          "wall_as5ec1b1cf",
+          "wall_as8bd1c732",
+          "slab_asb53d0bfc",
+          "slab_asb63d0d8f",
+          "slab_asb73d0f22",
+          "slab_asb83d10b5",
+          "zone_00015marrt4a3m4i",
+          "zone_0003bh4uhk96opeh",
+          "zone_0002qytux8xgogmy",
+          "zone_0001jgsy6e8lk4im",
+          "zone_0001lky50pl25d09",
+          "zone_0000odnkitve1kja",
+          "zone_0001y87pd9wqrztw",
+          "zone_0000ueoa9jmr25q3",
+          "zone_0002xfq1fikubj6l",
+          "zone_0002yf95xjne8cde",
+          "zone_00004g787cin20kt",
+          "zone_00027xvrpy0iun3h",
+          "zone_0001kk7021aykkn9",
+          "zone_00031l60xtehshl0",
+          "ceiling_as3bb8f627",
+          "ceiling_asbbc07b6c",
+          "ceiling_asbcbe3e68",
+          "ceiling_asbcc07cff",
+          "ceiling_asbebe418e",
+          "ceiling_asbfbe4321",
+          "ceiling_asbfc081b8",
+          "ceiling_asc0c0834b",
+          "ceiling_asc1c084de",
+          "ceiling_asc2c08671",
+          "ceiling_asc3c08804",
+          "ceiling_asc4c08997",
+          "ceiling_asc5c08b2a",
+          "wall_588_gf_rear_1",
+          "wall_588_gf_rear_2",
+          "wall_588_gf_rear_3",
+          "wall_588_gf_rear_4",
+          "wall_588_gf_rear_5",
+          "wall_588_gf_west_1",
+          "wall_588_gf_west_2",
+          "wall_588_gf_master_east_1",
+          "wall_588_gf_master_east_2",
+          "wall_588_gf_master_east_3",
+          "wall_588_gf_bath_cross_1",
+          "wall_588_gf_rear_rooms_front_1",
+          "wall_588_gf_rear_rooms_front_2",
+          "wall_588_gf_rear_rooms_front_3",
+          "wall_588_gf_bath2_east_1",
+          "wall_588_gf_pantry_back_1",
+          "wall_588_gf_kitchen_east_lower_1",
+          "wall_588_gf_laundry_west_1",
+          "wall_588_gf_rear_east_1",
+          "wall_588_gf_service_front_1",
+          "wall_588_gf_service_front_2",
+          "wall_588_gf_east_1",
+          "wall_588_gf_east_2",
+          "wall_588_gf_east_rooms_west_1",
+          "wall_588_gf_east_rooms_west_2",
+          "wall_588_gf_east_rooms_west_3",
+          "wall_588_gf_guest_front_1",
+          "wall_588_gf_guest_bath_front_1",
+          "wall_588_gf_drawing_front_1",
+          "wall_588_gf_powder_west_1",
+          "wall_588_gf_lounge_east_1",
+          "wall_588_gf_shaft_east_1",
+          "separator_588_gf_hall_lounge",
+          "separator_588_gf_lounge_step",
+          "separator_588_gf_lounge_step_side",
+          "separator_588_gf_stair_east",
+          "separator_588_gf_lobby_back",
+          "separator_588_gf_lobby_east",
+          "ceiling_ci2inji1rlhadmyq",
+          "ceiling_hqegoc95xtlakuix",
+          "ceiling_qyuqw13q0mlko0ed",
+          "ceiling_s4hh0vv91ueugbqj",
+          "ceiling_zdrbjnvuyt4ssi0y",
+          "zone_766yrncmzupv7mqh",
+          "zone_b7j6e51tho42vp79",
+          "zone_bkipm23szhgwkuc8",
+          "zone_kx0k56o3w9jkko8r",
+          "zone_kyherqz78x8f4x7b",
+          "zone_toaclo72dsgxkle0",
+          "floor-opening_81chekfvyhoaic1b",
+          "zone_f4rg8wqsz60ntnj9",
+          "slab_588_gf_main",
+          "slab_588_gf_sunken",
+          "stair_93moflchtbfj3a7s",
+          "stair_vsu8l2blajmg6u6k",
+          "stair_dgp1gc77h6fntsht",
+          "slab_588_stair_landing_0",
+          "slab_588_stair_landing_1",
+          "separator_588_gf_pantry_entry",
+          "ceiling_eyujbftwo3uj0jkq",
+          "slab_588_ext_entry-step-6",
+          "slab_588_ext_entry-step-12",
+          "wall_588_boundary_0",
+          "wall_588_boundary_1",
+          "wall_588_boundary_2",
+          "wall_588_boundary_3",
+          "wall_588_boundary_4",
+          "wall_588_boundary_5",
+          "wall_588_boundary_6",
+          "wall_588_boundary_7",
+          "wall_588_boundary_8",
+          "wall_588_boundary_9",
+          "wall_588_boundary_10",
+          "wall_588_boundary_11",
+          "wall_588_boundary_12",
+          "wall_588_boundary_13",
+          "wall_588_boundary_14",
+          "wall_588_boundary_15",
+          "wall_588_boundary_16",
+          "wall_588_boundary_17",
+          "wall_588_boundary_18",
+          "wall_588_boundary_19",
+          "wall_588_boundary_20",
+          "wall_588_boundary_21",
+          "wall_588_boundary_22",
+          "wall_588_boundary_23",
+          "wall_588_boundary_24",
+          "wall_588_boundary_25",
+          "wall_588_boundary_26",
+          "wall_588_boundary_27",
+          "wall_588_boundary_28",
+          "wall_588_boundary_29",
+          "wall_588_boundary_30",
+          "item_o5lqxeu9eapf27lr",
+          "item_bzcqznlm37jdrzi9",
+          "item_fjrtr0nnq1oukfnb",
+          "item_bfct9rav5ta3811b",
+          "item_tzfllrdtcygsy0m6",
+          "item_oxdbii9aahcp67uk",
+          "item_x3inecw3hkq3id1q",
+          "item_0wrixyhwxkfhq2zh",
+          "stair_588_external_0",
+          "item_oylqz6fm2wa5qjt7",
+          "item_k0b98d752c3fe88o",
+          "item_b0uz6zfr1yq238rs",
+          "item_075z4j3wmqe9o57f",
+          "item_fwdhi91rupqzzcjt",
+          "item_25kasdknd9fxq03y",
+          "item_u5e6lldmw0js26q9",
+          "item_blp1x0amvdr3uyhj",
+          "item_o5lfavvoa82m0vxb",
+          "item_7zhl2xa4v79xcg36",
+          "item_84ltb5d93m7gl2ge",
+          "item_sr0vtouymwzvtz4y",
+          "item_nx0zl30jenypu1i0",
+          "item_68t8vc0beakygxlg",
+          "item_g1h7t41r28dx80mr",
+          "item_9hjxf6ulj1w76yw7",
+          "spawn_interior_v1",
+          "item_aj4n3tq3hnz652qb",
+          "item_e239dcaogaiovwxb",
+          "item_8v4rxz78y4f2cun0",
+          "item_lebqzy474c1s579c",
+          "item_rllh20r1u4ndtwmb",
+          "item_0mssv2v5qbrhpzzv",
+          "item_r18kwpkbo4cr06rt",
+          "item_53swee2ik19elwhx",
+          "item_p919dlj2jqf4958e",
+          "item_jmkouft5wct3m682",
+          "item_2ovidrbjs52v9g0b",
+          "item_c4m3dvri8024zpsp",
+          "item_ohxnxehkep60uad9",
+          "item_t90gco89bn5091qy",
+          "item_kdxkdgk4gts49k92",
+          "item_jmlywdv3msa0bcht",
+          "item_1h6gc4pbueu9x38t",
+          "item_9rom05zo87wdfnok",
+          "item_f73rdk20fxm1155q",
+          "item_6hx5svsnj32s2yrx",
+          "item_ucf4odcdg2fvvp3u",
+          "item_xy7q0hh7d7vaey4g",
+          "item_dykiiz07efezcig1",
+          "item_ekiaxwque02fhjfy",
+          "item_sa20xurmj1hht2sv",
+          "item_nku8yyv13tkx2c0o",
+          "item_z5utei1o825j5257",
+          "item_dmzza0bjwmfohtou",
+          "item_dffd8swt47tebehs",
+          "item_iwzj4jvw04kziohw",
+          "item_i15fyc18undldvsa",
+          "item_mflsoa7mfkvsumwt",
+          "item_opjj170aeslc6vsv",
+          "item_1wa4fuc6xsgpeo1t",
+          "item_gsoydp9843htyvlj",
+          "item_09r0t8be9j702kgu",
+          "item_4l22qgkw1fkghmkr",
+          "item_maglxmsbkof9x4kg",
+          "item_2hi1gj3i2v418w9x",
+          "item_p3zf6iw4ns291mjs",
+          "item_90vux6g61vgafd3f",
+          "item_il0e0c6qacowbg0y",
+          "item_kmewl6s2532m3l0m",
+          "item_bqhtimiq5gspuog1",
+          "item_f3mdbnl26glt8mpz",
+          "item_jsw63nnvp6kxatgb",
+          "item_u9qjv6jtf4fdw9yj",
+          "item_d5typqelnqvqa1oj",
+          "item_kauad9hu9n36y90r",
+          "item_gydxs0o52hl9k78e",
+          "item_uqo2xdfx32iblhzy",
+          "item_zv7cypzayqslus1g",
+          "item_5p06ap1zxh2vpeit",
+          "item_zakde5jzjk1veh57",
+          "item_j31fbbk241x4afab",
+          "item_1omgwalf7z7rq93k",
+          "item_feknjew00wo79e4b",
+          "item_7fs5igzh6oo3wewv",
+          "item_gptbe7d1tzwe8iz2",
+          "item_dwp7cktvac78i54q",
+          "item_cvg9hldlre0sllxd",
+          "item_y9gvqxg21z4eg3tq",
+          "item_j2au1kse13hqjhu2",
+          "item_ha5lqt8qe4zzfm93",
+          "column_6stq5lg37szmpvk5",
+          "column_sekuyvipd8w7wv44",
+          "column_mh7rne33xz0bwfgl",
+          "column_5pptjjyf9ebpzggg",
+          "item_p4giluvn0wcn302q",
+          "item_41n5g8l7fsawsplb",
+          "item_qhlykgjrv0lija9p",
+          "item_66b92upvc7571i86",
+          "separator_588_gf_pantry_west",
+          "slab_588_gf_podium_front",
+          "item_97bnl161wbf75usm",
+          "item_m9rr26p1j39fpntf",
+          "item_yzipialxlimulgtd",
+          "item_n92go7yi2qjn6sam",
+          "item_j0x231ljs06t2nyh",
+          "item_jwab2liq3gkrn4ez",
+          "item_52m30pysw03yd5uh",
+          "item_9hkr41ry3lirbfn7",
+          "item_46uje0tgap19f086",
+          "item_c80qv6s7m1v538b5",
+          "item_yqhhjqvpwxsg847n",
+          "item_rls5z40q4uxa49lb",
+          "item_6i03zxbub61fgehu",
+          "item_cebimvbertpsj90x",
+          "item_1hdd2fy3hpbltqpt",
+          "item_huju46fhmp3hg2em",
+          "item_9d5dpkmwjtwxe33d",
+          "item_wltgy7pn5ry6lbjq",
+          "item_sgdylugpluu7cadc",
+          "item_i5qnooz0gvwteykp",
+          "item_56zcn3cxn8yoox4y",
+          "item_nwgl0h2chigncnrr",
+          "slab_588_ext_porch-drive",
+          "item_gy1xkx3f9pw08a34",
+          "wall_588_boundary_31",
+          "wall_588_boundary_32",
+          "item_kjts3j24pkmyvqdl",
+          "item_zyzkwmi0qqi0rn4m",
+          "item_6nvy8ofcz5bv45cf",
+          "slab_588_ext_lawn-front",
+          "item_rzirf2m29g0ghok6",
+          "item_ybkoszhpyy5eoedq",
+          "item_r6qxtlhavf2fkc6m",
+          "item_rfaktlv8w3x1c3iz",
+          "item_nhetw7bcmams4fjk",
+          "item_qy9xiqzpwg8j7uii",
+          "item_3pwo66a194xqy7ee",
+          "item_k31bukk8jiybucsw",
+          "item_cn0dqiereu2ps0qd",
+          "item_8yytmdu47mh5e55i",
+          "item_amyme2orwbzf7b8z",
+          "slab_588_ext_verge-grass",
+          "item_v1er7o8c2nm3ho7p",
+          "item_eectco3pz4hz8a2l",
+          "wall_588_ext_porch_east",
+          "item_7iok9x5jl1nmi5tq",
+          "item_2er42bs4m078ee8k",
+          "item_6nqxnubxzeckr34t",
+          "item_jf5kr3mu3v711g6c",
+          "item_s0294mtszc2miawm",
+          "item_dctgwl1u95fa8d43",
+          "item_6822fmsqujd057p5",
+          "item_51vdgd2vsj4gdxj2",
+          "item_rekbvxrhbxw8dln3",
+          "item_ac3z1tttbk7inbmc",
+          "item_hkzhyu2gq5q5jjrs",
+          "item_2kcm94d7sthwe3m4",
+          "item_ssyc0wd7fp21gk32",
+          "item_7us8cctj7m9dtzim",
+          "item_xlu5pubv5bjtffna",
+          "item_qe50hknd027cm055",
+          "item_rkr8jhjo0oylu61x",
+          "item_pxxyjl1o3q9opt3l",
+          "item_9muieln4z5zt0gdm",
+          "item_xgpzo9fs4itljlsk",
+          "item_delo1h6zs1syjxus",
+          "item_benmi5wrsy1rj97j",
+          "item_pjihqiibquxr9pmx",
+          "item_c9etokjbgqm9l58x",
+          "item_b7dwka6jxr1ayi2k",
+          "item_k0hq5e9sbljlypcj",
+          "item_vz87wh8fzoo3rd56",
+          "item_ayq3gyg2r3cjtxo1",
+          "item_a95mvcwdcj0fiist",
+          "item_2nua8wejsm800mpl",
+          "item_8nwvrzditlrcx23e",
+          "item_qi40aixh8kfsf9cc",
+          "item_tb9eachughmjrzkk",
+          "item_asovq09iaoiullpv",
+          "item_cdrnk1r2h3dd116z",
+          "item_eh415lsb5zmfdouj",
+          "item_7ymclfmlrckmejmc",
+          "item_ibswi15mua1aqqi2",
+          "item_zzi0t8ygz4zhj6fv",
+          "item_ogfh5vznqnlfr2rt",
+          "item_bpqh4d5q53bymchh",
+          "item_nitf2mo3ezrvim2n",
+          "slab_588_gf_rear_step_1",
+          "slab_588_gf_rear_step_2",
+          "item_hce0m6rrifis56pt",
+          "item_n8wdpks9nfwo6zoq",
+          "item_0sp3kftm4qpoj3py",
+          "item_ni7oezqkzbcjech2",
+          "item_s5l9ava3ti88re32",
+          "item_ddnjaog9riwt4125",
+          "item_qw3aicnhpj0btj1b",
+          "item_xvt0hhni8isscixb",
+          "item_p04m3azntubr43e4",
+          "item_4mx5f58m8ssmw2kv",
+          "item_1v4b2ulgzumstwau",
+          "item_o32fosrnsa4n32my",
+          "item_zhx4gn6t3n80g7x0",
+          "item_weo9jotknx0168rf",
+          "item_z8l8d5k85yc7gdws",
+          "slab_588_gf_lounge_step",
+          "ceiling_ufdt4l48p0dj4p6w",
+          "zone_4xu1zh666qjq248g",
+          "slab_588_gf_lounge_door_step",
+          "slab_588_gf_maid_step_1",
+          "slab_588_gf_maid_step_2",
+          "item_rjbdu5qha1y780bd",
+          "stair_588_bottom_part1",
+          "item_588_gf_corner_landing_back",
+          "item_22xbt91typh0z59c"
+        ]
+      },
+      "slab_588_stair_landing_0": {
+        "visible": false
+      },
+      "slab_588_stair_landing_1": {
+        "name": "Main stair · corner landing",
+        "polygon": [
+          [
+            13.1826,
+            7.1501
+          ],
+          [
+            14.706600000000002,
+            7.1501
+          ],
+          [
+            14.706600000000002,
+            8.6741
+          ],
+          [
+            13.1826,
+            8.6741
+          ]
+        ]
+      },
+      "sseg_ac20et1ioiqw3syn": {
+        "height": 0.9905999999999999,
+        "length": 1.6764,
+        "stepCount": 6,
+        "width": 1.2192
+      },
+      "stair_93moflchtbfj3a7s": {
+        "name": "Main stair · bottom flight, part 2",
+        "position": [
+          16.383,
+          1.1557,
+          7.7597000000000005
+        ],
+        "railingMode": "both",
+        "stepCount": 6,
+        "totalRise": 0.9905999999999999,
+        "visible": false,
+        "width": 1.2192
+      },
+      "stair_dgp1gc77h6fntsht": {
+        "position": [
+          14.706600000000002,
+          2.3114,
+          7.912100000000001
+        ]
+      },
+      "stair_vsu8l2blajmg6u6k": {
+        "visible": false
+      },
+      "wall_as01a26594": {
+        "visible": false
+      },
+      "wall_as5ec1b1cf": {
+        "visible": false
+      }
+    }
+  },
+  "removedFields": {},
+  "graph": {
+    "added": {},
+    "removed": [],
+    "changed": {
+      "collections": {
+        "collection_xqjqspwah2v2seor": {
+          "id": "collection_xqjqspwah2v2seor",
+          "name": "Interior V1 · lounge / dining",
+          "nodeIds": [
+            "item_oylqz6fm2wa5qjt7",
+            "item_k0b98d752c3fe88o",
+            "item_b0uz6zfr1yq238rs",
+            "item_075z4j3wmqe9o57f",
+            "item_fwdhi91rupqzzcjt",
+            "item_25kasdknd9fxq03y",
+            "item_u5e6lldmw0js26q9",
+            "item_blp1x0amvdr3uyhj",
+            "item_o5lfavvoa82m0vxb",
+            "item_7zhl2xa4v79xcg36",
+            "item_84ltb5d93m7gl2ge",
+            "item_sr0vtouymwzvtz4y",
+            "item_nx0zl30jenypu1i0",
+            "item_68t8vc0beakygxlg",
+            "item_g1h7t41r28dx80mr",
+            "item_9hjxf6ulj1w76yw7",
+            "item_ew6wf2417axhrruv",
+            "item_1incsdvqw381gkfv",
+            "item_bdxxok9tq2kf7cmo",
+            "item_ylxtxqao8dzot8y5",
+            "item_r4zp1aqh72mqtbvc",
+            "spawn_interior_v1",
+            "item_7iok9x5jl1nmi5tq",
+            "item_2er42bs4m078ee8k",
+            "item_6nqxnubxzeckr34t",
+            "item_jf5kr3mu3v711g6c",
+            "item_s0294mtszc2miawm",
+            "item_dctgwl1u95fa8d43"
+          ],
+          "color": "#b99769"
+        },
+        "collection_quzeufno1ydnv8z8": {
+          "id": "collection_quzeufno1ydnv8z8",
+          "name": "Interior V1 · kitchen",
+          "nodeIds": [
+            "item_aj4n3tq3hnz652qb",
+            "item_e239dcaogaiovwxb",
+            "item_8v4rxz78y4f2cun0",
+            "item_lebqzy474c1s579c",
+            "item_rllh20r1u4ndtwmb",
+            "item_0mssv2v5qbrhpzzv",
+            "item_r18kwpkbo4cr06rt",
+            "item_53swee2ik19elwhx",
+            "item_p919dlj2jqf4958e",
+            "item_jmkouft5wct3m682",
+            "item_2ovidrbjs52v9g0b",
+            "item_t6say2v4zn65sc12",
+            "item_c4m3dvri8024zpsp",
+            "item_j2au1kse13hqjhu2",
+            "item_ha5lqt8qe4zzfm93"
+          ],
+          "color": "#b99769"
+        },
+        "collection_vrqtfqrf9eko35ln": {
+          "id": "collection_vrqtfqrf9eko35ln",
+          "name": "Interior V1 · bed2",
+          "nodeIds": [
+            "item_z5utei1o825j5257",
+            "item_dmzza0bjwmfohtou",
+            "item_dffd8swt47tebehs",
+            "item_iwzj4jvw04kziohw",
+            "item_i15fyc18undldvsa",
+            "item_mflsoa7mfkvsumwt",
+            "item_opjj170aeslc6vsv",
+            "item_1wa4fuc6xsgpeo1t",
+            "item_xyywl5jr9o3padbl",
+            "item_4li720pgtijp6w3w",
+            "item_azlj52xnswblr4xq"
+          ],
+          "color": "#b99769"
+        },
+        "collection_u8ytcya6wyit38ng": {
+          "id": "collection_u8ytcya6wyit38ng",
+          "name": "Interior V1 · drawing",
+          "nodeIds": [
+            "item_j31fbbk241x4afab",
+            "item_1omgwalf7z7rq93k",
+            "item_feknjew00wo79e4b",
+            "item_7fs5igzh6oo3wewv",
+            "item_gptbe7d1tzwe8iz2",
+            "item_dwp7cktvac78i54q",
+            "item_cvg9hldlre0sllxd",
+            "item_7lez6nhv29dd3z31",
+            "item_65srm871zvrpw2uy",
+            "item_k7rajzgprsjso6xr"
+          ],
+          "color": "#b99769"
+        },
+        "collection_yoapxqefovwe4rkp": {
+          "id": "collection_yoapxqefovwe4rkp",
+          "name": "Interior V1 · masterBath",
+          "nodeIds": [
+            "item_kmewl6s2532m3l0m",
+            "item_5p06ap1zxh2vpeit",
+            "item_088zr9tys1fg5v65"
+          ],
+          "color": "#b99769"
+        },
+        "collection_7kmeicb6l229h0om": {
+          "id": "collection_7kmeicb6l229h0om",
+          "name": "Interior V1 · masterCloset",
+          "nodeIds": [
+            "item_bm4rz9fbyfz5af9v"
+          ],
+          "color": "#b99769"
+        },
+        "collection_zkn7wmphejqzhthj": {
+          "id": "collection_zkn7wmphejqzhthj",
+          "name": "Interior V1 · guest",
+          "nodeIds": [
+            "item_gsoydp9843htyvlj",
+            "item_09r0t8be9j702kgu",
+            "item_4l22qgkw1fkghmkr",
+            "item_maglxmsbkof9x4kg",
+            "item_2hi1gj3i2v418w9x",
+            "item_p3zf6iw4ns291mjs",
+            "item_90vux6g61vgafd3f",
+            "item_il0e0c6qacowbg0y",
+            "item_a066un7r9wdq9s1f",
+            "item_uwoo5ng5zuastn84",
+            "item_etb67wi532dl0cq5"
+          ],
+          "color": "#b99769"
+        },
+        "collection_q4hihw6pfej67t57": {
+          "id": "collection_q4hihw6pfej67t57",
+          "name": "Interior V1 · dirty",
+          "nodeIds": [
+            "item_ohxnxehkep60uad9",
+            "item_t90gco89bn5091qy",
+            "item_kdxkdgk4gts49k92",
+            "item_jmlywdv3msa0bcht",
+            "item_yruxwcnkc8hutqqi"
+          ],
+          "color": "#b99769"
+        },
+        "collection_baf4ya504qo5ybru": {
+          "id": "collection_baf4ya504qo5ybru",
+          "name": "Interior V1 · guestBath",
+          "nodeIds": [
+            "item_f3mdbnl26glt8mpz",
+            "item_jsw63nnvp6kxatgb",
+            "item_u9qjv6jtf4fdw9yj",
+            "item_53aviylkuiwsitzg"
+          ],
+          "color": "#b99769"
+        },
+        "collection_wp89rrxes2g4uq5f": {
+          "id": "collection_wp89rrxes2g4uq5f",
+          "name": "Interior V1 · laundry",
+          "nodeIds": [
+            "item_1h6gc4pbueu9x38t",
+            "item_9llmx1w7350ix44n"
+          ],
+          "color": "#b99769"
+        },
+        "collection_89cbx6n2xhxlmji4": {
+          "id": "collection_89cbx6n2xhxlmji4",
+          "name": "Interior V1 · guestCloset",
+          "nodeIds": [
+            "item_dxvtdtdhijk0emd8"
+          ],
+          "color": "#b99769"
+        },
+        "collection_ht12ns5hx3wo3b7j": {
+          "id": "collection_ht12ns5hx3wo3b7j",
+          "name": "Interior V1 · powder",
+          "nodeIds": [
+            "item_d5typqelnqvqa1oj",
+            "item_kauad9hu9n36y90r",
+            "item_zulbcr6lehwjvh83"
+          ],
+          "color": "#b99769"
+        },
+        "collection_lhz8iq821c1b98q0": {
+          "id": "collection_lhz8iq821c1b98q0",
+          "name": "Interior V1 · maidBath",
+          "nodeIds": [
+            "item_gydxs0o52hl9k78e",
+            "item_uqo2xdfx32iblhzy",
+            "item_zv7cypzayqslus1g",
+            "item_549rjxgukxx36hnf"
+          ],
+          "color": "#b99769"
+        },
+        "collection_xurm3zkew5iv3igb": {
+          "id": "collection_xurm3zkew5iv3igb",
+          "name": "Interior V1 · closet2",
+          "nodeIds": [
+            "item_q0r9060rsw5v13jg"
+          ],
+          "color": "#b99769"
+        },
+        "collection_mb554h2dp7f7vr9g": {
+          "id": "collection_mb554h2dp7f7vr9g",
+          "name": "Interior V1 · master",
+          "nodeIds": [
+            "item_9rom05zo87wdfnok",
+            "item_f73rdk20fxm1155q",
+            "item_6hx5svsnj32s2yrx",
+            "item_ucf4odcdg2fvvp3u",
+            "item_xy7q0hh7d7vaey4g",
+            "item_dykiiz07efezcig1",
+            "item_ekiaxwque02fhjfy",
+            "item_sa20xurmj1hht2sv",
+            "item_nku8yyv13tkx2c0o",
+            "item_6oj3xj1epfwegb5n",
+            "item_345xpl5q4cq4f49b",
+            "item_6ww17xialv09u0aq"
+          ],
+          "color": "#b99769"
+        },
+        "collection_lmp6mwk1eae42j3d": {
+          "id": "collection_lmp6mwk1eae42j3d",
+          "name": "Interior V1 · bath2",
+          "nodeIds": [
+            "item_bqhtimiq5gspuog1",
+            "item_zakde5jzjk1veh57",
+            "item_gjn85q51yomjorh2"
+          ],
+          "color": "#b99769"
+        },
+        "collection_kts6pcw1oucwl9oe": {
+          "id": "collection_kts6pcw1oucwl9oe",
+          "name": "Interior V1 · pantry",
+          "nodeIds": [
+            "item_mvlfyn19dxmew8je"
+          ],
+          "color": "#b99769"
+        },
+        "collection_bmnkiytmwol5clbi": {
+          "id": "collection_bmnkiytmwol5clbi",
+          "name": "Interior V1 · hall",
+          "nodeIds": [
+            "item_hhxv1qh6h3kyddjb",
+            "item_jn5wbmbx96v5ynt4",
+            "item_qhhua0dw3tvte7qr",
+            "item_zl8gqj7hd453qjmd",
+            "item_tkjlxkuk53f6suo5",
+            "item_oz18gz1u4z2un244",
+            "item_e0dmncl0r74o87mh",
+            "item_5aevmph0j1k4ji77"
+          ],
+          "color": "#b99769"
+        },
+        "collection_nohz2leqck7cczky": {
+          "id": "collection_nohz2leqck7cczky",
+          "name": "Interior V1 · lobby",
+          "nodeIds": [
+            "item_y9gvqxg21z4eg3tq"
+          ],
+          "color": "#b99769"
+        },
+        "collection_4uicns5juyhw3rq8": {
+          "id": "collection_4uicns5juyhw3rq8",
+          "name": "Interior V1 · first floor · master",
+          "nodeIds": [
+            "item_17r2wki7dhc5e5y4",
+            "item_x2v5rdpipn9bv0ve",
+            "item_wzscqe6bmguvuiq6",
+            "item_0yo7epi9n59yf3jp",
+            "item_xd9uabv70e60r1fy",
+            "item_ij879fpcg03qgd91",
+            "item_z1ndarft6vvwxzqb",
+            "item_irplr89kuor1yvj8",
+            "item_mh6d6gbn7c31jt92",
+            "item_ktmuifyttzn96bg8",
+            "item_2ln2gf9lztppyfmm",
+            "item_6s9dv57lof4qr50e",
+            "item_308o291ymrg4i0pn",
+            "item_fudnd9ctbfgrh0f0",
+            "item_13e45cb4e667840d"
+          ],
+          "color": "#b99769"
+        },
+        "collection_qmaid5pbzyk9yelr": {
+          "id": "collection_qmaid5pbzyk9yelr",
+          "name": "Interior V1 · first floor · bed2",
+          "nodeIds": [
+            "item_9zqsl1lptcdjrgzz",
+            "item_221tw1wg9sfjlqhh",
+            "item_07h5w0c7xiqfa7yy",
+            "item_47uulzbqcff9597z",
+            "item_j8m1ajiiewpde5fh",
+            "item_pl93vuqkx8h63b80",
+            "item_he6d6cxzlyxxn5z9",
+            "item_qvszylf2o8ip3kvj",
+            "item_2y5dywkt57owoyxr",
+            "item_ye2fpqc4lz398m1r",
+            "item_2a53mmfpgj5vfp1y",
+            "item_zcl2n759eb6a502g",
+            "item_ayp1ye6m66phhp9v",
+            "item_6tziwp3koowpiszm"
+          ],
+          "color": "#b99769"
+        },
+        "collection_6cmjx29zlg8rurni": {
+          "id": "collection_6cmjx29zlg8rurni",
+          "name": "Interior V1 · first floor · rearBed",
+          "nodeIds": [
+            "item_hfeos4lkon28obhn",
+            "item_dxksezhle281gh2s",
+            "item_rjwbxuwvaeiqfpun",
+            "item_ciczd0p19mfnycdh",
+            "item_64lnzenybwv30p7s",
+            "item_bqwijwbe8aq9mgaj",
+            "item_r0jr8wzxatkpocjh",
+            "item_jaux58zgpqbxy4ez",
+            "item_t5bsol6wq3vji2xm",
+            "item_jgao35vnc9gc8vab",
+            "item_bw2dk5vedq53ieff",
+            "item_mudfbzs3th0roc2n"
+          ],
+          "color": "#b99769"
+        },
+        "collection_m6ehyo1btlozhde2": {
+          "id": "collection_m6ehyo1btlozhde2",
+          "name": "Interior V1 · first floor · frontMaster",
+          "nodeIds": [
+            "item_5y36l0n879mnq86r",
+            "item_wsjmpufmru62ycdh",
+            "item_ve1phkdxaub83ve4",
+            "item_s8vkcyksyx55a69y",
+            "item_7l3c6i7b7x0jr4yx",
+            "item_u1h6m9qyy5i89749",
+            "item_vjn4o7xn6vox7afp",
+            "item_qfi6rhmo4j9l20zg",
+            "item_cyfwmc4n8wmpwn5x",
+            "item_853l112fa6ey42v0",
+            "item_2uz7gxsdo3udi80l",
+            "item_utfia4utrv6q4b5s",
+            "item_qtpg8otkpftzo87c",
+            "item_x6lzbk6y9f6xiuka",
+            "item_90uniiugkrg91fks",
+            "item_duh73cxb2ro2ztqe",
+            "item_dquc4pn9jql1hj9o"
+          ],
+          "color": "#b99769"
+        },
+        "collection_h8ypbiywvrja2vc6": {
+          "id": "collection_h8ypbiywvrja2vc6",
+          "name": "Interior V1 · first floor · masterCloset",
+          "nodeIds": [
+            "item_t0de2nwmir7v7khl",
+            "item_qsjn0yceungmbm3s",
+            "item_uz4pr3gnwsv27iha",
+            "item_svnxpw7q82pz8an7",
+            "item_2qbfpq5tdfj9vzam"
+          ],
+          "color": "#b99769"
+        },
+        "collection_itb6kb1enewbies0": {
+          "id": "collection_itb6kb1enewbies0",
+          "name": "Interior V1 · first floor · closet2",
+          "nodeIds": [
+            "item_tze2ld1q5mfldwhv",
+            "item_mnya2ugwidav7iaq",
+            "item_g3e55659xgiztoma"
+          ],
+          "color": "#b99769"
+        },
+        "collection_7q13c241cgs8m7iu": {
+          "id": "collection_7q13c241cgs8m7iu",
+          "name": "Interior V1 · first floor · rearCloset",
+          "nodeIds": [
+            "item_e43x89bk73e4umab",
+            "item_hnzmrcy5tnpu065p",
+            "item_jzwhpw74sumjwtfg"
+          ],
+          "color": "#b99769"
+        },
+        "collection_oo38p9870mptm6r9": {
+          "id": "collection_oo38p9870mptm6r9",
+          "name": "Interior V1 · first floor · frontCloset",
+          "nodeIds": [
+            "item_kenmy93lprvo3fly",
+            "item_bgtao0e4dckjnmpp",
+            "item_cnqzw25bvcii2vhn"
+          ],
+          "color": "#b99769"
+        },
+        "collection_jprkb3mmky2wvf09": {
+          "id": "collection_jprkb3mmky2wvf09",
+          "name": "Interior V1 · first floor · masterBath",
+          "nodeIds": [
+            "item_z3uvxu314knjmo0k",
+            "item_godgc7mrpdqkj904",
+            "item_yqly64kjbq236nfu",
+            "item_bct8xkmj3skjwk3y",
+            "item_emakd2a127j61u1e",
+            "item_73wnt3vl9k25r4sp",
+            "item_068xkzrxjssps0g3"
+          ],
+          "color": "#b99769"
+        },
+        "collection_oonhrn8u5zc7hnw3": {
+          "id": "collection_oonhrn8u5zc7hnw3",
+          "name": "Interior V1 · first floor · bath2",
+          "nodeIds": [
+            "item_zq9k5v0xvegzcb2l",
+            "item_nqmo748f4g0h725p",
+            "item_yuf7dl71mcx1jevt",
+            "item_cc6zb0wpxccydlvv",
+            "item_0s43bjeafgj8mhi4"
+          ],
+          "color": "#b99769"
+        },
+        "collection_0exh4ym9k38q7w8x": {
+          "id": "collection_0exh4ym9k38q7w8x",
+          "name": "Interior V1 · first floor · rearBath",
+          "nodeIds": [
+            "item_42je7da8si9sq7a3",
+            "item_wxqwnyhbrk7e5s98",
+            "item_bt9fciqbg83nqaak",
+            "item_rp3ducj2ay7h8sne",
+            "item_kv29asn0j7yp4mnw"
+          ],
+          "color": "#b99769"
+        },
+        "collection_hjqgznu0a1gy36uu": {
+          "id": "collection_hjqgznu0a1gy36uu",
+          "name": "Interior V1 · first floor · frontBath",
+          "nodeIds": [
+            "item_swhoj5hen8vmdruc",
+            "item_etg3bpjtqr51hjc1",
+            "item_vupfz1oa5q93em02",
+            "item_hh60wq13vxrsh0iy",
+            "item_tzfeqkdp4wyppumc",
+            "item_ug59ihxp8qpxxs6k"
+          ],
+          "color": "#b99769"
+        },
+        "collection_i9rp35ezpmhm1dtn": {
+          "id": "collection_i9rp35ezpmhm1dtn",
+          "name": "Interior V1 · first floor · lounge",
+          "nodeIds": [
+            "item_i5uw89s25l2s6k48",
+            "item_1e8ojt9totuqiraw",
+            "item_3x92r7crzjakyq4p",
+            "item_vansfq0lzo8jan6w",
+            "item_a26hbr1bjmi2goca",
+            "item_h55kjvef7zlkj1rj",
+            "item_dvfpfc0jt925j3hc",
+            "item_88uv45w9oihw7i3m",
+            "item_i4k96kh0xlmjhwyj",
+            "item_9bjlh05pip8tlqyw",
+            "item_krgcyznct23z9n2c",
+            "item_8daq7ui1oaijspwu",
+            "item_6fp2m4q8c2d4ptxe",
+            "item_ilnidiwn4qy8eu3t"
+          ],
+          "color": "#b99769"
+        },
+        "collection_kivjtkjlpe5648va": {
+          "id": "collection_kivjtkjlpe5648va",
+          "name": "Interior V1 · first floor · hall",
+          "nodeIds": [
+            "item_obxnf7oi8m7f5weu",
+            "item_l9l13mgv5j7a22g2",
+            "item_hnmwhux8uw9si1un",
+            "item_qfzmf37r1xwwb8gn",
+            "item_652vcf1i0dwx5u37",
+            "item_jwl5e1oz8nrsnlpx",
+            "item_gzoxr7p4rgae2w11"
+          ],
+          "color": "#b99769"
+        },
+        "collection_9qplo1v8u0do81gd": {
+          "id": "collection_9qplo1v8u0do81gd",
+          "name": "Interior V1 · first floor · console",
+          "nodeIds": [
+            "item_k9d3mkpz9bxkjwzb",
+            "item_ew2dshu95h4r0u0d",
+            "item_gn10arpg8i0u7385"
+          ],
+          "color": "#b99769"
+        },
+        "collection_y0kw4rsxpoew55y6": {
+          "id": "collection_y0kw4rsxpoew55y6",
+          "name": "Interior V1 · first floor · kitchen",
+          "nodeIds": [
+            "item_wltk22ex81ejezv0",
+            "item_uq0jmye2n988p0h3",
+            "item_2jd8qoy68tav7tbk",
+            "item_1k5r3j1pzimtnv5z",
+            "item_fd3494l4ccbm77zs",
+            "item_cyh6xqiulw9xmfgu",
+            "item_z71xmivh3d58592t"
+          ],
+          "color": "#b99769"
+        },
+        "collection_7zhclbija7ix4mun": {
+          "id": "collection_7zhclbija7ix4mun",
+          "name": "Interior V1 · first floor · rearTerrace",
+          "nodeIds": [
+            "item_w45wt2df0igarg84",
+            "item_p77r50ln0vcesqg7",
+            "item_ysp9qqg96loc4son"
+          ],
+          "color": "#b99769"
+        },
+        "collection_n1ydpidwym63kygx": {
+          "id": "collection_n1ydpidwym63kygx",
+          "name": "Interior V1 · first floor · frontTerrace",
+          "nodeIds": [
+            "item_ege8qsp7m11qdz6c",
+            "item_4ar214dqqcqnafeh",
+            "item_virf8014uv8zson7",
+            "item_rqfkts2k7xj1jjf5",
+            "item_dhozf7krf9ai7h1g",
+            "item_k2brzfi98mel1vue"
+          ],
+          "color": "#b99769"
+        },
+        "collection_ompo8j0hjh6ytm2g": {
+          "id": "collection_ompo8j0hjh6ytm2g",
+          "name": "Interior V1 · second floor · stairHead",
+          "nodeIds": [
+            "item_6fqd124qrmp7w0bd",
+            "item_8zu3hpa8ktn1iv47",
+            "item_6npv0ogto430cnms",
+            "item_vn8zfh0g7o1lrerv",
+            "item_py2yxh3p87w2q530"
+          ],
+          "color": "#b99769"
+        },
+        "collection_62yrl698dvslhoo0": {
+          "id": "collection_62yrl698dvslhoo0",
+          "name": "Interior V1 · second floor · maid",
+          "nodeIds": [
+            "item_29qro7om9gyc93vq",
+            "item_irl6owud9cpxvo19",
+            "item_d6v67olwyn9w1rlx"
+          ],
+          "color": "#b99769"
+        },
+        "collection_q45fpenap1ir0lly": {
+          "id": "collection_q45fpenap1ir0lly",
+          "name": "Interior V1 · second floor · bedroom",
+          "nodeIds": [
+            "item_w7ceayn2xfsq0az6",
+            "item_xvyuchpy0mmf1vxz",
+            "item_hwr57sq65spg79p0",
+            "item_swy9y0r66ertkud2",
+            "item_3jis0un2232bveg6",
+            "item_1jhw8rgsbx94bwax",
+            "item_q2eb8171xxumonif",
+            "item_w1znibwh09b5inp3",
+            "item_uruaa8ux8xrfhmp4",
+            "item_v8at0062hqjy8p9p",
+            "item_1wgvhy6l45ofxnfk"
+          ],
+          "color": "#b99769"
+        },
+        "collection_pmane5buubirxn4x": {
+          "id": "collection_pmane5buubirxn4x",
+          "name": "Interior V1 · second floor · bath",
+          "nodeIds": [
+            "item_n17gy1hoxcwwerlv",
+            "item_hmx025doq73oegkk",
+            "item_jf6ygskf727w8l50",
+            "item_scw7ixfh6bhmr1rs",
+            "item_wk8mxxf925a88ur0",
+            "item_226lk2sa2xdu1nhm"
+          ],
+          "color": "#b99769"
+        },
+        "collection_82565rpkdau8hf6t": {
+          "id": "collection_82565rpkdau8hf6t",
+          "name": "Interior V1 · second floor · closet",
+          "nodeIds": [
+            "item_f803y3d6id24ex8p",
+            "item_vlpstyl7vpbf1yl3",
+            "item_fbtakbwbxtqeim10"
+          ],
+          "color": "#b99769"
+        },
+        "collection_m821dnevd89og9jt": {
+          "id": "collection_m821dnevd89og9jt",
+          "name": "Interior V1 · second floor · maidBath",
+          "nodeIds": [
+            "item_xeuxkmdqulcsrryl",
+            "item_rih8kqvr7n0u6mvk",
+            "item_3dvzye0c9el4y1q0",
+            "item_gk7hh4vnb573phlw"
+          ],
+          "color": "#b99769"
+        }
+      }
+    }
+  }
+}

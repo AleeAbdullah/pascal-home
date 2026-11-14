@@ -64,3 +64,9 @@ Importing replaces this device's copy with the committed one. Export and commit 
 
 - Only one device should edit at a time. Two devices editing between commits means one set of changes overwrites the other.
 - The `.pascal/` folder holds the local database and is not in git.
+
+## Scene variants
+
+Use `npm run variant -- apply <base> <patch.json> [--out file]` to apply a patch offline to a variant or snapshot JSON (stdout by default).
+
+Use `npm run variant -- list` to inspect snapshots, `npm run variant -- load <name>` to import one into running Pascal, or `npm run variant -- diff <a> <b> [--json]` to compare snapshots without Pascal. The manifest records lineage; the JSON diff contains a self-contained offline patch.
