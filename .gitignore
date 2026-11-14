@@ -4,6 +4,7 @@ node_modules/
 *.log
 
 dist/
+exports/
 
 # Private business research (kept local; repo is public)
 reports/

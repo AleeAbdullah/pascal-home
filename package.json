@@ -18,6 +18,7 @@
     "patch:viewing:restore": "node scripts/patch-pascal-viewing.mjs --restore",
     "scene:import": "node scripts/import-scene.mjs",
     "scene:export": "node --no-warnings scripts/export-scene.mjs",
+    "sketchup:export": "node scripts/export-sketchup.mjs",
     "variant": "node scripts/variant.mjs"
   },
   "dependencies": {
